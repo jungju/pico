@@ -1,0 +1,256 @@
+{
+  "id": "spot_picnic_playground_002",
+  "title": "Picnic Playground",
+  "titleKo": "소풍 놀이터",
+  "type": "spot_the_difference",
+  "image": "/games/spot_picnic_playground_002/image.png",
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "totalDifferences": 10,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "apple_on_tree",
+      "label": "apple",
+      "labelKo": "사과",
+      "targetSide": "right",
+      "bbox": {
+        "x": 895,
+        "y": 105,
+        "width": 65,
+        "height": 65
+      },
+      "circle": {
+        "cx": 928,
+        "cy": 138,
+        "r": 42
+      },
+      "description": "There is an apple on the tree.",
+      "descriptionKo": "나무에 사과가 있어요.",
+      "action": "growing",
+      "voiceText": "An apple is growing on the tree.",
+      "translation": "사과가 나무에서 자라고 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/apple_on_tree.mp3"
+    },
+    {
+      "id": "kite_color",
+      "label": "kite",
+      "labelKo": "연",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1130,
+        "y": 92,
+        "width": 105,
+        "height": 125
+      },
+      "circle": {
+        "cx": 1182,
+        "cy": 154,
+        "r": 68
+      },
+      "description": "The kite has different colors.",
+      "descriptionKo": "연의 색깔이 달라요.",
+      "action": "flying",
+      "voiceText": "The kite is flying in the sky.",
+      "translation": "연이 하늘을 날고 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/kite_color.mp3"
+    },
+    {
+      "id": "butterfly_color",
+      "label": "butterfly",
+      "labelKo": "나비",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1300,
+        "y": 215,
+        "width": 90,
+        "height": 85
+      },
+      "circle": {
+        "cx": 1345,
+        "cy": 258,
+        "r": 55
+      },
+      "description": "The butterfly is yellow.",
+      "descriptionKo": "나비가 노란색이에요.",
+      "action": "flying",
+      "voiceText": "The butterfly is flying in the sky.",
+      "translation": "나비가 하늘을 날고 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/butterfly_color.mp3"
+    },
+    {
+      "id": "bird_color",
+      "label": "bird",
+      "labelKo": "새",
+      "targetSide": "right",
+      "bbox": {
+        "x": 802,
+        "y": 350,
+        "width": 75,
+        "height": 75
+      },
+      "circle": {
+        "cx": 840,
+        "cy": 388,
+        "r": 48
+      },
+      "description": "The bird is red.",
+      "descriptionKo": "새가 빨간색이에요.",
+      "action": "sitting",
+      "voiceText": "The bird is sitting on the fence.",
+      "translation": "새가 울타리 위에 앉아 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/bird_color.mp3"
+    },
+    {
+      "id": "roof_flag_color",
+      "label": "flag",
+      "labelKo": "깃발",
+      "targetSide": "right",
+      "bbox": {
+        "x": 972,
+        "y": 228,
+        "width": 55,
+        "height": 55
+      },
+      "circle": {
+        "cx": 1000,
+        "cy": 256,
+        "r": 38
+      },
+      "description": "The roof flag is blue.",
+      "descriptionKo": "지붕 위 깃발이 파란색이에요.",
+      "action": "waving",
+      "voiceText": "The blue flag is waving on the roof.",
+      "translation": "파란 깃발이 지붕 위에서 흔들리고 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/roof_flag_color.mp3"
+    },
+    {
+      "id": "swing_seat_color",
+      "label": "swing seat",
+      "labelKo": "그네 의자",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1250,
+        "y": 488,
+        "width": 85,
+        "height": 45
+      },
+      "circle": {
+        "cx": 1293,
+        "cy": 511,
+        "r": 42
+      },
+      "description": "The swing seat is yellow.",
+      "descriptionKo": "그네 의자가 노란색이에요.",
+      "action": "hanging",
+      "voiceText": "The swing seat is hanging from the ropes.",
+      "translation": "그네 의자가 줄에 매달려 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/swing_seat_color.mp3"
+    },
+    {
+      "id": "bucket_color",
+      "label": "bucket",
+      "labelKo": "양동이",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1038,
+        "y": 550,
+        "width": 75,
+        "height": 70
+      },
+      "circle": {
+        "cx": 1076,
+        "cy": 585,
+        "r": 48
+      },
+      "description": "The bucket is blue.",
+      "descriptionKo": "양동이가 파란색이에요.",
+      "action": "sitting",
+      "voiceText": "The bucket is sitting in the sandbox.",
+      "translation": "양동이가 모래놀이 상자 안에 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/bucket_color.mp3"
+    },
+    {
+      "id": "boy_cap_color",
+      "label": "cap",
+      "labelKo": "모자",
+      "targetSide": "right",
+      "bbox": {
+        "x": 878,
+        "y": 610,
+        "width": 145,
+        "height": 90
+      },
+      "circle": {
+        "cx": 950,
+        "cy": 655,
+        "r": 72
+      },
+      "description": "The boy's cap is red.",
+      "descriptionKo": "남자아이의 모자가 빨간색이에요.",
+      "action": "wearing",
+      "voiceText": "The boy is wearing a red cap.",
+      "translation": "남자아이가 빨간 모자를 쓰고 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/boy_cap_color.mp3"
+    },
+    {
+      "id": "girl_bow_color",
+      "label": "hair bow",
+      "labelKo": "머리 리본",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1278,
+        "y": 612,
+        "width": 60,
+        "height": 60
+      },
+      "circle": {
+        "cx": 1308,
+        "cy": 642,
+        "r": 42
+      },
+      "description": "The girl's hair bow is purple.",
+      "descriptionKo": "여자아이의 머리 리본이 보라색이에요.",
+      "action": "wearing",
+      "voiceText": "The girl is wearing a purple hair bow.",
+      "translation": "여자아이가 보라색 머리 리본을 하고 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/girl_bow_color.mp3"
+    },
+    {
+      "id": "dog_collar_color",
+      "label": "dog collar",
+      "labelKo": "강아지 목줄",
+      "targetSide": "right",
+      "bbox": {
+        "x": 800,
+        "y": 775,
+        "width": 70,
+        "height": 45
+      },
+      "circle": {
+        "cx": 835,
+        "cy": 798,
+        "r": 38
+      },
+      "description": "The dog's collar is red.",
+      "descriptionKo": "강아지 목줄이 빨간색이에요.",
+      "action": "sitting",
+      "voiceText": "The dog is sitting on the picnic blanket.",
+      "translation": "강아지가 소풍 담요 위에 앉아 있어요.",
+      "audio": "/games/spot_picnic_playground_002/audio/dog_collar_color.mp3"
+    }
+  ]
+}

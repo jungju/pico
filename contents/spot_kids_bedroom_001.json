@@ -1,0 +1,256 @@
+{
+  "id": "spot_kids_bedroom_001",
+  "title": "Kids Bedroom",
+  "titleKo": "아이 방",
+  "type": "spot_the_difference",
+  "image": "/games/spot_kids_bedroom_001/image.png",
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "totalDifferences": 10,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "wall_picture_changed",
+      "label": "picture",
+      "labelKo": "그림",
+      "targetSide": "right",
+      "bbox": {
+        "x": 795,
+        "y": 115,
+        "width": 150,
+        "height": 180
+      },
+      "circle": {
+        "cx": 870,
+        "cy": 205,
+        "r": 95
+      },
+      "description": "The picture shows a planet.",
+      "descriptionKo": "그림에 행성이 있어요.",
+      "action": "hanging",
+      "voiceText": "The picture is hanging on the wall.",
+      "translation": "그림이 벽에 걸려 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/wall_picture_changed.mp3"
+    },
+    {
+      "id": "curtain_color",
+      "label": "curtain",
+      "labelKo": "커튼",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1040,
+        "y": 55,
+        "width": 105,
+        "height": 350
+      },
+      "circle": {
+        "cx": 1092,
+        "cy": 225,
+        "r": 90
+      },
+      "description": "The curtain is green.",
+      "descriptionKo": "커튼이 초록색이에요.",
+      "action": "hanging",
+      "voiceText": "The green curtain is hanging by the window.",
+      "translation": "초록색 커튼이 창문 옆에 걸려 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/curtain_color.mp3"
+    },
+    {
+      "id": "plant_pot_color",
+      "label": "plant pot",
+      "labelKo": "화분",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1195,
+        "y": 300,
+        "width": 80,
+        "height": 80
+      },
+      "circle": {
+        "cx": 1235,
+        "cy": 340,
+        "r": 48
+      },
+      "description": "The plant pot is blue.",
+      "descriptionKo": "화분이 파란색이에요.",
+      "action": "standing",
+      "voiceText": "The plant is standing by the window.",
+      "translation": "식물이 창문 옆에 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/plant_pot_color.mp3"
+    },
+    {
+      "id": "robot_color",
+      "label": "robot",
+      "labelKo": "로봇",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1345,
+        "y": 205,
+        "width": 75,
+        "height": 120
+      },
+      "circle": {
+        "cx": 1382,
+        "cy": 265,
+        "r": 62
+      },
+      "description": "The robot is green.",
+      "descriptionKo": "로봇이 초록색이에요.",
+      "action": "standing",
+      "voiceText": "The robot is standing on the shelf.",
+      "translation": "로봇이 선반 위에 서 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/robot_color.mp3"
+    },
+    {
+      "id": "lamp_shade_color",
+      "label": "lamp",
+      "labelKo": "램프",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1115,
+        "y": 385,
+        "width": 115,
+        "height": 145
+      },
+      "circle": {
+        "cx": 1172,
+        "cy": 455,
+        "r": 70
+      },
+      "description": "The lamp shade is purple.",
+      "descriptionKo": "램프 갓이 보라색이에요.",
+      "action": "standing",
+      "voiceText": "The lamp is standing on the table.",
+      "translation": "램프가 탁자 위에 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/lamp_shade_color.mp3"
+    },
+    {
+      "id": "teddy_bow_color",
+      "label": "teddy bear bow",
+      "labelKo": "곰인형 리본",
+      "targetSide": "right",
+      "bbox": {
+        "x": 875,
+        "y": 500,
+        "width": 80,
+        "height": 55
+      },
+      "circle": {
+        "cx": 915,
+        "cy": 528,
+        "r": 45
+      },
+      "description": "The teddy bear has a blue bow.",
+      "descriptionKo": "곰인형 리본이 파란색이에요.",
+      "action": "sitting",
+      "voiceText": "The teddy bear is sitting on the bed.",
+      "translation": "곰인형이 침대 위에 앉아 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/teddy_bow_color.mp3"
+    },
+    {
+      "id": "storage_box_color",
+      "label": "toy box",
+      "labelKo": "장난감 상자",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1265,
+        "y": 570,
+        "width": 175,
+        "height": 150
+      },
+      "circle": {
+        "cx": 1352,
+        "cy": 645,
+        "r": 85
+      },
+      "description": "The toy box is purple.",
+      "descriptionKo": "장난감 상자가 보라색이에요.",
+      "action": "holding",
+      "voiceText": "The toy box is holding toys.",
+      "translation": "장난감 상자가 장난감들을 담고 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/storage_box_color.mp3"
+    },
+    {
+      "id": "rug_color",
+      "label": "rug",
+      "labelKo": "러그",
+      "targetSide": "right",
+      "bbox": {
+        "x": 925,
+        "y": 735,
+        "width": 360,
+        "height": 230
+      },
+      "circle": {
+        "cx": 1105,
+        "cy": 850,
+        "r": 130
+      },
+      "description": "The rug is green.",
+      "descriptionKo": "러그가 초록색이에요.",
+      "action": "lying",
+      "voiceText": "The rug is lying on the floor.",
+      "translation": "러그가 바닥에 놓여 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/rug_color.mp3"
+    },
+    {
+      "id": "toy_car_color",
+      "label": "toy car",
+      "labelKo": "장난감 자동차",
+      "targetSide": "right",
+      "bbox": {
+        "x": 790,
+        "y": 825,
+        "width": 130,
+        "height": 120
+      },
+      "circle": {
+        "cx": 855,
+        "cy": 885,
+        "r": 75
+      },
+      "description": "The toy car is blue.",
+      "descriptionKo": "장난감 자동차가 파란색이에요.",
+      "action": "parking",
+      "voiceText": "The toy car is parked on the floor.",
+      "translation": "장난감 자동차가 바닥에 놓여 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/toy_car_color.mp3"
+    },
+    {
+      "id": "ball_color",
+      "label": "ball",
+      "labelKo": "공",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1320,
+        "y": 795,
+        "width": 120,
+        "height": 130
+      },
+      "circle": {
+        "cx": 1380,
+        "cy": 860,
+        "r": 75
+      },
+      "description": "The ball has different colors.",
+      "descriptionKo": "공의 색깔이 달라요.",
+      "action": "lying",
+      "voiceText": "The ball is lying on the floor.",
+      "translation": "공이 바닥에 놓여 있어요.",
+      "audio": "/games/spot_kids_bedroom_001/audio/ball_color.mp3"
+    }
+  ]
+}
