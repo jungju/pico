@@ -10,6 +10,7 @@ The first game is Find & Learn:
 - Spot the differences between two pictures.
 - Click objects to see and hear English words.
 - Run on GitHub Pages as a static web game.
+- Open from the Pico game selection page.
 
 ## 2. Runtime
 
@@ -116,6 +117,8 @@ flow and calls them from `handlePictureClick(event)`.
 
 ## 6. Screen Contract
 
+- The first screen is the Pico game selection page.
+- The game selection page currently shows one game: Find & Learn.
 - Two pictures stay large.
 - No original/changed/left/right labels are shown.
 - Progress is one row above the pictures.
@@ -123,6 +126,8 @@ flow and calls them from `handlePictureClick(event)`.
 - The English word/dialog panel sits in one compact row below the pictures.
 - Correct and wrong markers may be DOM elements.
 - Correct and hint markers use `difference.marker`.
+- Correct difference clicks speak English feedback such as `Correct`.
+- Wrong clicks speak English feedback such as `Wrong`.
 - `DEBUG_AREAS` defaults to `false`.
 - Debug areas, when enabled, are non-clickable SVG overlays only.
 

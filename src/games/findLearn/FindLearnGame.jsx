@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
-import { Lightbulb, RotateCcw, Volume2 } from "lucide-react";
+import { ArrowLeft, Lightbulb, RotateCcw, Volume2 } from "lucide-react";
 import { findDifferenceAt, findObjectAt, getRelativePoint } from "./hitTesting";
 import { DEBUG_AREAS, findLearnStage } from "./stages/stage001";
 
 const WRONG_MARKER_TIMEOUT_MS = 900;
 
-export function FindLearnGame() {
+export function FindLearnGame({ onBack }) {
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [message, setMessage] = useState({
     type: "ready",
@@ -32,6 +32,7 @@ export function FindLearnGame() {
       title: "Correct",
       body: difference.label,
     });
+    speak(`Correct. ${difference.label}`);
   }
 
   function showWord(object) {
@@ -47,9 +48,10 @@ export function FindLearnGame() {
     setWrongPoint(point);
     setMessage({
       type: "wrong",
-      title: "Try again",
+      title: "Wrong",
       body: "Look closely.",
     });
+    speak("Wrong.");
     window.setTimeout(() => setWrongPoint(null), WRONG_MARKER_TIMEOUT_MS);
   }
 
@@ -103,6 +105,11 @@ export function FindLearnGame() {
           {foundIds.size}/{findLearnStage.differences.length}
         </div>
         <div className="game-actions">
+          {onBack ? (
+            <button className="icon-button" type="button" onClick={onBack} aria-label="Back to games">
+              <ArrowLeft aria-hidden="true" size={19} />
+            </button>
+          ) : null}
           <button className="icon-button" type="button" onClick={showHint} aria-label="Hint">
             <Lightbulb aria-hidden="true" size={19} />
           </button>

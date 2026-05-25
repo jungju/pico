@@ -29,6 +29,103 @@ button {
   letter-spacing: 0;
 }
 
+.game-select-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 18px;
+  width: min(860px, calc(100% - 28px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.game-select-header {
+  display: flex;
+  align-items: center;
+  min-height: 54px;
+}
+
+.game-select-header h1 {
+  margin: 0;
+  color: #1d1b18;
+  font-size: clamp(2rem, 7vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.game-list {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.game-option {
+  display: grid;
+  grid-template-columns: 124px minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 148px;
+  border: 1px solid #b9cac3;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 12px 14px 12px 12px;
+  text-align: left;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+
+.game-option:hover {
+  border-color: #166f8f;
+  box-shadow: 0 12px 28px rgba(24, 51, 46, 0.12);
+  transform: translateY(-1px);
+}
+
+.game-option:focus-visible {
+  outline: 3px solid #166f8f;
+  outline-offset: 3px;
+}
+
+.game-option-media {
+  display: block;
+  width: 124px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid #bfd1ca;
+  border-radius: 8px;
+  background: #f8fbf9;
+}
+
+.game-option-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.game-option-copy {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.game-option-copy strong {
+  overflow-wrap: anywhere;
+  color: #18332e;
+  font-size: 1.65rem;
+  font-weight: 850;
+  line-height: 1.1;
+}
+
+.game-option-copy span {
+  color: #7b473f;
+  font-size: 0.95rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
 .game-shell {
   display: grid;
   grid-template-rows: auto auto auto;
@@ -242,6 +339,27 @@ button {
 }
 
 @media (max-width: 780px) {
+  .game-select-shell {
+    width: min(100% - 16px, 560px);
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .game-option {
+    grid-template-columns: 86px minmax(0, 1fr) 34px;
+    min-height: 108px;
+    gap: 12px;
+    padding: 10px 12px 10px 10px;
+  }
+
+  .game-option-media {
+    width: 86px;
+  }
+
+  .game-option-copy strong {
+    font-size: 1.25rem;
+  }
+
   .game-shell {
     width: min(100% - 12px, 640px);
     gap: 8px;

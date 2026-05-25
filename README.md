@@ -37,6 +37,9 @@ npm run build
 
 ## Find & Learn
 
+The Pico first screen is a game selection page. It currently has one game:
+Find & Learn.
+
 Find & Learn uses stage data instead of transparent DOM click layers.
 
 - Stage data lives in `src/games/findLearn/stages/stage001.js`.
@@ -44,6 +47,8 @@ Find & Learn uses stage data instead of transparent DOM click layers.
 - Images live in `public/assets/`.
 - All `area` coordinates use image-relative 0-100 percent coordinates.
 - Click priority is always difference, object, wrong.
+- Correct difference clicks speak English feedback.
+- Wrong clicks speak English feedback.
 - Markers use `difference.marker`.
 - `DEBUG_AREAS` defaults to `false` and only draws non-clickable SVG overlays.
 
