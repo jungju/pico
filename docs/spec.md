@@ -2,9 +2,14 @@
 
 ## 1. Overview
 
-Pico is a small static frontend app for collecting short personal notes and task
-fragments. It stays intentionally narrow so one person can operate it without a
-separate backend.
+Pico is a static collection of small English learning games. It stays narrow so
+one person can operate it without a service-specific backend.
+
+The first game is Find & Learn:
+
+- Spot the differences between two pictures.
+- Click objects to see and hear English words.
+- Run on GitHub Pages as a static web game.
 
 ## 2. Runtime
 
@@ -12,66 +17,116 @@ separate backend.
 - Vite build
 - GitHub Pages deployment
 - Custom domain: `https://pico.jjgo.io`
-- Authentication and storage: `https://ohmesh.jjgo.io`
+- Web Speech API for English audio
+- ohmesh registration for future login and progress storage
 
-## 3. Product Scope
+## 3. Find & Learn Click Contract
 
-Pico supports:
+The game must not create transparent DOM click layers such as `hit-zone` or
+`object-zone`.
 
-- OAuth login through ohmesh
-- Local browser storage while signed out
-- Per-user ohmesh JSON storage while signed in
-- Creating, editing, completing, searching, and deleting short items
-- `/version.json` for deployed version metadata
+Clicking works by:
 
-Pico does not support:
+1. Listening for clicks on each picture container.
+2. Converting the click to image-relative percent coordinates.
+3. Checking stage `differences` first.
+4. Checking stage `objects` second.
+5. Treating the click as wrong when neither matches.
 
-- Shared workspaces
-- Team permissions
-- Rich text editing
-- File uploads
-- A service-specific backend
-
-## 4. ohmesh Contract
-
-Pico uses the ohmesh app slug:
+Required priority:
 
 ```text
-pico
+difference -> object -> wrong
 ```
 
-Expected registered domains:
+## 4. Stage Data
+
+Stage data is kept separate from rendering and hit testing so it can become JSON
+later without changing the game engine.
+
+Current entrypoint:
 
 ```text
-https://pico.jjgo.io
-http://localhost:5175
+src/games/findLearn/stages/stage001.js
 ```
 
-The app stores one latest record per user.
+Shape:
 
-- Record type: `pico-state`
-- Data version: `v: 1`
-
-```json
+```js
 {
-  "v": 1,
-  "items": [
+  id: "stage-001",
+  images: {
+    original: "/assets/stage-001-original.svg",
+    changed: "/assets/stage-001-changed.svg"
+  },
+  differences: [
     {
-      "id": "pico-abc123",
-      "title": "Small thing to remember",
-      "body": "A short note or task fragment",
-      "done": false,
-      "createdAt": "2026-05-25T00:00:00.000Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z"
+      id: "door-color",
+      label: "The door is different.",
+      marker: { x: 51, y: 67 },
+      area: { type: "rect", x: 45, y: 59, w: 12, h: 16 }
     }
   ],
-  "updatedAt": "2026-05-25T00:00:00.000Z"
+  objects: [
+    {
+      id: "cat",
+      word: "cat",
+      meaning: "고양이",
+      phonetic: "/kæt/",
+      sentence: "The cat is sitting on the grass.",
+      translation: "고양이가 잔디 위에 앉아 있어요.",
+      area: { type: "rect", x: 8, y: 62, w: 22, h: 20 }
+    }
+  ]
 }
 ```
 
-## 5. Operation Rules
+All coordinates are 0-100 image-relative percent coordinates:
 
-- Public frontend env values live in `.env.example`.
-- OAuth secrets stay in ohmesh only.
-- GitHub Pages deploys from `main` through `.github/workflows/deploy-pages.yml`.
+- `x`
+- `y`
+- `w`
+- `h`
+- `r`
+- `points`
+
+Supported `area.type` values:
+
+- `circle`
+- `rect`
+- `polygon`
+
+## 5. Hit Testing
+
+Hit testing functions live in:
+
+```text
+src/games/findLearn/hitTesting.js
+```
+
+Required functions:
+
+- `getRelativePoint(event, pictureElement)`
+- `isPointInArea(point, area)`
+- `findDifferenceAt(point, stage, foundDifferenceIds)`
+- `findObjectAt(point, stage)`
+
+The React game component keeps wrapper functions named around the requested
+flow and calls them from `handlePictureClick(event)`.
+
+## 6. Screen Contract
+
+- Two pictures stay large.
+- No original/changed/left/right labels are shown.
+- Progress is one row above the pictures.
+- Progress text is numeric only, such as `0/6`.
+- The English word/dialog panel sits in one compact row below the pictures.
+- Correct and wrong markers may be DOM elements.
+- Correct and hint markers use `difference.marker`.
+- `DEBUG_AREAS` defaults to `false`.
+- Debug areas, when enabled, are non-clickable SVG overlays only.
+
+## 7. Operation Rules
+
 - User-facing behavior changes must update this file and `README.md`.
+- GitHub Pages deploys from `main` through `.github/workflows/deploy-pages.yml`.

@@ -1,18 +1,17 @@
 # Pico
 
-Pico is a small React app for collecting short personal notes and task fragments.
-It is deployed as a static GitHub Pages app at:
+Pico is a small collection of English learning games. The first game is
+Find & Learn, a spot-the-difference picture game with clickable English objects.
+
+Pico is deployed as a static GitHub Pages app at:
 
 ```text
 https://pico.jjgo.io
 ```
 
-Pico uses `ohmesh` for OAuth login, session cookies, and per-user JSON record
-storage.
-
 ## Documentation
 
-- `docs/spec.md`: product scope and ohmesh data contract
+- `docs/spec.md`: product scope and game data contract
 - `README.md`: quick start and deployment notes
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
@@ -36,29 +35,23 @@ npm run lint
 npm run build
 ```
 
-## ohmesh Setup
+## Find & Learn
 
-Pico expects this ohmesh app registration:
+Find & Learn uses stage data instead of transparent DOM click layers.
 
-- App slug: `pico`
-- Default redirect URL: `https://pico.jjgo.io`
-- Domains:
-  - `https://pico.jjgo.io`
-  - `http://localhost:5175`
+- Stage data lives in `src/games/findLearn/stages/stage001.js`.
+- Hit testing lives in `src/games/findLearn/hitTesting.js`.
+- Images live in `public/assets/`.
+- All `area` coordinates use image-relative 0-100 percent coordinates.
+- Click priority is always difference, object, wrong.
+- Markers use `difference.marker`.
+- `DEBUG_AREAS` defaults to `false` and only draws non-clickable SVG overlays.
 
-Frontend configuration is intentionally public and small:
+Supported area types:
 
-```sh
-cp .env.example .env
-```
-
-```text
-VITE_OHMESH_BASE_URL=https://ohmesh.jjgo.io
-VITE_OHMESH_APP_SLUG=pico
-```
-
-No OAuth secret belongs in this repository. OAuth client IDs and secrets stay in
-`ohmesh`.
+- `circle`
+- `rect`
+- `polygon`
 
 ## Deployment
 
@@ -71,25 +64,10 @@ No OAuth secret belongs in this repository. OAuth client IDs and secrets stay in
 gh workflow run deploy-pages.yml --ref main
 ```
 
-## Record Shape
+## ohmesh
 
-Pico stores one latest record per user:
+Pico is registered in ohmesh for future login and progress storage.
+The current Find & Learn prototype runs fully client-side.
 
-- App slug: `pico`
-- Record type: `pico-state`
-
-```json
-{
-  "v": 1,
-  "items": [
-    {
-      "id": "pico-abc123",
-      "title": "Small thing to remember",
-      "body": "A short note or task fragment",
-      "done": false,
-      "createdAt": "2026-05-25T00:00:00.000Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z"
-    }
-  ],
-  "updatedAt": "2026-05-25T00:00:00.000Z"
-}
+No OAuth secret belongs in this repository. OAuth client IDs and secrets stay in
+`ohmesh`.
