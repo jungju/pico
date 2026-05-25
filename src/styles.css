@@ -42,6 +42,8 @@ button {
 .game-select-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   min-height: 54px;
 }
 
@@ -126,6 +128,86 @@ button {
   line-height: 1.2;
 }
 
+.auth-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.auth-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(260px, 42vw);
+  min-height: 38px;
+  min-width: 0;
+  border: 1px solid #c9d4cd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #18332e;
+  padding: 0 10px;
+}
+
+.auth-user img {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.auth-name {
+  overflow: hidden;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  border: 1px solid #c9d4cd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #18332e;
+  padding: 0 12px;
+  font-size: 0.94rem;
+  font-weight: 850;
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease,
+    transform 140ms ease;
+}
+
+.auth-button:hover:not(:disabled) {
+  border-color: #4f8a79;
+  transform: translateY(-1px);
+}
+
+.auth-button:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.auth-button:focus-visible {
+  outline: 3px solid #166f8f;
+  outline-offset: 3px;
+}
+
+.auth-button.auth-error {
+  border-color: #d19086;
+}
+
+.auth-spinner {
+  animation: auth-spin 900ms linear infinite;
+}
+
 .game-shell {
   display: grid;
   grid-template-rows: auto auto auto;
@@ -157,6 +239,7 @@ button {
 
 .game-actions {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 
@@ -338,6 +421,12 @@ button {
   }
 }
 
+@keyframes auth-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 780px) {
   .game-select-shell {
     width: min(100% - 16px, 560px);
@@ -358,6 +447,20 @@ button {
 
   .game-option-copy strong {
     font-size: 1.25rem;
+  }
+
+  .auth-user {
+    max-width: 46vw;
+  }
+
+  .auth-control.compact .auth-name,
+  .auth-control.compact .auth-button span {
+    display: none;
+  }
+
+  .auth-control.compact .auth-button {
+    width: 38px;
+    padding: 0;
   }
 
   .game-shell {

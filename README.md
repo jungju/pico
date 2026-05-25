@@ -17,6 +17,7 @@ https://pico.jjgo.io
 ## 코드 구조
 
 - `src/App.jsx`: Pico 첫 화면의 게임 선택 목록과 게임 진입 흐름
+- `src/ohmeshAuth.js`: ohmesh 로그인/로그아웃 URL 생성과 세션 확인
 - `src/games/findLearn/FindLearnGame.jsx`: Find & Learn 화면, 클릭 처리, 마커, 음성 피드백
 - `src/games/findLearn/hitTesting.js`: 이미지 기준 퍼센트 좌표 변환과 영역 충돌 판정
 - `src/games/findLearn/stages/stage001.js`: 현재 stage 데이터
@@ -30,9 +31,10 @@ https://pico.jjgo.io
 ## 기능 고정
 
 - 첫 화면은 게임 선택 화면입니다.
+- 첫 화면에는 ohmesh 로그인 상태와 로그인/로그아웃 버튼이 있습니다.
 - 현재 게임은 `Find & Learn` 하나입니다.
 - 게임 선택 화면에서 `Find & Learn`을 누르면 게임 화면으로 들어갑니다.
-- 게임 화면에는 게임 선택으로 돌아가는 버튼이 있습니다.
+- 게임 화면에는 ohmesh 로그인 상태, 게임 선택으로 돌아가는 버튼, 힌트 버튼, 리셋 버튼이 있습니다.
 - 두 그림은 크게 보여줍니다.
 - 원본/변경/왼쪽/오른쪽 같은 라벨은 표시하지 않습니다.
 - 진행률은 그림 위에 숫자만 표시합니다. 예: `0/6`
@@ -112,12 +114,17 @@ gh workflow run deploy-pages.yml --ref main
 - custom domain은 `public/CNAME`의 `pico.jjgo.io`입니다.
 - 로컬 `gh-pages` 브랜치 publish는 사용하지 않습니다.
 
-## ohmesh
+## ohmesh 로그인
 
-Pico는 추후 로그인과 진행 저장을 위해 ohmesh에 등록되어 있습니다. 현재 Find & Learn은 클라이언트 로컬 상태만 사용합니다.
+Pico는 ohmesh에 등록된 앱이며, 첫 화면과 게임 화면에서 ohmesh 로그인 상태를 확인합니다.
 
 - 앱 slug: `pico`
-- 현재 저장소에는 OAuth secret을 두지 않습니다.
+- 기본 ohmesh URL: `https://ohmesh.jjgo.io`
+- 로그인은 `GET /login?app=pico&redirect_url={current_app_url}`로 이동합니다.
+- 로그아웃은 `GET /logout?app=pico&redirect_url={current_app_url}`로 이동합니다.
+- 세션 확인은 `GET /auth/me?app=pico`를 `credentials: "include"`로 호출합니다.
+- ohmesh는 앱 전용 HttpOnly session cookie를 사용하며 Pico는 토큰을 저장하거나 표시하지 않습니다.
+- 현재 Find & Learn 진행 상태는 클라이언트 로컬 상태만 사용합니다.
 - OAuth client ID와 secret은 ohmesh 또는 운영 환경에서 관리합니다.
 
 ## 문서 업데이트 규칙

@@ -5,7 +5,7 @@ import { DEBUG_AREAS, findLearnStage } from "./stages/stage001";
 
 const WRONG_MARKER_TIMEOUT_MS = 900;
 
-export function FindLearnGame({ onBack }) {
+export function FindLearnGame({ authControl, onBack }) {
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [message, setMessage] = useState({
     type: "ready",
@@ -105,6 +105,7 @@ export function FindLearnGame({ onBack }) {
           {foundIds.size}/{findLearnStage.differences.length}
         </div>
         <div className="game-actions">
+          {authControl}
           {onBack ? (
             <button className="icon-button" type="button" onClick={onBack} aria-label="Back to games">
               <ArrowLeft aria-hidden="true" size={19} />

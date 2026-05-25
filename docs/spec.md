@@ -11,6 +11,7 @@ operation guide.
 - `README.md`: current user flow, local commands, git rules, and deployment
   guide
 - `src/App.jsx`: current game selection page and game registry
+- `src/ohmeshAuth.js`: ohmesh login/logout URLs and session checks
 - `src/games/findLearn/FindLearnGame.jsx`: Find & Learn rendering, click flow,
   markers, and speech feedback
 - `src/games/findLearn/hitTesting.js`: coordinate conversion and area collision
@@ -42,14 +43,17 @@ The first game is `Find & Learn`:
 - GitHub Pages deployment
 - Custom domain: `https://pico.jjgo.io`
 - Web Speech API for English audio
-- ohmesh registration for future login and progress storage
+- ohmesh login through app-scoped HttpOnly session cookies
 
 ## Locked User-Facing Behavior
 
 - The first screen is the Pico game selection page.
+- The game selection page shows the current ohmesh login state and a
+  login/logout action.
 - The game selection page currently shows one game: `Find & Learn`.
 - Selecting `Find & Learn` opens the game screen.
-- The game screen can return to the game selection page.
+- The game screen shows the current ohmesh login state and can return to the
+  game selection page.
 - Two pictures stay large.
 - No original/changed/left/right labels are shown.
 - Progress is one row above the pictures.
@@ -161,8 +165,17 @@ flow and calls them from `handlePictureClick(event)`.
 
 - Current game state is client-local React state.
 - No backend is required for the current Find & Learn prototype.
-- App slug for future ohmesh integration: `pico`
-- Future login and progress storage should use ohmesh HttpOnly session cookies.
+- App slug for ohmesh integration: `pico`
+- Default ohmesh base URL: `https://ohmesh.jjgo.io`
+- Login redirects to `GET /login?app=pico&redirect_url={current_app_url}`.
+- Logout redirects to `GET /logout?app=pico&redirect_url={current_app_url}`.
+- Session checks call `GET /auth/me?app=pico` with `credentials: "include"`.
+- The current app URL used as `redirect_url` excludes hash fragments and removes
+  ohmesh result query parameters before redirecting.
+- Pico must not store OAuth tokens, refresh tokens, raw session tokens, or OAuth
+  secrets.
+- Progress storage is not implemented yet; Find & Learn progress remains local
+  React state.
 - OAuth secrets do not belong in this repository.
 
 ## Git And Deployment Contract
