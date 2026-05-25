@@ -7,6 +7,7 @@ const contentImageModules = import.meta.glob("../../../../contents/*.{png,jpg,jp
   import: "default",
   query: "?url",
 });
+const DEFAULT_HIT_PADDING_PX = 24;
 
 export const contentStages = Object.entries(contentJsonModules)
   .map(([jsonPath, content]) => buildContentStage(jsonPath, content))
@@ -24,6 +25,7 @@ function buildContentStage(jsonPath, content) {
     left: normalizePanel(content.panels?.left, "left", content),
     right: normalizePanel(content.panels?.right, "right", content),
   };
+  const hitPadding = toNonNegativeNumber(content.hitPadding, DEFAULT_HIT_PADDING_PX);
 
   return {
     id: content.id || stem,
@@ -35,7 +37,9 @@ function buildContentStage(jsonPath, content) {
     imageWidth: toPositiveNumber(content.imageWidth, panels.left.width + panels.right.width),
     imageHeight: toPositiveNumber(content.imageHeight, Math.max(panels.left.height, panels.right.height)),
     panels,
-    differences: (content.differences || []).map((difference, index) => normalizeDifference(difference, panels, index)),
+    differences: (content.differences || []).map((difference, index) =>
+      normalizeDifference(difference, panels, index, hitPadding),
+    ),
     objects: [],
   };
 }
@@ -64,11 +68,14 @@ function normalizePanel(panel, side, content) {
   };
 }
 
-function normalizeDifference(difference, panels, index) {
+function normalizeDifference(difference, panels, index, defaultHitPadding) {
   const targetSide = panels[difference.targetSide] ? difference.targetSide : "right";
   const panel = panels[targetSide];
-  const area = bboxToArea(difference.bbox, panel);
-  const marker = bboxToMarker(difference.bbox, panel);
+  const bbox = normalizeBbox(difference.bbox);
+  const hitPadding = toNonNegativeNumber(difference.hitPadding, defaultHitPadding);
+  const hitBbox = expandBbox(bbox, hitPadding, panel);
+  const area = bboxToArea(hitBbox, panel);
+  const marker = bboxToMarker(bbox, panel);
   const label = difference.description || difference.label || "The picture is different.";
 
   return {
@@ -90,6 +97,7 @@ function normalizeDifference(difference, panels, index) {
     translation: difference.translation || difference.descriptionKo || "",
     voiceText: difference.voiceText || label,
     audio: difference.audio || "",
+    hitPadding,
   };
 }
 
@@ -123,6 +131,20 @@ function normalizeBbox(bbox) {
   };
 }
 
+function expandBbox(bbox, padding, panel) {
+  const x = Math.max(panel.x, bbox.x - padding);
+  const y = Math.max(panel.y, bbox.y - padding);
+  const right = Math.min(panel.x + panel.width, bbox.x + bbox.width + padding);
+  const bottom = Math.min(panel.y + panel.height, bbox.y + bbox.height + padding);
+
+  return {
+    x,
+    y,
+    width: Math.max(1, right - x),
+    height: Math.max(1, bottom - y),
+  };
+}
+
 function findImageForStem(stem) {
   const imageEntry = Object.entries(contentImageModules).find(([imagePath]) => {
     return basename(imagePath).replace(/\.(png|jpe?g|webp)$/i, "") === stem;
@@ -142,4 +164,9 @@ function toFiniteNumber(value, fallback) {
 function toPositiveNumber(value, fallback) {
   const number = toFiniteNumber(value, fallback);
   return number > 0 ? number : fallback;
+}
+
+function toNonNegativeNumber(value, fallback) {
+  const number = toFiniteNumber(value, fallback);
+  return number >= 0 ? number : fallback;
 }

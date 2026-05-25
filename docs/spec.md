@@ -132,6 +132,7 @@ Content shape:
   type: "spot_the_difference",
   imageWidth: 1448,
   imageHeight: 1086,
+  hitPadding: 24,
   totalDifferences: 6,
   panels: {
     left: { x: 0, y: 0, width: 724, height: 1086 },
@@ -144,6 +145,7 @@ Content shape:
       labelKo: "사과나무",
       targetSide: "right",
       bbox: { x: 760, y: 90, width: 220, height: 250 },
+      hitPadding: 24,
       description: "The tree has apples.",
       descriptionKo: "나무에 사과가 있어요.",
       voiceText: "Apples are growing on the tree.",
@@ -157,6 +159,12 @@ Content `bbox` coordinates are pixel coordinates against the full source image.
 `targetSide` decides which panel can receive the correct click. At runtime,
 `contentStages.js` converts `bbox` into panel-relative percent `areaBySide` and
 `markerBySide` data for hit testing and markers.
+
+Content hit testing expands each `bbox` by a default `24` pixels on every side,
+clamped to the target panel. A numeric top-level `hitPadding` overrides the
+stage default, and a numeric difference-level `hitPadding` overrides that
+specific difference. Use `0` when a difference must be exact. Markers remain
+centered on the original `bbox`, not the expanded hit area.
 
 Built-in fallback entrypoint:
 
