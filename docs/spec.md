@@ -1,18 +1,41 @@
 # Pico Specification
 
-## 1. Overview
+## Document Role
+
+This file is the stable Codex entrypoint for Pico product scope, game contracts,
+and deployment contracts. The README remains the human quick-start and
+operation guide.
+
+## Source Of Truth
+
+- `README.md`: current user flow, local commands, git rules, and deployment
+  guide
+- `src/App.jsx`: current game selection page and game registry
+- `src/games/findLearn/FindLearnGame.jsx`: Find & Learn rendering, click flow,
+  markers, and speech feedback
+- `src/games/findLearn/hitTesting.js`: coordinate conversion and area collision
+  logic
+- `src/games/findLearn/stages/stage001.js`: current stage data shape and
+  content
+- `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
+- `AGENTS.md`: agent workflow, validation, and commit rules
+
+When these files disagree, use `README.md` for user-facing behavior and the
+focused source file above for implemented runtime behavior.
+
+## Product Scope
 
 Pico is a static collection of small English learning games. It stays narrow so
 one person can operate it without a service-specific backend.
 
-The first game is Find & Learn:
+The first game is `Find & Learn`:
 
-- Spot the differences between two pictures.
-- Click objects to see and hear English words.
-- Run on GitHub Pages as a static web game.
-- Open from the Pico game selection page.
+- Opened from the Pico game selection page.
+- Spots the differences between two pictures.
+- Lets the user click objects to see and hear English words.
+- Runs on GitHub Pages as a static web game.
 
-## 2. Runtime
+## Runtime
 
 - React SPA
 - Vite build
@@ -21,7 +44,26 @@ The first game is Find & Learn:
 - Web Speech API for English audio
 - ohmesh registration for future login and progress storage
 
-## 3. Find & Learn Click Contract
+## Locked User-Facing Behavior
+
+- The first screen is the Pico game selection page.
+- The game selection page currently shows one game: `Find & Learn`.
+- Selecting `Find & Learn` opens the game screen.
+- The game screen can return to the game selection page.
+- Two pictures stay large.
+- No original/changed/left/right labels are shown.
+- Progress is one row above the pictures.
+- Progress text is numeric only, such as `0/6`.
+- The English word/dialog panel sits in one compact row below the pictures.
+- Correct and wrong markers may be DOM elements.
+- Correct and hint markers use `difference.marker`.
+- Correct difference clicks speak English feedback such as `Correct`.
+- Wrong clicks speak English feedback such as `Wrong`.
+- Object clicks speak the English word and sentence.
+- `DEBUG_AREAS` defaults to `false`.
+- Debug areas, when enabled, are non-clickable SVG overlays only.
+
+## Find & Learn Click Contract
 
 The game must not create transparent DOM click layers such as `hit-zone` or
 `object-zone`.
@@ -40,7 +82,7 @@ Required priority:
 difference -> object -> wrong
 ```
 
-## 4. Stage Data
+## Stage Data
 
 Stage data is kept separate from rendering and hit testing so it can become JSON
 later without changing the game engine.
@@ -97,7 +139,7 @@ Supported `area.type` values:
 - `rect`
 - `polygon`
 
-## 5. Hit Testing
+## Hit Testing
 
 Hit testing functions live in:
 
@@ -115,23 +157,34 @@ Required functions:
 The React game component keeps wrapper functions named around the requested
 flow and calls them from `handlePictureClick(event)`.
 
-## 6. Screen Contract
+## Data Contract
 
-- The first screen is the Pico game selection page.
-- The game selection page currently shows one game: Find & Learn.
-- Two pictures stay large.
-- No original/changed/left/right labels are shown.
-- Progress is one row above the pictures.
-- Progress text is numeric only, such as `0/6`.
-- The English word/dialog panel sits in one compact row below the pictures.
-- Correct and wrong markers may be DOM elements.
-- Correct and hint markers use `difference.marker`.
-- Correct difference clicks speak English feedback such as `Correct`.
-- Wrong clicks speak English feedback such as `Wrong`.
-- `DEBUG_AREAS` defaults to `false`.
-- Debug areas, when enabled, are non-clickable SVG overlays only.
+- Current game state is client-local React state.
+- No backend is required for the current Find & Learn prototype.
+- App slug for future ohmesh integration: `pico`
+- Future login and progress storage should use ohmesh HttpOnly session cookies.
+- OAuth secrets do not belong in this repository.
 
-## 7. Operation Rules
+## Git And Deployment Contract
 
-- User-facing behavior changes must update this file and `README.md`.
-- GitHub Pages deploys from `main` through `.github/workflows/deploy-pages.yml`.
+- Default branch: `main`
+- Commit format: Conventional Commits through `scripts/agent-commit.sh`
+- Local validation: `npm run lint` and `npm run build`
+- Do not commit `dist`, `node_modules`, `.env`, screenshots, or secret files.
+- GitHub Pages source: GitHub Actions
+- Workflow: `.github/workflows/deploy-pages.yml`
+- Workflow triggers: `main` push and `workflow_dispatch`
+- Workflow build steps: `npm ci`, `npm run lint`, `npm run build`
+- Pages artifact path: `dist`
+- Custom domain: `public/CNAME` with `pico.jjgo.io`
+- SPA fallback: `public/404.html`
+- Version metadata: `scripts/write-version.mjs` writes `dist/version.json`
+- Local `gh-pages` branch publishing is not used.
+
+## Update Rules
+
+- User-facing flow, controls, speech behavior, or game rules must update this
+  file and `README.md`.
+- Stage data or hit testing changes must update the relevant contract sections.
+- GitHub Pages, custom domain, version metadata, or fallback changes must update
+  `README.md` and `AGENTS.md`.
