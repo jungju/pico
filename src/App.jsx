@@ -338,11 +338,8 @@ export default function App() {
             </button>
           ) : (
             <div className="login-group" aria-label="Login providers">
-              <button className="button" type="button" onClick={() => login("google")}>
+              <button className="button" type="button" onClick={() => login("github")}>
                 <LogIn aria-hidden="true" size={18} />
-                Google
-              </button>
-              <button className="button ghost" type="button" onClick={() => login("github")}>
                 GitHub
               </button>
             </div>
