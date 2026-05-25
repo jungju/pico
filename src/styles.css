@@ -269,14 +269,14 @@ button {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  align-items: center;
+  align-items: start;
 }
 
 .picture-frame {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: var(--picture-aspect, 1 / 1);
   overflow: hidden;
   border: 1px solid #bfd1ca;
   border-radius: 8px;
@@ -297,6 +297,11 @@ button {
   object-fit: fill;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+.picture-frame .split-picture-image {
+  position: absolute;
+  max-width: none;
 }
 
 .picture-marker {

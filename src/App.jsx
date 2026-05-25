@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, LoaderCircle, LogIn, LogOut, UserRound } from "lucide-react";
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
-import { findLearnStage } from "./games/findLearn/stages/stage001";
+import { defaultFindLearnStage, findLearnStages } from "./games/findLearn/stages";
 import { buildOhmeshLoginUrl, buildOhmeshLogoutUrl, fetchOhmeshSession, removeOhmeshResultParams } from "./ohmeshAuth";
 
-const GAMES = [
-  {
-    id: "find-learn",
-    title: "Find & Learn",
-    category: "Spot the Difference",
-    image: findLearnStage.images.changed,
-  },
-];
+const GAMES = findLearnStages.map((stage) => ({
+  id: stage.id,
+  title: stage.title,
+  category: stage.titleKo ? `Find & Learn · ${stage.titleKo}` : "Find & Learn",
+  image: stage.previewImage || stage.images?.changed || defaultFindLearnStage.previewImage,
+  stage,
+}));
 
 export default function App() {
-  const [selectedGameId, setSelectedGameId] = useState(null);
+  const [selectedStageId, setSelectedStageId] = useState(null);
   const [authState, setAuthState] = useState({
     status: "loading",
     session: null,
@@ -57,11 +56,15 @@ export default function App() {
     window.location.assign(buildOhmeshLogoutUrl());
   }
 
-  if (selectedGameId === "find-learn") {
+  const selectedGame = GAMES.find((game) => game.id === selectedStageId);
+
+  if (selectedGame) {
     return (
       <FindLearnGame
         authControl={<AuthControl authState={authState} compact onLogin={startLogin} onLogout={startLogout} />}
-        onBack={() => setSelectedGameId(null)}
+        key={selectedGame.id}
+        stage={selectedGame.stage}
+        onBack={() => setSelectedStageId(null)}
       />
     );
   }
@@ -75,7 +78,7 @@ export default function App() {
 
       <section className="game-list" aria-label="Games">
         {GAMES.map((game) => (
-          <button className="game-option" type="button" key={game.id} onClick={() => setSelectedGameId(game.id)}>
+          <button className="game-option" type="button" key={game.id} onClick={() => setSelectedStageId(game.id)}>
             <span className="game-option-media">
               <img src={game.image} alt="" draggable="false" />
             </span>

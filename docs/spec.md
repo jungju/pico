@@ -10,14 +10,19 @@ operation guide.
 
 - `README.md`: current user flow, local commands, git rules, and deployment
   guide
+- `contents/*.json`: Find & Learn content stages loaded into the game selector
+- `contents/*.{png,jpg,jpeg,webp}`: images paired with content JSON files by
+  matching filename stem
 - `src/App.jsx`: current game selection page and game registry
 - `src/ohmeshAuth.js`: ohmesh login/logout URLs and session checks
 - `src/games/findLearn/FindLearnGame.jsx`: Find & Learn rendering, click flow,
   markers, and speech feedback
 - `src/games/findLearn/hitTesting.js`: coordinate conversion and area collision
   logic
+- `src/games/findLearn/stages/contentStages.js`: content JSON/image loader and
+  normalizer
 - `src/games/findLearn/stages/stage001.js`: current stage data shape and
-  content
+  built-in fallback content
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
@@ -32,6 +37,7 @@ one person can operate it without a service-specific backend.
 The first game is `Find & Learn`:
 
 - Opened from the Pico game selection page.
+- Loads one card per stage from `contents` when content stages exist.
 - Spots the differences between two pictures.
 - Lets the user click objects to see and hear English words.
 - Runs on GitHub Pages as a static web game.
@@ -50,8 +56,8 @@ The first game is `Find & Learn`:
 - The first screen is the Pico game selection page.
 - The game selection page shows the current ohmesh login state and a
   login/logout action.
-- The game selection page currently shows one game: `Find & Learn`.
-- Selecting `Find & Learn` opens the game screen.
+- The game selection page shows one card per loaded Find & Learn stage.
+- Selecting a stage card opens the game screen for that stage.
 - The game screen shows the current ohmesh login state and can return to the
   game selection page.
 - Two pictures stay large.
@@ -91,13 +97,72 @@ difference -> object -> wrong
 Stage data is kept separate from rendering and hit testing so it can become JSON
 later without changing the game engine.
 
-Current entrypoint:
+Primary content entrypoint:
+
+```text
+contents/*.json
+```
+
+Each content JSON file must have a same-stem image beside it:
+
+```text
+contents/spot_playground_001.json
+contents/spot_playground_001.png
+```
+
+Supported image extensions:
+
+- `.png`
+- `.jpg`
+- `.jpeg`
+- `.webp`
+
+Content images may contain the two comparison panels in one image. The current
+content contract uses a left and right panel inside the same bitmap.
+
+Content shape:
+
+```js
+{
+  id: "spot_playground_001",
+  title: "Playground",
+  titleKo: "놀이터",
+  type: "spot_the_difference",
+  imageWidth: 1448,
+  imageHeight: 1086,
+  totalDifferences: 6,
+  panels: {
+    left: { x: 0, y: 0, width: 724, height: 1086 },
+    right: { x: 724, y: 0, width: 724, height: 1086 }
+  },
+  differences: [
+    {
+      id: "tree_apples",
+      label: "apple tree",
+      labelKo: "사과나무",
+      targetSide: "right",
+      bbox: { x: 760, y: 90, width: 220, height: 250 },
+      description: "The tree has apples.",
+      descriptionKo: "나무에 사과가 있어요.",
+      voiceText: "Apples are growing on the tree.",
+      translation: "사과가 나무에서 자라고 있어요."
+    }
+  ]
+}
+```
+
+Content `bbox` coordinates are pixel coordinates against the full source image.
+`targetSide` decides which panel can receive the correct click. At runtime,
+`contentStages.js` converts `bbox` into panel-relative percent `areaBySide` and
+`markerBySide` data for hit testing and markers.
+
+Built-in fallback entrypoint:
 
 ```text
 src/games/findLearn/stages/stage001.js
 ```
 
-Shape:
+Fallback shape:
 
 ```js
 {
@@ -128,7 +193,7 @@ Shape:
 }
 ```
 
-All coordinates are 0-100 image-relative percent coordinates:
+Fallback coordinates are 0-100 image-relative percent coordinates:
 
 - `x`
 - `y`
@@ -155,11 +220,13 @@ Required functions:
 
 - `getRelativePoint(event, pictureElement)`
 - `isPointInArea(point, area)`
-- `findDifferenceAt(point, stage, foundDifferenceIds)`
-- `findObjectAt(point, stage)`
+- `findDifferenceAt(point, stage, foundDifferenceIds, side)`
+- `findObjectAt(point, stage, side)`
+- `getDifferenceArea(difference, side)`
+- `getDifferenceMarker(difference, side)`
 
 The React game component keeps wrapper functions named around the requested
-flow and calls them from `handlePictureClick(event)`.
+flow and calls them from `handlePictureClick(event, side)`.
 
 ## Data Contract
 

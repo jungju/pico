@@ -1,0 +1,134 @@
+{
+  "id": "spot_playground_001",
+  "title": "Playground",
+  "titleKo": "놀이터",
+  "type": "spot_the_difference",
+  "image": "/games/spot_playground_001/image.png",
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "tree_apples",
+      "label": "apple tree",
+      "labelKo": "사과나무",
+      "targetSide": "right",
+      "bbox": {
+        "x": 760,
+        "y": 90,
+        "width": 220,
+        "height": 250
+      },
+      "description": "The tree has apples.",
+      "descriptionKo": "나무에 사과가 있어요.",
+      "action": "growing",
+      "voiceText": "Apples are growing on the tree.",
+      "translation": "사과가 나무에서 자라고 있어요.",
+      "audio": "/games/spot_playground_001/audio/tree_apples.mp3"
+    },
+    {
+      "id": "playhouse_flag_color",
+      "label": "flag",
+      "labelKo": "깃발",
+      "targetSide": "right",
+      "bbox": {
+        "x": 968,
+        "y": 146,
+        "width": 70,
+        "height": 60
+      },
+      "description": "The flag is blue.",
+      "descriptionKo": "깃발이 파란색이에요.",
+      "action": "waving",
+      "voiceText": "The blue flag is waving on the roof.",
+      "translation": "파란 깃발이 지붕 위에서 흔들리고 있어요.",
+      "audio": "/games/spot_playground_001/audio/playhouse_flag_color.mp3"
+    },
+    {
+      "id": "girl_swing_clothes",
+      "label": "girl on swing",
+      "labelKo": "그네 타는 여자아이",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1180,
+        "y": 380,
+        "width": 150,
+        "height": 230
+      },
+      "description": "The girl on the swing is wearing a yellow shirt.",
+      "descriptionKo": "그네를 타는 여자아이가 노란 옷을 입고 있어요.",
+      "action": "swinging",
+      "voiceText": "The girl is swinging on the swing.",
+      "translation": "여자아이가 그네를 타고 있어요.",
+      "audio": "/games/spot_playground_001/audio/girl_swing_clothes.mp3"
+    },
+    {
+      "id": "sandbox_color",
+      "label": "sandbox",
+      "labelKo": "모래놀이 상자",
+      "targetSide": "right",
+      "bbox": {
+        "x": 725,
+        "y": 720,
+        "width": 520,
+        "height": 250
+      },
+      "description": "The sandbox is red.",
+      "descriptionKo": "모래놀이 상자가 빨간색이에요.",
+      "action": "playing",
+      "voiceText": "The girl is playing in the sandbox.",
+      "translation": "여자아이가 모래놀이 상자에서 놀고 있어요.",
+      "audio": "/games/spot_playground_001/audio/sandbox_color.mp3"
+    },
+    {
+      "id": "shovel_color",
+      "label": "shovel",
+      "labelKo": "삽",
+      "targetSide": "right",
+      "bbox": {
+        "x": 810,
+        "y": 790,
+        "width": 100,
+        "height": 120
+      },
+      "description": "The shovel is blue.",
+      "descriptionKo": "삽이 파란색이에요.",
+      "action": "digging",
+      "voiceText": "The shovel is in the sand.",
+      "translation": "삽이 모래 안에 있어요.",
+      "audio": "/games/spot_playground_001/audio/shovel_color.mp3"
+    },
+    {
+      "id": "beach_ball_color",
+      "label": "beach ball",
+      "labelKo": "비치볼",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1275,
+        "y": 745,
+        "width": 140,
+        "height": 150
+      },
+      "description": "The beach ball has different colors.",
+      "descriptionKo": "비치볼 색깔이 달라요.",
+      "action": "lying",
+      "voiceText": "The beach ball is lying on the grass.",
+      "translation": "비치볼이 잔디 위에 놓여 있어요.",
+      "audio": "/games/spot_playground_001/audio/beach_ball_color.mp3"
+    }
+  ]
+}

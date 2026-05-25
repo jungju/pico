@@ -1,24 +1,22 @@
 import { useMemo, useState } from "react";
 import { ArrowLeft, Lightbulb, RotateCcw, Volume2 } from "lucide-react";
-import { findDifferenceAt, findObjectAt, getRelativePoint } from "./hitTesting";
-import { DEBUG_AREAS, findLearnStage } from "./stages/stage001";
+import { findDifferenceAt, findObjectAt, getDifferenceArea, getDifferenceMarker, getRelativePoint } from "./hitTesting";
+import { DEBUG_AREAS, findLearnStage as fallbackFindLearnStage } from "./stages/stage001";
 
 const WRONG_MARKER_TIMEOUT_MS = 900;
 
-export function FindLearnGame({ authControl, onBack }) {
+export function FindLearnGame({ authControl, stage = fallbackFindLearnStage, onBack }) {
+  const activeStage = stage || fallbackFindLearnStage;
   const [foundIds, setFoundIds] = useState(() => new Set());
-  const [message, setMessage] = useState({
-    type: "ready",
-    title: "Ready",
-    body: "cat · sun · house · tree · flower",
-  });
+  const [message, setMessage] = useState(() => createReadyMessage(activeStage));
   const [wrongPoint, setWrongPoint] = useState(null);
   const [hintId, setHintId] = useState(null);
+  const pictures = getStagePictures(activeStage);
   const foundDifferences = useMemo(() => {
-    return findLearnStage.differences.filter((difference) => foundIds.has(difference.id));
-  }, [foundIds]);
-  const hintDifference = findLearnStage.differences.find((difference) => difference.id === hintId);
-  const remainingDifference = findLearnStage.differences.find((difference) => !foundIds.has(difference.id));
+    return activeStage.differences.filter((difference) => foundIds.has(difference.id));
+  }, [activeStage, foundIds]);
+  const hintDifference = activeStage.differences.find((difference) => difference.id === hintId);
+  const remainingDifference = activeStage.differences.find((difference) => !foundIds.has(difference.id));
 
   function foundDifference(difference) {
     setFoundIds((currentFoundIds) => {
@@ -30,9 +28,9 @@ export function FindLearnGame({ authControl, onBack }) {
     setMessage({
       type: "correct",
       title: "Correct",
-      body: difference.label,
+      body: differenceMessage(difference),
     });
-    speak(`Correct. ${difference.label}`);
+    speak(`Correct. ${differenceSpeech(difference)}`);
   }
 
   function showWord(object) {
@@ -44,8 +42,8 @@ export function FindLearnGame({ authControl, onBack }) {
     speak(`${object.word}. ${object.sentence}`);
   }
 
-  function showWrong(point) {
-    setWrongPoint(point);
+  function showWrong(point, side) {
+    setWrongPoint({ ...point, side });
     setMessage({
       type: "wrong",
       title: "Wrong",
@@ -55,31 +53,31 @@ export function FindLearnGame({ authControl, onBack }) {
     window.setTimeout(() => setWrongPoint(null), WRONG_MARKER_TIMEOUT_MS);
   }
 
-  function findDifferenceAtPoint(point) {
-    return findDifferenceAt(point, findLearnStage, foundIds);
+  function findDifferenceAtPoint(point, side) {
+    return findDifferenceAt(point, activeStage, foundIds, side);
   }
 
-  function findObjectAtPoint(point) {
-    return findObjectAt(point, findLearnStage);
+  function findObjectAtPoint(point, side) {
+    return findObjectAt(point, activeStage, side);
   }
 
-  function handlePictureClick(event) {
+  function handlePictureClick(event, side) {
     const point = getRelativePoint(event, event.currentTarget);
-    const difference = findDifferenceAtPoint(point);
+    const difference = findDifferenceAtPoint(point, side);
 
     if (difference) {
       foundDifference(difference);
       return;
     }
 
-    const object = findObjectAtPoint(point);
+    const object = findObjectAtPoint(point, side);
 
     if (object) {
       showWord(object);
       return;
     }
 
-    showWrong(point);
+    showWrong(point, side);
   }
 
   function showHint() {
@@ -91,18 +89,14 @@ export function FindLearnGame({ authControl, onBack }) {
     setFoundIds(new Set());
     setHintId(null);
     setWrongPoint(null);
-    setMessage({
-      type: "ready",
-      title: "Ready",
-      body: "cat · sun · house · tree · flower",
-    });
+    setMessage(createReadyMessage(activeStage));
   }
 
   return (
     <main className="game-shell">
       <section className="game-topbar" aria-label="Game status">
         <div className="progress-text" aria-live="polite">
-          {foundIds.size}/{findLearnStage.differences.length}
+          {foundIds.size}/{activeStage.differences.length}
         </div>
         <div className="game-actions">
           {authControl}
@@ -120,21 +114,18 @@ export function FindLearnGame({ authControl, onBack }) {
         </div>
       </section>
 
-      <section className="pictures-grid" aria-label={findLearnStage.title}>
-        <Picture
-          image={findLearnStage.images.original}
-          foundDifferences={foundDifferences}
-          hintDifference={hintDifference}
-          wrongPoint={wrongPoint}
-          onPictureClick={handlePictureClick}
-        />
-        <Picture
-          image={findLearnStage.images.changed}
-          foundDifferences={foundDifferences}
-          hintDifference={hintDifference}
-          wrongPoint={wrongPoint}
-          onPictureClick={handlePictureClick}
-        />
+      <section className="pictures-grid" aria-label={activeStage.title}>
+        {pictures.map((picture) => (
+          <Picture
+            foundDifferences={foundDifferences}
+            hintDifference={hintDifference}
+            key={picture.side}
+            picture={picture}
+            stage={activeStage}
+            wrongPoint={wrongPoint}
+            onPictureClick={handlePictureClick}
+          />
+        ))}
       </section>
 
       <section className={`learning-panel ${message.type}`} aria-live="polite">
@@ -150,33 +141,67 @@ export function FindLearnGame({ authControl, onBack }) {
   );
 }
 
-function Picture({ image, foundDifferences, hintDifference, wrongPoint, onPictureClick }) {
+function Picture({ stage, picture, foundDifferences, hintDifference, wrongPoint, onPictureClick }) {
   return (
-    <button className="picture-frame" type="button" onClick={onPictureClick} aria-label="Find and learn picture">
-      <img src={image} alt="" draggable="false" />
-      {DEBUG_AREAS ? <DebugAreas /> : null}
-      {foundDifferences.map((difference) => (
-        <Marker className="correct-marker" key={difference.id} point={difference.marker} />
-      ))}
-      {hintDifference ? <Marker className="hint-marker" point={hintDifference.marker} /> : null}
-      {wrongPoint ? <Marker className="wrong-marker" point={wrongPoint} /> : null}
+    <button
+      className="picture-frame"
+      style={{ "--picture-aspect": `${picture.width} / ${picture.height}` }}
+      type="button"
+      onClick={(event) => onPictureClick(event, picture.side)}
+      aria-label="Find and learn picture"
+    >
+      <PictureImage picture={picture} />
+      {DEBUG_AREAS ? <DebugAreas side={picture.side} stage={stage} /> : null}
+      {foundDifferences.map((difference) => {
+        const point = getDifferenceMarker(difference, picture.side);
+        return point ? <Marker className="correct-marker" key={difference.id} point={point} /> : null;
+      })}
+      {hintDifference ? <HintMarker difference={hintDifference} side={picture.side} /> : null}
+      {wrongPoint?.side === picture.side ? <Marker className="wrong-marker" point={wrongPoint} /> : null}
     </button>
   );
+}
+
+function PictureImage({ picture }) {
+  if (picture.layout === "split-image") {
+    return (
+      <img
+        className="split-picture-image"
+        src={picture.image}
+        alt=""
+        draggable="false"
+        style={{
+          width: `${(picture.imageWidth / picture.panel.width) * 100}%`,
+          height: `${(picture.imageHeight / picture.panel.height) * 100}%`,
+          left: `${(-picture.panel.x / picture.panel.width) * 100}%`,
+          top: `${(-picture.panel.y / picture.panel.height) * 100}%`,
+        }}
+      />
+    );
+  }
+
+  return <img src={picture.image} alt="" draggable="false" />;
+}
+
+function HintMarker({ difference, side }) {
+  const point = getDifferenceMarker(difference, side);
+  return point ? <Marker className="hint-marker" point={point} /> : null;
 }
 
 function Marker({ className, point }) {
   return <span className={`picture-marker ${className}`} style={{ left: `${point.x}%`, top: `${point.y}%` }} />;
 }
 
-function DebugAreas() {
+function DebugAreas({ stage, side }) {
   return (
     <svg className="debug-areas" viewBox="0 0 100 100" aria-hidden="true">
-      {findLearnStage.objects.map((object) => (
+      {(stage.objects || []).map((object) => (
         <AreaShape className="object-area" area={object.area} key={`object-${object.id}`} />
       ))}
-      {findLearnStage.differences.map((difference) => (
-        <AreaShape className="difference-area" area={difference.area} key={`difference-${difference.id}`} />
-      ))}
+      {stage.differences.map((difference) => {
+        const area = getDifferenceArea(difference, side);
+        return area ? <AreaShape className="difference-area" area={area} key={`difference-${difference.id}`} /> : null;
+      })}
     </svg>
   );
 }
@@ -205,4 +230,61 @@ function speak(text) {
   utterance.lang = "en-US";
   utterance.rate = 0.92;
   window.speechSynthesis.speak(utterance);
+}
+
+function getStagePictures(stage) {
+  if (stage.layout === "split-image") {
+    return ["left", "right"].map((side) => {
+      const panel = stage.panels[side];
+
+      return {
+        side,
+        layout: "split-image",
+        image: stage.combinedImage,
+        imageWidth: stage.imageWidth,
+        imageHeight: stage.imageHeight,
+        panel,
+        width: panel.width,
+        height: panel.height,
+      };
+    });
+  }
+
+  return [
+    {
+      side: "original",
+      image: stage.images.original,
+      width: 1,
+      height: 1,
+    },
+    {
+      side: "changed",
+      image: stage.images.changed,
+      width: 1,
+      height: 1,
+    },
+  ];
+}
+
+function createReadyMessage(stage) {
+  const objects = stage.objects || [];
+  const words = objects.length > 0 ? objects.map((object) => object.word) : stage.differences.map(readableDifferenceName);
+
+  return {
+    type: "ready",
+    title: stage.titleKo ? stage.titleKo : "Ready",
+    body: words.slice(0, 6).join(" · "),
+  };
+}
+
+function readableDifferenceName(difference) {
+  return difference.word || difference.labelKo || difference.label;
+}
+
+function differenceMessage(difference) {
+  return [difference.label, difference.translation].filter(Boolean).join(" ");
+}
+
+function differenceSpeech(difference) {
+  return difference.voiceText || difference.sentence || difference.label;
 }

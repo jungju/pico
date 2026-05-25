@@ -34,16 +34,44 @@ export function isPointInArea(point, area) {
   return false;
 }
 
-export function findDifferenceAt(point, stage, foundDifferenceIds = new Set()) {
+export function findDifferenceAt(point, stage, foundDifferenceIds = new Set(), side = null) {
   return (
     stage.differences.find((difference) => {
-      return !foundDifferenceIds.has(difference.id) && isPointInArea(point, difference.area);
+      return !foundDifferenceIds.has(difference.id) && isPointInArea(point, getDifferenceArea(difference, side));
     }) || null
   );
 }
 
-export function findObjectAt(point, stage) {
-  return stage.objects.find((object) => isPointInArea(point, object.area)) || null;
+export function findObjectAt(point, stage, side = null) {
+  return stage.objects.find((object) => isPointInArea(point, getAreaForSide(object, side))) || null;
+}
+
+export function getDifferenceArea(difference, side = null) {
+  return getAreaForSide(difference, side);
+}
+
+export function getDifferenceMarker(difference, side = null) {
+  if (side && difference.markerBySide) {
+    return difference.markerBySide[side] || null;
+  }
+
+  if (side && difference.targetSide && difference.targetSide !== side) {
+    return null;
+  }
+
+  return difference.marker || null;
+}
+
+function getAreaForSide(item, side) {
+  if (side && item.areaBySide) {
+    return item.areaBySide[side] || null;
+  }
+
+  if (side && item.targetSide && item.targetSide !== side) {
+    return null;
+  }
+
+  return item.area || null;
 }
 
 function isPointInPolygon(point, points) {
