@@ -235,11 +235,46 @@ button {
 }
 
 .progress-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
   color: #1d1b18;
   font-size: 1.35rem;
   font-weight: 850;
   line-height: 1;
   text-align: center;
+}
+
+.score-text,
+.complete-text,
+.save-text {
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.score-text {
+  color: #7b473f;
+}
+
+.complete-text,
+.save-text {
+  border: 1px solid #c9d4cd;
+  border-radius: 999px;
+  background: #f8fbf9;
+  padding: 4px 7px;
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.complete-text {
+  border-color: #80bd96;
+  color: #1c6d44;
+}
+
+.save-text {
+  color: #4c5550;
 }
 
 .game-actions {
@@ -412,6 +447,10 @@ button {
 
 .learning-panel.correct {
   border-color: #80bd96;
+}
+
+.learning-panel.complete {
+  border-color: #5da577;
 }
 
 .learning-panel.word {

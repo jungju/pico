@@ -15,6 +15,8 @@ operation guide.
   matching filename stem
 - `src/App.jsx`: current game selection page and game registry
 - `src/ohmeshAuth.js`: ohmesh login/logout URLs and session checks
+- `src/ohmeshProgress.js`: ohmesh user-scoped Find & Learn progress and score
+  record helpers
 - `src/games/findLearn/FindLearnGame.jsx`: Find & Learn rendering, click flow,
   markers, and speech feedback
 - `src/games/findLearn/hitTesting.js`: coordinate conversion and area collision
@@ -64,8 +66,11 @@ The first game is `Find & Learn`:
   height.
 - The picture frames keep a configured minimum size when the viewport allows it.
 - No original/changed/left/right labels are shown.
-- Progress is one row above the pictures.
-- Progress text is numeric only, such as `0/6`.
+- Progress and score are shown in one row above the pictures.
+- Progress uses found/total text, such as `0/6`.
+- Score uses 100 points per found difference.
+- When logged in, found differences, completion state, and score are saved to
+  ohmesh.
 - The English word/dialog panel sits in one compact row below the pictures.
 - Correct and wrong markers may be DOM elements.
 - Correct and hint markers use `difference.marker`.
@@ -240,8 +245,8 @@ flow and calls them from `handlePictureClick(event, side)`.
 
 ## Data Contract
 
-- Current game state is client-local React state.
-- No backend is required for the current Find & Learn prototype.
+- Current click state is React state during play.
+- Logged-in Find & Learn progress is saved through ohmesh app records.
 - App slug for ohmesh integration: `pico`
 - Default ohmesh base URL: `https://ohmesh.jjgo.io`
 - Login redirects to `GET /login?app=pico&redirect_url={current_app_url}`.
@@ -249,10 +254,30 @@ flow and calls them from `handlePictureClick(event, side)`.
 - Session checks call `GET /auth/me?app=pico` with `credentials: "include"`.
 - The current app URL used as `redirect_url` excludes hash fragments and removes
   ohmesh result query parameters before redirecting.
+- Progress storage uses one `find-learn-progress` record scoped to the current
+  ohmesh user and app.
+- The progress record shape is:
+
+```js
+{
+  version: 1,
+  stages: {
+    [stageId]: {
+      stageId: "spot_playground_001",
+      foundIds: ["tree_apples"],
+      completed: false,
+      score: 100,
+      totalDifferences: 6,
+      completedAt: null,
+      updatedAt: "2026-05-25T00:00:00.000Z"
+    }
+  }
+}
+```
+
 - Pico must not store OAuth tokens, refresh tokens, raw session tokens, or OAuth
   secrets.
-- Progress storage is not implemented yet; Find & Learn progress remains local
-  React state.
+- Logged-out progress remains local React state only.
 - OAuth secrets do not belong in this repository.
 
 ## Git And Deployment Contract

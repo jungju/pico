@@ -1,36 +1,98 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Lightbulb, RotateCcw, Volume2 } from "lucide-react";
 import { findDifferenceAt, findObjectAt, getDifferenceArea, getDifferenceMarker, getRelativePoint } from "./hitTesting";
 import { DEBUG_AREAS, findLearnStage as fallbackFindLearnStage } from "./stages/stage001";
+import { emptyFindLearnProgress, loadFindLearnProgress, saveFindLearnProgress } from "../../ohmeshProgress";
 
 const WRONG_MARKER_TIMEOUT_MS = 900;
+const POINTS_PER_DIFFERENCE = 100;
 
-export function FindLearnGame({ authControl, stage = fallbackFindLearnStage, onBack }) {
+export function FindLearnGame({ authState, authControl, stage = fallbackFindLearnStage, onBack }) {
   const activeStage = stage || fallbackFindLearnStage;
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [message, setMessage] = useState(() => createReadyMessage(activeStage));
   const [wrongPoint, setWrongPoint] = useState(null);
   const [hintId, setHintId] = useState(null);
+  const [progressStatus, setProgressStatus] = useState("local");
+  const progressRecordIdRef = useRef(null);
+  const progressDataRef = useRef(emptyFindLearnProgress());
+  const progressLoadingRef = useRef(false);
+  const saveSequenceRef = useRef(0);
   const pictures = getStagePictures(activeStage);
+  const differenceIds = useMemo(() => {
+    return new Set(activeStage.differences.map((difference) => difference.id));
+  }, [activeStage]);
   const foundDifferences = useMemo(() => {
     return activeStage.differences.filter((difference) => foundIds.has(difference.id));
   }, [activeStage, foundIds]);
   const hintDifference = activeStage.differences.find((difference) => difference.id === hintId);
   const remainingDifference = activeStage.differences.find((difference) => !foundIds.has(difference.id));
+  const score = calculateScore(foundIds);
+  const completed = foundIds.size === activeStage.differences.length;
+  const visibleProgressStatus = authState?.status === "authenticated" ? progressStatus : "local";
+
+  useEffect(() => {
+    if (authState?.status !== "authenticated") {
+      progressRecordIdRef.current = null;
+      progressDataRef.current = emptyFindLearnProgress();
+      progressLoadingRef.current = false;
+      return;
+    }
+
+    const controller = new AbortController();
+    progressLoadingRef.current = true;
+
+    async function loadProgress() {
+      try {
+        const { record, data } = await loadFindLearnProgress({ signal: controller.signal });
+        if (controller.signal.aborted) return;
+
+        progressRecordIdRef.current = record?.id || null;
+        progressDataRef.current = data;
+        progressLoadingRef.current = false;
+
+        const stageProgress = data.stages?.[activeStage.id];
+        if (stageProgress) {
+          const savedFoundIds = new Set((stageProgress.foundIds || []).filter((id) => differenceIds.has(id)));
+          setFoundIds(savedFoundIds);
+
+          if (stageProgress.completed) {
+            setMessage(createCompleteMessage(activeStage, calculateScore(savedFoundIds)));
+          }
+        }
+
+        setProgressStatus("saved");
+      } catch {
+        progressLoadingRef.current = false;
+        if (!controller.signal.aborted) {
+          setProgressStatus("error");
+        }
+      }
+    }
+
+    loadProgress();
+
+    return () => {
+      progressLoadingRef.current = false;
+      controller.abort();
+    };
+  }, [activeStage, authState?.status, differenceIds]);
 
   function foundDifference(difference) {
-    setFoundIds((currentFoundIds) => {
-      const nextFoundIds = new Set(currentFoundIds);
-      nextFoundIds.add(difference.id);
-      return nextFoundIds;
-    });
+    const nextFoundIds = new Set(foundIds);
+    nextFoundIds.add(difference.id);
+    const nextCompleted = nextFoundIds.size === activeStage.differences.length;
+    const nextScore = calculateScore(nextFoundIds);
+
+    setFoundIds(nextFoundIds);
     setHintId(null);
     setMessage({
-      type: "correct",
-      title: "Correct",
-      body: differenceMessage(difference),
+      type: nextCompleted ? "complete" : "correct",
+      title: nextCompleted ? "Complete" : "Correct",
+      body: nextCompleted ? completeMessageBody(activeStage, nextScore) : differenceMessage(difference),
     });
-    speak(`Correct. ${differenceSpeech(difference)}`);
+    speak(nextCompleted ? `Complete. ${activeStage.title}. ${nextScore} points.` : `Correct. ${differenceSpeech(difference)}`);
+    saveStageProgress(nextFoundIds);
   }
 
   function showWord(object) {
@@ -86,17 +148,70 @@ export function FindLearnGame({ authControl, stage = fallbackFindLearnStage, onB
   }
 
   function resetGame() {
+    const emptyFoundIds = new Set();
     setFoundIds(new Set());
     setHintId(null);
     setWrongPoint(null);
     setMessage(createReadyMessage(activeStage));
+    saveStageProgress(emptyFoundIds);
+  }
+
+  async function saveStageProgress(nextFoundIds) {
+    if (authState?.status !== "authenticated" || progressLoadingRef.current) return;
+
+    const now = new Date().toISOString();
+    const nextCompleted = nextFoundIds.size === activeStage.differences.length;
+    const existingStageProgress = progressDataRef.current.stages?.[activeStage.id];
+    const stageProgress = {
+      stageId: activeStage.id,
+      foundIds: [...nextFoundIds],
+      completed: nextCompleted,
+      score: calculateScore(nextFoundIds),
+      totalDifferences: activeStage.differences.length,
+      completedAt: nextCompleted ? existingStageProgress?.completedAt || now : null,
+      updatedAt: now,
+    };
+    const nextData = {
+      version: 1,
+      stages: {
+        ...(progressDataRef.current.stages || {}),
+        [activeStage.id]: stageProgress,
+      },
+    };
+
+    progressDataRef.current = nextData;
+    setProgressStatus("saving");
+
+    const saveSequence = saveSequenceRef.current + 1;
+    saveSequenceRef.current = saveSequence;
+
+    try {
+      const record = await saveFindLearnProgress({
+        recordId: progressRecordIdRef.current,
+        data: nextData,
+      });
+      progressRecordIdRef.current = record.id;
+
+      if (saveSequenceRef.current === saveSequence) {
+        setProgressStatus("saved");
+      }
+    } catch {
+      if (saveSequenceRef.current === saveSequence) {
+        setProgressStatus("error");
+      }
+    }
   }
 
   return (
     <main className="game-shell">
       <section className="game-topbar" aria-label="Game status">
         <div className="progress-text" aria-live="polite">
-          {foundIds.size}/{activeStage.differences.length}
+          <span>{foundIds.size}/{activeStage.differences.length}</span>
+          <span className="score-text">{score} pts</span>
+          {completed ? <span className="complete-text">Done</span> : null}
+          {saveStatusText(visibleProgressStatus) ? (
+            <span className="save-text">{saveStatusText(visibleProgressStatus)}</span>
+          ) : null}
         </div>
         <div className="game-actions">
           {authControl}
@@ -280,6 +395,14 @@ function createReadyMessage(stage) {
   };
 }
 
+function createCompleteMessage(stage, score) {
+  return {
+    type: "complete",
+    title: "Complete",
+    body: completeMessageBody(stage, score),
+  };
+}
+
 function readableDifferenceName(difference) {
   return difference.word || difference.labelKo || difference.label;
 }
@@ -290,4 +413,20 @@ function differenceMessage(difference) {
 
 function differenceSpeech(difference) {
   return difference.voiceText || difference.sentence || difference.label;
+}
+
+function completeMessageBody(stage, score) {
+  return `${stage.titleKo || stage.title} complete · ${score} pts`;
+}
+
+function calculateScore(foundIds) {
+  return foundIds.size * POINTS_PER_DIFFERENCE;
+}
+
+function saveStatusText(status) {
+  if (status === "loading") return "Loading";
+  if (status === "saving") return "Saving";
+  if (status === "saved") return "Saved";
+  if (status === "error") return "Save error";
+  return "";
 }

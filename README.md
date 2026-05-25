@@ -19,6 +19,7 @@ https://pico.jjgo.io
 - `contents/`: Find & Learn에 자동 등록되는 stage JSON/이미지
 - `src/App.jsx`: Pico 첫 화면의 게임 선택 목록과 게임 진입 흐름
 - `src/ohmeshAuth.js`: ohmesh 로그인/로그아웃 URL 생성과 세션 확인
+- `src/ohmeshProgress.js`: ohmesh 사용자별 Find & Learn 진행/점수 record 저장
 - `src/games/findLearn/FindLearnGame.jsx`: Find & Learn 화면, 클릭 처리, 마커, 음성 피드백
 - `src/games/findLearn/hitTesting.js`: 이미지 기준 퍼센트 좌표 변환과 영역 충돌 판정
 - `src/games/findLearn/stages/contentStages.js`: `contents/*.json`과 같은 이름의 이미지 자동 등록
@@ -40,7 +41,9 @@ https://pico.jjgo.io
 - 두 그림은 화면 높이에 맞춰 줄어들며, 데스크톱에서는 최소 높이 기준을 유지합니다.
 - 모바일에서도 두 그림은 좌우로 나란히 유지해 스크롤을 줄입니다.
 - 원본/변경/왼쪽/오른쪽 같은 라벨은 표시하지 않습니다.
-- 진행률은 그림 위에 숫자만 표시합니다. 예: `0/6`
+- 진행률과 점수는 그림 위에 표시합니다. 예: `0/6`, `0 pts`
+- 점수는 찾은 차이 하나당 100점입니다.
+- 로그인한 사용자의 완료 상태와 점수는 ohmesh에 저장됩니다.
 - 영어 단어/대화 창은 두 그림 아래에 낮게 유지합니다.
 - 음성은 Web Speech API `speechSynthesis`를 사용합니다.
 
@@ -166,7 +169,9 @@ Pico는 ohmesh에 등록된 앱이며, 첫 화면과 게임 화면에서 ohmesh 
 - 로그아웃은 `GET /logout?app=pico&redirect_url={current_app_url}`로 이동합니다.
 - 세션 확인은 `GET /auth/me?app=pico`를 `credentials: "include"`로 호출합니다.
 - ohmesh는 앱 전용 HttpOnly session cookie를 사용하며 Pico는 토큰을 저장하거나 표시하지 않습니다.
-- 현재 Find & Learn 진행 상태는 클라이언트 로컬 상태만 사용합니다.
+- 로그인한 사용자의 Find & Learn 진행 상태는 `find-learn-progress` record 하나에 저장합니다.
+- 저장 데이터는 stage별 `foundIds`, `completed`, `score`, `completedAt`, `updatedAt`을 포함합니다.
+- 로그아웃 상태에서는 Find & Learn 진행 상태가 현재 브라우저 세션의 로컬 React 상태로만 유지됩니다.
 - OAuth client ID와 secret은 ohmesh 또는 운영 환경에서 관리합니다.
 
 ## 문서 업데이트 규칙

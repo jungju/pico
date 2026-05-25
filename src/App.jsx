@@ -61,6 +61,7 @@ export default function App() {
   if (selectedGame) {
     return (
       <FindLearnGame
+        authState={authState}
         authControl={<AuthControl authState={authState} compact onLogin={startLogin} onLogout={startLogout} />}
         key={selectedGame.id}
         stage={selectedGame.stage}
