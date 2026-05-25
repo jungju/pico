@@ -57,6 +57,8 @@ export default function App() {
   }
 
   const selectedGame = GAMES.find((game) => game.id === selectedStageId);
+  const selectedGameIndex = GAMES.findIndex((game) => game.id === selectedStageId);
+  const nextGame = selectedGameIndex >= 0 ? GAMES[selectedGameIndex + 1] : null;
 
   if (selectedGame) {
     return (
@@ -66,6 +68,7 @@ export default function App() {
         key={selectedGame.id}
         stage={selectedGame.stage}
         onBack={() => setSelectedStageId(null)}
+        onNext={nextGame ? () => setSelectedStageId(nextGame.id) : null}
       />
     );
   }

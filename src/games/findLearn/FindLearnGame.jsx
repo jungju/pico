@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, Lightbulb, RotateCcw, Volume2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Home, Lightbulb, RotateCcw, Volume2 } from "lucide-react";
 import { findDifferenceAt, findObjectAt, getDifferenceArea, getDifferenceMarker, getRelativePoint } from "./hitTesting";
 import { DEBUG_AREAS, findLearnStage as fallbackFindLearnStage } from "./stages/stage001";
 import { emptyFindLearnProgress, loadFindLearnProgress, saveFindLearnProgress } from "../../ohmeshProgress";
@@ -7,12 +7,13 @@ import { emptyFindLearnProgress, loadFindLearnProgress, saveFindLearnProgress } 
 const WRONG_MARKER_TIMEOUT_MS = 900;
 const POINTS_PER_DIFFERENCE = 100;
 
-export function FindLearnGame({ authState, authControl, stage = fallbackFindLearnStage, onBack }) {
+export function FindLearnGame({ authState, authControl, stage = fallbackFindLearnStage, onBack, onNext }) {
   const activeStage = stage || fallbackFindLearnStage;
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [message, setMessage] = useState(() => createReadyMessage(activeStage));
   const [wrongPoint, setWrongPoint] = useState(null);
   const [hintId, setHintId] = useState(null);
+  const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
   const [progressStatus, setProgressStatus] = useState("local");
   const progressRecordIdRef = useRef(null);
   const progressDataRef = useRef(emptyFindLearnProgress());
@@ -58,6 +59,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
 
           if (stageProgress.completed) {
             setMessage(createCompleteMessage(activeStage, calculateScore(savedFoundIds)));
+            setCompletionNoticeOpen(true);
           }
         }
 
@@ -91,6 +93,9 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
       title: nextCompleted ? "Complete" : "Correct",
       body: nextCompleted ? completeMessageBody(activeStage, nextScore) : differenceMessage(difference),
     });
+    if (nextCompleted) {
+      setCompletionNoticeOpen(true);
+    }
     speak(nextCompleted ? `Complete. ${activeStage.title}. ${nextScore} points.` : `Correct. ${differenceSpeech(difference)}`);
     saveStageProgress(nextFoundIds);
   }
@@ -152,6 +157,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
     setFoundIds(new Set());
     setHintId(null);
     setWrongPoint(null);
+    setCompletionNoticeOpen(false);
     setMessage(createReadyMessage(activeStage));
     saveStageProgress(emptyFoundIds);
   }
@@ -252,7 +258,48 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
           <p>{message.body}</p>
         </div>
       </section>
+
+      {completed && completionNoticeOpen ? (
+        <CompletionNotice
+          hasNext={Boolean(onNext)}
+          score={score}
+          stage={activeStage}
+          onBack={onBack}
+          onClose={() => setCompletionNoticeOpen(false)}
+          onNext={onNext}
+        />
+      ) : null}
     </main>
+  );
+}
+
+function CompletionNotice({ hasNext, score, stage, onBack, onClose, onNext }) {
+  return (
+    <div className="completion-overlay" role="dialog" aria-modal="true" aria-labelledby="completion-title">
+      <div className="completion-panel">
+        <div>
+          <strong id="completion-title">Success</strong>
+          <p>
+            {stage.titleKo || stage.title} · {score} pts
+          </p>
+        </div>
+        <div className="completion-actions">
+          {hasNext ? (
+            <button className="completion-action primary" type="button" onClick={onNext}>
+              <ArrowRight aria-hidden="true" size={18} />
+              <span>Next</span>
+            </button>
+          ) : null}
+          <button className="completion-action" type="button" onClick={onBack}>
+            <Home aria-hidden="true" size={18} />
+            <span>Home</span>
+          </button>
+          <button className="completion-action ghost" type="button" onClick={onClose}>
+            <span>Stay</span>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
