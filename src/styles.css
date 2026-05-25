@@ -209,11 +209,16 @@ button {
 }
 
 .game-shell {
+  --game-chrome-height: 146px;
+  --picture-min-height: 280px;
+  --picture-max-height: clamp(var(--picture-min-height), calc(100dvh - var(--game-chrome-height)), 680px);
+
   display: grid;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   gap: 10px;
   width: min(1240px, calc(100% - 20px));
-  min-height: 100vh;
+  height: 100dvh;
+  min-height: 430px;
   margin: 0 auto;
   padding: 10px 0;
 }
@@ -269,13 +274,17 @@ button {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  align-items: start;
+  align-items: center;
+  justify-items: center;
+  min-height: 0;
 }
 
 .picture-frame {
   position: relative;
   display: block;
-  width: 100%;
+  width: min(100%, calc(var(--picture-max-height) * var(--picture-ratio, 1)));
+  min-width: min(100%, calc(var(--picture-min-height) * var(--picture-ratio, 1)));
+  max-height: var(--picture-max-height);
   aspect-ratio: var(--picture-aspect, 1 / 1);
   overflow: hidden;
   border: 1px solid #bfd1ca;
@@ -469,13 +478,18 @@ button {
   }
 
   .game-shell {
+    --game-chrome-height: 138px;
+    --picture-min-height: 210px;
+    --picture-max-height: clamp(var(--picture-min-height), calc(100dvh - var(--game-chrome-height)), 560px);
+
     width: min(100% - 12px, 640px);
     gap: 8px;
     padding: 8px 0;
   }
 
   .pictures-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
   }
 
   .progress-text {

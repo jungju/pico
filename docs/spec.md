@@ -60,7 +60,9 @@ The first game is `Find & Learn`:
 - Selecting a stage card opens the game screen for that stage.
 - The game screen shows the current ohmesh login state and can return to the
   game selection page.
-- Two pictures stay large.
+- Two pictures stay side-by-side and shrink to fit the available viewport
+  height.
+- The picture frames keep a configured minimum size when the viewport allows it.
 - No original/changed/left/right labels are shown.
 - Progress is one row above the pictures.
 - Progress text is numeric only, such as `0/6`.

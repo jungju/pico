@@ -145,7 +145,10 @@ function Picture({ stage, picture, foundDifferences, hintDifference, wrongPoint,
   return (
     <button
       className="picture-frame"
-      style={{ "--picture-aspect": `${picture.width} / ${picture.height}` }}
+      style={{
+        "--picture-aspect": `${picture.width} / ${picture.height}`,
+        "--picture-ratio": `${picture.width / picture.height}`,
+      }}
       type="button"
       onClick={(event) => onPictureClick(event, picture.side)}
       aria-label="Find and learn picture"
