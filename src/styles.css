@@ -335,6 +335,11 @@ button {
   outline-offset: 3px;
 }
 
+.reference-picture {
+  cursor: default;
+  touch-action: auto;
+}
+
 .picture-frame img {
   display: block;
   width: 100%;

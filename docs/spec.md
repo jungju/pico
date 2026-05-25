@@ -66,6 +66,8 @@ The first game is `Find & Learn`:
   height.
 - The picture frames keep a configured minimum size when the viewport allows it.
 - No original/changed/left/right labels are shown.
+- In content stages, a picture without a side-specific difference or object is
+  rendered as a non-clickable reference frame.
 - Progress and score are shown in one row above the pictures.
 - Progress uses found/total text, such as `0/6`.
 - Score uses 100 points per found difference.

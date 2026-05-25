@@ -304,17 +304,14 @@ function CompletionNotice({ hasNext, score, stage, onBack, onClose, onNext }) {
 }
 
 function Picture({ stage, picture, foundDifferences, hintDifference, wrongPoint, onPictureClick }) {
-  return (
-    <button
-      className="picture-frame"
-      style={{
-        "--picture-aspect": `${picture.width} / ${picture.height}`,
-        "--picture-ratio": `${picture.width / picture.height}`,
-      }}
-      type="button"
-      onClick={(event) => onPictureClick(event, picture.side)}
-      aria-label="Find and learn picture"
-    >
+  const interactive = pictureAcceptsClicks(stage, picture.side);
+  const frameClassName = interactive ? "picture-frame" : "picture-frame reference-picture";
+  const frameStyle = {
+    "--picture-aspect": `${picture.width} / ${picture.height}`,
+    "--picture-ratio": `${picture.width / picture.height}`,
+  };
+  const children = (
+    <>
       <PictureImage picture={picture} />
       {DEBUG_AREAS ? <DebugAreas side={picture.side} stage={stage} /> : null}
       {foundDifferences.map((difference) => {
@@ -323,7 +320,34 @@ function Picture({ stage, picture, foundDifferences, hintDifference, wrongPoint,
       })}
       {hintDifference ? <HintMarker difference={hintDifference} side={picture.side} /> : null}
       {wrongPoint?.side === picture.side ? <Marker className="wrong-marker" point={wrongPoint} /> : null}
+    </>
+  );
+
+  if (!interactive) {
+    return (
+      <div className={frameClassName} style={frameStyle} aria-label="Reference picture">
+        {children}
+      </div>
+    );
+  }
+
+  return (
+    <button
+      className={frameClassName}
+      style={frameStyle}
+      type="button"
+      onClick={(event) => onPictureClick(event, picture.side)}
+      aria-label="Find and learn picture"
+    >
+      {children}
     </button>
+  );
+}
+
+function pictureAcceptsClicks(stage, side) {
+  return (
+    stage.differences.some((difference) => getDifferenceArea(difference, side)) ||
+    (stage.objects || []).some((object) => !object.targetSide || object.targetSide === side)
   );
 }
 
