@@ -11,9 +11,10 @@ const GAMES = findLearnStages.map((stage) => ({
   image: stage.previewImage || stage.images?.changed || defaultFindLearnStage.previewImage,
   stage,
 }));
+const GAME_PATH_PREFIX = "/games/";
 
 export default function App() {
-  const [selectedStageId, setSelectedStageId] = useState(null);
+  const [selectedStageId, setSelectedStageId] = useState(() => getStageIdFromLocation());
   const [authState, setAuthState] = useState({
     status: "loading",
     session: null,
@@ -48,12 +49,36 @@ export default function App() {
     return () => controller.abort();
   }, []);
 
+  useEffect(() => {
+    function handlePopState() {
+      setSelectedStageId(getStageIdFromLocation());
+    }
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  useEffect(() => {
+    const selectedGame = GAMES.find((game) => game.id === selectedStageId);
+    document.title = selectedGame ? `${selectedGame.title} · Pico` : "Pico";
+  }, [selectedStageId]);
+
   function startLogin() {
     window.location.assign(buildOhmeshLoginUrl());
   }
 
   function startLogout() {
     window.location.assign(buildOhmeshLogoutUrl());
+  }
+
+  function openStage(stageId) {
+    setSelectedStageId(stageId);
+    pushAppPath(stagePath(stageId));
+  }
+
+  function openGameSelect() {
+    setSelectedStageId(null);
+    pushAppPath("/");
   }
 
   const selectedGame = GAMES.find((game) => game.id === selectedStageId);
@@ -67,8 +92,8 @@ export default function App() {
         authControl={<AuthControl authState={authState} compact onLogin={startLogin} onLogout={startLogout} />}
         key={selectedGame.id}
         stage={selectedGame.stage}
-        onBack={() => setSelectedStageId(null)}
-        onNext={nextGame ? () => setSelectedStageId(nextGame.id) : null}
+        onBack={openGameSelect}
+        onNext={nextGame ? () => openStage(nextGame.id) : null}
       />
     );
   }
@@ -82,7 +107,7 @@ export default function App() {
 
       <section className="game-list" aria-label="Games">
         {GAMES.map((game) => (
-          <button className="game-option" type="button" key={game.id} onClick={() => setSelectedStageId(game.id)}>
+          <button className="game-option" type="button" key={game.id} onClick={() => openStage(game.id)}>
             <span className="game-option-media">
               <img src={game.image} alt="" draggable="false" />
             </span>
@@ -146,4 +171,33 @@ function AuthControl({ authState, compact = false, onLogin, onLogout }) {
 
 function displayName(user) {
   return user.name || user.email || "Pico user";
+}
+
+function getStageIdFromLocation() {
+  if (typeof window === "undefined") return null;
+
+  const stageId = stageIdFromPath(window.location.pathname);
+  return GAMES.some((game) => game.id === stageId) ? stageId : null;
+}
+
+function stageIdFromPath(pathname) {
+  if (!pathname.startsWith(GAME_PATH_PREFIX)) return null;
+
+  const [rawStageId] = pathname.slice(GAME_PATH_PREFIX.length).split("/");
+  if (!rawStageId) return null;
+
+  try {
+    return decodeURIComponent(rawStageId);
+  } catch {
+    return null;
+  }
+}
+
+function stagePath(stageId) {
+  return `${GAME_PATH_PREFIX}${encodeURIComponent(stageId)}`;
+}
+
+function pushAppPath(path) {
+  if (window.location.pathname === path && window.location.search === "") return;
+  window.history.pushState({}, "", path);
 }

@@ -56,10 +56,14 @@ The first game is `Find & Learn`:
 ## Locked User-Facing Behavior
 
 - The first screen is the Pico game selection page.
+- The game selection page URL is `/`.
 - The game selection page shows the current ohmesh login state and a
   login/logout action.
 - The game selection page shows one card per loaded Find & Learn stage.
 - Selecting a stage card opens the game screen for that stage.
+- Each stage game screen URL is `/games/<stage-id>`.
+- Browser back/forward navigation must keep the selected screen in sync with the
+  URL.
 - The game screen shows the current ohmesh login state and can return to the
   game selection page.
 - Two pictures stay side-by-side and shrink to fit the available viewport
