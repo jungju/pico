@@ -185,3 +185,11 @@ Pico는 ohmesh에 등록된 앱이며, 첫 화면과 게임 화면에서 ohmesh 
 - 사용자에게 보이는 기능, 화면 흐름, 버튼, 음성 피드백이 바뀌면 이 README와 `docs/spec.md`를 함께 갱신합니다.
 - stage data 구조나 hit testing 계약이 바뀌면 `Find & Learn` 섹션과 `docs/spec.md`의 data contract를 함께 갱신합니다.
 - 배포 방식, custom domain, version 파일, GitHub Pages fallback이 바뀌면 `배포` 섹션과 `AGENTS.md`를 함께 갱신합니다.
+
+## License
+
+Source code in this repository is licensed under the [MIT License](LICENSE).
+
+Non-code assets, including text content, images, photos, videos, audio, service
+names, logos, and brand materials, are not covered by the MIT License. See
+[ASSET-LICENSE.md](ASSET-LICENSE.md).
