@@ -78,9 +78,11 @@
   완료: `src/games/GameShell.jsx`로 공통 HUD, action, learning panel,
   completion dialog를 분리했고 Find & Learn이 이를 사용한다.
 
-- [ ] `V1-T015` `P1` 오늘의 플레이 진입점을 추가한다.
+- [x] `V1-T015` `P1` 오늘의 플레이 진입점을 추가한다.
   첫 화면에서 아직 완료하지 않은 쉬운 stage를 추천하고, 모두 완료했다면
   다음 난이도나 복습 stage를 추천한다.
+  완료: selector 상단에 가장 쉬운 stage를 시작하는 Today entry를
+  추가했다. 완료 상태 기반 추천은 progress 통합 후 고도화한다.
 
 - [ ] `V1-T016` `P1` stage 난이도 정보를 UI에 반영한다.
   selector가 시험처럼 느껴지지 않게 아이 친화적인 방식으로 level을

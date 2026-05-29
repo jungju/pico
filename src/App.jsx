@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, LoaderCircle, LogIn, LogOut, UserRound } from "lucide-react";
+import { ArrowRight, LoaderCircle, LogIn, LogOut, Sparkles, UserRound } from "lucide-react";
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
 import { gameStages } from "./games/stageRegistry";
 import { buildOhmeshLoginUrl, buildOhmeshLogoutUrl, fetchOhmeshSession, removeOhmeshResultParams } from "./ohmeshAuth";
@@ -81,6 +81,7 @@ export default function App() {
   const selectedGame = GAMES.find((game) => game.id === selectedStageId);
   const selectedGameIndex = GAMES.findIndex((game) => game.id === selectedStageId);
   const nextGame = selectedGameIndex >= 0 ? GAMES[selectedGameIndex + 1] : null;
+  const todaysGame = getTodaysGame(GAMES);
 
   if (selectedGame) {
     return (
@@ -101,6 +102,21 @@ export default function App() {
         <h1>Pico</h1>
         <AuthControl authState={authState} onLogin={startLogin} onLogout={startLogout} />
       </header>
+
+      {todaysGame ? (
+        <section className="today-play" aria-label="Today's play">
+          <button className="today-play-option" type="button" onClick={() => openStage(todaysGame)}>
+            <span className="today-play-icon">
+              <Sparkles aria-hidden="true" size={24} />
+            </span>
+            <span className="today-play-copy">
+              <span>Today</span>
+              <strong>{todaysGame.title}</strong>
+            </span>
+            <ArrowRight aria-hidden="true" size={22} />
+          </button>
+        </section>
+      ) : null}
 
       <section className="game-list" aria-label="Games">
         {GAMES.map((game) => (
@@ -177,6 +193,10 @@ function AuthControl({ authState, compact = false, onLogin, onLogout }) {
 
 function displayName(user) {
   return user.name || user.email || "Pico user";
+}
+
+function getTodaysGame(games) {
+  return [...games].sort((a, b) => a.level - b.level || a.title.localeCompare(b.title))[0] || null;
 }
 
 function getStageIdFromLocation() {
