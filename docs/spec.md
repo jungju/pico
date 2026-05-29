@@ -107,6 +107,9 @@ Maze progress is goal-centered: the HUD meter reflects path progress toward
 the goal, and the text summarizes the goal plus collectible gem count instead
 of visited-cell count.
 
+Maze movement controls are presented as one stable 3x3 D-pad group with a
+center hub, so the direction buttons do not appear detached on mobile.
+
 ## Runtime
 
 - React SPA

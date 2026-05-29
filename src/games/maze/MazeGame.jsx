@@ -133,20 +133,23 @@ export function MazeGame({ authState, authControl, stage, stageEntry, onBack, on
         </div>
 
         <div className="maze-controls" aria-label="Maze movement">
-          <span />
-          <button type="button" onClick={() => move(MAZE_DIRECTIONS.UP)} aria-label="Move up" title="Move up">
+          <span className="maze-control-spacer" aria-hidden="true" />
+          <button className="maze-control-up" type="button" onClick={() => move(MAZE_DIRECTIONS.UP)} aria-label="Move up" title="Move up">
             <ArrowUp aria-hidden="true" size={19} />
           </button>
-          <span />
-          <button type="button" onClick={() => move(MAZE_DIRECTIONS.LEFT)} aria-label="Move left" title="Move left">
+          <span className="maze-control-spacer" aria-hidden="true" />
+          <button className="maze-control-left" type="button" onClick={() => move(MAZE_DIRECTIONS.LEFT)} aria-label="Move left" title="Move left">
             <ArrowLeft aria-hidden="true" size={19} />
           </button>
-          <button type="button" onClick={() => move(MAZE_DIRECTIONS.DOWN)} aria-label="Move down" title="Move down">
-            <ArrowDown aria-hidden="true" size={19} />
-          </button>
-          <button type="button" onClick={() => move(MAZE_DIRECTIONS.RIGHT)} aria-label="Move right" title="Move right">
+          <span className="maze-control-center" aria-hidden="true" />
+          <button className="maze-control-right" type="button" onClick={() => move(MAZE_DIRECTIONS.RIGHT)} aria-label="Move right" title="Move right">
             <ArrowRight aria-hidden="true" size={19} />
           </button>
+          <span className="maze-control-spacer" aria-hidden="true" />
+          <button className="maze-control-down" type="button" onClick={() => move(MAZE_DIRECTIONS.DOWN)} aria-label="Move down" title="Move down">
+            <ArrowDown aria-hidden="true" size={19} />
+          </button>
+          <span className="maze-control-spacer" aria-hidden="true" />
         </div>
       </section>
     </GameShell>

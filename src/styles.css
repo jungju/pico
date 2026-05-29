@@ -1640,7 +1640,7 @@ button.picture-frame:hover {
 
 .maze-stage {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 136px;
+  grid-template-columns: minmax(0, 1fr) 176px;
   gap: 14px;
   align-items: center;
   justify-items: center;
@@ -1752,22 +1752,49 @@ button.picture-frame:hover {
 
 .maze-controls {
   display: grid;
-  grid-template-columns: repeat(3, 44px);
-  gap: 7px;
+  grid-template-columns: repeat(3, 48px);
+  grid-template-rows: repeat(3, 48px);
+  gap: 6px;
   align-content: center;
   justify-content: center;
+  border: 2px solid rgba(20, 60, 86, 0.22);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(197, 242, 255, 0.46)),
+    repeating-linear-gradient(45deg, rgba(20, 60, 86, 0.06) 0 8px, rgba(255, 255, 255, 0) 8px 16px);
+  box-shadow:
+    inset 0 -4px 0 rgba(20, 60, 86, 0.08),
+    0 5px 0 rgba(20, 60, 86, 0.12);
+  padding: 8px;
+  touch-action: manipulation;
 }
 
 .maze-controls button {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   place-items: center;
   border: 2px solid #143c56;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 3px 0 rgba(20, 60, 86, 0.18);
   color: #143c56;
+}
+
+.maze-control-spacer {
+  width: 48px;
+  height: 48px;
+}
+
+.maze-control-center {
+  align-self: center;
+  justify-self: center;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(20, 60, 86, 0.36);
+  border-radius: 999px;
+  background: #fff0a5;
+  box-shadow: inset 0 -3px 0 rgba(20, 60, 86, 0.12);
 }
 
 .maze-controls button:hover {
@@ -2683,7 +2710,8 @@ button.picture-frame:hover {
 
   .maze-stage {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-content: start;
     gap: 8px;
     padding: 8px;
   }
@@ -2693,12 +2721,14 @@ button.picture-frame:hover {
   }
 
   .maze-controls {
-    grid-template-columns: repeat(3, 44px);
+    grid-template-columns: repeat(3, 48px);
+    grid-template-rows: repeat(3, 48px);
+    padding: 6px;
   }
 
   .maze-controls button {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
   }
 
   .memory-stage {
