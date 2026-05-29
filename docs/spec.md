@@ -103,6 +103,10 @@ The current v1 content set provides 20 Hidden Objects stages through
 The current v1 content set provides 20 Maze stages through
 `src/games/maze/stages`.
 
+Maze progress is goal-centered: the HUD meter reflects path progress toward
+the goal, and the text summarizes the goal plus collectible gem count instead
+of visited-cell count.
+
 ## Runtime
 
 - React SPA

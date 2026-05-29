@@ -19,9 +19,10 @@ export function MazeGame({ authState, authControl, stage, stageEntry, onBack, on
   const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
   const [nudging, setNudging] = useState(false);
   const nudgeTimerRef = useRef(null);
-  const walkableCellCount = useMemo(() => countWalkableCells(stage), [stage]);
+  const startGoalDistance = useMemo(() => shortestPathDistance(stage, stage.start, stage.goal), [stage]);
+  const currentGoalDistance = useMemo(() => shortestPathDistance(stage, runState.position, stage.goal), [stage, runState.position]);
   const completed = runState.completed;
-  const progressPercent = completed ? 100 : Math.round((runState.visitedCells.length / walkableCellCount) * 100);
+  const progressPercent = goalProgressPercent(startGoalDistance, currentGoalDistance, completed);
   const score = calculateScore(stage, runState);
   const statusText = authState?.status === "authenticated" ? "Ready" : "Local play";
   const boardStyle = {
@@ -106,7 +107,7 @@ export function MazeGame({ authState, authControl, stage, stageEntry, onBack, on
       onReset={resetGame}
       onSpeak={() => speak(message.body)}
       progressPercent={progressPercent}
-      progressText={completed ? "Goal" : `${runState.visitedCells.length}/${walkableCellCount}`}
+      progressText={mazeProgressText(stage, runState)}
       score={score}
       stageSubtitle={stage.title}
       stageTitle={stage.titleKo || stage.title}
@@ -205,8 +206,54 @@ function calculateScore(stage, runState) {
   return collectiblePoints + completionPoints;
 }
 
-function countWalkableCells(stage) {
-  return stage.grid.rows * stage.grid.columns - stage.obstacles.length;
+function goalProgressPercent(startGoalDistance, currentGoalDistance, completed) {
+  if (completed) return 100;
+  if (!Number.isFinite(startGoalDistance) || !Number.isFinite(currentGoalDistance) || startGoalDistance <= 0) return 0;
+
+  const progress = ((startGoalDistance - currentGoalDistance) / startGoalDistance) * 100;
+  return Math.max(0, Math.min(99, Math.round(progress)));
+}
+
+function mazeProgressText(stage, runState) {
+  const gemCount = stage.collectibles.length;
+  if (!gemCount) return "Goal";
+  return `Goal · ${runState.collectedIds.length}/${gemCount} gems`;
+}
+
+function shortestPathDistance(stage, fromCell, toCell) {
+  if (sameCell(fromCell, toCell)) return 0;
+
+  const queue = [{ cell: fromCell, distance: 0 }];
+  const seen = new Set([cellKey(fromCell)]);
+  const deltas = [
+    { row: -1, col: 0 },
+    { row: 1, col: 0 },
+    { row: 0, col: -1 },
+    { row: 0, col: 1 },
+  ];
+
+  for (let index = 0; index < queue.length; index += 1) {
+    const item = queue[index];
+
+    for (const delta of deltas) {
+      const nextCell = {
+        row: item.cell.row + delta.row,
+        col: item.cell.col + delta.col,
+      };
+      const nextKey = cellKey(nextCell);
+
+      if (seen.has(nextKey) || isMazeCellBlocked(stage, nextCell)) continue;
+      if (sameCell(nextCell, toCell)) return item.distance + 1;
+
+      seen.add(nextKey);
+      queue.push({
+        cell: nextCell,
+        distance: item.distance + 1,
+      });
+    }
+  }
+
+  return Number.POSITIVE_INFINITY;
 }
 
 function cellLabel(value, cell) {
