@@ -6,6 +6,7 @@ import { DEBUG_AREAS, findLearnStage as fallbackFindLearnStage } from "./stages/
 import { emptyFindLearnProgress, loadFindLearnProgress, saveFindLearnProgress } from "../../ohmeshProgress";
 
 const WRONG_MARKER_TIMEOUT_MS = 900;
+const IDLE_HINT_DELAY_MS = 12000;
 
 export function FindLearnGame({ authState, authControl, stage = fallbackFindLearnStage, stageEntry, onBack, onNext }) {
   const activeStage = stage || fallbackFindLearnStage;
@@ -14,6 +15,8 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
   const [message, setMessage] = useState(() => createReadyMessage(activeStage));
   const [wrongPoint, setWrongPoint] = useState(null);
   const [hintId, setHintId] = useState(null);
+  const [idleHintPrompted, setIdleHintPrompted] = useState(false);
+  const [activityTick, setActivityTick] = useState(0);
   const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
   const [progressStatus, setProgressStatus] = useState("local");
   const progressRecordIdRef = useRef(null);
@@ -31,6 +34,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
   const remainingDifference = activeStage.differences.find((difference) => !foundIds.has(difference.id));
   const score = calculateScore(foundIds, activeStage.differences.length, completionBonus);
   const completed = foundIds.size === activeStage.differences.length;
+  const showIdleHintPrompt = idleHintPrompted && !completed && !hintId && Boolean(remainingDifference);
   const visibleProgressStatus = authState?.status === "authenticated" ? progressStatus : "local";
   const statusText = saveStatusText(visibleProgressStatus);
   const progressPercent =
@@ -84,7 +88,25 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
     };
   }, [activeStage, authState?.status, completionBonus, differenceIds]);
 
+  useEffect(() => {
+    if (completed || hintId || !remainingDifference) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setIdleHintPrompted(true);
+    }, IDLE_HINT_DELAY_MS);
+
+    return () => window.clearTimeout(timer);
+  }, [activityTick, completed, hintId, remainingDifference]);
+
+  function notePlayerActivity() {
+    setIdleHintPrompted(false);
+    setActivityTick((value) => value + 1);
+  }
+
   function foundDifference(difference) {
+    notePlayerActivity();
     const nextFoundIds = new Set(foundIds);
     nextFoundIds.add(difference.id);
     const nextCompleted = nextFoundIds.size === activeStage.differences.length;
@@ -105,6 +127,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
   }
 
   function showWord(object) {
+    notePlayerActivity();
     setMessage({
       type: "word",
       title: `${object.word} ${object.phonetic}`,
@@ -114,6 +137,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
   }
 
   function showWrong(point, side) {
+    notePlayerActivity();
     setWrongPoint({ ...point, side });
     setMessage({
       type: "wrong",
@@ -153,10 +177,12 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
 
   function showHint() {
     if (!remainingDifference) return;
+    notePlayerActivity();
     setHintId(remainingDifference.id);
   }
 
   function resetGame() {
+    notePlayerActivity();
     const emptyFoundIds = new Set();
     setFoundIds(new Set());
     setHintId(null);
@@ -225,6 +251,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
         onClose: () => setCompletionNoticeOpen(false),
         onNext,
       }}
+      hintPrompted={showIdleHintPrompt}
       message={message}
       onBack={onBack}
       onHint={showHint}

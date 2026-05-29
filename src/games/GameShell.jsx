@@ -6,6 +6,7 @@ export function GameShell({
   completed,
   completionNotice,
   message,
+  hintPrompted = false,
   onBack,
   onHint,
   onReset,
@@ -67,7 +68,13 @@ export function GameShell({
             ) : null}
           </div>
           <div className="tool-action-group" aria-label="Game tools">
-            <button className="action-button tool-action-button" type="button" onClick={onHint} aria-label="Show hint" title="Show hint">
+            <button
+              className={`action-button tool-action-button hint-action-button${hintPrompted ? " hint-prompted" : ""}`}
+              type="button"
+              onClick={onHint}
+              aria-label={hintPrompted ? "Show hint. A hint is ready." : "Show hint"}
+              title={hintPrompted ? "Hint is ready" : "Show hint"}
+            >
               <Lightbulb aria-hidden="true" size={19} />
               <span>Hint</span>
             </button>
