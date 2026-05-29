@@ -125,8 +125,10 @@
   완료: `awardDailyStreakReward` helper가 오늘 방문 인정 후 하루 한 번만
   streak reward를 total points에 더한다.
 
-- [ ] `V1-T026` `P1` selector에 총 포인트와 streak를 보여준다.
+- [x] `V1-T026` `P1` selector에 총 포인트와 streak를 보여준다.
   로그인 사용자에게 진행감을 주되 압박감이나 clutter는 만들지 않는다.
+  완료: 로그인 사용자에게 selector summary chip으로 total points와
+  current streak를 표시한다.
 
 - [ ] `V1-T027` `P1` 로그아웃 local progress 정책을 정리한다.
   로그아웃 상태에서도 플레이할 수 있게 유지하고, 임시 진행 상태임을

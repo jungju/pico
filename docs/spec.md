@@ -75,6 +75,8 @@ The first game is `Find & Learn`:
 - The game selection page URL is `/`.
 - The game selection page shows the current ohmesh login state and a
   login/logout action.
+- The game selection page shows total points and daily streak for logged-in
+  users.
 - The game selection page shows one card per loaded Find & Learn stage.
 - Selecting a stage card opens the game screen for that stage.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.

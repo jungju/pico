@@ -38,6 +38,7 @@ https://pico.jjgo.io
 - 첫 화면은 게임 선택 화면입니다.
 - 게임 선택 화면 URL은 `/`입니다.
 - 첫 화면에는 ohmesh 로그인 상태와 로그인/로그아웃 버튼이 있습니다.
+- 로그인한 사용자에게는 첫 화면에 총 포인트와 연속 방문 streak가 표시됩니다.
 - 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage 카드가 표시됩니다.
 - 게임 선택 화면에서 stage 카드를 누르면 게임 화면으로 들어갑니다.
 - 각 stage 게임 화면 URL은 `/games/<game-type>/<stage-id>`입니다.

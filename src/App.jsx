@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, LoaderCircle, LogIn, LogOut, Sparkles, UserRound } from "lucide-react";
+import { ArrowRight, Flame, LoaderCircle, LogIn, LogOut, Sparkles, Trophy, UserRound } from "lucide-react";
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
 import { gameStages } from "./games/stageRegistry";
 import { buildOhmeshLoginUrl, buildOhmeshLogoutUrl, fetchOhmeshSession, removeOhmeshResultParams } from "./ohmeshAuth";
+import { emptyPicoProgress, loadPicoProgress } from "./ohmeshProgress";
 
 const GAMES = gameStages.map((stageEntry) => ({
   ...stageEntry,
@@ -16,6 +17,10 @@ export default function App() {
     status: "loading",
     session: null,
     error: null,
+  });
+  const [picoProgressState, setPicoProgressState] = useState({
+    status: "local",
+    data: emptyPicoProgress(),
   });
 
   useEffect(() => {
@@ -56,6 +61,35 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (authState.status !== "authenticated") {
+      return;
+    }
+
+    const controller = new AbortController();
+
+    async function loadProgress() {
+      try {
+        const { data } = await loadPicoProgress({ signal: controller.signal });
+        if (controller.signal.aborted) return;
+        setPicoProgressState({
+          status: "ready",
+          data,
+        });
+      } catch {
+        if (controller.signal.aborted) return;
+        setPicoProgressState({
+          status: "error",
+          data: emptyPicoProgress(),
+        });
+      }
+    }
+
+    loadProgress();
+
+    return () => controller.abort();
+  }, [authState.status]);
+
+  useEffect(() => {
     const selectedGame = GAMES.find((game) => game.id === selectedStageId);
     document.title = selectedGame ? `${selectedGame.title} · Pico` : "Pico";
   }, [selectedStageId]);
@@ -82,6 +116,7 @@ export default function App() {
   const selectedGameIndex = GAMES.findIndex((game) => game.id === selectedStageId);
   const nextGame = selectedGameIndex >= 0 ? GAMES[selectedGameIndex + 1] : null;
   const todaysGame = getTodaysGame(GAMES);
+  const showProgressSummary = authState.status === "authenticated";
 
   if (selectedGame) {
     return (
@@ -102,6 +137,8 @@ export default function App() {
         <h1>Pico</h1>
         <AuthControl authState={authState} onLogin={startLogin} onLogout={startLogout} />
       </header>
+
+      {showProgressSummary ? <PlayerProgressSummary progressState={picoProgressState} /> : null}
 
       {todaysGame ? (
         <section className="today-play" aria-label="Today's play">
@@ -140,6 +177,27 @@ export default function App() {
         ))}
       </section>
     </main>
+  );
+}
+
+function PlayerProgressSummary({ progressState }) {
+  const progress = progressState.data || emptyPicoProgress();
+  const loading = progressState.status === "loading";
+  const error = progressState.status === "error";
+
+  return (
+    <section className={`player-progress${error ? " error" : ""}`} aria-label="Player progress">
+      <span className="player-progress-chip">
+        <Trophy aria-hidden="true" size={19} />
+        <strong>{loading ? "..." : progress.totalPoints}</strong>
+        <span>pts</span>
+      </span>
+      <span className="player-progress-chip">
+        <Flame aria-hidden="true" size={19} />
+        <strong>{loading ? "..." : progress.streak.current}</strong>
+        <span>streak</span>
+      </span>
+    </section>
   );
 }
 

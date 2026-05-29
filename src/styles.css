@@ -34,7 +34,7 @@ button {
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto auto 1fr;
   gap: 18px;
   width: min(860px, calc(100% - 28px));
   min-height: 100vh;
@@ -76,6 +76,37 @@ button {
   display: grid;
   align-content: start;
   gap: 12px;
+}
+
+.player-progress {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.player-progress-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 3px 0 rgba(20, 60, 86, 0.18);
+  color: #143c56;
+  padding: 0 11px;
+  font-size: 0.9rem;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.player-progress-chip strong {
+  font-size: 1.05rem;
+  font-weight: 950;
+}
+
+.player-progress.error .player-progress-chip {
+  border-color: #e23f4f;
 }
 
 .today-play {
