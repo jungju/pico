@@ -44,6 +44,8 @@ operation guide.
   normalizer
 - `src/games/hiddenObjects/stages/stage001.js`: v1 Hidden Objects picnic stage
   content
+- `src/games/maze/stages/schema.js`: grid-based Maze stage schema and
+  normalizer
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
@@ -353,6 +355,41 @@ completion bonus when every target in the stage is found.
 
 The v1 Hidden Objects content set includes `hidden_picnic_001`, a level 1
 picnic scene with apple, kite, book, spoon, duck, and ball targets.
+
+## Maze Stage Data
+
+Maze stages use grid data for movement and completion. `#` means blocked, `.`
+means walkable, and `S`/`G` can mark start and goal cells.
+
+Shape:
+
+```js
+{
+  id: "maze_garden_001",
+  title: "Garden Maze",
+  titleKo: "정원 미로",
+  theme: "garden",
+  level: 1,
+  estimatedMinutes: 3,
+  themeImage: "/assets/maze-garden-001.png",
+  grid: [
+    "S....",
+    ".###.",
+    "...#.",
+    ".#...",
+    "...#G"
+  ],
+  start: { row: 0, col: 0 },
+  goal: { row: 4, col: 4 },
+  obstacles: [{ row: 1, col: 1 }],
+  collectibles: [
+    { id: "star", row: 2, col: 1, word: "star", meaning: "별", points: 50 }
+  ]
+}
+```
+
+The schema normalizer exposes `grid.rows`, `grid.columns`, normalized
+`obstacles`, and normalized `collectibles`.
 
 ## Data Contract
 

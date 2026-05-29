@@ -203,9 +203,12 @@
 
 ## Milestone 5: 미로 찾기
 
-- [ ] `V1-T050` `P0` 미로 stage schema를 정의한다.
+- [x] `V1-T050` `P0` 미로 stage schema를 정의한다.
   grid, start, goal, obstacles, optional collectibles, optional theme
   image를 포함한다.
+  완료: `src/games/maze/stages/schema.js`에 grid, start, goal, obstacles,
+  collectibles, themeImage를 normalize하는 grid 기반 미로 schema helper를
+  추가했다.
 
 - [ ] `V1-T051` `P0` 미로 이동 엔진을 만든다.
   모바일 touch와 데스크톱 pointer 입력을 지원한다.

@@ -30,6 +30,7 @@ https://pico.jjgo.io
 - `src/games/hiddenObjects/hitTesting.js`: 숨은그림 찾기 image-relative target 판정
 - `src/games/hiddenObjects/stages/schema.js`: 숨은그림 찾기 stage schema와 normalizer
 - `src/games/hiddenObjects/stages/stage001.js`: v1 숨은그림 찾기 picnic stage 데이터
+- `src/games/maze/stages/schema.js`: grid 기반 미로 stage schema와 normalizer
 - `src/styles.css`: 게임 선택 화면과 Find & Learn 화면 스타일
 - `public/assets/`: stage 이미지
 - `public/CNAME`: GitHub Pages custom domain
@@ -109,6 +110,17 @@ hit area를 가집니다.
 - 힌트는 남은 target 하나를 scene marker와 target 목록 강조로 보여주며
   자동으로 정답 처리하지 않습니다.
 - 점수는 target 하나당 100점이며, stage를 완료하면 200점 보너스를 더합니다.
+
+## Maze
+
+미로 찾기 stage는 grid 기반입니다. `#`은 벽, `.`은 길이며, `S`와 `G`는
+각각 시작점과 도착점으로 사용할 수 있습니다. Stage data는 시작점, 도착점,
+벽, 선택 수집 아이템, 선택 theme image를 포함합니다.
+
+- Stage schema helper: `src/games/maze/stages/schema.js`
+- Grid cells: `#`, `.`, `S`, `G`
+- Cell 좌표: `{ row, col }`
+- Collectible: `id`, `row`, `col`, `word`, `meaning`, `points`
 
 지원하는 영역 타입:
 
