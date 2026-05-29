@@ -349,8 +349,11 @@
 
 ## Milestone 9: 검증과 release 준비
 
-- [ ] `V1-T090` `P0` 공통 progress와 scoring focused test를 추가한다.
+- [x] `V1-T090` `P0` 공통 progress와 scoring focused test를 추가한다.
   completion bonus 1회 지급, total points, streak reward 규칙을 확인한다.
+  완료: Node test runner를 `npm test`로 추가하고, event point 중복 방지,
+  completion bonus 1회 지급, total points, daily streak reward 1일 1회 규칙을
+  `src/games/points.test.js`에서 검증한다.
 
 - [ ] `V1-T091` `P0` 게임별 core logic focused test를 추가한다.
   가능한 범위에서 hit testing, 숨은그림 판정, 미로 완료, 메모리 매칭을
