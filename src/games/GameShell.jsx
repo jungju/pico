@@ -162,12 +162,12 @@ export function GameShell({
         </div>
       </section>
 
-      {completionNotice?.open ? <CompletionNotice {...completionNotice} /> : null}
+      {completionNotice?.open ? <CompletionNotice {...completionNotice} onReplay={onReset} /> : null}
     </main>
   );
 }
 
-function CompletionNotice({ hasNext, score, stageTitle, onBack, onClose, onNext }) {
+function CompletionNotice({ hasNext, score, stageTitle, onBack, onClose, onNext, onReplay }) {
   return (
     <div className="completion-overlay" role="dialog" aria-modal="true" aria-labelledby="completion-title">
       <div className="completion-panel">
@@ -195,7 +195,12 @@ function CompletionNotice({ hasNext, score, stageTitle, onBack, onClose, onNext 
               <ArrowRight aria-hidden="true" size={18} />
               <span>Next Stage</span>
             </button>
-          ) : null}
+          ) : (
+            <button className="completion-action primary" type="button" onClick={onReplay} aria-label="Play this stage again" title="Play again">
+              <RotateCcw aria-hidden="true" size={18} />
+              <span>Play Again</span>
+            </button>
+          )}
           <button className="completion-action" type="button" onClick={onBack} aria-label="Go home to game list" title="Game list">
             <Home aria-hidden="true" size={18} />
             <span>Game List</span>
