@@ -10,9 +10,9 @@ V1 requires at least one polished playable stage for each game type.
 
 | Game Type | Stage ID | Theme | Level | Targets/Pairs |
 | --- | --- | --- | --- | --- |
-| Spot the Difference | `spot_kids_bedroom_001` | bedroom | 2 | 6 differences |
-| Spot the Difference | `spot_picnic_playground_002` | picnic | 2 | 6 differences |
-| Spot the Difference | `spot_playground_picnic_001` | playground | 2 | 6 differences |
+| Spot the Difference | `spot_kids_bedroom_001` | bedroom | 3 | 10 differences |
+| Spot the Difference | `spot_picnic_playground_002` | picnic | 3 | 10 differences |
+| Spot the Difference | `spot_playground_picnic_001` | playground | 3 | 10 differences |
 | Hidden Objects | `hidden_picnic_001` | picnic | 1 | 6 targets |
 | Maze | `maze_garden_001` | garden | 1 | start, goal, 2 collectibles |
 | Memory Cards | `memory_animals_001` | animals | 1 | 4 image-image pairs |

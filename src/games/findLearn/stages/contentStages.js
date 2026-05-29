@@ -31,6 +31,9 @@ function buildContentStage(jsonPath, content) {
     id: content.id || stem,
     title: content.title || stem,
     titleKo: content.titleKo || "",
+    theme: content.theme || "",
+    level: toPositiveInteger(content.level, 0),
+    estimatedMinutes: toPositiveInteger(content.estimatedMinutes, 0),
     layout: "split-image",
     previewImage: image,
     combinedImage: image,
@@ -164,6 +167,11 @@ function toFiniteNumber(value, fallback) {
 function toPositiveNumber(value, fallback) {
   const number = toFiniteNumber(value, fallback);
   return number > 0 ? number : fallback;
+}
+
+function toPositiveInteger(value, fallback) {
+  const number = Number(value);
+  return Number.isInteger(number) && number > 0 ? number : fallback;
 }
 
 function toNonNegativeNumber(value, fallback) {

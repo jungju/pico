@@ -300,8 +300,11 @@
   완료: `docs/v1-visual-qa.md`에 이미지 품질, touch/click area, framing,
   game type별 visual QA와 필수 viewport checklist를 추가했다.
 
-- [ ] `V1-T074` `P1` 모든 stage에 level metadata를 추가한다.
+- [x] `V1-T074` `P1` 모든 stage에 level metadata를 추가한다.
   v1 난이도 규칙에 따라 Level 1, 2, 3을 표시한다.
+  완료: 기존 Spot the Difference content JSON에 theme, level,
+  estimatedMinutes를 명시하고 content loader가 metadata를 registry로
+  전달하도록 업데이트했다.
 
 ## Milestone 8: 접근성, UX, polish
 
