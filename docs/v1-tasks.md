@@ -341,8 +341,11 @@
   README와 spec에 v1 게임 화면에는 countdown timer를 표시하지 않는다고
   명시했다.
 
-- [ ] `V1-T085` `P1` 한국어 보조 텍스트를 검토한다.
+- [x] `V1-T085` `P1` 한국어 보조 텍스트를 검토한다.
   보호자에게는 도움이 되되 아이에게는 visual-first 흐름을 유지한다.
+  완료: `docs/v1-korean-copy.md`에 v1 stage title, target meaning,
+  collectible/card meaning, sentence translation을 리뷰하고 짧은 보조 텍스트
+  기준을 정리했다.
 
 ## Milestone 9: 검증과 release 준비
 

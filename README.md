@@ -17,6 +17,7 @@ https://pico.jjgo.io
 - `docs/v1-content.md`: v1에 포함된 최소 playable stage 목록
 - `docs/v1-vocabulary-qa.md`: v1 vocabulary와 문장 QA 체크리스트
 - `docs/v1-visual-qa.md`: v1 이미지, hit area, viewport QA 체크리스트
+- `docs/v1-korean-copy.md`: v1 한국어 보조 텍스트 리뷰
 - `README.md`: 사람을 위한 실행 방법, 기능 흐름, git/배포 기준
 - `AGENTS.md`: 에이전트 작업, 검증, 커밋 규칙
 
