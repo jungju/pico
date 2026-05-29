@@ -282,9 +282,12 @@
   완료: `docs/v1-assets.md`에 stage ID, stage data, preview/game image,
   card/target image, optional audio 위치와 파일명 규칙을 정리했다.
 
-- [ ] `V1-T071` `P0` 최소 v1 콘텐츠 세트를 제작한다.
+- [x] `V1-T071` `P0` 최소 v1 콘텐츠 세트를 제작한다.
   네 가지 게임 타입마다 최소 1개 이상의 polished playable stage를
   제공한다.
+  완료: `docs/v1-content.md`에 현재 v1 playable stage set을 정리했고,
+  Spot the Difference, Hidden Objects, Maze, Memory Cards가 모두 최소 1개
+  이상의 stage를 가진다.
 
 - [ ] `V1-T072` `P1` vocabulary QA checklist를 만든다.
   stage마다 영어 단어, 한국어 뜻, 문장, 발음 적합성, 연령 적합성을
