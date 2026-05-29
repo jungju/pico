@@ -37,6 +37,7 @@ button {
   grid-template-rows: auto auto auto auto 1fr;
   gap: 18px;
   width: min(860px, calc(100% - 28px));
+  overflow-x: hidden;
   min-height: 100vh;
   margin: 0 auto;
   padding: 28px 0;
@@ -179,6 +180,8 @@ button {
   display: flex;
   gap: 8px;
   overflow-x: auto;
+  min-width: 0;
+  max-width: 100%;
   padding: 2px 2px 5px;
   scrollbar-width: thin;
 }
@@ -400,6 +403,30 @@ button {
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;
+}
+
+.game-option-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  padding: 0 7px;
+  font-size: 0.7rem;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.game-option-status.done {
+  background: #baf1d4;
+  color: #124b34;
+}
+
+.game-option-status.open {
+  background: #ffffff;
+  color: #315160;
 }
 
 .auth-control {

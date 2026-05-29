@@ -319,30 +319,40 @@ export default function App() {
       </section>
 
       <section className="game-list" aria-label="Games">
-        {filteredGames.length ? filteredGames.map((game) => (
-          <button className="game-option" type="button" key={game.id} onClick={() => openStage(game)}>
-            <span className="game-option-media">
-              <img src={game.image} alt="" draggable="false" />
-            </span>
-            <span className="game-option-copy">
-              <strong>{game.title}</strong>
-              <span className="game-option-type">{gameTypeLabel(game.gameType)}</span>
-              {game.titleKo ? (
-                <span className="game-option-title-ko" lang="ko">
-                  {game.titleKo}
+        {filteredGames.length ? (
+          filteredGames.map((game) => {
+            const completed = Boolean(stageProgress[game.id]?.completed);
+            return (
+              <button className="game-option" type="button" key={game.id} onClick={() => openStage(game)}>
+                <span className="game-option-media">
+                  <img src={game.image} alt="" draggable="false" />
                 </span>
-              ) : null}
-              <span className="game-option-badges">
-                {game.badges.map((badge) => (
-                  <span className="game-option-badge" key={badge}>
-                    {badge}
+                <span className="game-option-copy">
+                  <strong>{game.title}</strong>
+                  <span className="game-option-type">{gameTypeLabel(game.gameType)}</span>
+                  {game.titleKo ? (
+                    <span className="game-option-title-ko" lang="ko">
+                      {game.titleKo}
+                    </span>
+                  ) : null}
+                  <span className="game-option-badges">
+                    {showProgressSummary ? (
+                      <span className={`game-option-status ${completed ? "done" : "open"}`}>{completed ? "Done" : "Open"}</span>
+                    ) : null}
+                    {game.badges.map((badge) => (
+                      <span className="game-option-badge" key={badge}>
+                        {badge}
+                      </span>
+                    ))}
                   </span>
-                ))}
-              </span>
-            </span>
-            <ArrowRight aria-hidden="true" size={22} />
-          </button>
-        )) : <p className="game-list-empty">No stages match these filters.</p>}
+                </span>
+                <ArrowRight aria-hidden="true" size={22} />
+              </button>
+            );
+          })
+        ) : (
+          <p className="game-list-empty">No stages match these filters.</p>
+        )}
       </section>
     </main>
   );
