@@ -161,6 +161,9 @@ The current v1 content set provides 20 Maze stages through
 - Spot the Difference provides a `Focus` affordance inside the picture area.
   It opens a modal focus view; mobile stacks enlarged pictures vertically, and
   desktop keeps a side-by-side inspect view.
+- Spot correct and hint markers size themselves from the target area bounds and
+  clamp between 30px and 64px so small differences are not covered and large
+  differences get a proportionate marker.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.

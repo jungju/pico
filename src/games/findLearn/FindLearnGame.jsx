@@ -321,7 +321,9 @@ function Picture({ stage, picture, foundDifferences, hintDifference, wrongPoint,
       {DEBUG_AREAS ? <DebugAreas side={picture.side} stage={stage} /> : null}
       {foundDifferences.map((difference) => {
         const point = getDifferenceMarker(difference, picture.side);
-        return point ? <Marker className="correct-marker" key={difference.id} point={point} /> : null;
+        return point ? (
+          <Marker className="correct-marker" key={difference.id} point={point} size={getDifferenceMarkerSize(difference, picture.side)} />
+        ) : null;
       })}
       {hintDifference ? <HintMarker difference={hintDifference} side={picture.side} /> : null}
       {wrongPoint?.side === picture.side ? <Marker className="wrong-marker" point={wrongPoint} /> : null}
@@ -414,11 +416,22 @@ function SpotFocusView({ pictures, onClose }) {
 
 function HintMarker({ difference, side }) {
   const point = getDifferenceMarker(difference, side);
-  return point ? <Marker className="hint-marker" point={point} /> : null;
+  return point ? <Marker className="hint-marker" point={point} size={getDifferenceMarkerSize(difference, side)} /> : null;
 }
 
-function Marker({ className, point }) {
-  return <span className={`picture-marker ${className}`} style={{ left: `${point.x}%`, top: `${point.y}%` }} />;
+function Marker({ className, point, size = null }) {
+  const markerStyle = {
+    left: `${point.x}%`,
+    top: `${point.y}%`,
+  };
+
+  if (size) {
+    markerStyle["--marker-width"] = size.width;
+    markerStyle["--marker-height"] = size.height;
+    markerStyle["--marker-stroke"] = size.stroke;
+  }
+
+  return <span className={`picture-marker ${className}`} style={markerStyle} />;
 }
 
 function DebugAreas({ stage, side }) {
@@ -500,6 +513,50 @@ function pictureStyle(picture) {
     "--picture-aspect": `${picture.width} / ${picture.height}`,
     "--picture-ratio": `${picture.width / picture.height}`,
   };
+}
+
+function getDifferenceMarkerSize(difference, side) {
+  const area = getDifferenceArea(difference, side);
+  const bounds = areaBounds(area);
+  if (!bounds) return null;
+
+  const widthPercent = clampNumber(bounds.w * 1.35, 8, 20);
+  const heightPercent = clampNumber(bounds.h * 1.35, 8, 20);
+  const longestPercent = Math.max(widthPercent, heightPercent);
+
+  return {
+    width: `clamp(30px, ${widthPercent}%, 64px)`,
+    height: `clamp(30px, ${heightPercent}%, 64px)`,
+    stroke: longestPercent >= 14 ? "4px" : "3px",
+  };
+}
+
+function areaBounds(area) {
+  if (!area) return null;
+
+  if (area.type === "circle") {
+    const diameter = area.r * 2;
+    return { w: diameter, h: diameter };
+  }
+
+  if (area.type === "rect") {
+    return { w: area.w, h: area.h };
+  }
+
+  if (area.type === "polygon" && area.points?.length) {
+    const xs = area.points.map((point) => point[0]);
+    const ys = area.points.map((point) => point[1]);
+    return {
+      w: Math.max(...xs) - Math.min(...xs),
+      h: Math.max(...ys) - Math.min(...ys),
+    };
+  }
+
+  return null;
+}
+
+function clampNumber(value, min, max) {
+  return Math.min(max, Math.max(min, Number.isFinite(value) ? value : min));
 }
 
 function createReadyMessage(stage) {
