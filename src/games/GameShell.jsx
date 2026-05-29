@@ -97,7 +97,14 @@ export function GameShell({
             </span>
           ) : null}
           {statusText ? <span className="hud-chip save-text">{statusText}</span> : null}
-          <span className="progress-meter" aria-hidden="true">
+          <span
+            className="progress-meter"
+            role="progressbar"
+            aria-label="Stage progress"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={progressPercent}
+          >
             <span />
           </span>
         </div>

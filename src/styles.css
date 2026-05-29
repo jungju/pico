@@ -539,23 +539,55 @@ button {
 }
 
 .progress-meter {
+  position: relative;
   display: block;
   grid-column: 1 / -1;
-  height: 12px;
+  height: 14px;
   overflow: hidden;
   border: 2px solid #143c56;
   border-radius: 8px;
-  background: #ffffff;
+  background:
+    linear-gradient(90deg, rgba(20, 60, 86, 0.1) 0 2px, transparent 2px 12px),
+    #ffffff;
+  background-size: 12px 100%;
   box-shadow: inset 0 2px 0 rgba(20, 60, 86, 0.1);
 }
 
+.progress-meter::before {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #143c56;
+  content: "";
+  opacity: 0.44;
+  transform: translateY(-50%);
+}
+
 .progress-meter span {
+  position: relative;
   display: block;
   width: var(--progress-value, 0%);
   height: 100%;
   border-radius: 6px;
   background: linear-gradient(90deg, #ffd45a, #ff8069, #45cf9d);
   transition: width 220ms ease;
+}
+
+.progress-meter span::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: #143c56;
+  content: "";
+  transform: translate(50%, -50%);
 }
 
 .game-actions {
@@ -1593,7 +1625,7 @@ button.picture-frame:hover {
   }
 
   .progress-meter {
-    height: 8px;
+    height: 12px;
   }
 
   .save-text {

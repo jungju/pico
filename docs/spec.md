@@ -145,6 +145,8 @@ The current v1 content set provides 20 Maze stages through
 - The Find & Learn game screen uses a low-contrast illustrated background.
 - The Find & Learn game screen uses a kid-friendly HUD with a stage badge,
   progress meter, and score chips.
+- The progress meter has a visible start marker, thicker track, and
+  `progressbar` semantics.
 - Stage badges use game-type-specific icons and accent colors.
 - On mobile game screens, the HUD keeps stage/progress information and primary
   actions within two compact rows so the play area remains dominant.
