@@ -1,0 +1,131 @@
+{
+  "id": "spot_camping_night_001",
+  "title": "Camping Night",
+  "titleKo": "캠핑 밤",
+  "type": "spot_the_difference",
+  "theme": "camping",
+  "level": 2,
+  "estimatedMinutes": 3,
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "hitPadding": 26,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "tent_color",
+      "label": "tent",
+      "labelKo": "텐트",
+      "targetSide": "right",
+      "bbox": {
+        "x": 816,
+        "y": 148,
+        "width": 128,
+        "height": 128
+      },
+      "description": "The tent is blue.",
+      "descriptionKo": "텐트 색이 파란색이에요.",
+      "action": "changed",
+      "voiceText": "The tent is blue.",
+      "translation": "텐트 색이 파란색이에요."
+    },
+    {
+      "id": "star_color",
+      "label": "star",
+      "labelKo": "별",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1022,
+        "y": 128,
+        "width": 132,
+        "height": 132
+      },
+      "description": "The star is green.",
+      "descriptionKo": "별 색이 초록색이에요.",
+      "action": "changed",
+      "voiceText": "The star is green.",
+      "translation": "별 색이 초록색이에요."
+    },
+    {
+      "id": "moon_color",
+      "label": "moon",
+      "labelKo": "달",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1234,
+        "y": 154,
+        "width": 130,
+        "height": 130
+      },
+      "description": "The moon is yellow.",
+      "descriptionKo": "달 색이 노란색이에요.",
+      "action": "changed",
+      "voiceText": "The moon is yellow.",
+      "translation": "달 색이 노란색이에요."
+    },
+    {
+      "id": "cup_color",
+      "label": "cup",
+      "labelKo": "컵",
+      "targetSide": "right",
+      "bbox": {
+        "x": 840,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The cup is purple.",
+      "descriptionKo": "컵 색이 보라색이에요.",
+      "action": "changed",
+      "voiceText": "The cup is purple.",
+      "translation": "컵 색이 보라색이에요."
+    },
+    {
+      "id": "fish_color",
+      "label": "fish",
+      "labelKo": "물고기",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1194,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The fish is orange.",
+      "descriptionKo": "물고기 색이 주황색이에요.",
+      "action": "changed",
+      "voiceText": "The fish is orange.",
+      "translation": "물고기 색이 주황색이에요."
+    },
+    {
+      "id": "flag_color",
+      "label": "flag",
+      "labelKo": "깃발",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1011,
+        "y": 790,
+        "width": 150,
+        "height": 150
+      },
+      "description": "The flag is red.",
+      "descriptionKo": "깃발 색이 빨간색이에요.",
+      "action": "changed",
+      "voiceText": "The flag is red.",
+      "translation": "깃발 색이 빨간색이에요."
+    }
+  ]
+}

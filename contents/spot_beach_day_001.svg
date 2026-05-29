@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1448" height="1086" viewBox="0 0 1448 1086" role="img" aria-label="Beach Day spot the difference">
+  <defs>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#143c56" flood-opacity="0.16"/>
+    </filter>
+    <pattern id="floor-lines-spot_beach_day_001" width="52" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M 0 0 L 0 52" stroke="#143c56" stroke-opacity="0.08" stroke-width="4"/>
+    </pattern>
+  </defs>
+  <g transform="translate(0 0)">
+    <rect width="724" height="1086" rx="0" fill="#c5f2ff"/>
+    <rect y="626" width="724" height="460" fill="#ffe6a7"/>
+    <rect y="626" width="724" height="460" fill="url(#floor-lines-spot_beach_day_001)"/>
+    <circle cx="582" cy="118" r="62" fill="#ff9f45" opacity="0.7"/>
+    <rect x="48" y="86" width="216" height="190" rx="24" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.95"/>
+    <rect x="70" y="110" width="172" height="136" rx="14" fill="#82ccff"/>
+    <path d="M76 226 C120 178 164 190 210 142 C228 128 240 126 244 130 L244 246 L76 246 Z" fill="#ffffff" opacity="0.46"/>
+    <rect x="72" y="438" width="580" height="58" rx="29" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.86"/>
+    <rect x="84" y="500" width="556" height="288" rx="28" fill="#fff8df" stroke="#143c56" stroke-width="8" filter="url(#soft-shadow)"/>
+    <text x="362" y="580" text-anchor="middle" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Beach Day</text>
+    <path d="M40 358 C140 326 226 394 326 360 C424 326 514 392 680 352" fill="none" stroke="#4aa3ff" stroke-width="16" opacity="0.45"/>
+    <g filter="url(#soft-shadow)"><path d="M104 212 C146 158 166 158 208 212Z" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M156 212 V264 C156 300 204 286 190 262" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M156 166 V212" stroke="#4aa3ff" stroke-width="10"/></g>
+    <g filter="url(#soft-shadow)"><circle cx="364" cy="194" r="46.199999999999996" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M327.7 194 C344 168 384 168 400.3 194" fill="none" stroke="#5ac878" stroke-width="13" stroke-linecap="round"/><path d="M327.7 194 C344 220 384 220 400.3 194" fill="none" stroke="#5ac878" stroke-width="13" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><path d="M526 249 L624 249 L590 297 L558 297Z" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M575 247 L575 157" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M579 163 L647 235 L579 235Z" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <path d="M126 624 C114 524 190 480 254 624Z" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" filter="url(#soft-shadow)"/><path d="M190 494 V610 M156 524 L182 612 M224 524 L198 612" stroke="#a982ff" stroke-width="8" stroke-linecap="round"/>
+    <g filter="url(#soft-shadow)"><path d="M500 532 H588 L568 620 H520Z" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M518 534 C544 472 570 534" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544" cy="530" r="9" fill="#ff9f45"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="350" cy="865" rx="46.5" ry="31.5" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M410 865 L433 823 L433 907Z" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="314" cy="855" r="6" fill="#143c56"/></g>
+  </g>
+  <g transform="translate(724 0)">
+    <rect width="724" height="1086" rx="0" fill="#c5f2ff"/>
+    <rect y="626" width="724" height="460" fill="#ffe6a7"/>
+    <rect y="626" width="724" height="460" fill="url(#floor-lines-spot_beach_day_001)"/>
+    <circle cx="582" cy="118" r="62" fill="#ff9f45" opacity="0.7"/>
+    <rect x="48" y="86" width="216" height="190" rx="24" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.95"/>
+    <rect x="70" y="110" width="172" height="136" rx="14" fill="#82ccff"/>
+    <path d="M76 226 C120 178 164 190 210 142 C228 128 240 126 244 130 L244 246 L76 246 Z" fill="#ffffff" opacity="0.46"/>
+    <rect x="72" y="438" width="580" height="58" rx="29" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.86"/>
+    <rect x="84" y="500" width="556" height="288" rx="28" fill="#fff8df" stroke="#143c56" stroke-width="8" filter="url(#soft-shadow)"/>
+    <text x="362" y="580" text-anchor="middle" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Beach Day</text>
+    <path d="M40 358 C140 326 226 394 326 360 C424 326 514 392 680 352" fill="none" stroke="#4aa3ff" stroke-width="16" opacity="0.45"/>
+    <g filter="url(#soft-shadow)"><path d="M104 212 C146 158 166 158 208 212Z" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M156 212 V264 C156 300 204 286 190 262" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M156 166 V212" stroke="#a982ff" stroke-width="10"/></g>
+    <g filter="url(#soft-shadow)"><circle cx="364" cy="194" r="46.199999999999996" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M327.7 194 C344 168 384 168 400.3 194" fill="none" stroke="#ff9f45" stroke-width="13" stroke-linecap="round"/><path d="M327.7 194 C344 220 384 220 400.3 194" fill="none" stroke="#ff9f45" stroke-width="13" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><path d="M526 249 L624 249 L590 297 L558 297Z" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M575 247 L575 157" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M579 163 L647 235 L579 235Z" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <path d="M126 624 C114 524 190 480 254 624Z" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" filter="url(#soft-shadow)"/><path d="M190 494 V610 M156 524 L182 612 M224 524 L198 612" stroke="#4aa3ff" stroke-width="8" stroke-linecap="round"/>
+    <g filter="url(#soft-shadow)"><path d="M500 532 H588 L568 620 H520Z" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M518 534 C544 472 570 534" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544" cy="530" r="9" fill="#5ac878"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="350" cy="865" rx="46.5" ry="31.5" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M410 865 L433 823 L433 907Z" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="314" cy="855" r="6" fill="#143c56"/></g>
+  </g>
+  <rect x="721" y="0" width="6" height="1086" fill="#143c56" opacity="0.82"/>
+</svg>

@@ -115,9 +115,25 @@ function inferTheme(stage) {
 
 function themeLabel(theme) {
   if (theme === "bedroom") return "Bedroom";
+  if (theme === "beach") return "Beach";
+  if (theme === "camping") return "Camping";
+  if (theme === "classroom") return "Classroom";
+  if (theme === "farm") return "Farm";
   if (theme === "playground") return "Playground";
   if (theme === "picnic") return "Picnic";
   if (theme === "garden") return "Garden";
+  if (theme === "kitchen") return "Kitchen";
+  if (theme === "library") return "Library";
+  if (theme === "museum") return "Museum";
+  if (theme === "music") return "Music";
+  if (theme === "ocean") return "Ocean";
+  if (theme === "party") return "Party";
+  if (theme === "rain") return "Rain";
+  if (theme === "snow") return "Snow";
+  if (theme === "space") return "Space";
+  if (theme === "station") return "Station";
+  if (theme === "toys") return "Toys";
+  if (theme === "zoo") return "Zoo";
   if (theme === "animals") return "Animals";
   return "General";
 }

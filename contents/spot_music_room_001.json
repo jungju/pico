@@ -1,0 +1,131 @@
+{
+  "id": "spot_music_room_001",
+  "title": "Music Room",
+  "titleKo": "음악 방",
+  "type": "spot_the_difference",
+  "theme": "music",
+  "level": 2,
+  "estimatedMinutes": 3,
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "hitPadding": 26,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "drum_color",
+      "label": "drum",
+      "labelKo": "북",
+      "targetSide": "right",
+      "bbox": {
+        "x": 816,
+        "y": 148,
+        "width": 128,
+        "height": 128
+      },
+      "description": "The drum is green.",
+      "descriptionKo": "북 색이 초록색이에요.",
+      "action": "changed",
+      "voiceText": "The drum is green.",
+      "translation": "북 색이 초록색이에요."
+    },
+    {
+      "id": "star_color",
+      "label": "star",
+      "labelKo": "별",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1022,
+        "y": 128,
+        "width": 132,
+        "height": 132
+      },
+      "description": "The star is yellow.",
+      "descriptionKo": "별 색이 노란색이에요.",
+      "action": "changed",
+      "voiceText": "The star is yellow.",
+      "translation": "별 색이 노란색이에요."
+    },
+    {
+      "id": "book_color",
+      "label": "music book",
+      "labelKo": "악보책",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1234,
+        "y": 154,
+        "width": 130,
+        "height": 130
+      },
+      "description": "The music book is purple.",
+      "descriptionKo": "악보책 색이 보라색이에요.",
+      "action": "changed",
+      "voiceText": "The music book is purple.",
+      "translation": "악보책 색이 보라색이에요."
+    },
+    {
+      "id": "balloon_color",
+      "label": "balloon",
+      "labelKo": "풍선",
+      "targetSide": "right",
+      "bbox": {
+        "x": 840,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The balloon is orange.",
+      "descriptionKo": "풍선 색이 주황색이에요.",
+      "action": "changed",
+      "voiceText": "The balloon is orange.",
+      "translation": "풍선 색이 주황색이에요."
+    },
+    {
+      "id": "robot_color",
+      "label": "robot",
+      "labelKo": "로봇",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1194,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The robot is red.",
+      "descriptionKo": "로봇 색이 빨간색이에요.",
+      "action": "changed",
+      "voiceText": "The robot is red.",
+      "translation": "로봇 색이 빨간색이에요."
+    },
+    {
+      "id": "guitar_color",
+      "label": "guitar",
+      "labelKo": "기타",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1011,
+        "y": 790,
+        "width": 150,
+        "height": 150
+      },
+      "description": "The guitar is blue.",
+      "descriptionKo": "기타 색이 파란색이에요.",
+      "action": "changed",
+      "voiceText": "The guitar is blue.",
+      "translation": "기타 색이 파란색이에요."
+    }
+  ]
+}

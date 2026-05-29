@@ -59,8 +59,8 @@ public/assets/audio/<word>.mp3
 
 ## File Type Defaults
 
-- Generated or illustrated scene images: `.png` or `.webp`
-- Deterministic card/maze preview assets: `.svg`
+- Generated or illustrated scene images: `.png`, `.webp`, or `.svg`
+- Deterministic card, maze preview, and reusable generated stage assets: `.svg`
 - Photos or rich raster art: `.jpg`, `.png`, or `.webp`
 - Audio: `.mp3`
 

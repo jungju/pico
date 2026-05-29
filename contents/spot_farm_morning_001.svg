@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1448" height="1086" viewBox="0 0 1448 1086" role="img" aria-label="Farm Morning spot the difference">
+  <defs>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#143c56" flood-opacity="0.16"/>
+    </filter>
+    <pattern id="floor-lines-spot_farm_morning_001" width="52" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M 0 0 L 0 52" stroke="#143c56" stroke-opacity="0.08" stroke-width="4"/>
+    </pattern>
+  </defs>
+  <g transform="translate(0 0)">
+    <rect width="724" height="1086" rx="0" fill="#dff7f2"/>
+    <rect y="626" width="724" height="460" fill="#d8f0a9"/>
+    <rect y="626" width="724" height="460" fill="url(#floor-lines-spot_farm_morning_001)"/>
+    <circle cx="582" cy="118" r="62" fill="#ff9f45" opacity="0.7"/>
+    <rect x="48" y="86" width="216" height="190" rx="24" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.95"/>
+    <rect x="70" y="110" width="172" height="136" rx="14" fill="#c5f2ff"/>
+    <path d="M76 226 C120 178 164 190 210 142 C228 128 240 126 244 130 L244 246 L76 246 Z" fill="#ffffff" opacity="0.46"/>
+    <rect x="72" y="438" width="580" height="58" rx="29" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.86"/>
+    <rect x="84" y="500" width="556" height="288" rx="28" fill="#fff8df" stroke="#143c56" stroke-width="8" filter="url(#soft-shadow)"/>
+    <text x="362" y="580" text-anchor="middle" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Farm Morning</text>
+    <path d="M505 346 C536 310 600 314 630 354 C594 360 546 366 505 346 Z" fill="#5ac878" opacity="0.42"/>
+    <g filter="url(#soft-shadow)"><circle cx="156" cy="220" r="39.68" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M160 158 C178 130 214 140 208 172 C184 178 168 172 160 158Z" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M156 168 C164 146 150 134 132 124" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="364" cy="198" rx="43.56" ry="31.68" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="406" cy="172" r="18.48" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M430 170 L460 184 L430 196Z" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="414" cy="166" r="6" fill="#143c56"/></g>
+    <g filter="url(#soft-shadow)"><path d="M575 241 V272" stroke="#34895e" stroke-width="10"/><circle cx="575" cy="219" r="23" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#ffd45a" transform="rotate(0 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#ffd45a" transform="rotate(60 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#ffd45a" transform="rotate(120 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#ffd45a" transform="rotate(180 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#ffd45a" transform="rotate(240 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#ffd45a" transform="rotate(300 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><path d="M146 532 H234 L214 620 H166Z" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M164 534 C190 472 216 534" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="190" cy="530" r="9" fill="#f45d5d"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="544" cy="610" rx="56.24" ry="22" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M512 608 C518 508 570 508 576 608Z" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><path d="M328 832 L396 832 L362 920Z" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M362 834 C342 802 310 812 314 786 M362 834 C386 802 420 808 414 782" stroke="#5ac878" stroke-width="12" fill="none" stroke-linecap="round"/></g>
+  </g>
+  <g transform="translate(724 0)">
+    <rect width="724" height="1086" rx="0" fill="#dff7f2"/>
+    <rect y="626" width="724" height="460" fill="#d8f0a9"/>
+    <rect y="626" width="724" height="460" fill="url(#floor-lines-spot_farm_morning_001)"/>
+    <circle cx="582" cy="118" r="62" fill="#ff9f45" opacity="0.7"/>
+    <rect x="48" y="86" width="216" height="190" rx="24" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.95"/>
+    <rect x="70" y="110" width="172" height="136" rx="14" fill="#c5f2ff"/>
+    <path d="M76 226 C120 178 164 190 210 142 C228 128 240 126 244 130 L244 246 L76 246 Z" fill="#ffffff" opacity="0.46"/>
+    <rect x="72" y="438" width="580" height="58" rx="29" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.86"/>
+    <rect x="84" y="500" width="556" height="288" rx="28" fill="#fff8df" stroke="#143c56" stroke-width="8" filter="url(#soft-shadow)"/>
+    <text x="362" y="580" text-anchor="middle" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Farm Morning</text>
+    <path d="M505 346 C536 310 600 314 630 354 C594 360 546 366 505 346 Z" fill="#5ac878" opacity="0.42"/>
+    <g filter="url(#soft-shadow)"><circle cx="156" cy="220" r="39.68" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M160 158 C178 130 214 140 208 172 C184 178 168 172 160 158Z" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M156 168 C164 146 150 134 132 124" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="364" cy="198" rx="43.56" ry="31.68" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="406" cy="172" r="18.48" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M430 170 L460 184 L430 196Z" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="414" cy="166" r="6" fill="#143c56"/></g>
+    <g filter="url(#soft-shadow)"><path d="M575 241 V272" stroke="#34895e" stroke-width="10"/><circle cx="575" cy="219" r="23" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#f45d5d" transform="rotate(0 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#f45d5d" transform="rotate(60 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#f45d5d" transform="rotate(120 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#f45d5d" transform="rotate(180 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#f45d5d" transform="rotate(240 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="575" cy="219" rx="24" ry="42" fill="#f45d5d" transform="rotate(300 575 219)" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><path d="M146 532 H234 L214 620 H166Z" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M164 534 C190 472 216 534" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="190" cy="530" r="9" fill="#ffd45a"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="544" cy="610" rx="56.24" ry="22" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M512 608 C518 508 570 508 576 608Z" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><path d="M328 832 L396 832 L362 920Z" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M362 834 C342 802 310 812 314 786 M362 834 C386 802 420 808 414 782" stroke="#5ac878" stroke-width="12" fill="none" stroke-linecap="round"/></g>
+  </g>
+  <rect x="721" y="0" width="6" height="1086" fill="#143c56" opacity="0.82"/>
+</svg>

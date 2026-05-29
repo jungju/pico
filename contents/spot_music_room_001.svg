@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1448" height="1086" viewBox="0 0 1448 1086" role="img" aria-label="Music Room spot the difference">
+  <defs>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#143c56" flood-opacity="0.16"/>
+    </filter>
+    <pattern id="floor-lines-spot_music_room_001" width="52" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M 0 0 L 0 52" stroke="#143c56" stroke-opacity="0.08" stroke-width="4"/>
+    </pattern>
+  </defs>
+  <g transform="translate(0 0)">
+    <rect width="724" height="1086" rx="0" fill="#f1e8ff"/>
+    <rect y="626" width="724" height="460" fill="#c5f2ff"/>
+    <rect y="626" width="724" height="460" fill="url(#floor-lines-spot_music_room_001)"/>
+    <circle cx="582" cy="118" r="62" fill="#ff9f45" opacity="0.7"/>
+    <rect x="48" y="86" width="216" height="190" rx="24" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.95"/>
+    <rect x="70" y="110" width="172" height="136" rx="14" fill="#fff0a5"/>
+    <path d="M76 226 C120 178 164 190 210 142 C228 128 240 126 244 130 L244 246 L76 246 Z" fill="#ffffff" opacity="0.46"/>
+    <rect x="72" y="438" width="580" height="58" rx="29" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.86"/>
+    <rect x="84" y="500" width="556" height="288" rx="28" fill="#fff8df" stroke="#143c56" stroke-width="8" filter="url(#soft-shadow)"/>
+    <text x="362" y="580" text-anchor="middle" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Music Room</text>
+    <path d="M505 346 C536 310 600 314 630 354 C594 360 546 366 505 346 Z" fill="#5ac878" opacity="0.42"/>
+    <g filter="url(#soft-shadow)"><ellipse cx="156" cy="188" rx="39.68" ry="28" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><rect x="120" y="188" width="72" height="58" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="156" cy="246" rx="39.68" ry="28" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M108 164 L204 234 M204 164 L108 234" stroke="#8c5a2b" stroke-width="8"/></g>
+    <path d="M364,143.84 L377.1899010614431,175.84565864622618 L411.7049948573649,178.49970756215265 L385.34170822566324,200.93434135377382 L393.48330825499045,234.58029243784736 L364,216.44 L334.51669174500955,234.58029243784736 L342.65829177433676,200.93434135377382 L316.2950051426351,178.49970756215265 L350.8100989385569,175.84565864622618 Z" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" filter="url(#soft-shadow)"/>
+    <g filter="url(#soft-shadow)"><rect x="522" y="168" width="106" height="102" rx="14" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M575 172 V266" stroke="#ffffff" stroke-width="8"/><path d="M544 208 H557" stroke="#ffd45a" stroke-width="9"/><path d="M593 240 H606" stroke="#ffd45a" stroke-width="9"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="190" cy="548" rx="39.96" ry="50.32" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M190 608 C172 644 212 658 192 686" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M178 600 L202 600 L190 620Z" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><rect x="510" y="518" width="68" height="56" rx="14" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><rect x="498" y="584" width="92" height="32" rx="18" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="520" cy="546" r="7" fill="#143c56"/><circle cx="568" cy="546" r="7" fill="#143c56"/><path d="M478 574 H498 M590 574 H610" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="334" cy="893" rx="42" ry="54" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="384" cy="855" rx="36" ry="46" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><rect x="404" y="771" width="28" height="112" rx="12" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="360" cy="877" r="14" fill="#fff8df" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+  </g>
+  <g transform="translate(724 0)">
+    <rect width="724" height="1086" rx="0" fill="#f1e8ff"/>
+    <rect y="626" width="724" height="460" fill="#c5f2ff"/>
+    <rect y="626" width="724" height="460" fill="url(#floor-lines-spot_music_room_001)"/>
+    <circle cx="582" cy="118" r="62" fill="#ff9f45" opacity="0.7"/>
+    <rect x="48" y="86" width="216" height="190" rx="24" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.95"/>
+    <rect x="70" y="110" width="172" height="136" rx="14" fill="#fff0a5"/>
+    <path d="M76 226 C120 178 164 190 210 142 C228 128 240 126 244 130 L244 246 L76 246 Z" fill="#ffffff" opacity="0.46"/>
+    <rect x="72" y="438" width="580" height="58" rx="29" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.86"/>
+    <rect x="84" y="500" width="556" height="288" rx="28" fill="#fff8df" stroke="#143c56" stroke-width="8" filter="url(#soft-shadow)"/>
+    <text x="362" y="580" text-anchor="middle" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Music Room</text>
+    <path d="M505 346 C536 310 600 314 630 354 C594 360 546 366 505 346 Z" fill="#5ac878" opacity="0.42"/>
+    <g filter="url(#soft-shadow)"><ellipse cx="156" cy="188" rx="39.68" ry="28" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><rect x="120" y="188" width="72" height="58" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="156" cy="246" rx="39.68" ry="28" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M108 164 L204 234 M204 164 L108 234" stroke="#8c5a2b" stroke-width="8"/></g>
+    <path d="M364,143.84 L377.1899010614431,175.84565864622618 L411.7049948573649,178.49970756215265 L385.34170822566324,200.93434135377382 L393.48330825499045,234.58029243784736 L364,216.44 L334.51669174500955,234.58029243784736 L342.65829177433676,200.93434135377382 L316.2950051426351,178.49970756215265 L350.8100989385569,175.84565864622618 Z" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" filter="url(#soft-shadow)"/>
+    <g filter="url(#soft-shadow)"><rect x="522" y="168" width="106" height="102" rx="14" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M575 172 V266" stroke="#ffffff" stroke-width="8"/><path d="M544 208 H557" stroke="#f45d5d" stroke-width="9"/><path d="M593 240 H606" stroke="#f45d5d" stroke-width="9"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="190" cy="548" rx="39.96" ry="50.32" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M190 608 C172 644 212 658 192 686" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M178 600 L202 600 L190 620Z" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><rect x="510" y="518" width="68" height="56" rx="14" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><rect x="498" y="584" width="92" height="32" rx="18" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="520" cy="546" r="7" fill="#143c56"/><circle cx="568" cy="546" r="7" fill="#143c56"/><path d="M478 574 H498 M590 574 H610" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><ellipse cx="334" cy="893" rx="42" ry="54" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="384" cy="855" rx="36" ry="46" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><rect x="404" y="771" width="28" height="112" rx="12" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="360" cy="877" r="14" fill="#fff8df" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+  </g>
+  <rect x="721" y="0" width="6" height="1086" fill="#143c56" opacity="0.82"/>
+</svg>

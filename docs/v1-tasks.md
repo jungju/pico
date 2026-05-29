@@ -312,8 +312,12 @@
   stage로 확정하고 `docs/v1-scope.md`, `docs/v1-content.md`,
   `README.md`, `docs/spec.md`에 반영했다.
 
-- [ ] `V1-T076` `P0` 틀린그림 찾기 stage를 20개로 확장한다.
+- [x] `V1-T076` `P0` 틀린그림 찾기 stage를 20개로 확장한다.
   현재 seed stage 3개를 유지하고, 출시 전 17개 stage를 추가한다.
+  완료: 기존 raster Spot stage 3개를 유지하고, deterministic SVG 기반
+  stage 17개를 `contents/`에 추가해 Spot the Difference stage를 총 20개로
+  확장했다. `contents/*.svg` paired image를 loader와 문서에서 지원하도록
+  갱신했다.
 
 - [ ] `V1-T077` `P0` 숨은그림 찾기 stage를 20개로 확장한다.
   현재 seed stage 1개를 유지하고, 출시 전 19개 stage를 추가한다.

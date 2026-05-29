@@ -1,0 +1,131 @@
+{
+  "id": "spot_zoo_path_001",
+  "title": "Zoo Path",
+  "titleKo": "동물원 길",
+  "type": "spot_the_difference",
+  "theme": "zoo",
+  "level": 2,
+  "estimatedMinutes": 3,
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "hitPadding": 26,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "bird_color",
+      "label": "bird",
+      "labelKo": "새",
+      "targetSide": "right",
+      "bbox": {
+        "x": 816,
+        "y": 148,
+        "width": 128,
+        "height": 128
+      },
+      "description": "The bird is blue.",
+      "descriptionKo": "새 색이 파란색이에요.",
+      "action": "changed",
+      "voiceText": "The bird is blue.",
+      "translation": "새 색이 파란색이에요."
+    },
+    {
+      "id": "fish_color",
+      "label": "fish",
+      "labelKo": "물고기",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1022,
+        "y": 128,
+        "width": 132,
+        "height": 132
+      },
+      "description": "The fish is green.",
+      "descriptionKo": "물고기 색이 초록색이에요.",
+      "action": "changed",
+      "voiceText": "The fish is green.",
+      "translation": "물고기 색이 초록색이에요."
+    },
+    {
+      "id": "leaf_color",
+      "label": "leaf",
+      "labelKo": "잎",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1234,
+        "y": 154,
+        "width": 130,
+        "height": 130
+      },
+      "description": "The leaf is yellow.",
+      "descriptionKo": "잎 색이 노란색이에요.",
+      "action": "changed",
+      "voiceText": "The leaf is yellow.",
+      "translation": "잎 색이 노란색이에요."
+    },
+    {
+      "id": "hat_color",
+      "label": "hat",
+      "labelKo": "모자",
+      "targetSide": "right",
+      "bbox": {
+        "x": 840,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The hat is purple.",
+      "descriptionKo": "모자 색이 보라색이에요.",
+      "action": "changed",
+      "voiceText": "The hat is purple.",
+      "translation": "모자 색이 보라색이에요."
+    },
+    {
+      "id": "balloon_color",
+      "label": "balloon",
+      "labelKo": "풍선",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1194,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The balloon is orange.",
+      "descriptionKo": "풍선 색이 주황색이에요.",
+      "action": "changed",
+      "voiceText": "The balloon is orange.",
+      "translation": "풍선 색이 주황색이에요."
+    },
+    {
+      "id": "camera_color",
+      "label": "camera",
+      "labelKo": "카메라",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1011,
+        "y": 790,
+        "width": 150,
+        "height": 150
+      },
+      "description": "The camera is red.",
+      "descriptionKo": "카메라 색이 빨간색이에요.",
+      "action": "changed",
+      "voiceText": "The camera is red.",
+      "translation": "카메라 색이 빨간색이에요."
+    }
+  ]
+}

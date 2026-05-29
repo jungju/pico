@@ -2,7 +2,7 @@ const contentJsonModules = import.meta.glob("../../../../contents/*.json", {
   eager: true,
   import: "default",
 });
-const contentImageModules = import.meta.glob("../../../../contents/*.{png,jpg,jpeg,webp}", {
+const contentImageModules = import.meta.glob("../../../../contents/*.{png,jpg,jpeg,webp,svg}", {
   eager: true,
   import: "default",
   query: "?url",
@@ -150,7 +150,7 @@ function expandBbox(bbox, padding, panel) {
 
 function findImageForStem(stem) {
   const imageEntry = Object.entries(contentImageModules).find(([imagePath]) => {
-    return basename(imagePath).replace(/\.(png|jpe?g|webp)$/i, "") === stem;
+    return basename(imagePath).replace(/\.(png|jpe?g|webp|svg)$/i, "") === stem;
   });
   return imageEntry?.[1] || "";
 }

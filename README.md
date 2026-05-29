@@ -59,6 +59,7 @@ https://pico.jjgo.io
 - 로그인한 사용자에게는 첫 화면에 총 포인트와 연속 방문 streak가 표시됩니다.
 - 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage와 v1 신규 게임 stage 카드가 표시됩니다.
 - v1 출시 콘텐츠 목표는 게임 타입별 20개, 총 80개 playable stage입니다.
+- 현재 틀린그림 찾기는 `contents`에 등록된 20개 stage를 제공합니다.
 - 게임 선택 화면에서 stage 카드를 누르면 게임 화면으로 들어갑니다.
 - 각 stage 게임 화면 URL은 `/games/<game-type>/<stage-id>`입니다.
 - v1 숨은그림 찾기 첫 stage는 `/games/hidden_objects/hidden_picnic_001`입니다.
@@ -91,7 +92,7 @@ https://pico.jjgo.io
 Find & Learn은 투명 DOM 클릭 영역 대신 stage data와 이미지 기준 좌표 판정을 사용합니다. `contents`에 JSON과 같은 이름의 이미지를 넣으면 첫 화면에 자동 등록됩니다.
 
 - Content stage data: `contents/*.json`
-- Content image: JSON 파일과 같은 이름의 `.png`, `.jpg`, `.jpeg`, `.webp`
+- Content image: JSON 파일과 같은 이름의 `.png`, `.jpg`, `.jpeg`, `.webp`, `.svg`
 - Built-in fallback stage data: `src/games/findLearn/stages/stage001.js`
 - Hit testing: `src/games/findLearn/hitTesting.js`
 - Built-in fallback image: `public/assets/`

@@ -1,0 +1,131 @@
+{
+  "id": "spot_dinosaur_museum_001",
+  "title": "Dinosaur Museum",
+  "titleKo": "공룡 박물관",
+  "type": "spot_the_difference",
+  "theme": "museum",
+  "level": 2,
+  "estimatedMinutes": 3,
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "hitPadding": 26,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "dinosaur_color",
+      "label": "dinosaur",
+      "labelKo": "공룡",
+      "targetSide": "right",
+      "bbox": {
+        "x": 816,
+        "y": 148,
+        "width": 128,
+        "height": 128
+      },
+      "description": "The dinosaur is purple.",
+      "descriptionKo": "공룡 색이 보라색이에요.",
+      "action": "changed",
+      "voiceText": "The dinosaur is purple.",
+      "translation": "공룡 색이 보라색이에요."
+    },
+    {
+      "id": "leaf_color",
+      "label": "leaf",
+      "labelKo": "잎",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1022,
+        "y": 128,
+        "width": 132,
+        "height": 132
+      },
+      "description": "The leaf is orange.",
+      "descriptionKo": "잎 색이 주황색이에요.",
+      "action": "changed",
+      "voiceText": "The leaf is orange.",
+      "translation": "잎 색이 주황색이에요."
+    },
+    {
+      "id": "bone_color",
+      "label": "bone",
+      "labelKo": "뼈",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1234,
+        "y": 154,
+        "width": 130,
+        "height": 130
+      },
+      "description": "The bone is red.",
+      "descriptionKo": "뼈 색이 빨간색이에요.",
+      "action": "changed",
+      "voiceText": "The bone is red.",
+      "translation": "뼈 색이 빨간색이에요."
+    },
+    {
+      "id": "hat_color",
+      "label": "hat",
+      "labelKo": "모자",
+      "targetSide": "right",
+      "bbox": {
+        "x": 840,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The hat is blue.",
+      "descriptionKo": "모자 색이 파란색이에요.",
+      "action": "changed",
+      "voiceText": "The hat is blue.",
+      "translation": "모자 색이 파란색이에요."
+    },
+    {
+      "id": "flag_color",
+      "label": "flag",
+      "labelKo": "깃발",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1194,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The flag is green.",
+      "descriptionKo": "깃발 색이 초록색이에요.",
+      "action": "changed",
+      "voiceText": "The flag is green.",
+      "translation": "깃발 색이 초록색이에요."
+    },
+    {
+      "id": "clock_color",
+      "label": "clock",
+      "labelKo": "시계",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1011,
+        "y": 790,
+        "width": 150,
+        "height": 150
+      },
+      "description": "The clock is yellow.",
+      "descriptionKo": "시계 색이 노란색이에요.",
+      "action": "changed",
+      "voiceText": "The clock is yellow.",
+      "translation": "시계 색이 노란색이에요."
+    }
+  ]
+}

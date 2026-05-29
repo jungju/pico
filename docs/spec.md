@@ -21,7 +21,7 @@ operation guide.
 - `docs/v1-korean-copy.md`: v1 Korean helper copy review
 - `docs/v1-manual-qa.md`: v1 stage route and completion QA results
 - `contents/*.json`: Find & Learn content stages loaded into the game selector
-- `contents/*.{png,jpg,jpeg,webp}`: images paired with content JSON files by
+- `contents/*.{png,jpg,jpeg,webp,svg}`: images paired with content JSON files by
   matching filename stem
 - `src/App.jsx`: current game selection page and game registry
 - `src/games/gameTypes.js`: stable v1 game type IDs and display metadata
@@ -87,6 +87,7 @@ The first game is `Find & Learn`:
 
 - Opened from the Pico game selection page.
 - Loads one card per stage from `contents` when content stages exist.
+- Provides 20 Spot the Difference stages in the current v1 content set.
 - Spots the differences between two pictures.
 - Lets the user click objects to see and hear English words.
 - Runs on GitHub Pages as a static web game.
@@ -194,6 +195,7 @@ Each content JSON file must have a same-stem image beside it:
 ```text
 contents/spot_playground_001.json
 contents/spot_playground_001.png
+contents/spot_classroom_art_001.svg
 ```
 
 Supported image extensions:
@@ -202,9 +204,11 @@ Supported image extensions:
 - `.jpg`
 - `.jpeg`
 - `.webp`
+- `.svg`
 
-Content images may contain the two comparison panels in one image. The current
-content contract uses a left and right panel inside the same bitmap.
+Content images may contain the two comparison panels in one raster image or
+deterministic SVG. The current content contract uses a left and right panel
+inside the same image asset.
 
 Content shape:
 

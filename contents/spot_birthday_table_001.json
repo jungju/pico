@@ -1,0 +1,131 @@
+{
+  "id": "spot_birthday_table_001",
+  "title": "Birthday Table",
+  "titleKo": "생일 테이블",
+  "type": "spot_the_difference",
+  "theme": "party",
+  "level": 2,
+  "estimatedMinutes": 3,
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "hitPadding": 26,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "cupcake_color",
+      "label": "cupcake",
+      "labelKo": "컵케이크",
+      "targetSide": "right",
+      "bbox": {
+        "x": 816,
+        "y": 148,
+        "width": 128,
+        "height": 128
+      },
+      "description": "The cupcake is orange.",
+      "descriptionKo": "컵케이크 색이 주황색이에요.",
+      "action": "changed",
+      "voiceText": "The cupcake is orange.",
+      "translation": "컵케이크 색이 주황색이에요."
+    },
+    {
+      "id": "balloon_color",
+      "label": "balloon",
+      "labelKo": "풍선",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1022,
+        "y": 128,
+        "width": 132,
+        "height": 132
+      },
+      "description": "The balloon is red.",
+      "descriptionKo": "풍선 색이 빨간색이에요.",
+      "action": "changed",
+      "voiceText": "The balloon is red.",
+      "translation": "풍선 색이 빨간색이에요."
+    },
+    {
+      "id": "star_color",
+      "label": "star",
+      "labelKo": "별",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1234,
+        "y": 154,
+        "width": 130,
+        "height": 130
+      },
+      "description": "The star is blue.",
+      "descriptionKo": "별 색이 파란색이에요.",
+      "action": "changed",
+      "voiceText": "The star is blue.",
+      "translation": "별 색이 파란색이에요."
+    },
+    {
+      "id": "gift_color",
+      "label": "gift",
+      "labelKo": "선물",
+      "targetSide": "right",
+      "bbox": {
+        "x": 840,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The gift is green.",
+      "descriptionKo": "선물 색이 초록색이에요.",
+      "action": "changed",
+      "voiceText": "The gift is green.",
+      "translation": "선물 색이 초록색이에요."
+    },
+    {
+      "id": "hat_color",
+      "label": "party hat",
+      "labelKo": "파티 모자",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1194,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The party hat is yellow.",
+      "descriptionKo": "파티 모자 색이 노란색이에요.",
+      "action": "changed",
+      "voiceText": "The party hat is yellow.",
+      "translation": "파티 모자 색이 노란색이에요."
+    },
+    {
+      "id": "cup_color",
+      "label": "cup",
+      "labelKo": "컵",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1011,
+        "y": 790,
+        "width": 150,
+        "height": 150
+      },
+      "description": "The cup is purple.",
+      "descriptionKo": "컵 색이 보라색이에요.",
+      "action": "changed",
+      "voiceText": "The cup is purple.",
+      "translation": "컵 색이 보라색이에요."
+    }
+  ]
+}

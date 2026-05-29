@@ -1,0 +1,131 @@
+{
+  "id": "spot_beach_day_001",
+  "title": "Beach Day",
+  "titleKo": "해변 놀이",
+  "type": "spot_the_difference",
+  "theme": "beach",
+  "level": 2,
+  "estimatedMinutes": 3,
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "hitPadding": 26,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "umbrella_color",
+      "label": "umbrella",
+      "labelKo": "우산",
+      "targetSide": "right",
+      "bbox": {
+        "x": 816,
+        "y": 148,
+        "width": 128,
+        "height": 128
+      },
+      "description": "The umbrella is green.",
+      "descriptionKo": "우산 색이 초록색이에요.",
+      "action": "changed",
+      "voiceText": "The umbrella is green.",
+      "translation": "우산 색이 초록색이에요."
+    },
+    {
+      "id": "ball_color",
+      "label": "beach ball",
+      "labelKo": "비치볼",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1022,
+        "y": 128,
+        "width": 132,
+        "height": 132
+      },
+      "description": "The beach ball is yellow.",
+      "descriptionKo": "비치볼 색이 노란색이에요.",
+      "action": "changed",
+      "voiceText": "The beach ball is yellow.",
+      "translation": "비치볼 색이 노란색이에요."
+    },
+    {
+      "id": "boat_color",
+      "label": "boat",
+      "labelKo": "배",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1234,
+        "y": 154,
+        "width": 130,
+        "height": 130
+      },
+      "description": "The boat is purple.",
+      "descriptionKo": "배 색이 보라색이에요.",
+      "action": "changed",
+      "voiceText": "The boat is purple.",
+      "translation": "배 색이 보라색이에요."
+    },
+    {
+      "id": "shell_color",
+      "label": "shell",
+      "labelKo": "조개",
+      "targetSide": "right",
+      "bbox": {
+        "x": 840,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The shell is orange.",
+      "descriptionKo": "조개 색이 주황색이에요.",
+      "action": "changed",
+      "voiceText": "The shell is orange.",
+      "translation": "조개 색이 주황색이에요."
+    },
+    {
+      "id": "bucket_color",
+      "label": "bucket",
+      "labelKo": "양동이",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1194,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The bucket is red.",
+      "descriptionKo": "양동이 색이 빨간색이에요.",
+      "action": "changed",
+      "voiceText": "The bucket is red.",
+      "translation": "양동이 색이 빨간색이에요."
+    },
+    {
+      "id": "fish_color",
+      "label": "fish",
+      "labelKo": "물고기",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1011,
+        "y": 790,
+        "width": 150,
+        "height": 150
+      },
+      "description": "The fish is blue.",
+      "descriptionKo": "물고기 색이 파란색이에요.",
+      "action": "changed",
+      "voiceText": "The fish is blue.",
+      "translation": "물고기 색이 파란색이에요."
+    }
+  ]
+}

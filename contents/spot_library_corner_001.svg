@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1448" height="1086" viewBox="0 0 1448 1086" role="img" aria-label="Library Corner spot the difference">
+  <defs>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#143c56" flood-opacity="0.16"/>
+    </filter>
+    <pattern id="floor-lines-spot_library_corner_001" width="52" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M 0 0 L 0 52" stroke="#143c56" stroke-opacity="0.08" stroke-width="4"/>
+    </pattern>
+  </defs>
+  <g transform="translate(0 0)">
+    <rect width="724" height="1086" rx="0" fill="#fff0d1"/>
+    <rect y="626" width="724" height="460" fill="#e8d6b8"/>
+    <rect y="626" width="724" height="460" fill="url(#floor-lines-spot_library_corner_001)"/>
+    <circle cx="582" cy="118" r="62" fill="#ff9f45" opacity="0.7"/>
+    <rect x="48" y="86" width="216" height="190" rx="24" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.95"/>
+    <rect x="70" y="110" width="172" height="136" rx="14" fill="#c5f2ff"/>
+    <path d="M76 226 C120 178 164 190 210 142 C228 128 240 126 244 130 L244 246 L76 246 Z" fill="#ffffff" opacity="0.46"/>
+    <rect x="72" y="438" width="580" height="58" rx="29" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.86"/>
+    <rect x="84" y="500" width="556" height="288" rx="28" fill="#fff8df" stroke="#143c56" stroke-width="8" filter="url(#soft-shadow)"/>
+    <text x="362" y="580" text-anchor="middle" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Library Corner</text>
+    <path d="M505 346 C536 310 600 314 630 354 C594 360 546 366 505 346 Z" fill="#5ac878" opacity="0.42"/>
+    <g filter="url(#soft-shadow)"><rect x="104" y="162" width="104" height="100" rx="14" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M156 166 V258" stroke="#ffffff" stroke-width="8"/><path d="M126 202 H138" stroke="#ff9f45" stroke-width="9"/><path d="M174 234 H186" stroke="#ff9f45" stroke-width="9"/></g>
+    <g filter="url(#soft-shadow)"><path d="M312 152 H416 L398 208 H330Z" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M364 208 V266" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M318 270 H410" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><path d="M544 266 L616 198 L582 164 L512 232Z" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M582 164 L626 154 L616 198Z" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><circle cx="190" cy="566" r="50.32" fill="#ffffff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M190 566 V524 M190 566 L228 586" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="190" cy="566" r="8" fill="#f45d5d"/></g>
+    <g filter="url(#soft-shadow)"><rect x="504" y="518" width="80" height="110" rx="22" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M512 522 C516 484 572 484 576 522" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><rect x="516" y="578" width="56" height="38" rx="10" fill="#ffd45a" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <path d="M362,808 L376.98852393345805,844.3700666434388 L416.21022142882373,847.386031320628 L386.25194116552643,872.8799333565612 L395.503759380671,911.113968679372 L362,890.5 L328.49624061932906,911.113968679372 L337.74805883447357,872.8799333565612 L307.78977857117627,847.386031320628 L347.01147606654195,844.3700666434388 Z" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" filter="url(#soft-shadow)"/>
+  </g>
+  <g transform="translate(724 0)">
+    <rect width="724" height="1086" rx="0" fill="#fff0d1"/>
+    <rect y="626" width="724" height="460" fill="#e8d6b8"/>
+    <rect y="626" width="724" height="460" fill="url(#floor-lines-spot_library_corner_001)"/>
+    <circle cx="582" cy="118" r="62" fill="#ff9f45" opacity="0.7"/>
+    <rect x="48" y="86" width="216" height="190" rx="24" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.95"/>
+    <rect x="70" y="110" width="172" height="136" rx="14" fill="#c5f2ff"/>
+    <path d="M76 226 C120 178 164 190 210 142 C228 128 240 126 244 130 L244 246 L76 246 Z" fill="#ffffff" opacity="0.46"/>
+    <rect x="72" y="438" width="580" height="58" rx="29" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.86"/>
+    <rect x="84" y="500" width="556" height="288" rx="28" fill="#fff8df" stroke="#143c56" stroke-width="8" filter="url(#soft-shadow)"/>
+    <text x="362" y="580" text-anchor="middle" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Library Corner</text>
+    <path d="M505 346 C536 310 600 314 630 354 C594 360 546 366 505 346 Z" fill="#5ac878" opacity="0.42"/>
+    <g filter="url(#soft-shadow)"><rect x="104" y="162" width="104" height="100" rx="14" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M156 166 V258" stroke="#ffffff" stroke-width="8"/><path d="M126 202 H138" stroke="#5ac878" stroke-width="9"/><path d="M174 234 H186" stroke="#5ac878" stroke-width="9"/></g>
+    <g filter="url(#soft-shadow)"><path d="M312 152 H416 L398 208 H330Z" fill="#4aa3ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M364 208 V266" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M318 270 H410" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><path d="M544 266 L616 198 L582 164 L512 232Z" fill="#5ac878" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M582 164 L626 154 L616 198Z" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#soft-shadow)"><circle cx="190" cy="566" r="50.32" fill="#ffffff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M190 566 V524 M190 566 L228 586" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="190" cy="566" r="8" fill="#ffd45a"/></g>
+    <g filter="url(#soft-shadow)"><rect x="504" y="518" width="80" height="110" rx="22" fill="#a982ff" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M512 522 C516 484 572 484 576 522" fill="none" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><rect x="516" y="578" width="56" height="38" rx="10" fill="#f45d5d" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <path d="M362,808 L376.98852393345805,844.3700666434388 L416.21022142882373,847.386031320628 L386.25194116552643,872.8799333565612 L395.503759380671,911.113968679372 L362,890.5 L328.49624061932906,911.113968679372 L337.74805883447357,872.8799333565612 L307.78977857117627,847.386031320628 L347.01147606654195,844.3700666434388 Z" fill="#ff9f45" stroke="#143c56" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" filter="url(#soft-shadow)"/>
+  </g>
+  <rect x="721" y="0" width="6" height="1086" fill="#143c56" opacity="0.82"/>
+</svg>

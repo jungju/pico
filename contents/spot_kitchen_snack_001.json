@@ -1,0 +1,131 @@
+{
+  "id": "spot_kitchen_snack_001",
+  "title": "Kitchen Snack",
+  "titleKo": "부엌 간식",
+  "type": "spot_the_difference",
+  "theme": "kitchen",
+  "level": 2,
+  "estimatedMinutes": 3,
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "hitPadding": 26,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "apple_color",
+      "label": "apple",
+      "labelKo": "사과",
+      "targetSide": "right",
+      "bbox": {
+        "x": 816,
+        "y": 148,
+        "width": 128,
+        "height": 128
+      },
+      "description": "The apple is purple.",
+      "descriptionKo": "사과 색이 보라색이에요.",
+      "action": "changed",
+      "voiceText": "The apple is purple.",
+      "translation": "사과 색이 보라색이에요."
+    },
+    {
+      "id": "cup_color",
+      "label": "cup",
+      "labelKo": "컵",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1022,
+        "y": 128,
+        "width": 132,
+        "height": 132
+      },
+      "description": "The cup is orange.",
+      "descriptionKo": "컵 색이 주황색이에요.",
+      "action": "changed",
+      "voiceText": "The cup is orange.",
+      "translation": "컵 색이 주황색이에요."
+    },
+    {
+      "id": "cupcake_color",
+      "label": "cupcake",
+      "labelKo": "컵케이크",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1234,
+        "y": 154,
+        "width": 130,
+        "height": 130
+      },
+      "description": "The cupcake is red.",
+      "descriptionKo": "컵케이크 색이 빨간색이에요.",
+      "action": "changed",
+      "voiceText": "The cupcake is red.",
+      "translation": "컵케이크 색이 빨간색이에요."
+    },
+    {
+      "id": "spoon_color",
+      "label": "spoon",
+      "labelKo": "숟가락",
+      "targetSide": "right",
+      "bbox": {
+        "x": 840,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The spoon is blue.",
+      "descriptionKo": "숟가락 색이 파란색이에요.",
+      "action": "changed",
+      "voiceText": "The spoon is blue.",
+      "translation": "숟가락 색이 파란색이에요."
+    },
+    {
+      "id": "plate_color",
+      "label": "plate",
+      "labelKo": "접시",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1194,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The plate is green.",
+      "descriptionKo": "접시 색이 초록색이에요.",
+      "action": "changed",
+      "voiceText": "The plate is green.",
+      "translation": "접시 색이 초록색이에요."
+    },
+    {
+      "id": "banana_color",
+      "label": "banana",
+      "labelKo": "바나나",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1011,
+        "y": 790,
+        "width": 150,
+        "height": 150
+      },
+      "description": "The banana is yellow.",
+      "descriptionKo": "바나나 색이 노란색이에요.",
+      "action": "changed",
+      "voiceText": "The banana is yellow.",
+      "translation": "바나나 색이 노란색이에요."
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "spot_garden_friends_001",
+  "title": "Garden Friends",
+  "titleKo": "정원 친구들",
+  "type": "spot_the_difference",
+  "theme": "garden",
+  "level": 2,
+  "estimatedMinutes": 3,
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "hitPadding": 26,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "flower_color",
+      "label": "flower",
+      "labelKo": "꽃",
+      "targetSide": "right",
+      "bbox": {
+        "x": 816,
+        "y": 148,
+        "width": 128,
+        "height": 128
+      },
+      "description": "The flower is orange.",
+      "descriptionKo": "꽃 색이 주황색이에요.",
+      "action": "changed",
+      "voiceText": "The flower is orange.",
+      "translation": "꽃 색이 주황색이에요."
+    },
+    {
+      "id": "butterfly_color",
+      "label": "butterfly",
+      "labelKo": "나비",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1022,
+        "y": 128,
+        "width": 132,
+        "height": 132
+      },
+      "description": "The butterfly is red.",
+      "descriptionKo": "나비 색이 빨간색이에요.",
+      "action": "changed",
+      "voiceText": "The butterfly is red.",
+      "translation": "나비 색이 빨간색이에요."
+    },
+    {
+      "id": "watering_can_color",
+      "label": "watering can",
+      "labelKo": "물뿌리개",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1234,
+        "y": 154,
+        "width": 130,
+        "height": 130
+      },
+      "description": "The watering can is blue.",
+      "descriptionKo": "물뿌리개 색이 파란색이에요.",
+      "action": "changed",
+      "voiceText": "The watering can is blue.",
+      "translation": "물뿌리개 색이 파란색이에요."
+    },
+    {
+      "id": "bird_color",
+      "label": "bird",
+      "labelKo": "새",
+      "targetSide": "right",
+      "bbox": {
+        "x": 840,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The bird is green.",
+      "descriptionKo": "새 색이 초록색이에요.",
+      "action": "changed",
+      "voiceText": "The bird is green.",
+      "translation": "새 색이 초록색이에요."
+    },
+    {
+      "id": "boot_color",
+      "label": "boot",
+      "labelKo": "장화",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1194,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The boot is yellow.",
+      "descriptionKo": "장화 색이 노란색이에요.",
+      "action": "changed",
+      "voiceText": "The boot is yellow.",
+      "translation": "장화 색이 노란색이에요."
+    },
+    {
+      "id": "bug_color",
+      "label": "bug",
+      "labelKo": "벌레",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1011,
+        "y": 790,
+        "width": 150,
+        "height": 150
+      },
+      "description": "The bug is purple.",
+      "descriptionKo": "벌레 색이 보라색이에요.",
+      "action": "changed",
+      "voiceText": "The bug is purple.",
+      "translation": "벌레 색이 보라색이에요."
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "spot_snow_play_001",
+  "title": "Snow Play",
+  "titleKo": "눈 놀이",
+  "type": "spot_the_difference",
+  "theme": "snow",
+  "level": 2,
+  "estimatedMinutes": 3,
+  "imageWidth": 1448,
+  "imageHeight": 1086,
+  "hitPadding": 26,
+  "totalDifferences": 6,
+  "panels": {
+    "left": {
+      "x": 0,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    },
+    "right": {
+      "x": 724,
+      "y": 0,
+      "width": 724,
+      "height": 1086
+    }
+  },
+  "differences": [
+    {
+      "id": "snowman_color",
+      "label": "snowman",
+      "labelKo": "눈사람",
+      "targetSide": "right",
+      "bbox": {
+        "x": 816,
+        "y": 148,
+        "width": 128,
+        "height": 128
+      },
+      "description": "The snowman is yellow.",
+      "descriptionKo": "눈사람 색이 노란색이에요.",
+      "action": "changed",
+      "voiceText": "The snowman is yellow.",
+      "translation": "눈사람 색이 노란색이에요."
+    },
+    {
+      "id": "hat_color",
+      "label": "hat",
+      "labelKo": "모자",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1022,
+        "y": 128,
+        "width": 132,
+        "height": 132
+      },
+      "description": "The hat is purple.",
+      "descriptionKo": "모자 색이 보라색이에요.",
+      "action": "changed",
+      "voiceText": "The hat is purple.",
+      "translation": "모자 색이 보라색이에요."
+    },
+    {
+      "id": "star_color",
+      "label": "star",
+      "labelKo": "별",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1234,
+        "y": 154,
+        "width": 130,
+        "height": 130
+      },
+      "description": "The star is orange.",
+      "descriptionKo": "별 색이 주황색이에요.",
+      "action": "changed",
+      "voiceText": "The star is orange.",
+      "translation": "별 색이 주황색이에요."
+    },
+    {
+      "id": "boot_color",
+      "label": "boot",
+      "labelKo": "장화",
+      "targetSide": "right",
+      "bbox": {
+        "x": 840,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The boot is red.",
+      "descriptionKo": "장화 색이 빨간색이에요.",
+      "action": "changed",
+      "voiceText": "The boot is red.",
+      "translation": "장화 색이 빨간색이에요."
+    },
+    {
+      "id": "scarf_color",
+      "label": "scarf",
+      "labelKo": "목도리",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1194,
+        "y": 492,
+        "width": 148,
+        "height": 148
+      },
+      "description": "The scarf is blue.",
+      "descriptionKo": "목도리 색이 파란색이에요.",
+      "action": "changed",
+      "voiceText": "The scarf is blue.",
+      "translation": "목도리 색이 파란색이에요."
+    },
+    {
+      "id": "tree_color",
+      "label": "tree",
+      "labelKo": "나무",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1011,
+        "y": 790,
+        "width": 150,
+        "height": 150
+      },
+      "description": "The tree is green.",
+      "descriptionKo": "나무 색이 초록색이에요.",
+      "action": "changed",
+      "voiceText": "The tree is green.",
+      "translation": "나무 색이 초록색이에요."
+    }
+  ]
+}
