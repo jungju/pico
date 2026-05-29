@@ -179,6 +179,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
     if (!remainingDifference) return;
     notePlayerActivity();
     setHintId(remainingDifference.id);
+    saveStageProgress(foundIds, { recordHintUse: true });
   }
 
   function resetGame() {
@@ -192,18 +193,22 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
     saveStageProgress(emptyFoundIds);
   }
 
-  async function saveStageProgress(nextFoundIds) {
+  async function saveStageProgress(nextFoundIds, { recordHintUse = false } = {}) {
     if (authState?.status !== "authenticated" || progressLoadingRef.current) return;
 
     const now = new Date().toISOString();
     const nextCompleted = nextFoundIds.size === activeStage.differences.length;
     const existingStageProgress = progressDataRef.current.stages?.[activeStage.id];
+    const hintCount = nonNegativeInteger(existingStageProgress?.hintCount) + (recordHintUse ? 1 : 0);
     const stageProgress = {
       stageId: activeStage.id,
       foundIds: [...nextFoundIds],
       completed: nextCompleted,
       score: calculateScore(nextFoundIds, activeStage.differences.length, completionBonus),
       totalDifferences: activeStage.differences.length,
+      hintUsed: Boolean(existingStageProgress?.hintUsed || recordHintUse),
+      hintCount,
+      lastHintAt: recordHintUse ? now : existingStageProgress?.lastHintAt || null,
       completedAt: nextCompleted ? existingStageProgress?.completedAt || now : null,
       updatedAt: now,
     };
@@ -477,6 +482,11 @@ function calculateScore(foundIds, totalDifferences, completionBonus = POINT_VALU
   const answerPoints = foundIds.size * POINT_VALUES.DIFFERENCE_FOUND;
   const hasCompletedStage = totalDifferences > 0 && foundIds.size === totalDifferences;
   return answerPoints + (hasCompletedStage ? completionBonus : 0);
+}
+
+function nonNegativeInteger(value) {
+  const number = Number(value);
+  return Number.isInteger(number) && number >= 0 ? number : 0;
 }
 
 function saveStatusText(status) {

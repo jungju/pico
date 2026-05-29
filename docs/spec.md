@@ -306,6 +306,9 @@ flow and calls them from `handlePictureClick(event, side)`.
       completed: false,
       score: 100,
       totalDifferences: 6,
+      hintUsed: false,
+      hintCount: 0,
+      lastHintAt: null,
       completedAt: null,
       updatedAt: "2026-05-25T00:00:00.000Z"
     }
@@ -316,6 +319,8 @@ flow and calls them from `handlePictureClick(event, side)`.
 - Pico must not store OAuth tokens, refresh tokens, raw session tokens, or OAuth
   secrets.
 - Logged-out progress remains local React state only.
+- Find & Learn hint usage is recorded as `hintUsed`, `hintCount`, and
+  `lastHintAt` without reducing the stage score.
 - OAuth secrets do not belong in this repository.
 
 V1 progress helpers also support a `pico-progress` record with `version: 2`,

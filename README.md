@@ -185,7 +185,7 @@ Pico는 ohmesh에 등록된 앱이며, 첫 화면과 게임 화면에서 ohmesh 
 - 세션 확인은 `GET /auth/me?app=pico`를 `credentials: "include"`로 호출합니다.
 - ohmesh는 앱 전용 HttpOnly session cookie를 사용하며 Pico는 토큰을 저장하거나 표시하지 않습니다.
 - 로그인한 사용자의 Find & Learn 진행 상태는 `find-learn-progress` record 하나에 저장합니다.
-- 저장 데이터는 stage별 `foundIds`, `completed`, `score`, `completedAt`, `updatedAt`을 포함합니다.
+- 저장 데이터는 stage별 `foundIds`, `completed`, `score`, `hintUsed`, `hintCount`, `completedAt`, `updatedAt`을 포함합니다.
 - 로그아웃 상태에서는 Find & Learn 진행 상태가 현재 브라우저 세션의 로컬 React 상태로만 유지됩니다.
 - OAuth client ID와 secret은 ohmesh 또는 운영 환경에서 관리합니다.
 
