@@ -18,6 +18,7 @@ https://pico.jjgo.io
 - `docs/v1-vocabulary-qa.md`: v1 vocabulary와 문장 QA 체크리스트
 - `docs/v1-visual-qa.md`: v1 이미지, hit area, viewport QA 체크리스트
 - `docs/v1-korean-copy.md`: v1 한국어 보조 텍스트 리뷰
+- `docs/v1-feedback-policy.md`: v1 정답, 오답, 힌트, 완료 feedback 강도 기준
 - `docs/v1-manual-qa.md`: v1 stage route와 completion QA 결과
 - `README.md`: 사람을 위한 실행 방법, 기능 흐름, git/배포 기준
 - `AGENTS.md`: 에이전트 작업, 검증, 커밋 규칙
