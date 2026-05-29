@@ -295,8 +295,10 @@
   완료: `docs/v1-vocabulary-qa.md`에 stage metadata, 단어, 발음/audio,
   예문, game type별 vocabulary QA checklist를 추가했다.
 
-- [ ] `V1-T073` `P1` visual QA checklist를 만든다.
+- [x] `V1-T073` `P1` visual QA checklist를 만든다.
   이미지 선명도, 목표 가시성, 클릭 영역 여유, 모바일 framing을 확인한다.
+  완료: `docs/v1-visual-qa.md`에 이미지 품질, touch/click area, framing,
+  game type별 visual QA와 필수 viewport checklist를 추가했다.
 
 - [ ] `V1-T074` `P1` 모든 stage에 level metadata를 추가한다.
   v1 난이도 규칙에 따라 Level 1, 2, 3을 표시한다.
