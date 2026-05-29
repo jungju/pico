@@ -98,7 +98,8 @@ The first game is `Find & Learn`:
   rendered as a non-clickable reference frame.
 - Progress and score are shown in one row above the pictures.
 - Progress uses found/total text, such as `0/6`.
-- Score uses 100 points per found difference.
+- Score uses 100 points per found difference, plus a 200 point completion
+  bonus when every difference in the stage is found.
 - When logged in, found differences, completion state, and score are saved to
   ohmesh.
 - Logged-out game screens show `Local play` and keep progress only in the

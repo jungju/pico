@@ -147,8 +147,10 @@
   완료: 기존 Find & Learn content stage가 `stageRegistry`에서
   `spot_the_difference` game type과 공통 metadata로 노출된다.
 
-- [ ] `V1-T032` `P0` 틀린그림 점수를 공통 포인트 규칙과 맞춘다.
+- [x] `V1-T032` `P0` 틀린그림 점수를 공통 포인트 규칙과 맞춘다.
   정답 1개당 100점을 유지하고 공통 completion bonus를 추가한다.
+  완료: Find & Learn 점수와 저장 score가 공통 point value의 차이당 100점과
+  stage completion bonus 200점을 반영한다.
 
 - [ ] `V1-T033` `P1` 부드러운 idle hint prompt를 추가한다.
   사용자가 일정 시간 막혀 있으면 `Hint` 버튼을 시각적으로 강조한다.

@@ -125,6 +125,7 @@ export default function App() {
         authControl={<AuthControl authState={authState} compact onLogin={startLogin} onLogout={startLogout} />}
         key={selectedGame.id}
         stage={selectedGame.stage}
+        stageEntry={selectedGame}
         onBack={openGameSelect}
         onNext={nextGame ? () => openStage(nextGame) : null}
       />

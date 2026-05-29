@@ -1,14 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { GameShell } from "../GameShell";
+import { POINT_VALUES } from "../points";
 import { findDifferenceAt, findObjectAt, getDifferenceArea, getDifferenceMarker, getRelativePoint } from "./hitTesting";
 import { DEBUG_AREAS, findLearnStage as fallbackFindLearnStage } from "./stages/stage001";
 import { emptyFindLearnProgress, loadFindLearnProgress, saveFindLearnProgress } from "../../ohmeshProgress";
 
 const WRONG_MARKER_TIMEOUT_MS = 900;
-const POINTS_PER_DIFFERENCE = 100;
 
-export function FindLearnGame({ authState, authControl, stage = fallbackFindLearnStage, onBack, onNext }) {
+export function FindLearnGame({ authState, authControl, stage = fallbackFindLearnStage, stageEntry, onBack, onNext }) {
   const activeStage = stage || fallbackFindLearnStage;
+  const completionBonus = stageEntry?.points?.completionBonus ?? POINT_VALUES.STAGE_COMPLETION_BONUS;
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [message, setMessage] = useState(() => createReadyMessage(activeStage));
   const [wrongPoint, setWrongPoint] = useState(null);
@@ -28,7 +29,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
   }, [activeStage, foundIds]);
   const hintDifference = activeStage.differences.find((difference) => difference.id === hintId);
   const remainingDifference = activeStage.differences.find((difference) => !foundIds.has(difference.id));
-  const score = calculateScore(foundIds);
+  const score = calculateScore(foundIds, activeStage.differences.length, completionBonus);
   const completed = foundIds.size === activeStage.differences.length;
   const visibleProgressStatus = authState?.status === "authenticated" ? progressStatus : "local";
   const statusText = saveStatusText(visibleProgressStatus);
@@ -61,7 +62,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
           setFoundIds(savedFoundIds);
 
           if (stageProgress.completed) {
-            setMessage(createCompleteMessage(activeStage, calculateScore(savedFoundIds)));
+            setMessage(createCompleteMessage(activeStage, calculateScore(savedFoundIds, activeStage.differences.length, completionBonus)));
             setCompletionNoticeOpen(true);
           }
         }
@@ -81,13 +82,13 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
       progressLoadingRef.current = false;
       controller.abort();
     };
-  }, [activeStage, authState?.status, differenceIds]);
+  }, [activeStage, authState?.status, completionBonus, differenceIds]);
 
   function foundDifference(difference) {
     const nextFoundIds = new Set(foundIds);
     nextFoundIds.add(difference.id);
     const nextCompleted = nextFoundIds.size === activeStage.differences.length;
-    const nextScore = calculateScore(nextFoundIds);
+    const nextScore = calculateScore(nextFoundIds, activeStage.differences.length, completionBonus);
 
     setFoundIds(nextFoundIds);
     setHintId(null);
@@ -175,7 +176,7 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
       stageId: activeStage.id,
       foundIds: [...nextFoundIds],
       completed: nextCompleted,
-      score: calculateScore(nextFoundIds),
+      score: calculateScore(nextFoundIds, activeStage.differences.length, completionBonus),
       totalDifferences: activeStage.differences.length,
       completedAt: nextCompleted ? existingStageProgress?.completedAt || now : null,
       updatedAt: now,
@@ -445,8 +446,10 @@ function completeMessageBody(stage, score) {
   return `${stage.titleKo || stage.title} complete · ${score} pts`;
 }
 
-function calculateScore(foundIds) {
-  return foundIds.size * POINTS_PER_DIFFERENCE;
+function calculateScore(foundIds, totalDifferences, completionBonus = POINT_VALUES.STAGE_COMPLETION_BONUS) {
+  const answerPoints = foundIds.size * POINT_VALUES.DIFFERENCE_FOUND;
+  const hasCompletedStage = totalDifferences > 0 && foundIds.size === totalDifferences;
+  return answerPoints + (hasCompletedStage ? completionBonus : 0);
 }
 
 function saveStatusText(status) {
