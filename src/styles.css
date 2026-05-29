@@ -1959,8 +1959,41 @@ button.picture-frame:hover {
 
 .memory-card-back {
   background:
-    radial-gradient(circle at 50% 42%, #ffd45a 0 13%, transparent 14%),
-    linear-gradient(135deg, #c5f2ff, #82ccff);
+    radial-gradient(circle at 20% 24%, rgba(255, 240, 165, 0.94) 0 8%, transparent 9%),
+    radial-gradient(circle at 80% 74%, rgba(255, 128, 105, 0.86) 0 9%, transparent 10%),
+    repeating-linear-gradient(135deg, rgba(20, 60, 86, 0.12) 0 7px, rgba(20, 60, 86, 0) 7px 14px),
+    linear-gradient(135deg, #c5f2ff, #82ccff 55%, #baf1d4);
+  border: 3px solid rgba(255, 255, 255, 0.78);
+  box-shadow: inset 0 -6px 0 rgba(20, 60, 86, 0.12);
+}
+
+.memory-card-back::before {
+  display: grid;
+  width: 46%;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 3px solid #143c56;
+  border-radius: 999px;
+  background: #fff0a5;
+  box-shadow:
+    0 4px 0 rgba(20, 60, 86, 0.18),
+    inset 0 -4px 0 rgba(20, 60, 86, 0.12);
+  color: #143c56;
+  content: "P";
+  font-size: clamp(1rem, 2.4vw, 2.1rem);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.memory-card-back::after {
+  position: absolute;
+  top: 11%;
+  right: 12%;
+  width: 18%;
+  aspect-ratio: 1;
+  background: #ff8069;
+  clip-path: polygon(50% 0, 61% 34%, 98% 35%, 68% 56%, 79% 92%, 50% 70%, 21% 92%, 32% 56%, 2% 35%, 39% 34%);
+  content: "";
 }
 
 .memory-card-front {
