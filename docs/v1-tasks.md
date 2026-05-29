@@ -84,9 +84,10 @@
   완료: selector 상단에 가장 쉬운 stage를 시작하는 Today entry를
   추가했다. 완료 상태 기반 추천은 progress 통합 후 고도화한다.
 
-- [ ] `V1-T016` `P1` stage 난이도 정보를 UI에 반영한다.
+- [x] `V1-T016` `P1` stage 난이도 정보를 UI에 반영한다.
   selector가 시험처럼 느껴지지 않게 아이 친화적인 방식으로 level을
   보여준다.
+  완료: selector card badge가 `Level N`과 theme을 함께 표시한다.
 
 ## Milestone 2: 진행, 포인트, 연속 방문
 
