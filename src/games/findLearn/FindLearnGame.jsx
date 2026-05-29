@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { X, ZoomIn } from "lucide-react";
 import { GameShell } from "../GameShell";
 import { POINT_EVENTS, POINT_VALUES } from "../points";
 import { findDifferenceAt, findObjectAt, getDifferenceArea, getDifferenceMarker, getRelativePoint } from "./hitTesting";
@@ -27,6 +28,7 @@ export function FindLearnGame({
   const [idleHintPrompted, setIdleHintPrompted] = useState(false);
   const [activityTick, setActivityTick] = useState(0);
   const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
+  const [focusOpen, setFocusOpen] = useState(false);
   const [progressStatus, setProgressStatus] = useState("local");
   const progressRecordIdRef = useRef(null);
   const progressDataRef = useRef(emptyFindLearnProgress());
@@ -293,7 +295,18 @@ export function FindLearnGame({
             onPictureClick={handlePictureClick}
           />
         ))}
+        <button
+          className="picture-focus-button"
+          type="button"
+          onClick={() => setFocusOpen(true)}
+          aria-label="Open focus view"
+          title="Focus view"
+        >
+          <ZoomIn aria-hidden="true" size={17} />
+          <span>Focus</span>
+        </button>
       </section>
+      {focusOpen ? <SpotFocusView pictures={pictures} onClose={() => setFocusOpen(false)} /> : null}
     </GameShell>
   );
 }
@@ -301,10 +314,7 @@ export function FindLearnGame({
 function Picture({ stage, picture, foundDifferences, hintDifference, wrongPoint, onPictureClick }) {
   const interactive = pictureAcceptsClicks(stage, picture.side);
   const frameClassName = interactive ? "picture-frame" : "picture-frame reference-picture";
-  const frameStyle = {
-    "--picture-aspect": `${picture.width} / ${picture.height}`,
-    "--picture-ratio": `${picture.width / picture.height}`,
-  };
+  const frameStyle = pictureStyle(picture);
   const children = (
     <>
       <PictureImage picture={picture} />
@@ -365,6 +375,41 @@ function PictureImage({ picture }) {
   }
 
   return <img src={picture.image} alt="" draggable="false" />;
+}
+
+function SpotFocusView({ pictures, onClose }) {
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === "Escape") onClose();
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
+  return (
+    <div className="spot-focus-overlay" role="dialog" aria-modal="true" aria-labelledby="spot-focus-title" onClick={handleOverlayClick}>
+      <div className="spot-focus-panel">
+        <header className="spot-focus-header">
+          <strong id="spot-focus-title">Focus View</strong>
+          <button className="spot-focus-close" type="button" onClick={onClose} aria-label="Close focus view" title="Close">
+            <X aria-hidden="true" size={20} />
+          </button>
+        </header>
+        <div className="spot-focus-pictures">
+          {pictures.map((picture) => (
+            <div className="spot-focus-picture" key={picture.side} style={pictureStyle(picture)}>
+              <PictureImage picture={picture} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  function handleOverlayClick(event) {
+    if (event.target === event.currentTarget) onClose();
+  }
 }
 
 function HintMarker({ difference, side }) {
@@ -448,6 +493,13 @@ function getStagePictures(stage) {
       height: 1,
     },
   ];
+}
+
+function pictureStyle(picture) {
+  return {
+    "--picture-aspect": `${picture.width} / ${picture.height}`,
+    "--picture-ratio": `${picture.width / picture.height}`,
+  };
 }
 
 function createReadyMessage(stage) {
