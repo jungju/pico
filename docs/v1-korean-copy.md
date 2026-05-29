@@ -24,3 +24,24 @@
 
 When adding a stage, review Korean copy with `docs/v1-vocabulary-qa.md`.
 Prefer short nouns for meanings and one short sentence for translations.
+
+## Game Screen Language Policy
+
+Pico v1 intentionally mixes Korean support copy with English learning/game
+labels. Keep the distinction stable:
+
+| Surface | Language | Rule |
+| --- | --- | --- |
+| Stage title in the main badge | Korean first | Use `titleKo` when available so the child knows the scene context quickly. |
+| Stage subtitle | English | Use the English title to reinforce the learning context without making it the main command. |
+| Target words, card words, collectible words | English | These are the learning objects and should remain in English. |
+| Meanings and translations | Korean | Keep them short and supportive, not explanatory paragraphs. |
+| Primary controls | English | Use stable, short commands such as `Game List`, `Hint`, `Reset`, `Start`, `Speak`. Pair them with icons. |
+| Status and score | English abbreviations | Use `pts`, `tries`, `Local play`, `Ready`, `Done`, `Open` consistently. |
+| Feedback titles | Short English | Use `Correct`, `Try again`, `Complete`, or the target word. |
+| Feedback body | English plus optional Korean meaning | Prefer the learned word, short English sentence, and Korean meaning/translation only when it helps. |
+| Completion actions | English | Keep `Next Stage`, `Play Again`, `Game List`, `Keep Playing` consistent across game types. |
+
+Do not add long bilingual explanations to the game surface. If an interaction
+needs explanation, prefer a clearer icon, marker, badge, or layout affordance
+before adding copy.
