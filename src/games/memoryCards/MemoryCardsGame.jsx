@@ -124,6 +124,7 @@ function MemoryCard({ card, faceUp, matched, onClick }) {
       <span className="memory-card-front" aria-hidden={faceUp ? "false" : "true"}>
         <CardFace card={card} />
       </span>
+      {matched ? <span className="memory-match-badge" aria-hidden="true">Match +{POINT_VALUES.MEMORY_PAIR_MATCHED}</span> : null}
     </button>
   );
 }

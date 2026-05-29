@@ -130,6 +130,8 @@ Memory Cards defines a maximum card size by deck size and uses tighter mobile
 spacing so the card board fills the available play area more deliberately.
 Memory card backs use a Pico badge and sticker-like pattern treatment so they
 read as game cards before being flipped.
+Memory matched cards provide a short pop/sparkle response and a visible
+`Match +100` badge.
 
 ## Runtime
 
