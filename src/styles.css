@@ -719,6 +719,12 @@ button {
   padding: 12px 0;
 }
 
+.game-shell.spot-the-difference {
+  --game-chrome-height: 212px;
+
+  width: min(1080px, calc(100% - 20px));
+}
+
 .game-shell::before {
   position: fixed;
   z-index: -1;
@@ -1078,6 +1084,12 @@ button {
     0 8px 0 rgba(20, 60, 86, 0.16),
     0 18px 34px rgba(20, 60, 86, 0.16);
   padding: 14px;
+}
+
+.game-shell.spot-the-difference .pictures-grid {
+  grid-template-columns: repeat(2, minmax(0, min(470px, calc((100% - 12px) / 2))));
+  gap: 12px;
+  padding: 10px;
 }
 
 .pictures-grid::before {
