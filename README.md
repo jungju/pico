@@ -91,7 +91,7 @@ https://pico.jjgo.io
 - 로그인한 사용자의 완료 상태, 총 포인트, 게임별 점수, streak는 ohmesh에 저장됩니다.
 - 로그아웃 상태의 게임 화면은 조용한 상태 텍스트로 `Local play`를 표시하고 현재 플레이 상태만 유지합니다.
 - 모든 차이를 찾으면 성공 완료 안내를 표시합니다.
-- 완료 안내에는 다음 stage가 있으면 `Next Stage`, 첫 화면으로 돌아가는 `Game List`, 계속 보는 `Keep Playing` 버튼이 있습니다.
+- 완료 안내는 축하 medal, 점수 카드, 다음 stage가 있으면 `Next Stage`, 첫 화면으로 돌아가는 `Game List`, 계속 보는 `Keep Playing` 버튼을 보여줍니다.
 - 정답, 매칭, 수집, 완료 feedback은 짧은 시각/음성 반응을 제공합니다.
 - v1 게임 화면에는 countdown timer를 표시하지 않습니다.
 - 영어 단어/대화 창은 두 그림 아래에 낮게 유지합니다.

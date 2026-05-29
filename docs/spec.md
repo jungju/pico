@@ -168,9 +168,9 @@ The current v1 content set provides 20 Maze stages through
 - Logged-out game screens show `Local play` as quiet status text and keep
   progress only in the current local play state.
 - When all differences are found, a success completion dialog is shown.
-- The completion dialog offers `Next Stage` when another stage exists,
-  `Game List` to return to the game selection page, and `Keep Playing` to
-  close the dialog.
+- The completion dialog presents a celebration medal, a score card,
+  `Next Stage` when another stage exists, `Game List` to return to the game
+  selection page, and `Keep Playing` to close the dialog.
 - Correct, match, collectible, and completion feedback uses short visual and/or
   speech responses.
 - V1 game screens do not show countdown timers or time-pressure UI.

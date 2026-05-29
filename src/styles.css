@@ -1368,12 +1368,17 @@ button.picture-frame:hover {
 }
 
 .completion-panel {
+  position: relative;
+  overflow: hidden;
   display: grid;
-  gap: 18px;
+  gap: 14px;
   width: min(380px, 100%);
   border: 2px solid #143c56;
   border-radius: 8px;
-  background: #fff6d9;
+  background:
+    linear-gradient(135deg, rgba(255, 212, 90, 0.26), transparent 38%),
+    linear-gradient(315deg, rgba(186, 241, 212, 0.42), transparent 40%),
+    #fff6d9;
   box-shadow:
     0 8px 0 #ffd45a,
     0 24px 54px rgba(20, 60, 86, 0.28);
@@ -1381,10 +1386,89 @@ button.picture-frame:hover {
   text-align: center;
 }
 
+.completion-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.completion-confetti span {
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #143c56;
+  border-radius: 3px;
+  background: #ffd45a;
+  transform: rotate(18deg);
+}
+
+.completion-confetti span:nth-child(1) {
+  top: 18px;
+  left: 24px;
+}
+
+.completion-confetti span:nth-child(2) {
+  top: 30px;
+  right: 36px;
+  background: #baf1d4;
+  transform: rotate(-14deg);
+}
+
+.completion-confetti span:nth-child(3) {
+  top: 112px;
+  left: 18px;
+  width: 9px;
+  height: 20px;
+  background: #c5f2ff;
+  transform: rotate(-24deg);
+}
+
+.completion-confetti span:nth-child(4) {
+  right: 26px;
+  bottom: 96px;
+  width: 10px;
+  height: 18px;
+  background: #ffb4c4;
+  transform: rotate(24deg);
+}
+
+.completion-confetti span:nth-child(5) {
+  right: 88px;
+  bottom: 20px;
+  background: #e7ddff;
+  transform: rotate(10deg);
+}
+
+.completion-celebration,
+.completion-score-card,
+.completion-actions {
+  position: relative;
+  z-index: 1;
+}
+
+.completion-celebration {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.completion-medal {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 2px solid #143c56;
+  border-radius: 50%;
+  background: #ffd45a;
+  box-shadow: inset 0 -5px 0 rgba(141, 86, 0, 0.22);
+  color: #583c05;
+}
+
 .completion-panel strong {
   display: block;
   color: #143c56;
-  font-size: 1.65rem;
+  font-size: 1.78rem;
   font-weight: 900;
   line-height: 1.1;
 }
@@ -1395,6 +1479,24 @@ button.picture-frame:hover {
   font-size: 1rem;
   font-weight: 750;
   line-height: 1.25;
+}
+
+.completion-score-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 150px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 4px 0 rgba(20, 60, 86, 0.16);
+  color: #124b34;
+  padding: 0 16px;
+  font-size: 1.08rem;
+  font-weight: 950;
 }
 
 .completion-actions {

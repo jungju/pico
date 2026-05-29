@@ -171,11 +171,23 @@ function CompletionNotice({ hasNext, score, stageTitle, onBack, onClose, onNext 
   return (
     <div className="completion-overlay" role="dialog" aria-modal="true" aria-labelledby="completion-title">
       <div className="completion-panel">
-        <div>
-          <strong id="completion-title">Success</strong>
-          <p>
-            {stageTitle} · {score} pts
-          </p>
+        <div className="completion-confetti" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="completion-celebration">
+          <span className="completion-medal">
+            <Trophy aria-hidden="true" size={30} />
+          </span>
+          <strong id="completion-title">Great job!</strong>
+          <p>{stageTitle}</p>
+        </div>
+        <div className="completion-score-card" aria-label={`Score ${score} points`}>
+          <Sparkles aria-hidden="true" size={20} />
+          <span>{score} pts</span>
         </div>
         <div className="completion-actions">
           {hasNext ? (
