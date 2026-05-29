@@ -767,6 +767,119 @@ button.picture-frame:hover {
   transform: rotate(-45deg);
 }
 
+.hidden-objects-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
+  gap: 14px;
+  align-items: stretch;
+  min-height: 0;
+  overflow: hidden;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(226, 249, 244, 0.78)),
+    repeating-linear-gradient(45deg, rgba(69, 207, 157, 0.14) 0 12px, rgba(255, 255, 255, 0) 12px 24px);
+  box-shadow:
+    0 8px 0 rgba(20, 60, 86, 0.16),
+    0 18px 34px rgba(20, 60, 86, 0.16);
+  padding: 14px;
+}
+
+.hidden-scene {
+  position: relative;
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  background: #dff7f2;
+  box-shadow:
+    0 0 0 2px #143c56,
+    0 11px 0 rgba(20, 60, 86, 0.18),
+    0 18px 30px rgba(20, 60, 86, 0.16);
+  padding: 0;
+  touch-action: manipulation;
+}
+
+.hidden-scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.hidden-scene:hover {
+  box-shadow:
+    0 0 0 2px #e85f67,
+    0 8px 0 rgba(20, 60, 86, 0.2),
+    0 20px 34px rgba(232, 95, 103, 0.16);
+  transform: translateY(3px);
+}
+
+.hidden-scene:focus-visible {
+  outline: 3px solid #ff8069;
+  outline-offset: 3px;
+}
+
+.found-target-marker {
+  border: 4px solid #20b96f;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.82),
+    0 0 20px rgba(32, 185, 111, 0.44);
+}
+
+.hidden-target-list {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  overflow: auto;
+  min-height: 0;
+}
+
+.hidden-target-pill {
+  display: grid;
+  gap: 3px;
+  min-height: 54px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 3px 0 rgba(20, 60, 86, 0.16);
+  color: #143c56;
+  padding: 8px 10px;
+}
+
+.hidden-target-pill strong {
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hidden-target-pill span {
+  overflow: hidden;
+  color: #7b473f;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hidden-target-pill.found {
+  background: #baf1d4;
+  color: #124b34;
+}
+
+.hidden-target-pill.found span {
+  color: #205b42;
+}
+
 .debug-areas {
   position: absolute;
   inset: 0;
@@ -1164,6 +1277,31 @@ button.picture-frame:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     padding: 8px;
+  }
+
+  .hidden-objects-stage {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .hidden-target-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 128px;
+  }
+
+  .hidden-target-pill {
+    min-height: 46px;
+    padding: 7px 8px;
+  }
+
+  .hidden-target-pill strong {
+    font-size: 0.88rem;
+  }
+
+  .hidden-target-pill span {
+    font-size: 0.74rem;
   }
 
   .learning-panel {

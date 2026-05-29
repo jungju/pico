@@ -1,0 +1,153 @@
+import { useMemo, useState } from "react";
+import { GameShell } from "../GameShell";
+import { POINT_VALUES } from "../points";
+import { findHiddenTargetAt, getHiddenTargetMarker, getRelativePoint } from "./hitTesting";
+
+export function HiddenObjectsGame({ authState, authControl, stage, onBack, onNext }) {
+  const [foundIds, setFoundIds] = useState(() => new Set());
+  const [message, setMessage] = useState(() => createReadyMessage(stage));
+  const [hintId, setHintId] = useState(null);
+  const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
+  const foundTargets = useMemo(() => stage.targets.filter((target) => foundIds.has(target.id)), [foundIds, stage.targets]);
+  const remainingTarget = stage.targets.find((target) => !foundIds.has(target.id));
+  const hintTarget = stage.targets.find((target) => target.id === hintId);
+  const completed = foundIds.size === stage.targets.length;
+  const progressPercent = stage.targets.length > 0 ? Math.round((foundIds.size / stage.targets.length) * 100) : 0;
+  const score = foundIds.size * POINT_VALUES.HIDDEN_OBJECT_FOUND;
+  const statusText = authState?.status === "authenticated" ? "Ready" : "Local play";
+
+  function handleSceneClick(event) {
+    const point = getRelativePoint(event, event.currentTarget);
+    const target = findHiddenTargetAt(point, stage, foundIds);
+
+    if (target) {
+      foundTarget(target);
+      return;
+    }
+
+    setMessage({
+      type: "wrong",
+      title: "Try again",
+      body: "Look around the picture.",
+    });
+    speak("Try again.");
+  }
+
+  function foundTarget(target) {
+    const nextFoundIds = new Set(foundIds);
+    nextFoundIds.add(target.id);
+    const nextCompleted = nextFoundIds.size === stage.targets.length;
+    const nextScore = nextFoundIds.size * POINT_VALUES.HIDDEN_OBJECT_FOUND;
+
+    setFoundIds(nextFoundIds);
+    setHintId(null);
+    setMessage({
+      type: nextCompleted ? "complete" : "correct",
+      title: nextCompleted ? "Complete" : target.word,
+      body: nextCompleted ? completeMessageBody(stage, nextScore) : targetMessage(target),
+    });
+
+    if (nextCompleted) {
+      setCompletionNoticeOpen(true);
+    }
+
+    speak(nextCompleted ? `Complete. ${stage.title}. ${nextScore} points.` : `${target.word}. ${target.sentence || "Good find."}`);
+  }
+
+  function showHint() {
+    if (!remainingTarget) return;
+    setHintId(remainingTarget.id);
+    setMessage({
+      type: "word",
+      title: remainingTarget.word,
+      body: remainingTarget.hint || `Find ${remainingTarget.word}.`,
+    });
+  }
+
+  function resetGame() {
+    setFoundIds(new Set());
+    setHintId(null);
+    setCompletionNoticeOpen(false);
+    setMessage(createReadyMessage(stage));
+  }
+
+  return (
+    <GameShell
+      authControl={authControl}
+      completed={completed}
+      completionNotice={{
+        hasNext: Boolean(onNext),
+        open: completed && completionNoticeOpen,
+        score,
+        stageTitle: stage.titleKo || stage.title,
+        onBack,
+        onClose: () => setCompletionNoticeOpen(false),
+        onNext,
+      }}
+      message={message}
+      onBack={onBack}
+      onHint={showHint}
+      onReset={resetGame}
+      onSpeak={() => speak(message.body)}
+      progressPercent={progressPercent}
+      progressText={`${foundIds.size}/${stage.targets.length}`}
+      score={score}
+      stageSubtitle={stage.title}
+      stageTitle={stage.titleKo || stage.title}
+      statusText={statusText}
+    >
+      <section className="hidden-objects-stage" aria-label={stage.title}>
+        <button className="hidden-scene" type="button" onClick={handleSceneClick} aria-label="Hidden objects scene">
+          <img src={stage.scene.image} alt={stage.scene.alt} draggable="false" />
+          {foundTargets.map((target) => (
+            <HiddenTargetMarker className="found-target-marker" key={target.id} target={target} />
+          ))}
+          {hintTarget ? <HiddenTargetMarker className="hint-marker" target={hintTarget} /> : null}
+        </button>
+
+        <div className="hidden-target-list" aria-label="Targets">
+          {stage.targets.map((target) => {
+            const found = foundIds.has(target.id);
+            return (
+              <span className={`hidden-target-pill${found ? " found" : ""}`} key={target.id}>
+                <strong>{target.word}</strong>
+                <span>{target.meaning}</span>
+              </span>
+            );
+          })}
+        </div>
+      </section>
+    </GameShell>
+  );
+}
+
+function HiddenTargetMarker({ className, target }) {
+  const point = getHiddenTargetMarker(target);
+  return point ? <span className={`picture-marker ${className}`} style={{ left: `${point.x}%`, top: `${point.y}%` }} /> : null;
+}
+
+function createReadyMessage(stage) {
+  return {
+    type: "ready",
+    title: stage.titleKo || stage.title,
+    body: stage.targets.map((target) => target.word).join(" · "),
+  };
+}
+
+function targetMessage(target) {
+  return [target.meaning, target.sentence, target.translation].filter(Boolean).join(" · ");
+}
+
+function completeMessageBody(stage, score) {
+  return `${stage.titleKo || stage.title} complete · ${score} pts`;
+}
+
+function speak(text) {
+  if (!text || typeof window === "undefined" || !window.speechSynthesis) return;
+
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.92;
+  window.speechSynthesis.speak(utterance);
+}

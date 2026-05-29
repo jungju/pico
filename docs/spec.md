@@ -36,6 +36,8 @@ operation guide.
   normalizer
 - `src/games/findLearn/stages/stage001.js`: current stage data shape and
   built-in fallback content
+- `src/games/hiddenObjects/HiddenObjectsGame.jsx`: Hidden Objects scene,
+  target list, marker UI, and completion flow
 - `src/games/hiddenObjects/hitTesting.js`: Hidden Objects target collision
   helpers
 - `src/games/hiddenObjects/stages/schema.js`: Hidden Objects stage schema and
@@ -333,6 +335,10 @@ Hidden Objects hit testing uses `getRelativePoint` and `isPointInArea` from the
 Find & Learn coordinate helpers. `findHiddenTargetAt(point, stage,
 foundTargetIds)` returns the first un-found target whose area contains the
 point, or `null`.
+
+The Hidden Objects UI must provide one large clickable scene, a target list,
+found markers, hint markers, progress text, score, reset, learning feedback,
+and the shared completion dialog.
 
 ## Data Contract
 

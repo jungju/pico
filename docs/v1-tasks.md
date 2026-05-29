@@ -178,9 +178,12 @@
   `getRelativePoint`, `isPointInArea`를 재사용해 아직 찾지 않은 target을
   판정한다.
 
-- [ ] `V1-T042` `P0` 숨은그림 게임 UI를 만든다.
+- [x] `V1-T042` `P0` 숨은그림 게임 UI를 만든다.
   큰 scene, 목표 목록, 찾은 표시, 진행률, 점수, 힌트, 리셋, 학습 패널,
   완료 dialog를 제공한다.
+  완료: `HiddenObjectsGame`이 공통 `GameShell` 안에서 scene, target list,
+  found/hint marker, 진행률, 점수, 힌트, 리셋, 학습 패널, 완료 dialog를
+  렌더링한다.
 
 - [ ] `V1-T043` `P0` 숨은그림 점수 로직을 구현한다.
   목표 1개당 100점과 공통 completion bonus를 1회 지급한다.
