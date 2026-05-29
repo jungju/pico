@@ -60,9 +60,11 @@
   완료: `src/games/stageRegistry.js`가 기존 틀린그림 stage들을 공통 v1
   metadata로 normalize한다.
 
-- [ ] `V1-T012` `P0` 게임 선택 화면을 여러 game type에 맞게 확장한다.
+- [x] `V1-T012` `P0` 게임 선택 화면을 여러 game type에 맞게 확장한다.
   네 가지 게임 타입의 stage card를 보여주고, 각 card에서 게임 타입과
   주제가 분명히 보이게 한다.
+  완료: selector card가 registry metadata의 game type, level, theme을
+  표시하며 신규 game type stage가 추가되면 같은 구조로 노출된다.
 
 - [ ] `V1-T013` `P0` 공통 게임 route 규칙을 정한다.
   각 playable stage가 예측 가능한 URL을 갖고, 브라우저 뒤로가기와

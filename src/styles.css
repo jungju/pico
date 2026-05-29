@@ -150,6 +150,28 @@ button {
   line-height: 1.2;
 }
 
+.game-option-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.game-option-copy .game-option-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: #fff0a5;
+  color: #574404;
+  padding: 0 8px;
+  font-size: 0.76rem;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .auth-control {
   display: flex;
   align-items: center;

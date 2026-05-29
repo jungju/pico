@@ -111,6 +111,13 @@ export default function App() {
             <span className="game-option-copy">
               <strong>{game.title}</strong>
               <span>{game.category}</span>
+              <span className="game-option-badges">
+                {game.badges.map((badge) => (
+                  <span className="game-option-badge" key={badge}>
+                    {badge}
+                  </span>
+                ))}
+              </span>
             </span>
             <ArrowRight aria-hidden="true" size={22} />
           </button>

@@ -19,6 +19,7 @@ function normalizeSpotTheDifferenceStage(stage) {
     estimatedMinutes: stage.estimatedMinutes || 3,
     previewImage: stage.previewImage || stage.images?.changed || defaultFindLearnStage.previewImage,
     category: stage.titleKo ? `${gameTypeLabel(gameType)} · ${stage.titleKo}` : gameTypeLabel(gameType),
+    badges: [`Level ${stage.level || inferSpotTheDifferenceLevel(stage)}`, themeLabel(stage.theme || inferTheme(stage))],
     points: {
       completionBonus: stage.points?.completionBonus || DEFAULT_COMPLETION_BONUS,
     },
@@ -39,4 +40,11 @@ function inferTheme(stage) {
   if (title.includes("playground") || title.includes("놀이터")) return "playground";
   if (title.includes("picnic") || title.includes("소풍")) return "picnic";
   return "general";
+}
+
+function themeLabel(theme) {
+  if (theme === "bedroom") return "Bedroom";
+  if (theme === "playground") return "Playground";
+  if (theme === "picnic") return "Picnic";
+  return "General";
 }
