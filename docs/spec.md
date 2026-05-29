@@ -50,6 +50,7 @@ operation guide.
   collectible pickup, and completion helpers
 - `src/games/maze/stages/schema.js`: grid-based Maze stage schema and
   normalizer
+- `src/games/maze/stages/stage001.js`: v1 Maze garden stage content
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
@@ -97,6 +98,7 @@ The first game is `Find & Learn`:
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.
+- The first Maze stage URL is `/games/maze/maze_garden_001`.
 - Legacy `/games/<stage-id>` URLs remain recoverable.
 - Browser back/forward navigation must keep the selected screen in sync with the
   URL.
@@ -410,6 +412,9 @@ buttons, pointer/touch adjacent-cell movement, and the shared completion dialog.
 
 Maze scoring uses 300 points when the player reaches the goal, plus 50 points
 per collected item by default. A collectible may override its own `points`.
+
+The v1 Maze content set includes `maze_garden_001`, a level 1 garden maze with
+a clear start, goal, and two optional collectible cells.
 
 ## Data Contract
 

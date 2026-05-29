@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Garden maze preview">
+  <rect width="640" height="420" fill="#dff7f2"/>
+  <circle cx="90" cy="76" r="48" fill="#ffd45a" opacity="0.82"/>
+  <path d="M0 322 C120 264 210 352 332 296 C438 246 520 262 640 214 V420 H0 Z" fill="#8bdc91"/>
+  <g transform="translate(128 34)">
+    <rect x="0" y="0" width="384" height="384" rx="18" fill="#fff8df" stroke="#143c56" stroke-width="8"/>
+    <g stroke="#143c56" stroke-width="2">
+      <rect x="12" y="12" width="360" height="360" rx="10" fill="#fff4d7"/>
+      <g fill="#2f566c">
+        <rect x="166" y="12" width="50" height="50"/>
+        <rect x="12" y="64" width="50" height="50"/>
+        <rect x="64" y="64" width="50" height="50"/>
+        <rect x="166" y="64" width="50" height="50"/>
+        <rect x="270" y="64" width="50" height="50"/>
+        <rect x="166" y="116" width="50" height="50"/>
+        <rect x="270" y="116" width="50" height="50"/>
+        <rect x="64" y="168" width="50" height="50"/>
+        <rect x="116" y="168" width="50" height="50"/>
+        <rect x="166" y="168" width="50" height="50"/>
+        <rect x="270" y="168" width="50" height="50"/>
+        <rect x="64" y="220" width="50" height="50"/>
+        <rect x="270" y="220" width="50" height="50"/>
+        <rect x="64" y="272" width="50" height="50"/>
+        <rect x="166" y="272" width="50" height="50"/>
+        <rect x="218" y="272" width="50" height="50"/>
+        <rect x="270" y="272" width="50" height="50"/>
+      </g>
+    </g>
+    <circle cx="37" cy="37" r="20" fill="#ff8069" stroke="#143c56" stroke-width="4"/>
+    <path d="M324 336 l16 16 l28 -38" fill="none" stroke="#20b96f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#ffd45a" stroke="#143c56" stroke-width="4">
+      <path d="M38 136 l8 18 l20 2 l-15 13 l5 20 l-18 -10 l-18 10 l5 -20 l-15 -13 l20 -2 Z"/>
+      <path d="M190 340 l8 18 l20 2 l-15 13 l5 20 l-18 -10 l-18 10 l5 -20 l-15 -13 l20 -2 Z"/>
+    </g>
+  </g>
+</svg>

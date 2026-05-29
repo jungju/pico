@@ -3,6 +3,7 @@ import { ArrowRight, Flame, LoaderCircle, LogIn, LogOut, Sparkles, Trophy, UserR
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
 import { GAME_TYPES } from "./games/gameTypes";
 import { HiddenObjectsGame } from "./games/hiddenObjects/HiddenObjectsGame";
+import { MazeGame } from "./games/maze/MazeGame";
 import { gameStages } from "./games/stageRegistry";
 import { buildOhmeshLoginUrl, buildOhmeshLogoutUrl, fetchOhmeshSession, removeOhmeshResultParams } from "./ohmeshAuth";
 import { emptyPicoProgress, loadPicoProgress } from "./ohmeshProgress";
@@ -133,6 +134,10 @@ export default function App() {
 
     if (selectedGame.gameType === GAME_TYPES.HIDDEN_OBJECTS) {
       return <HiddenObjectsGame {...gameProps} />;
+    }
+
+    if (selectedGame.gameType === GAME_TYPES.MAZE) {
+      return <MazeGame {...gameProps} />;
     }
 
     return (

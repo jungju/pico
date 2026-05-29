@@ -233,8 +233,10 @@
   완료: `MazeGame` 점수는 공통 완료 300점과 수집 아이템별 points 값
   또는 기본 50점을 합산한다.
 
-- [ ] `V1-T055` `P0` 완성도 있는 미로 stage 1개를 만든다.
+- [x] `V1-T055` `P0` 완성도 있는 미로 stage 1개를 만든다.
   출발점과 도착점이 명확한 level 1 미로로 시작한다.
+  완료: `maze_garden_001` level 1 garden stage와 preview asset을 추가하고,
+  시작점, 도착점, optional collectible 2개를 selector/route에 등록했다.
 
 ## Milestone 6: 메모리 게임
 

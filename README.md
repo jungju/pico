@@ -33,6 +33,7 @@ https://pico.jjgo.io
 - `src/games/maze/MazeGame.jsx`: 미로 board, player marker, 이동 버튼, 완료 UI
 - `src/games/maze/engine.js`: grid 기반 미로 이동, pointer/touch cell 변환, 수집/완료 판정
 - `src/games/maze/stages/schema.js`: grid 기반 미로 stage schema와 normalizer
+- `src/games/maze/stages/stage001.js`: v1 미로 찾기 garden stage 데이터
 - `src/styles.css`: 게임 선택 화면과 Find & Learn 화면 스타일
 - `public/assets/`: stage 이미지
 - `public/CNAME`: GitHub Pages custom domain
@@ -50,6 +51,7 @@ https://pico.jjgo.io
 - 게임 선택 화면에서 stage 카드를 누르면 게임 화면으로 들어갑니다.
 - 각 stage 게임 화면 URL은 `/games/<game-type>/<stage-id>`입니다.
 - v1 숨은그림 찾기 첫 stage는 `/games/hidden_objects/hidden_picnic_001`입니다.
+- v1 미로 찾기 첫 stage는 `/games/maze/maze_garden_001`입니다.
 - 기존 `/games/<stage-id>` 직접 접근은 호환을 위해 계속 복구됩니다.
 - 브라우저 뒤로가기/앞으로가기로 게임 선택 화면과 stage 화면을 이동할 수 있습니다.
 - 게임 화면에는 ohmesh 로그인 상태, 게임 선택으로 돌아가는 버튼, 힌트 버튼, 리셋 버튼이 있습니다.
@@ -120,6 +122,8 @@ hit area를 가집니다.
 벽, 선택 수집 아이템, 선택 theme image를 포함합니다.
 
 - Stage schema helper: `src/games/maze/stages/schema.js`
+- V1 stage data: `src/games/maze/stages/stage001.js`
+- V1 preview image: `public/assets/maze-garden-001.svg`
 - Grid cells: `#`, `.`, `S`, `G`
 - Cell 좌표: `{ row, col }`
 - Collectible: `id`, `row`, `col`, `word`, `meaning`, `points`
