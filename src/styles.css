@@ -1708,17 +1708,34 @@ button.picture-frame:hover {
   content: "";
 }
 
-.maze-cell.start {
-  background: #baf1d4;
+.maze-cell.open.start {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.82) 0 25%, transparent 26%),
+    linear-gradient(180deg, #d9fce8, #9eeabf);
+  box-shadow: inset 0 0 0 2px rgba(18, 75, 52, 0.36);
 }
 
-.maze-cell.goal {
-  background: #ffe1e5;
+.maze-cell.open.goal {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.84) 0 26%, transparent 27%),
+    linear-gradient(180deg, #ffe9ef, #ffb8c9);
+  box-shadow: inset 0 0 0 2px rgba(121, 48, 70, 0.34);
+}
+
+.maze-cell.open.collectible {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.84) 0 25%, transparent 26%),
+    linear-gradient(180deg, #fff6bc, #ffd86c);
+  box-shadow: inset 0 0 0 2px rgba(161, 96, 0, 0.36);
 }
 
 .maze-cell-icon {
   position: absolute;
   z-index: 1;
+  width: clamp(22px, 48%, 34px);
+  height: clamp(22px, 48%, 34px);
+  filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.72));
+  stroke-width: 3;
 }
 
 .start-icon {
@@ -1730,7 +1747,7 @@ button.picture-frame:hover {
 }
 
 .collectible-icon {
-  color: #d18c00;
+  color: #9d5c00;
 }
 
 .maze-player {

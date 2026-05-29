@@ -113,6 +113,8 @@ On desktop, the maze board and D-pad sit in adjacent fixed-width columns rather
 than spreading across the full panel.
 The Maze player marker is a small face character rather than a plain dot, so
 the moving subject is visually clear.
+Maze start, goal, and collectible cells use larger icons, stronger contrast,
+and reinforced cell backgrounds so objectives are visible at a glance.
 
 ## Runtime
 

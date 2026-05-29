@@ -169,6 +169,7 @@ function MazeCell({ cell, nudging, runState, stage, value }) {
     blocked ? "blocked" : "open",
     isStart ? "start" : "",
     isGoal ? "goal" : "",
+    collectible && !collected ? "collectible" : "",
     visited ? "visited" : "",
   ]
     .filter(Boolean)
