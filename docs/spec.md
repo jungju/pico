@@ -159,8 +159,8 @@ The current v1 content set provides 20 Maze stages through
   bonus when every difference in the stage is found.
 - When logged in, found differences, completion state, and score are saved to
   ohmesh.
-- Logged-out game screens show `Local play` and keep progress only in the
-  current local play state.
+- Logged-out game screens show `Local play` as quiet status text and keep
+  progress only in the current local play state.
 - When all differences are found, a success completion dialog is shown.
 - The completion dialog offers `Next` when another stage exists, `Home` to
   return to the game selection page, and `Stay` to close the dialog.

@@ -500,9 +500,14 @@ button {
 }
 
 .save-text {
-  background: #ffe1e5;
-  color: #793046;
-  font-size: 0.8rem;
+  justify-content: flex-start;
+  min-height: 22px;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  color: #65747c;
+  font-size: 0.72rem;
+  font-weight: 850;
 }
 
 .progress-meter {
@@ -1540,7 +1545,7 @@ button.picture-frame:hover {
 
   .save-text {
     grid-column: 1 / -1;
-    min-height: 24px;
+    min-height: 20px;
     font-size: 0.7rem;
   }
 
