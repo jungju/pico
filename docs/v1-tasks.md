@@ -72,9 +72,11 @@
   완료: 기본 stage URL은 `/games/<game-type>/<stage-id>`이며, 기존
   `/games/<stage-id>` URL도 복구된다.
 
-- [ ] `V1-T014` `P0` 공통 game shell을 추출하거나 공식화한다.
+- [x] `V1-T014` `P0` 공통 game shell을 추출하거나 공식화한다.
   HUD, `Games`, `Hint`, `Reset`, 계정 버튼, 학습 패널, 완료 dialog,
   점수, 진행률 패턴을 게임 타입마다 재사용한다.
+  완료: `src/games/GameShell.jsx`로 공통 HUD, action, learning panel,
+  completion dialog를 분리했고 Find & Learn이 이를 사용한다.
 
 - [ ] `V1-T015` `P1` 오늘의 플레이 진입점을 추가한다.
   첫 화면에서 아직 완료하지 않은 쉬운 stage를 추천하고, 모두 완료했다면

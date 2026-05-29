@@ -18,6 +18,8 @@ operation guide.
   matching filename stem
 - `src/App.jsx`: current game selection page and game registry
 - `src/games/gameTypes.js`: stable v1 game type IDs and display metadata
+- `src/games/GameShell.jsx`: shared v1 HUD, actions, learning panel, and
+  completion dialog shell
 - `src/games/stageRegistry.js`: shared v1 stage registry with common stage
   metadata
 - `src/ohmeshAuth.js`: ohmesh login/logout URLs and session checks
