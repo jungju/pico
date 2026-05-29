@@ -364,7 +364,7 @@ button {
 }
 
 .game-shell {
-  --game-chrome-height: 230px;
+  --game-chrome-height: 188px;
   --picture-min-height: 250px;
   --picture-max-height: clamp(var(--picture-min-height), calc(100dvh - var(--game-chrome-height)), 680px);
 
@@ -393,7 +393,7 @@ button {
 
 .game-topbar {
   display: grid;
-  grid-template-columns: minmax(230px, 1fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(180px, 0.7fr) minmax(360px, 0.95fr) minmax(390px, 1.15fr);
   align-items: center;
   gap: 10px;
   min-height: 78px;
@@ -456,7 +456,7 @@ button {
 
 .progress-hud {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 7px;
   min-width: 0;
 }
@@ -527,13 +527,10 @@ button {
 
 .game-actions {
   display: grid;
-  grid-column: 1 / -1;
   grid-template-columns: minmax(112px, auto) minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
   min-width: 0;
-  border-top: 2px solid rgba(20, 60, 86, 0.14);
-  padding-top: 8px;
 }
 
 .nav-action-group,
@@ -1428,6 +1425,13 @@ button.picture-frame:hover {
 
   .progress-hud {
     grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .game-actions {
+    grid-column: 1 / -1;
+    border-top: 2px solid rgba(20, 60, 86, 0.14);
+    padding-top: 8px;
   }
 }
 
