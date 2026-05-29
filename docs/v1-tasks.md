@@ -276,9 +276,11 @@
 
 ## Milestone 7: 콘텐츠와 에셋
 
-- [ ] `V1-T070` `P0` v1 asset naming convention을 정한다.
+- [x] `V1-T070` `P0` v1 asset naming convention을 정한다.
   stage JSON, preview image, game image, optional audio의 위치와 이름을
   예측 가능하게 만든다.
+  완료: `docs/v1-assets.md`에 stage ID, stage data, preview/game image,
+  card/target image, optional audio 위치와 파일명 규칙을 정리했다.
 
 - [ ] `V1-T071` `P0` 최소 v1 콘텐츠 세트를 제작한다.
   네 가지 게임 타입마다 최소 1개 이상의 polished playable stage를

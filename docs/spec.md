@@ -13,6 +13,7 @@ operation guide.
 - `docs/v1-scope.md`: target scope for Pico v1 games, rewards, persistence,
   and explicit non-goals
 - `docs/v1-tasks.md`: implementation backlog derived from the v1 scope
+- `docs/v1-assets.md`: v1 stage data and asset naming convention
 - `contents/*.json`: Find & Learn content stages loaded into the game selector
 - `contents/*.{png,jpg,jpeg,webp}`: images paired with content JSON files by
   matching filename stem
