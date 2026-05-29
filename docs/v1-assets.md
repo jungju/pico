@@ -76,6 +76,21 @@ public/assets/audio/<word>.mp3
 - Photos or rich raster art: `.jpg`, `.png`, or `.webp`
 - Audio: `.mp3`
 
+## Home Thumbnail Standards
+
+- Home stage thumbnails are square, framed with the shared Pico navy stroke,
+  and must stay readable at both 86px mobile and 124px desktop sizes.
+- Spot the Difference and Hidden Objects thumbnails use edge-to-edge scene
+  framing with the main action kept near the center safe area.
+- Maze thumbnails use an inset board preview on a light blue tray so paths,
+  walls, start, and goal remain legible instead of looking like a generic
+  scene.
+- Memory Cards thumbnails use an inset card-table preview on a lavender tray.
+  They should show multiple cards and at least one clear face/icon so the asset
+  reads as a card game, not a single decorative icon.
+- Avoid tiny instructional text in thumbnails. Labels inside the image must
+  remain optional; the stage card text owns the title, level, and theme.
+
 ## Commit Rules
 
 - Commit only assets referenced by committed stage data or UI.

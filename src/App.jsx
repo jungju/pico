@@ -339,7 +339,7 @@ export default function App() {
             const completed = Boolean(stageProgress[game.id]?.completed);
             return (
               <button className="game-option" type="button" key={game.id} onClick={() => openStage(game)}>
-                <span className="game-option-media">
+                <span className={`game-option-media ${gameTypeClassName(game.gameType)}`}>
                   <img src={game.image} alt="" draggable="false" />
                 </span>
                 <span className="game-option-copy">
@@ -444,6 +444,10 @@ function AuthControl({ authState, compact = false, onLogin, onLogout }) {
 
 function displayName(user) {
   return user.name || user.email || "Pico user";
+}
+
+function gameTypeClassName(gameType) {
+  return gameType.replaceAll("_", "-");
 }
 
 function getTodaysGame(games, stageProgress = {}) {
