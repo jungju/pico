@@ -315,9 +315,12 @@
   completion dialog의 `Next`, `Home`, `Stay` visible label을 확인하고,
   dialog action에 aria-label/title을 보강했다.
 
-- [ ] `V1-T081` `P0` 모바일 우선 layout을 검증한다.
+- [x] `V1-T081` `P0` 모바일 우선 layout을 검증한다.
   모든 게임 타입에서 320px, 일반 모바일, 태블릿, 데스크톱 viewports를
   확인한다.
+  완료: 320px, 390px, 768px 폭에서 selector와 Spot the Difference,
+  Hidden Objects, Maze, Memory Cards route를 Playwright screenshot으로
+  확인했고, Hidden Objects target list의 모바일 높이와 간격을 조정했다.
 
 - [ ] `V1-T082` `P0` touch target size를 검증한다.
   중요한 control과 게임 target이 아이 손가락으로 누르기 충분히 큰지
