@@ -109,6 +109,8 @@ of visited-cell count.
 
 Maze movement controls are presented as one stable 3x3 D-pad group with a
 center hub, so the direction buttons do not appear detached on mobile.
+On desktop, the maze board and D-pad sit in adjacent fixed-width columns rather
+than spreading across the full panel.
 
 ## Runtime
 

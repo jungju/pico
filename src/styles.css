@@ -2429,6 +2429,19 @@ button.picture-frame:hover {
   .game-option-copy strong {
     font-size: 1.28rem;
   }
+
+  .maze-stage {
+    grid-template-columns: minmax(0, 620px) 176px;
+    justify-content: center;
+  }
+
+  .maze-board {
+    justify-self: end;
+  }
+
+  .maze-controls {
+    justify-self: start;
+  }
 }
 
 @media (max-width: 780px) {
