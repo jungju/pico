@@ -1,4 +1,6 @@
 const DAY_MS = 24 * 60 * 60 * 1000;
+const MAX_STREAK_REWARD = 150;
+const STREAK_REWARDS = [0, 50, 75, 100, 125, MAX_STREAK_REWARD];
 
 export function qualifyDailyVisit(progress, { now = new Date() } = {}) {
   const today = localDateKey(now);
@@ -33,6 +35,37 @@ export function localDateKey(date = new Date()) {
   const month = String(value.getMonth() + 1).padStart(2, "0");
   const day = String(value.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
+}
+
+export function awardDailyStreakReward(progress, { now = new Date() } = {}) {
+  const today = localDateKey(now);
+  const nextProgress = cloneProgress(progress);
+
+  if (nextProgress.streak.lastRewardDate === today || nextProgress.streak.lastQualifiedDate !== today) {
+    return {
+      awardedPoints: 0,
+      progress: nextProgress,
+    };
+  }
+
+  const awardedPoints = streakRewardForDay(nextProgress.streak.current);
+
+  nextProgress.totalPoints = toNonNegativeNumber(nextProgress.totalPoints, 0) + awardedPoints;
+  nextProgress.streak = {
+    ...nextProgress.streak,
+    lastRewardDate: today,
+  };
+
+  return {
+    awardedPoints,
+    progress: nextProgress,
+  };
+}
+
+export function streakRewardForDay(streakDay) {
+  const day = toNonNegativeNumber(streakDay, 0);
+  if (day >= STREAK_REWARDS.length) return MAX_STREAK_REWARD;
+  return STREAK_REWARDS[day] || 0;
 }
 
 function isYesterday(previousDateKey, todayKey) {
