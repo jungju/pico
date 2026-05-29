@@ -66,6 +66,8 @@ The first game is `Find & Learn`:
   URL.
 - The game screen shows the current ohmesh login state and can return to the
   game selection page.
+- Game screen actions use visible command labels for game list navigation,
+  hints, reset, login, and logout.
 - The Find & Learn game screen uses a low-contrast illustrated background.
 - The Find & Learn game screen uses a kid-friendly HUD with a stage badge,
   progress meter, and score chips.

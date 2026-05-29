@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
-  ArrowLeft,
   ArrowRight,
   CheckCircle2,
   Home,
@@ -257,18 +256,31 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
         </div>
 
         <div className="game-actions">
-          {authControl}
-          {onBack ? (
-            <button className="icon-button" type="button" onClick={onBack} aria-label="Back to games">
-              <ArrowLeft aria-hidden="true" size={19} />
+          <div className="nav-action-group">
+            {onBack ? (
+              <button
+                className="action-button game-list-button"
+                type="button"
+                onClick={onBack}
+                aria-label="Go to game list"
+                title="Go to game list"
+              >
+                <Home aria-hidden="true" size={18} />
+                <span>Games</span>
+              </button>
+            ) : null}
+          </div>
+          <div className="tool-action-group" aria-label="Game tools">
+            <button className="action-button tool-action-button" type="button" onClick={showHint} aria-label="Show hint" title="Show hint">
+              <Lightbulb aria-hidden="true" size={19} />
+              <span>Hint</span>
             </button>
-          ) : null}
-          <button className="icon-button" type="button" onClick={showHint} aria-label="Hint">
-            <Lightbulb aria-hidden="true" size={19} />
-          </button>
-          <button className="icon-button" type="button" onClick={resetGame} aria-label="Reset">
-            <RotateCcw aria-hidden="true" size={19} />
-          </button>
+            <button className="action-button tool-action-button" type="button" onClick={resetGame} aria-label="Reset stage" title="Reset stage">
+              <RotateCcw aria-hidden="true" size={19} />
+              <span>Reset</span>
+            </button>
+          </div>
+          <div className="account-action-group">{authControl}</div>
         </div>
       </section>
 

@@ -124,7 +124,7 @@ export default function App() {
 }
 
 function AuthControl({ authState, compact = false, onLogin, onLogout }) {
-  const className = compact ? "auth-control compact" : "auth-control";
+  const className = `auth-control${compact ? " compact" : ""}`;
   const user = authState.session?.user;
 
   if (authState.status === "authenticated" && user) {
@@ -138,8 +138,9 @@ function AuthControl({ authState, compact = false, onLogin, onLogout }) {
           )}
           <span className="auth-name">{displayName(user)}</span>
         </span>
-        <button className="icon-button" type="button" onClick={onLogout} aria-label="Log out of ohmesh">
+        <button className="auth-button logout-button" type="button" onClick={onLogout} aria-label="Log out of ohmesh" title="Log out">
           <LogOut aria-hidden="true" size={19} />
+          <span>Log out</span>
         </button>
       </div>
     );
@@ -147,6 +148,7 @@ function AuthControl({ authState, compact = false, onLogin, onLogout }) {
 
   const loading = authState.status === "loading";
   const errorTitle = authState.status === "error" ? authState.error?.message : undefined;
+  const loginTitle = errorTitle || (loading ? "Checking ohmesh login" : "Log in with ohmesh");
 
   return (
     <div className={className}>
@@ -156,14 +158,14 @@ function AuthControl({ authState, compact = false, onLogin, onLogout }) {
         disabled={loading}
         onClick={onLogin}
         aria-label={loading ? "Checking ohmesh login" : "Log in with ohmesh"}
-        title={errorTitle}
+        title={loginTitle}
       >
         {loading ? (
           <LoaderCircle className="auth-spinner" aria-hidden="true" size={18} />
         ) : (
           <LogIn aria-hidden="true" size={18} />
         )}
-        <span>{loading ? "Checking" : "Log in"}</span>
+        <span>{loading ? "Checking login" : "Log in"}</span>
       </button>
     </div>
   );

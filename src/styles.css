@@ -214,6 +214,11 @@ button {
   transform: translateY(1px);
 }
 
+.logout-button {
+  background: #ffe1e5;
+  color: #793046;
+}
+
 .auth-button:disabled {
   cursor: default;
   opacity: 0.72;
@@ -262,7 +267,7 @@ button {
 
 .game-topbar {
   display: grid;
-  grid-template-columns: minmax(230px, 1fr) minmax(260px, 0.9fr) auto;
+  grid-template-columns: minmax(230px, 1fr) minmax(280px, 0.9fr);
   align-items: center;
   gap: 10px;
   min-height: 78px;
@@ -395,11 +400,82 @@ button {
 }
 
 .game-actions {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(112px, auto) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  border-top: 2px solid rgba(20, 60, 86, 0.14);
+  padding-top: 8px;
+}
+
+.nav-action-group,
+.tool-action-group,
+.account-action-group {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 7px;
   min-width: 0;
+}
+
+.tool-action-group {
+  justify-content: center;
+}
+
+.account-action-group {
+  justify-content: flex-end;
+}
+
+.account-action-group .auth-user {
+  max-width: min(210px, 24vw);
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 96px;
+  min-height: 38px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 3px 0 rgba(20, 60, 86, 0.18);
+  color: #143c56;
+  padding: 0 12px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease,
+    transform 140ms ease;
+}
+
+.action-button:hover {
+  border-color: #e85f67;
+  transform: translateY(1px);
+}
+
+.action-button:active {
+  box-shadow: 0 1px 0 rgba(20, 60, 86, 0.18);
+  transform: translateY(3px);
+}
+
+.action-button:focus-visible {
+  outline: 3px solid #166f8f;
+  outline-offset: 3px;
+}
+
+.game-list-button {
+  background: #c5f2ff;
+  color: #154868;
+}
+
+.tool-action-button {
+  min-width: 92px;
 }
 
 .icon-button {
@@ -825,19 +901,17 @@ button.picture-frame:hover {
     max-width: 46vw;
   }
 
-  .auth-control.compact .auth-name,
-  .auth-control.compact .auth-button span {
+  .auth-control.compact .auth-name {
     display: none;
   }
 
-  .auth-control.compact .auth-button {
-    width: 38px;
-    padding: 0;
+  .auth-control.compact .auth-user {
+    max-width: none;
   }
 
   .game-shell {
-    --game-chrome-height: 224px;
-    --picture-min-height: 170px;
+    --game-chrome-height: 286px;
+    --picture-min-height: 150px;
     --picture-max-height: clamp(var(--picture-min-height), calc(100dvh - var(--game-chrome-height)), 560px);
 
     width: min(100% - 12px, 640px);
@@ -888,7 +962,37 @@ button.picture-frame:hover {
   }
 
   .game-actions {
-    gap: 6px;
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding-top: 7px;
+  }
+
+  .nav-action-group,
+  .tool-action-group,
+  .account-action-group {
+    justify-content: stretch;
+  }
+
+  .nav-action-group .action-button,
+  .tool-action-group .action-button,
+  .account-action-group .auth-button {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .account-action-group .auth-control {
+    width: 100%;
+  }
+
+  .account-action-group .auth-user {
+    flex: 1 1 auto;
+    max-width: none;
+  }
+
+  .action-button {
+    min-height: 36px;
+    padding: 0 9px;
+    font-size: 0.8rem;
   }
 
   .icon-button {
