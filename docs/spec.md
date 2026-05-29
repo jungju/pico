@@ -69,6 +69,8 @@ operation guide.
   normalizer
 - `src/games/memoryCards/stages/stage001.js`: v1 Memory Cards animal
   image-image stage content
+- `src/games/memoryCards/stages/generatedStages.js`: generated v1 Memory Cards
+  image-image and image-word stage content
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
@@ -509,8 +511,9 @@ pair speaks a short English match or completion feedback.
 Memory Cards scoring uses 100 points per matched pair, plus a 200 point
 completion bonus when every pair in the stage is matched.
 
-The v1 Memory Cards content set includes `memory_animals_001`, a level 1
-image-image animal matching stage with cat, dog, bird, and fish pairs.
+The v1 Memory Cards content set includes 20 stages through
+`src/games/memoryCards/stages`: the seed `memory_animals_001` image-image
+animal stage and 19 generated image-image or image-word stages.
 
 ## Data Contract
 

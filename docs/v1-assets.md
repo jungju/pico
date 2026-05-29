@@ -58,6 +58,8 @@ public/assets/hidden_classroom_001.svg
 public/assets/hidden_market_001.svg
 public/assets/maze_classroom_001.svg
 public/assets/maze_market_001.svg
+public/assets/memory_classroom_001.svg
+public/assets/memory-word-pencil.svg
 ```
 
 Optional audio uses the stage or vocabulary word:

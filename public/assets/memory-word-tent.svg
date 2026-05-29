@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="tent">
+  <rect width="220" height="220" rx="32" fill="#fff8df"/>
+  <circle cx="178" cy="44" r="26" fill="#ffd45a" opacity="0.82"/>
+  <path d="M50 100 C86 42 134 42 170 100Z" fill="#a982ff" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M110 100 V158" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="110" y="194" text-anchor="middle" font-size="24" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">tent</text>
+</svg>

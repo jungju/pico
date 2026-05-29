@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="hat">
+  <rect width="220" height="220" rx="32" fill="#fff8df"/>
+  <circle cx="178" cy="44" r="26" fill="#ffd45a" opacity="0.82"/>
+  <ellipse cx="110" cy="134" rx="51.480000000000004" ry="18" fill="#5ac878" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M72 132 C82 58 138 58 148 132Z" fill="#f45d5d" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="110" y="194" text-anchor="middle" font-size="24" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">hat</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="dinosaur">
+  <rect width="220" height="220" rx="32" fill="#fff8df"/>
+  <circle cx="178" cy="44" r="26" fill="#ffd45a" opacity="0.82"/>
+  <ellipse cx="100" cy="100" rx="42.24" ry="29.04" fill="#ff9f45" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M148 100 L174 66 L174 134Z" fill="#4aa3ff" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="68" cy="92" r="5" fill="#143c56"/>
+  <text x="110" y="194" text-anchor="middle" font-size="24" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">dinosaur</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" role="img" aria-label="Space Cards preview">
+  <rect width="520" height="520" rx="36" fill="#27385f"/>
+  <path d="M0 378 C92 330 166 404 260 362 C372 314 438 392 520 352 V520 H0Z" fill="#17233f" opacity="0.95"/>
+  <circle cx="94" cy="86" r="38" fill="#ffd45a" opacity="0.85"/>
+  <text x="260" y="88" text-anchor="middle" font-size="34" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Space Cards</text>
+  <rect x="78" y="168" width="148" height="126" rx="18" fill="#ffffff" stroke="#143c56" stroke-width="8"/>
+      <path d="M152,200.57999999999998 L160.02326869379226,219.95691802678198 L180.9311392256986,221.5997030311141 L164.98192144742885,235.21808197321803 L169.88042737473702,255.6102969688859 L152,244.65 L134.11957262526298,255.6102969688859 L139.01807855257115,235.21808197321803 L123.06886077430143,221.5997030311141 L143.97673130620774,219.95691802678198 Z" fill="#f45d5d" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="268" y="168" width="148" height="126" rx="18" fill="#ffffff" stroke="#143c56" stroke-width="8"/>
+      <path d="M342 198 C386 250 374 242 342 264 C310 242 298 250 342 198Z" fill="#4aa3ff" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="342" cy="227" r="17" fill="#ffd45a" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="78" y="346" width="148" height="126" rx="18" fill="#ffffff" stroke="#143c56" stroke-width="8"/>
+      <path d="M186 351 C124 367 94 433 134 475 C78 455 64 367 186 351Z" fill="#5ac878" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="268" y="346" width="148" height="126" rx="18" fill="#ffffff" stroke="#143c56" stroke-width="8"/>
+      <circle cx="342" cy="409" r="27.299999999999997" fill="#ffd45a" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="342" cy="409" rx="35.1" ry="10.920000000000002" fill="none" stroke="#ff9f45" stroke-width="10" transform="rotate(-18 342 409)"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="guitar">
+  <rect width="220" height="220" rx="32" fill="#fff8df"/>
+  <circle cx="178" cy="44" r="26" fill="#ffd45a" opacity="0.82"/>
+  <rect x="56" y="48" width="108" height="104" rx="24" fill="#ff9f45" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="110" cy="100" r="15.84" fill="#4aa3ff" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="110" y="194" text-anchor="middle" font-size="24" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">guitar</text>
+</svg>

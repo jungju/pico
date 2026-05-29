@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="banana">
+  <rect width="220" height="220" rx="32" fill="#fff8df"/>
+  <circle cx="178" cy="44" r="26" fill="#ffd45a" opacity="0.82"/>
+  <path d="M144 42 C82 58 52 124 92 166 C36 146 22 58 144 42Z" fill="#ff9f45" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="110" y="194" text-anchor="middle" font-size="24" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">banana</text>
+</svg>

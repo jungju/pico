@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="star">
+  <rect width="220" height="220" rx="32" fill="#fff8df"/>
+  <circle cx="178" cy="44" r="26" fill="#ffd45a" opacity="0.82"/>
+  <path d="M110,48.519999999999996 L123.57783932795613,81.3117074299387 L158.96038945887452,84.09180512957771 L131.96940552641803,107.13829257006128 L140.2591847880165,141.6481948704223 L110,123.1 L79.74081521198349,141.6481948704223 L88.03059447358196,107.13829257006128 L61.039610541125484,84.09180512957771 L96.42216067204387,81.31170742993872 Z" fill="#5ac878" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="110" y="194" text-anchor="middle" font-size="24" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">star</text>
+</svg>

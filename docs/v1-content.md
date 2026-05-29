@@ -12,8 +12,8 @@ V1 release requires 20 polished playable stages for each game type.
 | Spot the Difference | 20 | 20 | 0 |
 | Hidden Objects | 20 | 20 | 0 |
 | Maze | 20 | 20 | 0 |
-| Memory Cards | 20 | 1 | 19 |
-| Total | 80 | 61 | 19 |
+| Memory Cards | 20 | 20 | 0 |
+| Total | 80 | 80 | 0 |
 
 ## Current Stages
 
@@ -80,6 +80,25 @@ V1 release requires 20 polished playable stages for each game type.
 | Maze | `maze_toy_room_001` | toys | 1 | start, goal, 2 collectibles |
 | Maze | `maze_zoo_001` | zoo | 1 | start, goal, 2 collectibles |
 | Memory Cards | `memory_animals_001` | animals | 1 | 4 image-image pairs |
+| Memory Cards | `memory_beach_001` | beach | 1 | 4 image-image pairs |
+| Memory Cards | `memory_camping_001` | camping | 2 | 6 image-word pairs |
+| Memory Cards | `memory_classroom_001` | classroom | 1 | 4 image-image pairs |
+| Memory Cards | `memory_doctor_001` | doctor | 3 | 8 image-word pairs |
+| Memory Cards | `memory_farm_001` | farm | 2 | 6 image-word pairs |
+| Memory Cards | `memory_garden_001` | garden | 1 | 4 image-image pairs |
+| Memory Cards | `memory_kitchen_001` | kitchen | 1 | 4 image-image pairs |
+| Memory Cards | `memory_library_001` | library | 2 | 6 image-word pairs |
+| Memory Cards | `memory_market_001` | market | 3 | 8 image-word pairs |
+| Memory Cards | `memory_museum_001` | museum | 1 | 4 image-image pairs |
+| Memory Cards | `memory_music_001` | music | 2 | 6 image-word pairs |
+| Memory Cards | `memory_ocean_001` | ocean | 2 | 6 image-word pairs |
+| Memory Cards | `memory_party_001` | party | 2 | 6 image-word pairs |
+| Memory Cards | `memory_rain_001` | rain | 2 | 6 image-word pairs |
+| Memory Cards | `memory_snow_001` | snow | 2 | 6 image-word pairs |
+| Memory Cards | `memory_space_001` | space | 1 | 4 image-image pairs |
+| Memory Cards | `memory_station_001` | station | 3 | 8 image-word pairs |
+| Memory Cards | `memory_toy_room_001` | toys | 1 | 4 image-image pairs |
+| Memory Cards | `memory_zoo_001` | zoo | 1 | 4 image-image pairs |
 
 ## Asset Coverage
 
@@ -87,8 +106,9 @@ V1 release requires 20 polished playable stages for each game type.
   `public/assets/hidden_*.svg` scene assets.
 - Maze uses `public/assets/maze-garden-001.svg` and generated
   `public/assets/maze_*.svg` preview assets.
-- Memory Cards uses `public/assets/memory-animals-001.svg` and
-  `public/assets/memory-animal-*.svg` card images.
+- Memory Cards uses `public/assets/memory-animals-001.svg`,
+  `public/assets/memory-animal-*.svg`, generated `public/assets/memory_*.svg`
+  preview assets, and reusable `public/assets/memory-word-*.svg` card images.
 - Spot the Difference content image assets live in `contents/` and may be
   raster images or deterministic SVG scene pairs.
 
