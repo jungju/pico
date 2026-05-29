@@ -20,12 +20,12 @@
 
 ## Milestone 0: 제품 결정
 
-- [x] `V1-T001` `P0` v1 초기 stage 수를 결정한다.
-  각 게임 타입별 1개 stage로 출시할지, 기존 틀린그림 찾기는 여러
-  stage를 유지하고 신규 게임을 1개씩 추가할지 정한다.
-  결정: 기존 틀린그림 찾기 stage들은 유지하고, 숨은그림 찾기, 미로
-  찾기, 메모리 게임은 각각 최소 1개 polished stage를 추가해 v1로
-  출시한다.
+- [x] `V1-T001` `P0` v1 출시 stage 수를 결정한다.
+  각 게임 타입별 출시 콘텐츠 목표 수량을 정한다.
+  결정: v1 출시 목표는 틀린그림 찾기, 숨은그림 찾기, 미로 찾기,
+  메모리 게임을 각각 20개씩 제공하는 것이다. 총 80개 playable stage를
+  v1 범위로 한다. 현재 구현된 6개 stage는 엔진과 UX를 검증하는 seed
+  set으로 유지한다.
 
 - [x] `V1-T002` `P0` 로그아웃 점수 표시 정책을 정한다.
   로그아웃 사용자에게 임시 세션 포인트를 보여줄지, stage 안의 현재
@@ -282,12 +282,12 @@
   완료: `docs/v1-assets.md`에 stage ID, stage data, preview/game image,
   card/target image, optional audio 위치와 파일명 규칙을 정리했다.
 
-- [x] `V1-T071` `P0` 최소 v1 콘텐츠 세트를 제작한다.
-  네 가지 게임 타입마다 최소 1개 이상의 polished playable stage를
-  제공한다.
-  완료: `docs/v1-content.md`에 현재 v1 playable stage set을 정리했고,
-  Spot the Difference, Hidden Objects, Maze, Memory Cards가 모두 최소 1개
-  이상의 stage를 가진다.
+- [x] `V1-T071` `P0` v1 seed 콘텐츠 세트를 제작한다.
+  네 가지 게임 타입의 엔진, UX, 점수, 저장 흐름을 검증할 polished
+  playable stage를 제공한다.
+  완료: `docs/v1-content.md`에 현재 v1 seed stage set을 정리했고,
+  Spot the Difference, Hidden Objects, Maze, Memory Cards가 모두 playable
+  seed stage를 가진다.
 
 - [x] `V1-T072` `P1` vocabulary QA checklist를 만든다.
   stage마다 영어 단어, 한국어 뜻, 문장, 발음 적합성, 연령 적합성을
@@ -305,6 +305,24 @@
   완료: 기존 Spot the Difference content JSON에 theme, level,
   estimatedMinutes를 명시하고 content loader가 metadata를 registry로
   전달하도록 업데이트했다.
+
+- [x] `V1-T075` `P0` v1 출시 콘텐츠 수량을 확정한다.
+  게임 타입별 stage 목표 수와 전체 stage 목표 수를 문서에 반영한다.
+  완료: v1 출시 콘텐츠 목표를 게임 타입별 20개, 총 80개 playable
+  stage로 확정하고 `docs/v1-scope.md`, `docs/v1-content.md`,
+  `README.md`, `docs/spec.md`에 반영했다.
+
+- [ ] `V1-T076` `P0` 틀린그림 찾기 stage를 20개로 확장한다.
+  현재 seed stage 3개를 유지하고, 출시 전 17개 stage를 추가한다.
+
+- [ ] `V1-T077` `P0` 숨은그림 찾기 stage를 20개로 확장한다.
+  현재 seed stage 1개를 유지하고, 출시 전 19개 stage를 추가한다.
+
+- [ ] `V1-T078` `P0` 미로 찾기 stage를 20개로 확장한다.
+  현재 seed stage 1개를 유지하고, 출시 전 19개 stage를 추가한다.
+
+- [ ] `V1-T079` `P0` 메모리 게임 stage를 20개로 확장한다.
+  현재 seed stage 1개를 유지하고, 출시 전 19개 stage를 추가한다.
 
 ## Milestone 8: 접근성, UX, polish
 
@@ -387,7 +405,7 @@
 3. `V1-T020`부터 `V1-T027`까지 progress, points, streak를 구현한다.
 4. `V1-T031`부터 `V1-T034`까지 기존 틀린그림 찾기를 v1 구조에 맞춘다.
 5. 숨은그림 찾기, 메모리 게임, 미로 찾기 순서로 신규 게임을 만든다.
-6. 콘텐츠와 에셋 task를 채운다.
+6. 콘텐츠와 에셋 task를 채워 각 게임 타입을 20개 stage로 확장한다.
 7. 접근성, 수동 QA, release validation을 마무리한다.
 
 ## V1 범위 밖

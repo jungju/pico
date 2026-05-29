@@ -14,7 +14,7 @@ https://pico.jjgo.io
 - `docs/v1-scope.md`: Pico v1에 포함할 게임, 보상, 진행 저장, 제외 범위
 - `docs/v1-tasks.md`: v1 범위를 구현 가능한 태스크로 나눈 backlog
 - `docs/v1-assets.md`: v1 stage data와 이미지/audio asset 이름 규칙
-- `docs/v1-content.md`: v1에 포함된 최소 playable stage 목록
+- `docs/v1-content.md`: v1 playable stage 목표 수량과 현재 seed stage 목록
 - `docs/v1-vocabulary-qa.md`: v1 vocabulary와 문장 QA 체크리스트
 - `docs/v1-visual-qa.md`: v1 이미지, hit area, viewport QA 체크리스트
 - `docs/v1-korean-copy.md`: v1 한국어 보조 텍스트 리뷰
@@ -58,6 +58,7 @@ https://pico.jjgo.io
 - 첫 화면에는 ohmesh 로그인 상태와 로그인/로그아웃 버튼이 있습니다.
 - 로그인한 사용자에게는 첫 화면에 총 포인트와 연속 방문 streak가 표시됩니다.
 - 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage와 v1 신규 게임 stage 카드가 표시됩니다.
+- v1 출시 콘텐츠 목표는 게임 타입별 20개, 총 80개 playable stage입니다.
 - 게임 선택 화면에서 stage 카드를 누르면 게임 화면으로 들어갑니다.
 - 각 stage 게임 화면 URL은 `/games/<game-type>/<stage-id>`입니다.
 - v1 숨은그림 찾기 첫 stage는 `/games/hidden_objects/hidden_picnic_001`입니다.

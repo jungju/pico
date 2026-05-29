@@ -1,12 +1,21 @@
 # Pico V1 Content Set
 
-이 문서는 v1에 포함되는 최소 playable content set을 기록한다.
+이 문서는 v1 출시 목표 playable content 수량과 현재 seed stage set을
+기록한다.
 
-## Required Set
+## Target Set
 
-V1 requires at least one polished playable stage for each game type.
+V1 release requires 20 polished playable stages for each game type.
 
-## Current Stages
+| Game Type | Target Count | Current Count | Remaining |
+| --- | ---: | ---: | ---: |
+| Spot the Difference | 20 | 3 | 17 |
+| Hidden Objects | 20 | 1 | 19 |
+| Maze | 20 | 1 | 19 |
+| Memory Cards | 20 | 1 | 19 |
+| Total | 80 | 6 | 74 |
+
+## Current Seed Stages
 
 | Game Type | Stage ID | Theme | Level | Targets/Pairs |
 | --- | --- | --- | --- | --- |
@@ -27,7 +36,7 @@ V1 requires at least one polished playable stage for each game type.
 
 ## V1 Acceptance
 
-- Every v1 game type has at least one playable stage.
+- Every v1 game type has 20 playable stages.
 - Every stage has a stable route through `/games/<game-type>/<stage-id>`.
 - Every new v1 game type has a preview image in the selector.
 - Level and theme metadata are present for the current v1 stages.

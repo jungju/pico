@@ -14,7 +14,7 @@ operation guide.
   and explicit non-goals
 - `docs/v1-tasks.md`: implementation backlog derived from the v1 scope
 - `docs/v1-assets.md`: v1 stage data and asset naming convention
-- `docs/v1-content.md`: v1 minimum playable stage inventory
+- `docs/v1-content.md`: v1 target stage count and current seed stage inventory
 - `docs/v1-vocabulary-qa.md`: v1 vocabulary and sentence QA checklist
 - `docs/v1-visual-qa.md`: v1 visual asset, hit area, and viewport QA
   checklist
@@ -80,7 +80,8 @@ one person can operate it without a service-specific backend.
 The target v1 scope is documented in `docs/v1-scope.md`. V1 expands Pico from
 the current Spot the Difference game into four game types: Spot the Difference,
 Hidden Objects, Maze, and Memory Cards. V1 also adds shared points, daily
-streak rewards, and cross-game progress persistence for logged-in users.
+streak rewards, and cross-game progress persistence for logged-in users. The v1
+release content target is 20 stages per game type, 80 playable stages total.
 
 The first game is `Find & Learn`:
 
