@@ -103,6 +103,9 @@ The current v1 content set provides 20 Hidden Objects stages through
 The current v1 content set provides 20 Maze stages through
 `src/games/maze/stages`.
 
+The current v1 content set provides 20 Memory Cards stages through
+`src/games/memoryCards/stages`.
+
 Maze progress is goal-centered: the HUD meter reflects path progress toward
 the goal, and the text summarizes the goal plus collectible gem count instead
 of visited-cell count.
@@ -120,6 +123,9 @@ pattern, and inner-outline treatments.
 Maze adjacent movable cells are visually marked, and D-pad buttons provide
 pressed feedback so touch input affordance is clear without extra instruction
 copy.
+
+Memory Cards keeps the stage-defined column count on mobile, so 4-pair stages
+render as a stable 4x2 board instead of wrapping into uneven rows.
 
 ## Runtime
 

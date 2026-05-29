@@ -2818,7 +2818,7 @@ button.picture-frame:hover {
   }
 
   .memory-card-grid {
-    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+    grid-template-columns: repeat(var(--memory-columns), minmax(0, 1fr));
     gap: 7px;
     width: min(100%, 360px);
   }
