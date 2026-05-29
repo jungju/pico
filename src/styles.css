@@ -1474,6 +1474,7 @@ button.picture-frame:hover {
 .hidden-target-pill {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
+  align-content: center;
   gap: 3px;
   min-height: 54px;
   border: 2px solid #143c56;
@@ -1485,22 +1486,26 @@ button.picture-frame:hover {
 }
 
 .hidden-target-pill strong {
+  display: block;
   grid-column: 1;
   overflow: hidden;
   font-size: 1rem;
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.2;
+  min-height: 1.2em;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .hidden-target-pill span {
+  display: block;
   grid-column: 1;
   overflow: hidden;
   color: #7b473f;
   font-size: 0.82rem;
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.24;
+  min-height: 1.24em;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -2516,20 +2521,22 @@ button.picture-frame:hover {
   .hidden-target-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 5px;
-    max-height: 124px;
+    max-height: 146px;
   }
 
   .hidden-target-pill {
-    min-height: 36px;
-    padding: 5px 7px;
+    min-height: 44px;
+    padding: 6px 7px;
   }
 
   .hidden-target-pill strong {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
+    line-height: 1.2;
   }
 
   .hidden-target-pill span {
     font-size: 0.74rem;
+    line-height: 1.25;
   }
 
   .maze-stage {

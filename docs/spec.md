@@ -168,6 +168,8 @@ The current v1 content set provides 20 Maze stages through
   differences and the first vocabulary words instead of only listing words.
 - Spot wrong feedback uses a softer `Try again` message. Repeated misses point
   the player toward the available hint instead of repeating a terse error.
+- Hidden Objects target pills use block text lines, stable line-height, and a
+  44px mobile pill height so target words and meanings do not clip.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.
