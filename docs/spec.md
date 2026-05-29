@@ -36,6 +36,8 @@ operation guide.
   normalizer
 - `src/games/findLearn/stages/stage001.js`: current stage data shape and
   built-in fallback content
+- `src/games/hiddenObjects/stages/schema.js`: Hidden Objects stage schema and
+  normalizer
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
@@ -280,6 +282,50 @@ Required functions:
 
 The React game component keeps wrapper functions named around the requested
 flow and calls them from `handlePictureClick(event, side)`.
+
+## Hidden Objects Stage Data
+
+Hidden Objects stages use a single scene image and a list of targets. Target
+areas use 0-100 image-relative percent coordinates so the game can stay
+responsive across viewport sizes.
+
+Shape:
+
+```js
+{
+  id: "hidden_picnic_001",
+  title: "Picnic Search",
+  titleKo: "소풍 숨은그림",
+  theme: "picnic",
+  level: 1,
+  estimatedMinutes: 3,
+  scene: {
+    image: "/assets/hidden-picnic-001.png",
+    width: 1200,
+    height: 800,
+    alt: "A bright picnic scene"
+  },
+  targets: [
+    {
+      id: "apple",
+      word: "apple",
+      meaning: "사과",
+      phonetic: "/ˈæpəl/",
+      sentence: "I found an apple.",
+      translation: "사과를 찾았어요.",
+      area: { type: "rect", x: 22, y: 62, w: 8, h: 9 },
+      marker: { x: 26, y: 66.5 },
+      hint: "Look near the picnic blanket."
+    }
+  ]
+}
+```
+
+Supported target `area.type` values:
+
+- `circle`
+- `rect`
+- `polygon`
 
 ## Data Contract
 

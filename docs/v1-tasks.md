@@ -165,9 +165,12 @@
 
 ## Milestone 4: 숨은그림 찾기
 
-- [ ] `V1-T040` `P0` 숨은그림 stage schema를 정의한다.
+- [x] `V1-T040` `P0` 숨은그림 stage schema를 정의한다.
   scene image, target objects, 영어 단어, 한국어 뜻, 선택적 발음 표기,
   예문, 이미지 기준 hit area를 포함한다.
+  완료: `src/games/hiddenObjects/stages/schema.js`에 scene, targets,
+  영어/한국어 vocabulary, 선택적 발음/문장, percent hit area를 normalize하는
+  stage schema helper를 추가했다.
 
 - [ ] `V1-T041` `P0` 숨은그림 hit testing을 만든다.
   가능하면 기존 image-relative coordinate helper를 재사용한다.
