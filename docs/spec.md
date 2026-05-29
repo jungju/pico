@@ -173,6 +173,8 @@ The current v1 content set provides 20 Maze stages through
 - Hidden Objects target lists add a `many-targets` state for 7-8 target stages,
   with stable scrollbar gutter, thin scrollbar, taller mobile max-height, and a
   bottom fade to signal scrollable overflow.
+- Hidden Objects scenes preserve the stage-provided scene aspect ratio and use
+  `object-fit: contain` so edge targets are not cropped by the image frame.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.

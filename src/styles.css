@@ -1437,7 +1437,7 @@ button.picture-frame:hover {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -2520,9 +2520,16 @@ button.picture-frame:hover {
 
   .hidden-objects-stage {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-content: start;
     gap: 8px;
     padding: 8px;
+  }
+
+  .hidden-scene {
+    align-self: start;
+    justify-self: stretch;
+    width: 100%;
   }
 
   .hidden-target-list {

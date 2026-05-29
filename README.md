@@ -78,6 +78,7 @@ https://pico.jjgo.io
 - Spot 오답 feedback은 `Try again` 중심의 부드러운 문구를 쓰고, 반복 오답 시 hint로 자연스럽게 이어집니다.
 - Hidden Objects 모바일 target pill은 44px 높이와 안정적인 line-height로 단어 clipping을 방지합니다.
 - Hidden Objects target이 7개 이상이면 목록에 many-targets 상태가 붙어 모바일 스크롤 affordance를 제공합니다.
+- Hidden Objects scene은 stage의 scene aspect ratio와 `object-fit: contain` 정책으로 가장자리 target crop을 피합니다.
 - v1 출시 콘텐츠 목표는 게임 타입별 20개, 총 80개 playable stage입니다.
 - 현재 틀린그림 찾기는 `contents`에 등록된 20개 stage를 제공합니다.
 - 현재 숨은그림 찾기는 `src/games/hiddenObjects/stages`에 등록된 20개 stage를 제공합니다.
