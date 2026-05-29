@@ -40,7 +40,8 @@ https://pico.jjgo.io
 - 첫 화면에는 ohmesh 로그인 상태와 로그인/로그아웃 버튼이 있습니다.
 - 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage 카드가 표시됩니다.
 - 게임 선택 화면에서 stage 카드를 누르면 게임 화면으로 들어갑니다.
-- 각 stage 게임 화면 URL은 `/games/<stage-id>`입니다.
+- 각 stage 게임 화면 URL은 `/games/<game-type>/<stage-id>`입니다.
+- 기존 `/games/<stage-id>` 직접 접근은 호환을 위해 계속 복구됩니다.
 - 브라우저 뒤로가기/앞으로가기로 게임 선택 화면과 stage 화면을 이동할 수 있습니다.
 - 게임 화면에는 ohmesh 로그인 상태, 게임 선택으로 돌아가는 버튼, 힌트 버튼, 리셋 버튼이 있습니다.
 - 게임 화면 버튼은 `Games`, `Hint`, `Reset`, `Log in`, `Log out`처럼 역할을 알 수 있는 라벨을 표시합니다.

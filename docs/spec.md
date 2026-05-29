@@ -72,7 +72,8 @@ The first game is `Find & Learn`:
   login/logout action.
 - The game selection page shows one card per loaded Find & Learn stage.
 - Selecting a stage card opens the game screen for that stage.
-- Each stage game screen URL is `/games/<stage-id>`.
+- Each stage game screen URL is `/games/<game-type>/<stage-id>`.
+- Legacy `/games/<stage-id>` URLs remain recoverable.
 - Browser back/forward navigation must keep the selected screen in sync with the
   URL.
 - The game screen shows the current ohmesh login state and can return to the

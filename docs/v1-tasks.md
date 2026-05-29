@@ -66,9 +66,11 @@
   완료: selector card가 registry metadata의 game type, level, theme을
   표시하며 신규 game type stage가 추가되면 같은 구조로 노출된다.
 
-- [ ] `V1-T013` `P0` 공통 게임 route 규칙을 정한다.
+- [x] `V1-T013` `P0` 공통 게임 route 규칙을 정한다.
   각 playable stage가 예측 가능한 URL을 갖고, 브라우저 뒤로가기와
   앞으로가기가 현재 화면과 동기화되게 한다.
+  완료: 기본 stage URL은 `/games/<game-type>/<stage-id>`이며, 기존
+  `/games/<stage-id>` URL도 복구된다.
 
 - [ ] `V1-T014` `P0` 공통 game shell을 추출하거나 공식화한다.
   HUD, `Games`, `Hint`, `Reset`, 계정 버튼, 학습 패널, 완료 dialog,

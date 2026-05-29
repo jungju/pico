@@ -68,9 +68,9 @@ export default function App() {
     window.location.assign(buildOhmeshLogoutUrl());
   }
 
-  function openStage(stageId) {
-    setSelectedStageId(stageId);
-    pushAppPath(stagePath(stageId));
+  function openStage(stage) {
+    setSelectedStageId(stage.id);
+    pushAppPath(stagePath(stage));
   }
 
   function openGameSelect() {
@@ -90,7 +90,7 @@ export default function App() {
         key={selectedGame.id}
         stage={selectedGame.stage}
         onBack={openGameSelect}
-        onNext={nextGame ? () => openStage(nextGame.id) : null}
+        onNext={nextGame ? () => openStage(nextGame) : null}
       />
     );
   }
@@ -104,7 +104,7 @@ export default function App() {
 
       <section className="game-list" aria-label="Games">
         {GAMES.map((game) => (
-          <button className="game-option" type="button" key={game.id} onClick={() => openStage(game.id)}>
+          <button className="game-option" type="button" key={game.id} onClick={() => openStage(game)}>
             <span className="game-option-media">
               <img src={game.image} alt="" draggable="false" />
             </span>
@@ -189,7 +189,8 @@ function getStageIdFromLocation() {
 function stageIdFromPath(pathname) {
   if (!pathname.startsWith(GAME_PATH_PREFIX)) return null;
 
-  const [rawStageId] = pathname.slice(GAME_PATH_PREFIX.length).split("/");
+  const segments = pathname.slice(GAME_PATH_PREFIX.length).split("/").filter(Boolean);
+  const rawStageId = segments.length >= 2 ? segments[1] : segments[0];
   if (!rawStageId) return null;
 
   try {
@@ -199,8 +200,8 @@ function stageIdFromPath(pathname) {
   }
 }
 
-function stagePath(stageId) {
-  return `${GAME_PATH_PREFIX}${encodeURIComponent(stageId)}`;
+function stagePath(stage) {
+  return `${GAME_PATH_PREFIX}${encodeURIComponent(stage.gameType)}/${encodeURIComponent(stage.id)}`;
 }
 
 function pushAppPath(path) {
