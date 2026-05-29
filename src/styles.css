@@ -111,6 +111,47 @@ button {
   border-color: #e23f4f;
 }
 
+.save-value-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  border: 2px dashed rgba(20, 60, 86, 0.42);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+  color: #315160;
+  padding: 8px 10px;
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
+.save-value-note > span {
+  min-width: 0;
+}
+
+.save-value-action {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 36px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: #fff8df;
+  box-shadow: 0 2px 0 rgba(20, 60, 86, 0.14);
+  color: #143c56;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  font-weight: 950;
+}
+
+.save-value-action:focus-visible {
+  outline: 3px solid #166f8f;
+  outline-offset: 3px;
+}
+
 .today-play {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -2311,6 +2352,19 @@ button.picture-frame:hover {
 }
 
 @media (max-width: 480px) {
+  .save-value-note {
+    align-items: stretch;
+    gap: 7px;
+    padding: 7px;
+    font-size: 0.78rem;
+  }
+
+  .save-value-action {
+    min-height: 34px;
+    padding: 0 7px;
+    font-size: 0.72rem;
+  }
+
   .game-option {
     grid-template-columns: 64px minmax(0, 1fr) 18px;
     min-height: 90px;

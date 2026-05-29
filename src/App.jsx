@@ -228,6 +228,7 @@ export default function App() {
   const selectedGameIndex = GAMES.findIndex((game) => game.id === selectedStageId);
   const nextGame = selectedGameIndex >= 0 ? GAMES[selectedGameIndex + 1] : null;
   const showProgressSummary = authState.status === "authenticated";
+  const showSaveValueNote = authState.status === "anonymous" || authState.status === "error";
   const stageProgress = picoProgressState.data?.stages || {};
   const todaysGame = getTodaysGame(GAMES, stageProgress);
   const todaysGameCompleted = todaysGame ? Boolean(stageProgress[todaysGame.id]?.completed) : false;
@@ -288,6 +289,8 @@ export default function App() {
         <h1>Pico</h1>
         <AuthControl authState={authState} onLogin={startLogin} onLogout={startLogout} />
       </header>
+
+      {showSaveValueNote ? <SaveValueNote onLogin={startLogin} /> : null}
 
       {showProgressSummary ? <PlayerProgressSummary progressState={picoProgressState} /> : null}
 
@@ -432,6 +435,18 @@ function PlayerProgressSummary({ progressState }) {
         <strong>{loading ? "..." : progress.streak.current}</strong>
         <span>streak</span>
       </span>
+    </section>
+  );
+}
+
+function SaveValueNote({ onLogin }) {
+  return (
+    <section className="save-value-note" aria-label="Save progress">
+      <span>Play now. Log in to save points and streaks.</span>
+      <button className="save-value-action" type="button" onClick={onLogin}>
+        <LogIn aria-hidden="true" size={16} />
+        <span>Save progress</span>
+      </button>
     </section>
   );
 }

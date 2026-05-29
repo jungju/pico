@@ -68,6 +68,7 @@ https://pico.jjgo.io
 - 480px 이하 홈 카드에서는 thumbnail, badge, arrow spacing을 줄여 320px 화면에서도 stage 목록을 더 빠르게 훑을 수 있습니다.
 - 980px 이상 홈 화면은 넓은 stage selector와 2-column stage grid를 사용해 80개 stage를 더 짧게 탐색합니다.
 - 홈 stage card는 game type별 accent stripe와 icon badge로 Spot/Hidden/Maze/Memory를 빠르게 구분합니다.
+- 비로그인 홈에는 로그인 없이 바로 플레이 가능하지만 포인트와 streak 저장은 로그인 후 가능하다는 작은 안내가 표시됩니다.
 - v1 출시 콘텐츠 목표는 게임 타입별 20개, 총 80개 playable stage입니다.
 - 현재 틀린그림 찾기는 `contents`에 등록된 20개 stage를 제공합니다.
 - 현재 숨은그림 찾기는 `src/games/hiddenObjects/stages`에 등록된 20개 stage를 제공합니다.

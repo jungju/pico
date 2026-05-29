@@ -120,6 +120,8 @@ The current v1 content set provides 20 Maze stages through
   login/logout action.
 - The game selection page shows total points and daily streak for logged-in
   users.
+- Logged-out users see a small save-progress note explaining that play is
+  available immediately and points/streaks are saved after login.
 - The game selection page shows one card per loaded stage.
 - The game selection page includes v1 Hidden Objects, Maze, and Memory Cards
   stages.
