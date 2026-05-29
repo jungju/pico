@@ -163,6 +163,8 @@ hit area를 가집니다.
   자동으로 정답 처리하지 않습니다.
 - 숨은그림 scene의 찾음/힌트 marker는 밝은 배경에서도 보이도록 흰 halo와
   game color halo를 함께 사용합니다.
+- 숨은그림 target pill은 찾은 대상과 hint 대상을 icon, label, outline
+  pattern으로 함께 구분합니다.
 - 점수는 target 하나당 100점이며, stage를 완료하면 200점 보너스를 더합니다.
 
 ## Maze

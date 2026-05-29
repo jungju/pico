@@ -1499,7 +1499,9 @@ button.picture-frame:hover {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-content: center;
-  gap: 3px;
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 3px;
   min-height: 54px;
   border: 2px solid #143c56;
   border-radius: 8px;
@@ -1509,9 +1511,14 @@ button.picture-frame:hover {
   padding: 8px 10px;
 }
 
-.hidden-target-pill strong {
+.hidden-target-text {
   display: block;
   grid-column: 1;
+  min-width: 0;
+}
+
+.hidden-target-pill strong {
+  display: block;
   overflow: hidden;
   font-size: 1rem;
   font-weight: 900;
@@ -1521,9 +1528,8 @@ button.picture-frame:hover {
   white-space: nowrap;
 }
 
-.hidden-target-pill span {
+.hidden-target-meaning {
   display: block;
-  grid-column: 1;
   overflow: hidden;
   color: #7b473f;
   font-size: 0.82rem;
@@ -1534,54 +1540,65 @@ button.picture-frame:hover {
   white-space: nowrap;
 }
 
-.hidden-target-pill::after {
-  display: none;
+.hidden-target-state {
+  display: inline-flex;
   grid-column: 2;
-  grid-row: 1 / 3;
+  grid-row: 1;
+  gap: 4px;
+  align-items: center;
   align-self: center;
-  min-height: 22px;
+  justify-content: center;
+  min-height: 28px;
   border: 2px solid currentColor;
   border-radius: 999px;
-  padding: 3px 7px;
+  padding: 3px 7px 3px 5px;
   font-size: 0.68rem;
   font-weight: 950;
-  line-height: 1;
+  line-height: 1.05;
+  white-space: nowrap;
   text-transform: uppercase;
 }
 
+.hidden-target-state svg {
+  flex: 0 0 auto;
+}
+
 .hidden-target-pill.found {
-  background: #baf1d4;
+  border-color: #124b34;
+  background:
+    repeating-linear-gradient(-45deg, rgba(18, 75, 52, 0.08) 0 6px, rgba(18, 75, 52, 0) 6px 12px),
+    #baf1d4;
   color: #124b34;
 }
 
-.hidden-target-pill.found::after {
-  display: inline-flex;
-  align-items: center;
-  content: "Found";
+.hidden-target-pill.found .hidden-target-state {
+  background: rgba(255, 255, 255, 0.72);
+  color: #124b34;
 }
 
-.hidden-target-pill.found span {
+.hidden-target-pill.found .hidden-target-meaning {
   color: #205b42;
 }
 
 .hidden-target-pill.hinted {
   border-color: #2c78d6;
-  background: #fff0a5;
+  border-style: dashed;
+  background:
+    radial-gradient(circle at 9px 9px, rgba(44, 120, 214, 0.18) 0 2px, transparent 2.5px),
+    #fff0a5;
+  background-size: 18px 18px, auto;
   box-shadow:
     0 3px 0 rgba(20, 60, 86, 0.16),
     0 0 0 4px rgba(44, 120, 214, 0.14);
 }
 
-.hidden-target-pill.hinted::after {
-  display: inline-flex;
-  align-items: center;
+.hidden-target-pill.hinted .hidden-target-state {
+  background: rgba(255, 255, 255, 0.78);
   color: #164b78;
-  content: "Hint";
 }
 
-.hidden-target-pill.found.hinted::after {
+.hidden-target-pill.found.hinted .hidden-target-state {
   color: #124b34;
-  content: "Found";
 }
 
 .maze-stage {
@@ -2571,9 +2588,21 @@ button.picture-frame:hover {
     line-height: 1.2;
   }
 
-  .hidden-target-pill span {
+  .hidden-target-meaning {
     font-size: 0.74rem;
     line-height: 1.25;
+  }
+
+  .hidden-target-state {
+    gap: 3px;
+    min-height: 24px;
+    padding: 3px 5px 3px 4px;
+    font-size: 0.58rem;
+  }
+
+  .hidden-target-state svg {
+    width: 13px;
+    height: 13px;
   }
 
   .maze-stage {

@@ -177,6 +177,8 @@ The current v1 content set provides 20 Maze stages through
   `object-fit: contain` so edge targets are not cropped by the image frame.
 - Hidden Objects found and hint markers use high-contrast white and game-color
   halos so they stay visible on bright or busy scene art without text labels.
+- Hidden Objects target pills distinguish found and hinted states with visible
+  icon labels and different outline/background patterns, not color alone.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.

@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { CheckCircle2, LocateFixed } from "lucide-react";
 import { GameShell } from "../GameShell";
 import { POINT_EVENTS, POINT_VALUES } from "../points";
 import { findHiddenTargetAt, getHiddenTargetMarker, getRelativePoint } from "./hitTesting";
@@ -122,8 +123,16 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
             const hinted = target.id === hintId;
             return (
               <span className={`hidden-target-pill${found ? " found" : ""}${hinted ? " hinted" : ""}`} key={target.id}>
-                <strong>{target.word}</strong>
-                <span>{target.meaning}</span>
+                <span className="hidden-target-text">
+                  <strong>{target.word}</strong>
+                  <span className="hidden-target-meaning">{target.meaning}</span>
+                </span>
+                {found || hinted ? (
+                  <span className="hidden-target-state" title={found ? "Found target" : "Hint target"}>
+                    {found ? <CheckCircle2 aria-hidden="true" size={16} strokeWidth={3} /> : <LocateFixed aria-hidden="true" size={16} strokeWidth={3} />}
+                    <span>{found ? "Found" : "Hint"}</span>
+                  </span>
+                ) : null}
               </span>
             );
           })}
