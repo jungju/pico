@@ -175,6 +175,8 @@ The current v1 content set provides 20 Maze stages through
   bottom fade to signal scrollable overflow.
 - Hidden Objects scenes preserve the stage-provided scene aspect ratio and use
   `object-fit: contain` so edge targets are not cropped by the image frame.
+- Hidden Objects found and hint markers use high-contrast white and game-color
+  halos so they stay visible on bright or busy scene art without text labels.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.
