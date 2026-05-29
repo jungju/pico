@@ -30,6 +30,7 @@ https://pico.jjgo.io
 - `src/games/hiddenObjects/hitTesting.js`: 숨은그림 찾기 image-relative target 판정
 - `src/games/hiddenObjects/stages/schema.js`: 숨은그림 찾기 stage schema와 normalizer
 - `src/games/hiddenObjects/stages/stage001.js`: v1 숨은그림 찾기 picnic stage 데이터
+- `src/games/maze/MazeGame.jsx`: 미로 board, player marker, 이동 버튼, 완료 UI
 - `src/games/maze/engine.js`: grid 기반 미로 이동, pointer/touch cell 변환, 수집/완료 판정
 - `src/games/maze/stages/schema.js`: grid 기반 미로 stage schema와 normalizer
 - `src/styles.css`: 게임 선택 화면과 Find & Learn 화면 스타일
@@ -124,6 +125,8 @@ hit area를 가집니다.
 - Collectible: `id`, `row`, `col`, `word`, `meaning`, `points`
 - 이동 엔진은 방향 이동과 pointer/touch 위치를 grid cell로 변환하는 helper를 제공합니다.
 - 막힌 길을 선택해도 실패시키지 않고 현재 위치를 유지하며 안내 feedback을 반환합니다.
+- 게임 UI는 grid board, 출발점, 도착점, player marker, 수집 아이템, 진행률,
+  점수, 리셋, 학습 패널, 완료 안내를 제공합니다.
 
 지원하는 영역 타입:
 

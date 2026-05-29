@@ -44,6 +44,8 @@ operation guide.
   normalizer
 - `src/games/hiddenObjects/stages/stage001.js`: v1 Hidden Objects picnic stage
   content
+- `src/games/maze/MazeGame.jsx`: Maze grid board, player marker, movement
+  buttons, and completion UI
 - `src/games/maze/engine.js`: Maze movement, pointer/touch cell conversion,
   collectible pickup, and completion helpers
 - `src/games/maze/stages/schema.js`: grid-based Maze stage schema and
@@ -401,6 +403,10 @@ player reaches the goal cell.
 Blocked maze moves are soft failures. The player state stays on the previous
 cell, and the result includes feedback that can nudge the player to try another
 path.
+
+The Maze UI must provide a grid board, start cell, goal cell, player marker,
+optional collectibles, progress text, score, reset, learning feedback, movement
+buttons, pointer/touch adjacent-cell movement, and the shared completion dialog.
 
 ## Data Contract
 

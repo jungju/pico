@@ -889,6 +889,135 @@ button.picture-frame:hover {
     0 0 0 4px rgba(44, 120, 214, 0.14);
 }
 
+.maze-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 136px;
+  gap: 14px;
+  align-items: center;
+  justify-items: center;
+  min-height: 0;
+  overflow: hidden;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(226, 249, 244, 0.78)),
+    repeating-linear-gradient(45deg, rgba(255, 212, 90, 0.18) 0 12px, rgba(255, 255, 255, 0) 12px 24px);
+  box-shadow:
+    0 8px 0 rgba(20, 60, 86, 0.16),
+    0 18px 34px rgba(20, 60, 86, 0.16);
+  padding: 14px;
+}
+
+.maze-board {
+  display: grid;
+  grid-template-columns: repeat(var(--maze-columns), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--maze-rows), minmax(0, 1fr));
+  width: min(100%, 620px);
+  aspect-ratio: var(--maze-columns) / var(--maze-rows);
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 2px #143c56,
+    0 11px 0 rgba(20, 60, 86, 0.18),
+    0 18px 30px rgba(20, 60, 86, 0.16);
+  touch-action: manipulation;
+}
+
+.maze-cell {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+  border: 1px solid rgba(20, 60, 86, 0.18);
+  background: #fff8df;
+  padding: 0;
+}
+
+.maze-cell.open:hover {
+  background: #fff0a5;
+}
+
+.maze-cell.blocked {
+  cursor: default;
+  background:
+    linear-gradient(135deg, rgba(20, 60, 86, 0.92), rgba(63, 88, 105, 0.9)),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.14) 0 6px, rgba(255, 255, 255, 0) 6px 12px);
+}
+
+.maze-cell.visited.open {
+  background: #dff7f2;
+}
+
+.maze-cell.start {
+  background: #baf1d4;
+}
+
+.maze-cell.goal {
+  background: #ffe1e5;
+}
+
+.maze-cell-icon {
+  position: absolute;
+  z-index: 1;
+}
+
+.start-icon {
+  color: #124b34;
+}
+
+.goal-icon {
+  color: #793046;
+}
+
+.collectible-icon {
+  color: #d18c00;
+}
+
+.maze-player {
+  position: absolute;
+  z-index: 2;
+  width: 42%;
+  aspect-ratio: 1;
+  border: 2px solid #143c56;
+  border-radius: 999px;
+  background: #ff8069;
+  box-shadow:
+    inset 0 -4px 0 rgba(118, 42, 32, 0.22),
+    0 3px 0 rgba(20, 60, 86, 0.2);
+}
+
+.maze-player.nudge {
+  animation: maze-nudge 380ms ease;
+}
+
+.maze-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 42px);
+  gap: 7px;
+  align-content: center;
+  justify-content: center;
+}
+
+.maze-controls button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 3px 0 rgba(20, 60, 86, 0.18);
+  color: #143c56;
+}
+
+.maze-controls button:hover {
+  border-color: #e85f67;
+  transform: translateY(1px);
+}
+
 .debug-areas {
   position: absolute;
   inset: 0;
@@ -1124,6 +1253,21 @@ button.picture-frame:hover {
   }
 }
 
+@keyframes maze-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(-4px);
+  }
+
+  60% {
+    transform: translateX(4px);
+  }
+}
+
 @keyframes auth-spin {
   to {
     transform: rotate(360deg);
@@ -1311,6 +1455,26 @@ button.picture-frame:hover {
 
   .hidden-target-pill span {
     font-size: 0.74rem;
+  }
+
+  .maze-stage {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .maze-board {
+    width: min(100%, 520px);
+  }
+
+  .maze-controls {
+    grid-template-columns: repeat(3, 40px);
+  }
+
+  .maze-controls button {
+    width: 40px;
+    height: 40px;
   }
 
   .learning-panel {

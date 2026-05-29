@@ -221,9 +221,12 @@
   완료: 막힌 칸이나 인접하지 않은 칸으로 이동하려 하면 state를 유지하고,
   UI가 안내할 수 있는 soft feedback과 `nudgeBack` 값을 반환한다.
 
-- [ ] `V1-T053` `P0` 미로 게임 UI를 만든다.
+- [x] `V1-T053` `P0` 미로 게임 UI를 만든다.
   출발점, 도착점, player marker, 진행률, 점수, 리셋, 학습 패널, 완료
   dialog를 제공한다.
+  완료: `MazeGame`이 공통 `GameShell` 안에서 grid board, 출발/도착 cell,
+  player marker, 수집 아이템, 방향 버튼, pointer/touch cell 이동, 진행률,
+  점수, 리셋, 학습 패널, 완료 dialog를 렌더링한다.
 
 - [ ] `V1-T054` `P0` 미로 점수 로직을 구현한다.
   완료 300점과 선택 수집 아이템 1개당 50점을 지급한다.
