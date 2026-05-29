@@ -325,8 +325,11 @@
   asset과 stage definition 19개를 추가해 Hidden Objects를 총 20개 stage로
   확장했다.
 
-- [ ] `V1-T078` `P0` 미로 찾기 stage를 20개로 확장한다.
+- [x] `V1-T078` `P0` 미로 찾기 stage를 20개로 확장한다.
   현재 seed stage 1개를 유지하고, 출시 전 19개 stage를 추가한다.
+  완료: 기존 `maze_garden_001` stage를 유지하고, generated grid stage와
+  preview SVG asset 19개를 추가해 Maze를 총 20개 stage로 확장했다. 생성된
+  maze는 start에서 goal까지 도달 가능하고 collectible도 reachable하다.
 
 - [ ] `V1-T079` `P0` 메모리 게임 stage를 20개로 확장한다.
   현재 seed stage 1개를 유지하고, 출시 전 19개 stage를 추가한다.

@@ -60,6 +60,7 @@ operation guide.
 - `src/games/maze/stages/schema.js`: grid-based Maze stage schema and
   normalizer
 - `src/games/maze/stages/stage001.js`: v1 Maze garden stage content
+- `src/games/maze/stages/generatedStages.js`: generated v1 Maze grid stages
 - `src/games/memoryCards/MemoryCardsGame.jsx`: Memory Cards responsive card
   grid, face rendering, matching UI, and completion flow
 - `src/games/memoryCards/engine.js`: Memory Cards deck creation, flipping,
@@ -96,6 +97,9 @@ The first game is `Find & Learn`:
 
 The current v1 content set provides 20 Hidden Objects stages through
 `src/games/hiddenObjects/stages`.
+
+The current v1 content set provides 20 Maze stages through
+`src/games/maze/stages`.
 
 ## Runtime
 
