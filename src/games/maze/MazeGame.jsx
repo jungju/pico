@@ -164,12 +164,14 @@ function MazeCell({ cell, nudging, runState, stage, value }) {
   const visited = runState.visitedCells.includes(cellKey(cell));
   const collectible = stage.collectibles.find((item) => sameCell(item, cell));
   const collected = collectible ? runState.collectedIds.includes(collectible.id) : false;
+  const nextStep = !blocked && !hasPlayer && isAdjacentMazeCell(runState.position, cell);
   const className = [
     "maze-cell",
     blocked ? "blocked" : "open",
     isStart ? "start" : "",
     isGoal ? "goal" : "",
     collectible && !collected ? "collectible" : "",
+    nextStep ? "next-step" : "",
     visited ? "visited" : "",
   ]
     .filter(Boolean)
@@ -262,6 +264,10 @@ function shortestPathDistance(stage, fromCell, toCell) {
 
 function cellLabel(value, cell) {
   return `Maze cell ${value} ${cell.row + 1}, ${cell.col + 1}`;
+}
+
+function isAdjacentMazeCell(fromCell, toCell) {
+  return Math.abs(fromCell.row - toCell.row) + Math.abs(fromCell.col - toCell.col) === 1;
 }
 
 function speak(text) {

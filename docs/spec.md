@@ -117,6 +117,9 @@ Maze start, goal, and collectible cells use larger icons, stronger contrast,
 and reinforced cell backgrounds so objectives are visible at a glance.
 Maze path, wall, and visited cells are distinguished with separate color,
 pattern, and inner-outline treatments.
+Maze adjacent movable cells are visually marked, and D-pad buttons provide
+pressed feedback so touch input affordance is clear without extra instruction
+copy.
 
 ## Runtime
 
