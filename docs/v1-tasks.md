@@ -375,8 +375,10 @@
   Find & Learn legacy progress, 현재 Today 추천 동작, completion action
   label, 검증 명령을 실제 구현에 맞게 갱신했다.
 
-- [ ] `V1-T094` `P0` release validation을 통과한다.
+- [x] `V1-T094` `P0` release validation을 통과한다.
   v1 release commit 전 `npm run lint`와 `npm run build`를 실행한다.
+  완료: 최종 release validation으로 `npm test`, `npm run lint`,
+  `npm run build`를 실행해 모두 통과했다.
 
 ## 권장 구현 순서
 
