@@ -881,6 +881,14 @@ button.picture-frame:hover {
   color: #205b42;
 }
 
+.hidden-target-pill.hinted {
+  border-color: #2c78d6;
+  background: #fff0a5;
+  box-shadow:
+    0 3px 0 rgba(20, 60, 86, 0.16),
+    0 0 0 4px rgba(44, 120, 214, 0.14);
+}
+
 .debug-areas {
   position: absolute;
   inset: 0;

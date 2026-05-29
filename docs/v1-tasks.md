@@ -196,8 +196,10 @@
   book, spoon, duck, ball 6개 target과 scene asset을 selector/route에
   등록했다.
 
-- [ ] `V1-T045` `P1` 숨은그림 힌트 동작을 추가한다.
+- [x] `V1-T045` `P1` 숨은그림 힌트 동작을 추가한다.
   남은 목표 하나를 강조하되 자동 정답 처리하지 않는다.
+  완료: Hint가 남은 target 하나를 scene marker와 target 목록 강조로 보여주며
+  found state나 점수는 바꾸지 않는다.
 
 ## Milestone 5: 미로 찾기
 

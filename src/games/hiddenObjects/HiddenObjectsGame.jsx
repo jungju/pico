@@ -112,8 +112,9 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
         <div className="hidden-target-list" aria-label="Targets">
           {stage.targets.map((target) => {
             const found = foundIds.has(target.id);
+            const hinted = target.id === hintId;
             return (
-              <span className={`hidden-target-pill${found ? " found" : ""}`} key={target.id}>
+              <span className={`hidden-target-pill${found ? " found" : ""}${hinted ? " hinted" : ""}`} key={target.id}>
                 <strong>{target.word}</strong>
                 <span>{target.meaning}</span>
               </span>

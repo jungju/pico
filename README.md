@@ -106,6 +106,8 @@ hit area를 가집니다.
   클릭을 제외하고 판정합니다.
 - 게임 UI는 큰 scene, 찾을 target 목록, 찾은 marker, 힌트 marker, 진행률,
   점수, 리셋, 완료 안내를 제공합니다.
+- 힌트는 남은 target 하나를 scene marker와 target 목록 강조로 보여주며
+  자동으로 정답 처리하지 않습니다.
 - 점수는 target 하나당 100점이며, stage를 완료하면 200점 보너스를 더합니다.
 
 지원하는 영역 타입:
