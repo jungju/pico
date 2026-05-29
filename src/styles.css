@@ -34,6 +34,7 @@ button {
   position: relative;
   isolation: isolate;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto auto auto auto 1fr;
   gap: 18px;
   width: min(860px, calc(100% - 28px));
@@ -112,14 +113,19 @@ button {
 
 .today-play {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .today-play-option {
   display: grid;
-  grid-template-columns: 54px minmax(0, 1fr) 42px;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
   align-items: center;
   gap: 14px;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   min-height: 84px;
   border: 2px solid #143c56;
   border-radius: 8px;
@@ -158,12 +164,43 @@ button {
   min-width: 0;
 }
 
-.today-play-copy span {
+.today-play-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.today-play-kicker {
   color: #8c3851;
   font-size: 0.86rem;
   font-weight: 900;
   line-height: 1;
   text-transform: uppercase;
+}
+
+.today-play-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  padding: 0 7px;
+  font-size: 0.68rem;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.today-play-status.done {
+  background: #baf1d4;
+  color: #124b34;
+}
+
+.today-play-status.open {
+  background: #ffffff;
+  color: #315160;
 }
 
 .today-play-copy strong {
@@ -174,6 +211,34 @@ button {
   line-height: 1.05;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.today-play-reason {
+  overflow: hidden;
+  color: #315160;
+  font-size: 0.86rem;
+  font-weight: 850;
+  line-height: 1.12;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.today-play-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 72px;
+  min-height: 44px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: inset 0 -3px 0 rgba(20, 60, 86, 0.12);
+  color: #143c56;
+  padding: 0 10px;
+  font-size: 0.84rem;
+  font-weight: 950;
+  line-height: 1;
 }
 
 .game-filter {
@@ -1911,7 +1976,7 @@ button.picture-frame:hover {
   }
 
   .today-play-option {
-    grid-template-columns: 44px minmax(0, 1fr) 34px;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
     min-height: 72px;
     gap: 10px;
     padding: 10px 12px;
@@ -1924,6 +1989,13 @@ button.picture-frame:hover {
 
   .today-play-copy strong {
     font-size: 1.2rem;
+  }
+
+  .today-play-action {
+    min-width: 66px;
+    min-height: 38px;
+    padding: 0 8px;
+    font-size: 0.78rem;
   }
 
   .game-option-media {

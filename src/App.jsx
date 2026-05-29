@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Flame, LoaderCircle, LogIn, LogOut, Sparkles, Trophy, UserRound } from "lucide-react";
+import { ArrowRight, Flame, LoaderCircle, LogIn, LogOut, Play, Sparkles, Trophy, UserRound } from "lucide-react";
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
 import { GAME_TYPES, gameTypeLabel } from "./games/gameTypes";
 import { HiddenObjectsGame } from "./games/hiddenObjects/HiddenObjectsGame";
@@ -195,9 +195,17 @@ export default function App() {
   const selectedGame = GAMES.find((game) => game.id === selectedStageId);
   const selectedGameIndex = GAMES.findIndex((game) => game.id === selectedStageId);
   const nextGame = selectedGameIndex >= 0 ? GAMES[selectedGameIndex + 1] : null;
-  const todaysGame = getTodaysGame(GAMES);
   const showProgressSummary = authState.status === "authenticated";
   const stageProgress = picoProgressState.data?.stages || {};
+  const todaysGame = getTodaysGame(GAMES, stageProgress);
+  const todaysGameCompleted = todaysGame ? Boolean(stageProgress[todaysGame.id]?.completed) : false;
+  const todayStatusLabel = showProgressSummary ? (todaysGameCompleted ? "Done" : "Open") : "Ready";
+  const todayReason = todaysGame
+    ? getTodayReason(todaysGame, {
+        completed: todaysGameCompleted,
+        showProgress: showProgressSummary,
+      })
+    : "";
   const levelOptions = uniqueSorted(GAMES.map((game) => game.level));
   const themeOptions = uniqueSorted(GAMES.map((game) => game.theme));
   const filteredGames = GAMES.filter((game) => {
@@ -258,10 +266,17 @@ export default function App() {
               <Sparkles aria-hidden="true" size={24} />
             </span>
             <span className="today-play-copy">
-              <span>Today</span>
+              <span className="today-play-meta">
+                <span className="today-play-kicker">Play Today</span>
+                <span className={`today-play-status ${todaysGameCompleted ? "done" : "open"}`}>{todayStatusLabel}</span>
+              </span>
               <strong>{todaysGame.title}</strong>
+              <span className="today-play-reason">{todayReason}</span>
             </span>
-            <ArrowRight aria-hidden="true" size={22} />
+            <span className="today-play-action">
+              <Play aria-hidden="true" size={16} />
+              <span>Start</span>
+            </span>
           </button>
         </section>
       ) : null}
@@ -431,8 +446,18 @@ function displayName(user) {
   return user.name || user.email || "Pico user";
 }
 
-function getTodaysGame(games) {
-  return [...games].sort((a, b) => a.level - b.level || a.title.localeCompare(b.title))[0] || null;
+function getTodaysGame(games, stageProgress = {}) {
+  const sortedGames = [...games].sort((a, b) => a.level - b.level || a.title.localeCompare(b.title));
+  return sortedGames.find((game) => !stageProgress[game.id]?.completed) || sortedGames[0] || null;
+}
+
+function getTodayReason(game, { completed, showProgress }) {
+  const typeLabel = gameTypeLabel(game.gameType);
+  const levelLabel = `Level ${game.level}`;
+
+  if (showProgress && !completed) return `Next open ${typeLabel} stage · ${levelLabel}`;
+  if (showProgress && completed) return `Completed pick · play again for practice`;
+  return `${typeLabel} warm-up · ${levelLabel}`;
 }
 
 function uniqueSorted(values) {

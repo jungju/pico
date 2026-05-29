@@ -129,6 +129,9 @@ The current v1 content set provides 20 Maze stages through
   narrowing the stage list by difficulty, theme, and completion state.
 - For logged-in users, stage cards show `Done` or `Open` based on saved
   completion state.
+- The `Play Today` CTA chooses the next saved `Open` stage when progress is
+  available and shows the status, recommendation reason, and `Start` action in
+  the CTA.
 - Stage cards show Korean stage titles as separate keep-all pills so narrow
   mobile cards do not break Korean words character by character.
 - Stage card information hierarchy is game type eyebrow, primary stage title,
