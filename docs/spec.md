@@ -340,6 +340,9 @@ The Hidden Objects UI must provide one large clickable scene, a target list,
 found markers, hint markers, progress text, score, reset, learning feedback,
 and the shared completion dialog.
 
+Hidden Objects scoring uses 100 points per found target, plus a 200 point
+completion bonus when every target in the stage is found.
+
 ## Data Contract
 
 - Current click state is React state during play.

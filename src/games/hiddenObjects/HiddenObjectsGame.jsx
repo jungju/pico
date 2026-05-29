@@ -3,7 +3,8 @@ import { GameShell } from "../GameShell";
 import { POINT_VALUES } from "../points";
 import { findHiddenTargetAt, getHiddenTargetMarker, getRelativePoint } from "./hitTesting";
 
-export function HiddenObjectsGame({ authState, authControl, stage, onBack, onNext }) {
+export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, onBack, onNext }) {
+  const completionBonus = stageEntry?.points?.completionBonus ?? stage.points?.completionBonus ?? POINT_VALUES.STAGE_COMPLETION_BONUS;
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [message, setMessage] = useState(() => createReadyMessage(stage));
   const [hintId, setHintId] = useState(null);
@@ -13,7 +14,7 @@ export function HiddenObjectsGame({ authState, authControl, stage, onBack, onNex
   const hintTarget = stage.targets.find((target) => target.id === hintId);
   const completed = foundIds.size === stage.targets.length;
   const progressPercent = stage.targets.length > 0 ? Math.round((foundIds.size / stage.targets.length) * 100) : 0;
-  const score = foundIds.size * POINT_VALUES.HIDDEN_OBJECT_FOUND;
+  const score = calculateScore(foundIds, stage.targets.length, completionBonus);
   const statusText = authState?.status === "authenticated" ? "Ready" : "Local play";
 
   function handleSceneClick(event) {
@@ -37,7 +38,7 @@ export function HiddenObjectsGame({ authState, authControl, stage, onBack, onNex
     const nextFoundIds = new Set(foundIds);
     nextFoundIds.add(target.id);
     const nextCompleted = nextFoundIds.size === stage.targets.length;
-    const nextScore = nextFoundIds.size * POINT_VALUES.HIDDEN_OBJECT_FOUND;
+    const nextScore = calculateScore(nextFoundIds, stage.targets.length, completionBonus);
 
     setFoundIds(nextFoundIds);
     setHintId(null);
@@ -140,6 +141,12 @@ function targetMessage(target) {
 
 function completeMessageBody(stage, score) {
   return `${stage.titleKo || stage.title} complete · ${score} pts`;
+}
+
+function calculateScore(foundIds, totalTargets, completionBonus = POINT_VALUES.STAGE_COMPLETION_BONUS) {
+  const targetPoints = foundIds.size * POINT_VALUES.HIDDEN_OBJECT_FOUND;
+  const hasCompletedStage = totalTargets > 0 && foundIds.size === totalTargets;
+  return targetPoints + (hasCompletedStage ? completionBonus : 0);
 }
 
 function speak(text) {

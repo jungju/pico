@@ -185,8 +185,10 @@
   found/hint marker, 진행률, 점수, 힌트, 리셋, 학습 패널, 완료 dialog를
   렌더링한다.
 
-- [ ] `V1-T043` `P0` 숨은그림 점수 로직을 구현한다.
+- [x] `V1-T043` `P0` 숨은그림 점수 로직을 구현한다.
   목표 1개당 100점과 공통 completion bonus를 1회 지급한다.
+  완료: `HiddenObjectsGame` 점수는 target당 공통 100점과 완료 시 200점
+  completion bonus를 반영한다.
 
 - [ ] `V1-T044` `P0` 완성도 있는 숨은그림 stage 1개를 만든다.
   v1 테마 중 하나를 사용하고 목표 사물 3-8개를 포함한다.
