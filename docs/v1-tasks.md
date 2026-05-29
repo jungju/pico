@@ -289,9 +289,11 @@
   Spot the Difference, Hidden Objects, Maze, Memory Cards가 모두 최소 1개
   이상의 stage를 가진다.
 
-- [ ] `V1-T072` `P1` vocabulary QA checklist를 만든다.
+- [x] `V1-T072` `P1` vocabulary QA checklist를 만든다.
   stage마다 영어 단어, 한국어 뜻, 문장, 발음 적합성, 연령 적합성을
   확인한다.
+  완료: `docs/v1-vocabulary-qa.md`에 stage metadata, 단어, 발음/audio,
+  예문, game type별 vocabulary QA checklist를 추가했다.
 
 - [ ] `V1-T073` `P1` visual QA checklist를 만든다.
   이미지 선명도, 목표 가시성, 클릭 영역 여유, 모바일 framing을 확인한다.

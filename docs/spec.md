@@ -15,6 +15,7 @@ operation guide.
 - `docs/v1-tasks.md`: implementation backlog derived from the v1 scope
 - `docs/v1-assets.md`: v1 stage data and asset naming convention
 - `docs/v1-content.md`: v1 minimum playable stage inventory
+- `docs/v1-vocabulary-qa.md`: v1 vocabulary and sentence QA checklist
 - `contents/*.json`: Find & Learn content stages loaded into the game selector
 - `contents/*.{png,jpg,jpeg,webp}`: images paired with content JSON files by
   matching filename stem

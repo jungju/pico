@@ -15,6 +15,7 @@ https://pico.jjgo.io
 - `docs/v1-tasks.md`: v1 범위를 구현 가능한 태스크로 나눈 backlog
 - `docs/v1-assets.md`: v1 stage data와 이미지/audio asset 이름 규칙
 - `docs/v1-content.md`: v1에 포함된 최소 playable stage 목록
+- `docs/v1-vocabulary-qa.md`: v1 vocabulary와 문장 QA 체크리스트
 - `README.md`: 사람을 위한 실행 방법, 기능 흐름, git/배포 기준
 - `AGENTS.md`: 에이전트 작업, 검증, 커밋 규칙
 
