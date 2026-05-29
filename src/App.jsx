@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Flame, LoaderCircle, LogIn, LogOut, Sparkles, Trophy, UserRound } from "lucide-react";
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
+import { GAME_TYPES } from "./games/gameTypes";
+import { HiddenObjectsGame } from "./games/hiddenObjects/HiddenObjectsGame";
 import { gameStages } from "./games/stageRegistry";
 import { buildOhmeshLoginUrl, buildOhmeshLogoutUrl, fetchOhmeshSession, removeOhmeshResultParams } from "./ohmeshAuth";
 import { emptyPicoProgress, loadPicoProgress } from "./ohmeshProgress";
@@ -119,16 +121,22 @@ export default function App() {
   const showProgressSummary = authState.status === "authenticated";
 
   if (selectedGame) {
+    const gameProps = {
+      authState,
+      authControl: <AuthControl authState={authState} compact onLogin={startLogin} onLogout={startLogout} />,
+      key: selectedGame.id,
+      stage: selectedGame.stage,
+      stageEntry: selectedGame,
+      onBack: openGameSelect,
+      onNext: nextGame ? () => openStage(nextGame) : null,
+    };
+
+    if (selectedGame.gameType === GAME_TYPES.HIDDEN_OBJECTS) {
+      return <HiddenObjectsGame {...gameProps} />;
+    }
+
     return (
-      <FindLearnGame
-        authState={authState}
-        authControl={<AuthControl authState={authState} compact onLogin={startLogin} onLogout={startLogout} />}
-        key={selectedGame.id}
-        stage={selectedGame.stage}
-        stageEntry={selectedGame}
-        onBack={openGameSelect}
-        onNext={nextGame ? () => openStage(nextGame) : null}
-      />
+      <FindLearnGame {...gameProps} />
     );
   }
 

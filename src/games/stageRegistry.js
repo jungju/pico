@@ -1,9 +1,13 @@
 import { GAME_TYPES, gameTypeLabel } from "./gameTypes";
 import { defaultFindLearnStage, findLearnStages } from "./findLearn/stages";
+import { hiddenObjectStages } from "./hiddenObjects/stages";
 
 export const DEFAULT_COMPLETION_BONUS = 200;
 
-export const gameStages = findLearnStages.map((stage) => normalizeSpotTheDifferenceStage(stage));
+export const gameStages = [
+  ...findLearnStages.map((stage) => normalizeSpotTheDifferenceStage(stage)),
+  ...hiddenObjectStages.map((stage) => normalizeHiddenObjectsStage(stage)),
+];
 export const defaultGameStage = gameStages[0];
 
 function normalizeSpotTheDifferenceStage(stage) {
@@ -20,6 +24,27 @@ function normalizeSpotTheDifferenceStage(stage) {
     previewImage: stage.previewImage || stage.images?.changed || defaultFindLearnStage.previewImage,
     category: stage.titleKo ? `${gameTypeLabel(gameType)} · ${stage.titleKo}` : gameTypeLabel(gameType),
     badges: [`Level ${stage.level || inferSpotTheDifferenceLevel(stage)}`, themeLabel(stage.theme || inferTheme(stage))],
+    points: {
+      completionBonus: stage.points?.completionBonus || DEFAULT_COMPLETION_BONUS,
+    },
+    stage,
+  };
+}
+
+function normalizeHiddenObjectsStage(stage) {
+  const gameType = GAME_TYPES.HIDDEN_OBJECTS;
+
+  return {
+    id: stage.id,
+    gameType,
+    title: stage.title,
+    titleKo: stage.titleKo || "",
+    level: stage.level || 1,
+    theme: stage.theme || "general",
+    estimatedMinutes: stage.estimatedMinutes || 3,
+    previewImage: stage.scene.image,
+    category: stage.titleKo ? `${gameTypeLabel(gameType)} · ${stage.titleKo}` : gameTypeLabel(gameType),
+    badges: [`Level ${stage.level || 1}`, themeLabel(stage.theme || "general")],
     points: {
       completionBonus: stage.points?.completionBonus || DEFAULT_COMPLETION_BONUS,
     },

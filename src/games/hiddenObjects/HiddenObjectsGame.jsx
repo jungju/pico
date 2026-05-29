@@ -16,6 +16,9 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
   const progressPercent = stage.targets.length > 0 ? Math.round((foundIds.size / stage.targets.length) * 100) : 0;
   const score = calculateScore(foundIds, stage.targets.length, completionBonus);
   const statusText = authState?.status === "authenticated" ? "Ready" : "Local play";
+  const sceneStyle = {
+    "--hidden-scene-aspect": `${stage.scene.width} / ${stage.scene.height}`,
+  };
 
   function handleSceneClick(event) {
     const point = getRelativePoint(event, event.currentTarget);
@@ -97,7 +100,7 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
       stageTitle={stage.titleKo || stage.title}
       statusText={statusText}
     >
-      <section className="hidden-objects-stage" aria-label={stage.title}>
+      <section className="hidden-objects-stage" style={sceneStyle} aria-label={stage.title}>
         <button className="hidden-scene" type="button" onClick={handleSceneClick} aria-label="Hidden objects scene">
           <img src={stage.scene.image} alt={stage.scene.alt} draggable="false" />
           {foundTargets.map((target) => (

@@ -190,8 +190,11 @@
   완료: `HiddenObjectsGame` 점수는 target당 공통 100점과 완료 시 200점
   completion bonus를 반영한다.
 
-- [ ] `V1-T044` `P0` 완성도 있는 숨은그림 stage 1개를 만든다.
+- [x] `V1-T044` `P0` 완성도 있는 숨은그림 stage 1개를 만든다.
   v1 테마 중 하나를 사용하고 목표 사물 3-8개를 포함한다.
+  완료: `hidden_picnic_001` level 1 picnic stage를 추가하고, apple, kite,
+  book, spoon, duck, ball 6개 target과 scene asset을 selector/route에
+  등록했다.
 
 - [ ] `V1-T045` `P1` 숨은그림 힌트 동작을 추가한다.
   남은 목표 하나를 강조하되 자동 정답 처리하지 않는다.

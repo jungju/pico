@@ -42,6 +42,8 @@ operation guide.
   helpers
 - `src/games/hiddenObjects/stages/schema.js`: Hidden Objects stage schema and
   normalizer
+- `src/games/hiddenObjects/stages/stage001.js`: v1 Hidden Objects picnic stage
+  content
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
@@ -83,9 +85,12 @@ The first game is `Find & Learn`:
   login/logout action.
 - The game selection page shows total points and daily streak for logged-in
   users.
-- The game selection page shows one card per loaded Find & Learn stage.
+- The game selection page shows one card per loaded stage.
+- The game selection page includes the v1 Hidden Objects picnic stage.
 - Selecting a stage card opens the game screen for that stage.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
+- The first Hidden Objects stage URL is
+  `/games/hidden_objects/hidden_picnic_001`.
 - Legacy `/games/<stage-id>` URLs remain recoverable.
 - Browser back/forward navigation must keep the selected screen in sync with the
   URL.
@@ -342,6 +347,9 @@ and the shared completion dialog.
 
 Hidden Objects scoring uses 100 points per found target, plus a 200 point
 completion bonus when every target in the stage is found.
+
+The v1 Hidden Objects content set includes `hidden_picnic_001`, a level 1
+picnic scene with apple, kite, book, spoon, duck, and ball targets.
 
 ## Data Contract
 
