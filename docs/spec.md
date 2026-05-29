@@ -24,7 +24,7 @@ operation guide.
   metadata
 - `src/ohmeshAuth.js`: ohmesh login/logout URLs and session checks
 - `src/ohmeshProgress.js`: ohmesh user-scoped Find & Learn progress and score
-  record helpers
+  record helpers, plus v1 Pico progress helpers
 - `src/games/findLearn/FindLearnGame.jsx`: Find & Learn rendering, click flow,
   markers, and speech feedback
 - `src/games/findLearn/hitTesting.js`: coordinate conversion and area collision
@@ -307,6 +307,10 @@ flow and calls them from `handlePictureClick(event, side)`.
   secrets.
 - Logged-out progress remains local React state only.
 - OAuth secrets do not belong in this repository.
+
+V1 progress helpers also support a `pico-progress` record with `version: 2`,
+`totalPoints`, `streak`, `games`, and `stages` fields. Until migration is
+complete, the existing `find-learn-progress` record remains readable.
 
 ## Git And Deployment Contract
 

@@ -91,9 +91,11 @@
 
 ## Milestone 2: 진행, 포인트, 연속 방문
 
-- [ ] `V1-T020` `P0` v2 Pico progress record helper를 만든다.
+- [x] `V1-T020` `P0` v2 Pico progress record helper를 만든다.
   총 포인트, streak, 게임별 요약, stage별 진행을 저장하는 단일 Pico
   progress record read/write helper를 추가한다.
+  완료: `src/ohmeshProgress.js`에 `pico-progress` v2 record의 empty/load/save
+  helper와 normalize 로직을 추가했다.
 
 - [ ] `V1-T021` `P0` 기존 Find & Learn 진행 상태를 보존한다.
   기존 `find-learn-progress` 데이터를 legacy shape로 읽거나 v2 구조로
