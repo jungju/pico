@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { GameShell } from "../GameShell";
-import { POINT_VALUES } from "../points";
+import { POINT_EVENTS, POINT_VALUES } from "../points";
 import { closeMismatchedMemoryCards, createMemoryRunState, flipMemoryCard, isMemoryCardFaceUp } from "./engine";
 
 const MISMATCH_DELAY_MS = 760;
 
-export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onBack, onNext }) {
+export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onBack, onNext, onPointEvent, onStageComplete }) {
   const completionBonus = stageEntry?.points?.completionBonus ?? stage.points?.completionBonus ?? POINT_VALUES.STAGE_COMPLETION_BONUS;
   const [runState, setRunState] = useState(() => createMemoryRunState(stage));
   const [message, setMessage] = useState(() => createReadyMessage(stage));
@@ -38,7 +38,9 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
     if (result.matchedPair) {
       setMessage(matchMessage(result.matchedPair, result.state.completed));
       speak(matchSpeech(result.matchedPair, result.state.completed));
+      onPointEvent?.({ event: POINT_EVENTS.MEMORY_PAIR_MATCHED, itemId: result.matchedPair.id });
       if (result.state.completed) {
+        onStageComplete?.();
         setCompletionNoticeOpen(true);
       }
     } else {

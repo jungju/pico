@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Flag, Gem, MapPin } from "lucide-react";
 import { GameShell } from "../GameShell";
-import { POINT_VALUES } from "../points";
+import { POINT_EVENTS, POINT_VALUES } from "../points";
 import {
   createMazeRunState,
   getCellFromPointerEvent,
@@ -13,7 +13,7 @@ import { cellKey, isMazeCellBlocked, sameCell } from "./stages/schema";
 
 const NUDGE_TIMEOUT_MS = 380;
 
-export function MazeGame({ authState, authControl, stage, onBack, onNext }) {
+export function MazeGame({ authState, authControl, stage, onBack, onNext, onPointEvent, onStageComplete }) {
   const [runState, setRunState] = useState(() => createMazeRunState(stage));
   const [message, setMessage] = useState(() => createReadyMessage(stage));
   const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
@@ -61,7 +61,13 @@ export function MazeGame({ authState, authControl, stage, onBack, onNext }) {
       nudgePlayer();
     }
 
+    if (result.collectible) {
+      onPointEvent?.({ event: POINT_EVENTS.MAZE_COLLECTIBLE, itemId: result.collectible.id });
+    }
+
     if (result.completed) {
+      onPointEvent?.({ event: POINT_EVENTS.MAZE_COMPLETED, itemId: "goal" });
+      onStageComplete?.();
       setCompletionNoticeOpen(true);
     }
   }

@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import { GameShell } from "../GameShell";
-import { POINT_VALUES } from "../points";
+import { POINT_EVENTS, POINT_VALUES } from "../points";
 import { findHiddenTargetAt, getHiddenTargetMarker, getRelativePoint } from "./hitTesting";
 
-export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, onBack, onNext }) {
+export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, onBack, onNext, onPointEvent, onStageComplete }) {
   const completionBonus = stageEntry?.points?.completionBonus ?? stage.points?.completionBonus ?? POINT_VALUES.STAGE_COMPLETION_BONUS;
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [message, setMessage] = useState(() => createReadyMessage(stage));
@@ -50,8 +50,10 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
       title: nextCompleted ? "Complete" : target.word,
       body: nextCompleted ? completeMessageBody(stage, nextScore) : targetMessage(target),
     });
+    onPointEvent?.({ event: POINT_EVENTS.HIDDEN_OBJECT_FOUND, itemId: target.id });
 
     if (nextCompleted) {
+      onStageComplete?.();
       setCompletionNoticeOpen(true);
     }
 

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { GameShell } from "../GameShell";
-import { POINT_VALUES } from "../points";
+import { POINT_EVENTS, POINT_VALUES } from "../points";
 import { findDifferenceAt, findObjectAt, getDifferenceArea, getDifferenceMarker, getRelativePoint } from "./hitTesting";
 import { DEBUG_AREAS, findLearnStage as fallbackFindLearnStage } from "./stages/stage001";
 import { emptyFindLearnProgress, loadFindLearnProgress, saveFindLearnProgress } from "../../ohmeshProgress";
@@ -8,7 +8,16 @@ import { emptyFindLearnProgress, loadFindLearnProgress, saveFindLearnProgress } 
 const WRONG_MARKER_TIMEOUT_MS = 900;
 const IDLE_HINT_DELAY_MS = 12000;
 
-export function FindLearnGame({ authState, authControl, stage = fallbackFindLearnStage, stageEntry, onBack, onNext }) {
+export function FindLearnGame({
+  authState,
+  authControl,
+  stage = fallbackFindLearnStage,
+  stageEntry,
+  onBack,
+  onNext,
+  onPointEvent,
+  onStageComplete,
+}) {
   const activeStage = stage || fallbackFindLearnStage;
   const completionBonus = stageEntry?.points?.completionBonus ?? POINT_VALUES.STAGE_COMPLETION_BONUS;
   const [foundIds, setFoundIds] = useState(() => new Set());
@@ -119,7 +128,9 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
       title: nextCompleted ? "Complete" : "Correct",
       body: nextCompleted ? completeMessageBody(activeStage, nextScore) : differenceMessage(difference),
     });
+    onPointEvent?.({ event: POINT_EVENTS.DIFFERENCE_FOUND, itemId: difference.id });
     if (nextCompleted) {
+      onStageComplete?.();
       setCompletionNoticeOpen(true);
     }
     speak(nextCompleted ? `Complete. ${activeStage.title}. ${nextScore} points.` : `Correct. ${differenceSpeech(difference)}`);

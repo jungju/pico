@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Flame, LoaderCircle, LogIn, LogOut, Sparkles, Trophy, UserRound } from "lucide-react";
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
 import { GAME_TYPES } from "./games/gameTypes";
 import { HiddenObjectsGame } from "./games/hiddenObjects/HiddenObjectsGame";
 import { MazeGame } from "./games/maze/MazeGame";
 import { MemoryCardsGame } from "./games/memoryCards/MemoryCardsGame";
+import { awardStageCompletionBonus, awardStageEventPoints } from "./games/points";
 import { gameStages } from "./games/stageRegistry";
+import { awardDailyStreakReward, qualifyDailyVisit } from "./games/streaks";
 import { buildOhmeshLoginUrl, buildOhmeshLogoutUrl, fetchOhmeshSession, removeOhmeshResultParams } from "./ohmeshAuth";
-import { emptyPicoProgress, loadPicoProgress } from "./ohmeshProgress";
+import { emptyPicoProgress, loadPicoProgress, savePicoProgress } from "./ohmeshProgress";
 
 const GAMES = gameStages.map((stageEntry) => ({
   ...stageEntry,
@@ -26,6 +28,9 @@ export default function App() {
     status: "local",
     data: emptyPicoProgress(),
   });
+  const picoProgressRecordIdRef = useRef(null);
+  const picoProgressDataRef = useRef(emptyPicoProgress());
+  const picoProgressSaveSequenceRef = useRef(0);
 
   useEffect(() => {
     removeOhmeshResultParams();
@@ -66,6 +71,8 @@ export default function App() {
 
   useEffect(() => {
     if (authState.status !== "authenticated") {
+      picoProgressRecordIdRef.current = null;
+      picoProgressDataRef.current = emptyPicoProgress();
       return;
     }
 
@@ -73,8 +80,10 @@ export default function App() {
 
     async function loadProgress() {
       try {
-        const { data } = await loadPicoProgress({ signal: controller.signal });
+        const { record, data } = await loadPicoProgress({ signal: controller.signal });
         if (controller.signal.aborted) return;
+        picoProgressRecordIdRef.current = record?.id || null;
+        picoProgressDataRef.current = data;
         setPicoProgressState({
           status: "ready",
           data,
@@ -85,6 +94,7 @@ export default function App() {
           status: "error",
           data: emptyPicoProgress(),
         });
+        picoProgressDataRef.current = emptyPicoProgress();
       }
     }
 
@@ -116,6 +126,61 @@ export default function App() {
     pushAppPath("/");
   }
 
+  function awardPicoStageEvent(stageEntry, payload) {
+    updatePicoProgress((progress, now) => {
+      const result = awardStageEventPoints(progress, stageEntry, {
+        ...payload,
+        now,
+      });
+
+      return result.awardedPoints > 0 ? qualifyAndRewardDailyVisit(result.progress, now) : result.progress;
+    });
+  }
+
+  function completePicoStage(stageEntry) {
+    updatePicoProgress((progress, now) => {
+      const result = awardStageCompletionBonus(progress, stageEntry, { now });
+      return qualifyAndRewardDailyVisit(result.progress, now);
+    });
+  }
+
+  function updatePicoProgress(updater) {
+    if (authState.status !== "authenticated") return;
+
+    const now = new Date().toISOString();
+    const nextData = updater(picoProgressDataRef.current, now);
+    picoProgressDataRef.current = nextData;
+    setPicoProgressState({
+      status: "saving",
+      data: nextData,
+    });
+
+    const saveSequence = picoProgressSaveSequenceRef.current + 1;
+    picoProgressSaveSequenceRef.current = saveSequence;
+
+    savePicoProgress({
+      recordId: picoProgressRecordIdRef.current,
+      data: nextData,
+    })
+      .then((record) => {
+        picoProgressRecordIdRef.current = record.id;
+        if (picoProgressSaveSequenceRef.current === saveSequence) {
+          setPicoProgressState({
+            status: "ready",
+            data: picoProgressDataRef.current,
+          });
+        }
+      })
+      .catch(() => {
+        if (picoProgressSaveSequenceRef.current === saveSequence) {
+          setPicoProgressState({
+            status: "error",
+            data: picoProgressDataRef.current,
+          });
+        }
+      });
+  }
+
   const selectedGame = GAMES.find((game) => game.id === selectedStageId);
   const selectedGameIndex = GAMES.findIndex((game) => game.id === selectedStageId);
   const nextGame = selectedGameIndex >= 0 ? GAMES[selectedGameIndex + 1] : null;
@@ -129,6 +194,8 @@ export default function App() {
       key: selectedGame.id,
       stage: selectedGame.stage,
       stageEntry: selectedGame,
+      onPointEvent: (payload) => awardPicoStageEvent(selectedGame, payload),
+      onStageComplete: () => completePicoStage(selectedGame),
       onBack: openGameSelect,
       onNext: nextGame ? () => openStage(nextGame) : null,
     };
@@ -274,6 +341,11 @@ function displayName(user) {
 
 function getTodaysGame(games) {
   return [...games].sort((a, b) => a.level - b.level || a.title.localeCompare(b.title))[0] || null;
+}
+
+function qualifyAndRewardDailyVisit(progress, now) {
+  const visit = qualifyDailyVisit(progress, { now: new Date(now) });
+  return awardDailyStreakReward(visit.progress, { now: new Date(now) }).progress;
 }
 
 function getStageIdFromLocation() {
