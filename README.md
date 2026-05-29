@@ -65,6 +65,7 @@ https://pico.jjgo.io
 - 게임 선택 카드의 한국어 stage title은 별도 pill로 표시해 좁은 화면에서도 단어 단위 줄바꿈을 유지합니다.
 - 게임 선택 카드는 작은 game type eyebrow, 큰 stage title, 보조 한국어 pill, 작은 metadata badge 순서로 정보를 배치합니다.
 - 게임 선택 카드 thumbnail은 game type별 프레이밍 기준을 사용해 장면형 게임과 보드/카드형 게임을 구분합니다.
+- 480px 이하 홈 카드에서는 thumbnail, badge, arrow spacing을 줄여 320px 화면에서도 stage 목록을 더 빠르게 훑을 수 있습니다.
 - v1 출시 콘텐츠 목표는 게임 타입별 20개, 총 80개 playable stage입니다.
 - 현재 틀린그림 찾기는 `contents`에 등록된 20개 stage를 제공합니다.
 - 현재 숨은그림 찾기는 `src/games/hiddenObjects/stages`에 등록된 20개 stage를 제공합니다.

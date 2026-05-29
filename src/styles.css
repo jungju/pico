@@ -2252,3 +2252,58 @@ button.picture-frame:hover {
     font-size: 0.82rem;
   }
 }
+
+@media (max-width: 480px) {
+  .game-option {
+    grid-template-columns: 64px minmax(0, 1fr) 18px;
+    min-height: 90px;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .game-option-media {
+    width: 64px;
+  }
+
+  .game-option-media.maze,
+  .game-option-media.memory-cards {
+    --thumbnail-padding: 5px;
+  }
+
+  .game-option-copy {
+    gap: 3px;
+  }
+
+  .game-option-copy strong {
+    font-size: 1.08rem;
+    line-height: 1.03;
+    overflow-wrap: normal;
+  }
+
+  .game-option-copy .game-option-type {
+    font-size: 0.66rem;
+  }
+
+  .game-option-copy .game-option-title-ko {
+    min-height: 21px;
+    padding: 1px 6px;
+    font-size: 0.72rem;
+  }
+
+  .game-option-badges {
+    gap: 3px;
+    margin-top: 0;
+  }
+
+  .game-option-copy .game-option-badge,
+  .game-option-status {
+    min-height: 20px;
+    padding: 0 3px;
+    font-size: 0.55rem;
+  }
+
+  .game-option > svg {
+    width: 17px;
+    height: 17px;
+  }
+}

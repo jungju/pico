@@ -139,6 +139,9 @@ The current v1 content set provides 20 Maze stages through
 - Stage card thumbnails use game type framing: scene games fill the thumbnail,
   while board/card games use inset previews on type-specific trays so the
   interaction style is recognizable at small sizes.
+- At 480px and below, stage cards use a compact mobile density with smaller
+  thumbnails, badges, spacing, and arrow affordances to keep 320px browsing
+  scannable.
 - Selecting a stage card opens the game screen for that stage.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is

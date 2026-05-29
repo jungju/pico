@@ -79,7 +79,8 @@ public/assets/audio/<word>.mp3
 ## Home Thumbnail Standards
 
 - Home stage thumbnails are square, framed with the shared Pico navy stroke,
-  and must stay readable at both 86px mobile and 124px desktop sizes.
+  and must stay readable at 64px compact mobile, 86px regular mobile, and
+  124px desktop sizes.
 - Spot the Difference and Hidden Objects thumbnails use edge-to-edge scene
   framing with the main action kept near the center safe area.
 - Maze thumbnails use an inset board preview on a light blue tray so paths,
