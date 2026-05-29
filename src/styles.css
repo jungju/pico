@@ -228,16 +228,17 @@ button {
 
 .game-option-copy {
   display: grid;
-  gap: 6px;
+  align-content: center;
+  gap: 5px;
   min-width: 0;
 }
 
 .game-option-copy strong {
   overflow-wrap: anywhere;
   color: #18332e;
-  font-size: 1.65rem;
-  font-weight: 850;
-  line-height: 1.1;
+  font-size: 1.46rem;
+  font-weight: 950;
+  line-height: 1.06;
 }
 
 .game-option-copy span {
@@ -248,8 +249,12 @@ button {
 }
 
 .game-option-copy .game-option-type {
-  color: #7b473f;
-  font-weight: 850;
+  order: -1;
+  color: #315160;
+  font-size: 0.72rem;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .game-option-copy .game-option-title-ko {
@@ -273,9 +278,9 @@ button {
 
 .game-option-badges {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   flex-wrap: wrap;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .game-option-copy .game-option-badge {
@@ -284,10 +289,10 @@ button {
   min-height: 24px;
   border: 2px solid #143c56;
   border-radius: 8px;
-  background: #fff0a5;
+  background: #fff8df;
   color: #574404;
-  padding: 0 8px;
-  font-size: 0.76rem;
+  padding: 0 7px;
+  font-size: 0.7rem;
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;

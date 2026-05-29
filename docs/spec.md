@@ -125,6 +125,8 @@ The current v1 content set provides 20 Maze stages through
   stages.
 - Stage cards show Korean stage titles as separate keep-all pills so narrow
   mobile cards do not break Korean words character by character.
+- Stage card information hierarchy is game type eyebrow, primary stage title,
+  Korean title pill, then smaller level/theme metadata badges.
 - Selecting a stage card opens the game screen for that stage.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
