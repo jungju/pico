@@ -26,6 +26,7 @@ https://pico.jjgo.io
 - `src/games/findLearn/hitTesting.js`: 이미지 기준 퍼센트 좌표 변환과 영역 충돌 판정
 - `src/games/findLearn/stages/contentStages.js`: `contents/*.json`과 같은 이름의 이미지 자동 등록
 - `src/games/findLearn/stages/stage001.js`: built-in fallback stage 데이터
+- `src/games/hiddenObjects/hitTesting.js`: 숨은그림 찾기 image-relative target 판정
 - `src/games/hiddenObjects/stages/schema.js`: 숨은그림 찾기 stage schema와 normalizer
 - `src/styles.css`: 게임 선택 화면과 Find & Learn 화면 스타일
 - `public/assets/`: stage 이미지
@@ -96,6 +97,8 @@ hit area를 가집니다.
 - Target: `id`, `word`, `meaning`, `phonetic`, `sentence`, `translation`, `area`, `marker`, `hint`
 - 지원하는 `area.type`: `circle`, `rect`, `polygon`
 - 좌표는 scene 이미지 기준 0~100 퍼센트 값입니다.
+- Hit testing은 `src/games/hiddenObjects/hitTesting.js`에서 target id별 중복
+  클릭을 제외하고 판정합니다.
 
 지원하는 영역 타입:
 

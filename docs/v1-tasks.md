@@ -172,8 +172,11 @@
   영어/한국어 vocabulary, 선택적 발음/문장, percent hit area를 normalize하는
   stage schema helper를 추가했다.
 
-- [ ] `V1-T041` `P0` 숨은그림 hit testing을 만든다.
+- [x] `V1-T041` `P0` 숨은그림 hit testing을 만든다.
   가능하면 기존 image-relative coordinate helper를 재사용한다.
+  완료: `src/games/hiddenObjects/hitTesting.js`가 Find & Learn의
+  `getRelativePoint`, `isPointInArea`를 재사용해 아직 찾지 않은 target을
+  판정한다.
 
 - [ ] `V1-T042` `P0` 숨은그림 게임 UI를 만든다.
   큰 scene, 목표 목록, 찾은 표시, 진행률, 점수, 힌트, 리셋, 학습 패널,

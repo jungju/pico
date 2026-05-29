@@ -36,6 +36,8 @@ operation guide.
   normalizer
 - `src/games/findLearn/stages/stage001.js`: current stage data shape and
   built-in fallback content
+- `src/games/hiddenObjects/hitTesting.js`: Hidden Objects target collision
+  helpers
 - `src/games/hiddenObjects/stages/schema.js`: Hidden Objects stage schema and
   normalizer
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
@@ -326,6 +328,11 @@ Supported target `area.type` values:
 - `circle`
 - `rect`
 - `polygon`
+
+Hidden Objects hit testing uses `getRelativePoint` and `isPointInArea` from the
+Find & Learn coordinate helpers. `findHiddenTargetAt(point, stage,
+foundTargetIds)` returns the first un-found target whose area contains the
+point, or `null`.
 
 ## Data Contract
 
