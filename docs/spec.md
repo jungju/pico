@@ -19,6 +19,7 @@ operation guide.
 - `docs/v1-visual-qa.md`: v1 visual asset, hit area, and viewport QA
   checklist
 - `docs/v1-korean-copy.md`: v1 Korean helper copy review
+- `docs/v1-manual-qa.md`: v1 stage route and completion QA results
 - `contents/*.json`: Find & Learn content stages loaded into the game selector
 - `contents/*.{png,jpg,jpeg,webp}`: images paired with content JSON files by
   matching filename stem

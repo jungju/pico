@@ -362,8 +362,11 @@
   Hidden Objects target 판정, Maze blocked/collect/complete, Memory Cards
   mismatch/match core logic을 검증한다.
 
-- [ ] `V1-T092` `P0` 수동 게임 QA를 실행한다.
+- [x] `V1-T092` `P0` 수동 게임 QA를 실행한다.
   모든 v1 stage를 모바일 크기와 데스크톱 크기에서 끝까지 플레이한다.
+  완료: 모든 현재 v1 stage route를 390x844와 1280x900에서 Playwright
+  screenshot으로 확인하고, completion core logic은 `npm test`의 focused
+  tests로 통과시켰다. 결과는 `docs/v1-manual-qa.md`에 기록했다.
 
 - [ ] `V1-T093` `P0` 제품 문서를 갱신한다.
   `README.md`, `docs/spec.md`, `docs/v1-scope.md`, 이 task 문서를 실제
