@@ -1,5 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Home, Lightbulb, RotateCcw, Volume2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Home,
+  Lightbulb,
+  RotateCcw,
+  Sparkles,
+  Star,
+  Trophy,
+  Volume2,
+} from "lucide-react";
 import { findDifferenceAt, findObjectAt, getDifferenceArea, getDifferenceMarker, getRelativePoint } from "./hitTesting";
 import { DEBUG_AREAS, findLearnStage as fallbackFindLearnStage } from "./stages/stage001";
 import { emptyFindLearnProgress, loadFindLearnProgress, saveFindLearnProgress } from "../../ohmeshProgress";
@@ -31,6 +42,9 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
   const score = calculateScore(foundIds);
   const completed = foundIds.size === activeStage.differences.length;
   const visibleProgressStatus = authState?.status === "authenticated" ? progressStatus : "local";
+  const statusText = saveStatusText(visibleProgressStatus);
+  const progressPercent =
+    activeStage.differences.length > 0 ? Math.round((foundIds.size / activeStage.differences.length) * 100) : 0;
 
   useEffect(() => {
     if (authState?.status !== "authenticated") {
@@ -211,14 +225,37 @@ export function FindLearnGame({ authState, authControl, stage = fallbackFindLear
   return (
     <main className="game-shell">
       <section className="game-topbar" aria-label="Game status">
-        <div className="progress-text" aria-live="polite">
-          <span>{foundIds.size}/{activeStage.differences.length}</span>
-          <span className="score-text">{score} pts</span>
-          {completed ? <span className="complete-text">Done</span> : null}
-          {saveStatusText(visibleProgressStatus) ? (
-            <span className="save-text">{saveStatusText(visibleProgressStatus)}</span>
-          ) : null}
+        <div className="stage-badge">
+          <span className="stage-badge-icon">
+            <Sparkles aria-hidden="true" size={23} />
+          </span>
+          <span className="stage-copy">
+            <strong>{activeStage.titleKo || activeStage.title}</strong>
+            <span>{stageSubtitle(activeStage)}</span>
+          </span>
         </div>
+
+        <div className="progress-hud" style={{ "--progress-value": `${progressPercent}%` }} aria-live="polite">
+          <span className="hud-chip progress-chip">
+            <Star aria-hidden="true" size={18} />
+            <span>{foundIds.size}/{activeStage.differences.length}</span>
+          </span>
+          <span className="hud-chip score-chip">
+            <Trophy aria-hidden="true" size={18} />
+            <span>{score} pts</span>
+          </span>
+          {completed ? (
+            <span className="hud-chip complete-text">
+              <CheckCircle2 aria-hidden="true" size={17} />
+              <span>Done</span>
+            </span>
+          ) : null}
+          {statusText ? <span className="hud-chip save-text">{statusText}</span> : null}
+          <span className="progress-meter" aria-hidden="true">
+            <span />
+          </span>
+        </div>
+
         <div className="game-actions">
           {authControl}
           {onBack ? (
@@ -464,6 +501,11 @@ function createReadyMessage(stage) {
     title: stage.titleKo ? stage.titleKo : "Ready",
     body: words.slice(0, 6).join(" · "),
   };
+}
+
+function stageSubtitle(stage) {
+  if (stage.titleKo && stage.titleKo !== stage.title) return stage.title;
+  return "Find & Learn";
 }
 
 function createCompleteMessage(stage, score) {

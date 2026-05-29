@@ -67,6 +67,8 @@ The first game is `Find & Learn`:
 - The game screen shows the current ohmesh login state and can return to the
   game selection page.
 - The Find & Learn game screen uses a low-contrast illustrated background.
+- The Find & Learn game screen uses a kid-friendly HUD with a stage badge,
+  progress meter, and score chips.
 - Two pictures stay side-by-side and shrink to fit the available viewport
   height.
 - The picture frames keep a configured minimum size when the viewport allows it.
