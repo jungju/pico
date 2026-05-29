@@ -142,8 +142,10 @@
   현재 `Find & Learn`은 stage 선택, hit testing, 점수, 힌트, 리셋,
   완료, 음성, ohmesh 진행 저장을 지원한다.
 
-- [ ] `V1-T031` `P0` 틀린그림 stage를 공통 registry에 등록한다.
+- [x] `V1-T031` `P0` 틀린그림 stage를 공통 registry에 등록한다.
   기존 content stage를 유지하면서 v1 공통 metadata를 노출한다.
+  완료: 기존 Find & Learn content stage가 `stageRegistry`에서
+  `spot_the_difference` game type과 공통 metadata로 노출된다.
 
 - [ ] `V1-T032` `P0` 틀린그림 점수를 공통 포인트 규칙과 맞춘다.
   정답 1개당 100점을 유지하고 공통 completion bonus를 추가한다.
