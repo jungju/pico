@@ -57,3 +57,19 @@ The home selector was checked with the full v1 target library of 80 cards.
   type filters, Level/Theme/Status filters, then stage cards.
 - Today and filter controls expose explicit focus labels such as
   `Show Memory stages, 20` and `Filter by theme`.
+
+## Mobile Browser Chrome Resize Check
+
+Date: 2026-05-30
+
+Playwright viewport resize was used as a proxy for mobile browser chrome height
+changes. Each first game route was loaded at `390x844`, then resized to
+`390x640`, `390x740`, and `390x844`.
+
+- Spot, Hidden, Maze, and Memory kept `.game-shell` inside the viewport for all
+  tested heights.
+- No route produced horizontal overflow.
+- Learning panel bottom stayed inside the viewport at all tested heights.
+- Play area stayed visible above the 80px smoke threshold. At `390x640`, play
+  area heights were approximately Spot `285px`, Hidden `402px`, Maze `402px`,
+  and Memory `394px`.
