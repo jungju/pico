@@ -474,6 +474,9 @@ Memory Cards engine behavior:
 The Memory Cards UI uses a responsive square-card grid that supports 4, 6, 8,
 and 12 pairs without changing card aspect ratio.
 
+Opening a Memory card speaks the English word and optional sentence. Matching a
+pair speaks a short English match or completion feedback.
+
 ## Data Contract
 
 - Current click state is React state during play.

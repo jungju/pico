@@ -30,11 +30,13 @@ export function MemoryCardsGame({ authState, authControl, stage, onBack, onNext 
 
     if (result.reason === "opened") {
       setMessage(cardMessage(result.flippedCard));
+      speak(cardSpeech(result.flippedCard));
       return;
     }
 
     if (result.matchedPair) {
       setMessage(matchMessage(result.matchedPair, result.state.completed));
+      speak(matchSpeech(result.matchedPair, result.state.completed));
       if (result.state.completed) {
         setCompletionNoticeOpen(true);
       }
@@ -44,6 +46,7 @@ export function MemoryCardsGame({ authState, authControl, stage, onBack, onNext 
         title: "Try again",
         body: "Look for the matching card.",
       });
+      speak("Try again.");
     }
 
     if (result.needsMismatchDelay) {
@@ -167,6 +170,14 @@ function matchMessage(pair, completed) {
     title: completed ? "Complete" : pair.word,
     body: completed ? "All pairs matched." : `${pair.meaning} · Match`,
   };
+}
+
+function cardSpeech(card) {
+  return `${card.word}. ${card.sentence || ""}`.trim();
+}
+
+function matchSpeech(pair, completed) {
+  return completed ? `Complete. ${pair.word}.` : `Match. ${pair.word}.`;
 }
 
 function memoryColumnCount(cardCount) {
