@@ -51,6 +51,8 @@ operation guide.
 - `src/games/maze/stages/schema.js`: grid-based Maze stage schema and
   normalizer
 - `src/games/maze/stages/stage001.js`: v1 Maze garden stage content
+- `src/games/memoryCards/MemoryCardsGame.jsx`: Memory Cards responsive card
+  grid, face rendering, matching UI, and completion flow
 - `src/games/memoryCards/engine.js`: Memory Cards deck creation, flipping,
   matching, mismatch delay state, attempts, and completion helpers
 - `src/games/memoryCards/stages/schema.js`: Memory Cards stage schema and
@@ -468,6 +470,9 @@ Memory Cards engine behavior:
 - Keeps mismatched cards open and returns `needsMismatchDelay` so UI can close
   them after a short delay.
 - Sets `completed` when every pair is matched.
+
+The Memory Cards UI uses a responsive square-card grid that supports 4, 6, 8,
+and 12 pairs without changing card aspect ratio.
 
 ## Data Contract
 
