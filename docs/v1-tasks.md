@@ -329,8 +329,10 @@
   touch target을 키우고, 게임 target은 이미지/board/card 전체 영역 또는
   방향 버튼으로 조작 가능함을 확인했다.
 
-- [ ] `V1-T083` `P1` 작은 축하 feedback을 추가한다.
+- [x] `V1-T083` `P1` 작은 축하 feedback을 추가한다.
   정답, 매칭, 수집, stage 완료에 짧은 시각/음성 반응을 제공한다.
+  완료: 공통 learning panel의 correct/complete 상태에 짧은 pop 애니메이션을
+  추가했고, 기존 음성 피드백과 함께 정답/매칭/수집/완료 반응이 난다.
 
 - [ ] `V1-T084` `P1` v1 UI에 countdown timer를 넣지 않는다.
   내부 elapsed time은 나중에 수집할 수 있지만 아이에게 시간 압박을 주지

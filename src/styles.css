@@ -1230,6 +1230,7 @@ button.picture-frame:hover {
 
 .learning-panel.correct {
   border-color: #20a86a;
+  animation: feedback-pop 360ms ease;
 }
 
 .learning-panel.correct::before {
@@ -1238,6 +1239,7 @@ button.picture-frame:hover {
 
 .learning-panel.complete {
   border-color: #17895c;
+  animation: feedback-pop 420ms ease;
 }
 
 .learning-panel.complete::before {
@@ -1389,6 +1391,20 @@ button.picture-frame:hover {
 
   60% {
     transform: translateX(4px);
+  }
+}
+
+@keyframes feedback-pop {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  45% {
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
   }
 }
 

@@ -144,6 +144,8 @@ The first game is `Find & Learn`:
 - When all differences are found, a success completion dialog is shown.
 - The completion dialog offers `Next` when another stage exists, `Home` to
   return to the game selection page, and `Stay` to close the dialog.
+- Correct, match, collectible, and completion feedback uses short visual and/or
+  speech responses.
 - The English word/dialog panel sits in one compact row below the pictures.
 - Correct and wrong markers may be DOM elements.
 - Correct and hint markers use `difference.marker`.
