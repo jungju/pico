@@ -174,6 +174,8 @@ The current v1 content set provides 20 Maze stages through
   close the dialog.
 - Correct, match, collectible, and completion feedback uses short visual and/or
   speech responses.
+- In `prefers-reduced-motion: reduce`, repeating pulse, nudge, and pop
+  animations are disabled or held as static emphasis.
 - V1 game screens do not show countdown timers or time-pressure UI.
 - The English word/dialog panel sits in one compact row below the pictures.
 - Correct and wrong markers may be DOM elements.

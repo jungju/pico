@@ -1610,6 +1610,41 @@ button.picture-frame:hover {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .auth-button,
+  .action-button,
+  .completion-action,
+  .game-option,
+  .hidden-scene,
+  .icon-button,
+  .memory-card,
+  .memory-card-back,
+  .memory-card-front,
+  .progress-meter span,
+  .today-play-option {
+    transition: none;
+  }
+
+  .auth-spinner,
+  .hint-action-button.hint-prompted,
+  .hint-marker,
+  .learning-panel.complete,
+  .learning-panel.correct,
+  .maze-player.nudge {
+    animation: none;
+  }
+
+  .hint-action-button.hint-prompted {
+    box-shadow:
+      0 3px 0 rgba(20, 60, 86, 0.18),
+      0 0 0 4px rgba(44, 120, 214, 0.14);
+  }
+
+  .hint-marker {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 980px) {
   .game-topbar {
     grid-template-columns: minmax(0, 1fr) auto;

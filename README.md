@@ -93,6 +93,7 @@ https://pico.jjgo.io
 - 모든 차이를 찾으면 성공 완료 안내를 표시합니다.
 - 완료 안내는 축하 medal, 점수 카드, 다음 stage가 있으면 `Next Stage`, 마지막 stage에서는 `Play Again`, 첫 화면으로 돌아가는 `Game List`, 계속 보는 `Keep Playing` 버튼을 보여줍니다.
 - 정답, 매칭, 수집, 완료 feedback은 짧은 시각/음성 반응을 제공합니다.
+- `prefers-reduced-motion` 환경에서는 반복 pulse, nudge, pop animation을 줄입니다.
 - v1 게임 화면에는 countdown timer를 표시하지 않습니다.
 - 영어 단어/대화 창은 두 그림 아래에 낮게 유지합니다.
 - 음성은 Web Speech API `speechSynthesis`를 사용합니다.
