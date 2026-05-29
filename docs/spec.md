@@ -398,6 +398,10 @@ directional movement, adjacent-cell pointer/touch movement, blocked move
 results, collectible pickup, visited cell tracking, and completion when the
 player reaches the goal cell.
 
+Blocked maze moves are soft failures. The player state stays on the previous
+cell, and the result includes feedback that can nudge the player to try another
+path.
+
 ## Data Contract
 
 - Current click state is React state during play.

@@ -59,6 +59,7 @@ export function moveMazePlayerToCell(stage, state, nextCell) {
     cell: nextCell,
     collectible,
     completed,
+    feedback: createMazeMoveFeedback({ blocked: false, collectible, completed }),
     state: {
       position: nextCell,
       visitedCells: nextVisitedCells,
@@ -111,7 +112,50 @@ function blockedResult(state, reason, cell = null) {
     cell,
     collectible: null,
     completed: state.completed,
+    feedback: createMazeMoveFeedback({ blocked: true, reason }),
     state,
+  };
+}
+
+function createMazeMoveFeedback({ blocked, reason = "", collectible = null, completed = false }) {
+  if (blocked) {
+    const body = reason === "not-adjacent" ? "Move one step at a time." : "That path is closed. Try another way.";
+
+    return {
+      type: "wrong",
+      title: "Try another path",
+      body,
+      speech: "Try another path.",
+      nudgeBack: true,
+    };
+  }
+
+  if (completed) {
+    return {
+      type: "complete",
+      title: "Complete",
+      body: "You reached the goal.",
+      speech: "Complete. You reached the goal.",
+      nudgeBack: false,
+    };
+  }
+
+  if (collectible) {
+    return {
+      type: "correct",
+      title: collectible.word || "Collected",
+      body: collectible.meaning || "Nice find.",
+      speech: collectible.word ? `${collectible.word}.` : "Collected.",
+      nudgeBack: false,
+    };
+  }
+
+  return {
+    type: "ready",
+    title: "Keep going",
+    body: "Good step.",
+    speech: "",
+    nudgeBack: false,
   };
 }
 

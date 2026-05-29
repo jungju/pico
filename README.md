@@ -123,6 +123,7 @@ hit area를 가집니다.
 - Cell 좌표: `{ row, col }`
 - Collectible: `id`, `row`, `col`, `word`, `meaning`, `points`
 - 이동 엔진은 방향 이동과 pointer/touch 위치를 grid cell로 변환하는 helper를 제공합니다.
+- 막힌 길을 선택해도 실패시키지 않고 현재 위치를 유지하며 안내 feedback을 반환합니다.
 
 지원하는 영역 타입:
 
