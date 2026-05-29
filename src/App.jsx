@@ -296,7 +296,12 @@ export default function App() {
 
       {todaysGame ? (
         <section className="today-play" aria-label="Today's play">
-          <button className="today-play-option" type="button" onClick={() => openStage(todaysGame)}>
+          <button
+            className="today-play-option"
+            type="button"
+            onClick={() => openStage(todaysGame)}
+            aria-label={`Play Today: ${todaysGame.title}. ${todayReason}`}
+          >
             <span className="today-play-icon">
               <Sparkles aria-hidden="true" size={24} />
             </span>
@@ -327,6 +332,7 @@ export default function App() {
               key={filter.id}
               onClick={() => setSelectedGameTypeFilter(filter.id)}
               aria-pressed={selected}
+              aria-label={`Show ${filter.label} stages, ${count}`}
             >
               <span>{filter.label}</span>
               <strong>{count}</strong>
@@ -338,7 +344,7 @@ export default function App() {
       <section className="stage-refinements" aria-label="Stage filters">
         <label className="stage-filter-field">
           <span>Level</span>
-          <select value={selectedLevelFilter} onChange={(event) => setSelectedLevelFilter(event.target.value)}>
+          <select aria-label="Filter by level" value={selectedLevelFilter} onChange={(event) => setSelectedLevelFilter(event.target.value)}>
             <option value="all">All</option>
             {levelOptions.map((level) => (
               <option value={String(level)} key={level}>
@@ -349,7 +355,7 @@ export default function App() {
         </label>
         <label className="stage-filter-field">
           <span>Theme</span>
-          <select value={selectedThemeFilter} onChange={(event) => setSelectedThemeFilter(event.target.value)}>
+          <select aria-label="Filter by theme" value={selectedThemeFilter} onChange={(event) => setSelectedThemeFilter(event.target.value)}>
             <option value="all">All</option>
             {themeOptions.map((theme) => (
               <option value={theme} key={theme}>
@@ -360,7 +366,7 @@ export default function App() {
         </label>
         <label className="stage-filter-field">
           <span>Status</span>
-          <select value={selectedStatusFilter} onChange={(event) => setSelectedStatusFilter(event.target.value)}>
+          <select aria-label="Filter by status" value={selectedStatusFilter} onChange={(event) => setSelectedStatusFilter(event.target.value)}>
             <option value="all">All</option>
             <option value="open">Open</option>
             <option value="done">Done</option>

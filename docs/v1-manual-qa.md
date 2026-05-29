@@ -42,3 +42,18 @@ layout QA.
 
 All v1 stage routes rendered in the tested mobile and desktop viewports, and
 core completion logic passed focused tests.
+
+## Selector Library Check
+
+Date: 2026-05-30
+
+The home selector was checked with the full v1 target library of 80 cards.
+
+- `390x844`: 80 cards, one-column list, `9825px` document height, no horizontal
+  overflow, network-idle load measured at about `970ms` on the local dev server.
+- `1280x900`: 80 cards, two-column grid, `6301px` document height, no horizontal
+  overflow, network-idle load measured at about `895ms` on the local dev server.
+- Keyboard focus order starts with login, save-progress CTA, Play Today, game
+  type filters, Level/Theme/Status filters, then stage cards.
+- Today and filter controls expose explicit focus labels such as
+  `Show Memory stages, 20` and `Filter by theme`.

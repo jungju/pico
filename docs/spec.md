@@ -164,6 +164,8 @@ Memory completion dialogs can show a compact matched-pair sticker summary.
   counts for narrowing the stage list by game type.
 - The game selection page also supports Level, Theme, and Status filters for
   narrowing the stage list by difficulty, theme, and completion state.
+- The Today CTA and selector filter controls expose explicit focus labels for
+  keyboard and assistive-technology navigation.
 - For logged-in users, stage cards show `Done` or `Open` based on saved
   completion state.
 - The `Play Today` CTA chooses the next saved `Open` stage when progress is

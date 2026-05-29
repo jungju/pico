@@ -60,6 +60,8 @@ https://pico.jjgo.io
 - 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage와 v1 신규 게임 stage 카드가 표시됩니다.
 - 게임 선택 화면에는 All/Spot/Hidden/Maze/Memory game type filter가 있어 stage 목록을 좁힐 수 있습니다.
 - 게임 선택 화면에는 Level, Theme, Status filter가 있어 난이도, 테마, 완료 여부로 stage 목록을 더 좁힐 수 있습니다.
+- 게임 선택 화면의 Today CTA와 filter control은 keyboard focus에서 읽을 수 있는
+  명확한 label을 제공합니다.
 - 로그인 사용자는 게임 선택 카드에서 각 stage의 `Done`/`Open` 상태를 볼 수 있습니다.
 - `Play Today` CTA는 저장된 진행 상황에서 다음 `Open` stage를 추천하고, 상태와 추천 이유, `Start` 액션을 함께 표시합니다.
 - 게임 선택 카드의 한국어 stage title은 별도 pill로 표시해 좁은 화면에서도 단어 단위 줄바꿈을 유지합니다.
