@@ -91,7 +91,7 @@ export function GameShell({
                 title="Go to game list"
               >
                 <Home aria-hidden="true" size={18} />
-                <span>Games</span>
+                <span>Game List</span>
               </button>
             ) : null}
           </div>
@@ -146,15 +146,15 @@ function CompletionNotice({ hasNext, score, stageTitle, onBack, onClose, onNext 
           {hasNext ? (
             <button className="completion-action primary" type="button" onClick={onNext} aria-label="Go to next stage" title="Next stage">
               <ArrowRight aria-hidden="true" size={18} />
-              <span>Next</span>
+              <span>Next Stage</span>
             </button>
           ) : null}
           <button className="completion-action" type="button" onClick={onBack} aria-label="Go home to game list" title="Game list">
             <Home aria-hidden="true" size={18} />
-            <span>Home</span>
+            <span>Game List</span>
           </button>
-          <button className="completion-action ghost" type="button" onClick={onClose} aria-label="Stay on this stage" title="Stay">
-            <span>Stay</span>
+          <button className="completion-action ghost" type="button" onClick={onClose} aria-label="Keep playing this stage" title="Keep playing">
+            <span>Keep Playing</span>
           </button>
         </div>
       </div>

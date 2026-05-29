@@ -335,6 +335,12 @@ button {
   text-overflow: ellipsis;
 }
 
+.auth-button svg,
+.action-button svg,
+.completion-action svg {
+  flex: 0 0 auto;
+}
+
 .auth-button:hover:not(:disabled) {
   border-color: #e85f67;
   transform: translateY(1px);
@@ -1601,16 +1607,16 @@ button.picture-frame:hover {
 
   .action-button {
     min-height: 44px;
-    gap: 5px;
-    padding: 0 7px;
-    font-size: 0.76rem;
+    gap: 4px;
+    padding: 0 5px;
+    font-size: 0.75rem;
   }
 
   .auth-control.compact .auth-button {
     width: 100%;
-    gap: 5px;
-    padding: 0 7px;
-    font-size: 0.76rem;
+    gap: 4px;
+    padding: 0 5px;
+    font-size: 0.75rem;
   }
 
   .icon-button {
