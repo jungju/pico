@@ -562,11 +562,14 @@ function clampNumber(value, min, max) {
 function createReadyMessage(stage) {
   const objects = stage.objects || [];
   const words = objects.length > 0 ? objects.map((object) => object.word) : stage.differences.map(readableDifferenceName);
+  const differenceCount = stage.differences.length;
+  const differenceLabel = differenceCount === 1 ? "difference" : "differences";
+  const wordLine = words.length ? `Words: ${words.slice(0, 6).join(" · ")}` : "Look closely.";
 
   return {
     type: "ready",
-    title: stage.titleKo ? stage.titleKo : "Ready",
-    body: words.slice(0, 6).join(" · "),
+    title: `Goal: ${differenceCount} ${differenceLabel}`,
+    body: wordLine,
   };
 }
 

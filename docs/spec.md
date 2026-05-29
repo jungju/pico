@@ -164,6 +164,8 @@ The current v1 content set provides 20 Maze stages through
 - Spot correct and hint markers size themselves from the target area bounds and
   clamp between 30px and 64px so small differences are not covered and large
   differences get a proportionate marker.
+- Spot starts with a goal-focused learning panel that shows the number of
+  differences and the first vocabulary words instead of only listing words.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.
