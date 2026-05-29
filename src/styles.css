@@ -225,6 +225,60 @@ button {
   outline-offset: 3px;
 }
 
+.stage-refinements {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.stage-filter-field {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.stage-filter-field span {
+  overflow: hidden;
+  color: #315160;
+  font-size: 0.7rem;
+  font-weight: 950;
+  line-height: 1;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.stage-filter-field select {
+  width: 100%;
+  min-height: 44px;
+  min-width: 0;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 3px 0 rgba(20, 60, 86, 0.14);
+  color: #143c56;
+  padding: 0 7px;
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.stage-filter-field select:focus-visible {
+  outline: 3px solid #166f8f;
+  outline-offset: 3px;
+}
+
+.game-list-empty {
+  margin: 0;
+  border: 2px dashed rgba(20, 60, 86, 0.58);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #315160;
+  padding: 18px;
+  font-size: 0.95rem;
+  font-weight: 850;
+  text-align: center;
+}
+
 .game-option {
   display: grid;
   grid-template-columns: 124px minmax(0, 1fr) 42px;

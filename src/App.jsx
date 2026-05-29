@@ -36,6 +36,9 @@ export default function App() {
     data: emptyPicoProgress(),
   });
   const [selectedGameTypeFilter, setSelectedGameTypeFilter] = useState("all");
+  const [selectedLevelFilter, setSelectedLevelFilter] = useState("all");
+  const [selectedThemeFilter, setSelectedThemeFilter] = useState("all");
+  const [selectedStatusFilter, setSelectedStatusFilter] = useState("all");
   const picoProgressRecordIdRef = useRef(null);
   const picoProgressDataRef = useRef(emptyPicoProgress());
   const picoProgressSaveSequenceRef = useRef(0);
@@ -194,7 +197,20 @@ export default function App() {
   const nextGame = selectedGameIndex >= 0 ? GAMES[selectedGameIndex + 1] : null;
   const todaysGame = getTodaysGame(GAMES);
   const showProgressSummary = authState.status === "authenticated";
-  const filteredGames = selectedGameTypeFilter === "all" ? GAMES : GAMES.filter((game) => game.gameType === selectedGameTypeFilter);
+  const stageProgress = picoProgressState.data?.stages || {};
+  const levelOptions = uniqueSorted(GAMES.map((game) => game.level));
+  const themeOptions = uniqueSorted(GAMES.map((game) => game.theme));
+  const filteredGames = GAMES.filter((game) => {
+    if (selectedGameTypeFilter !== "all" && game.gameType !== selectedGameTypeFilter) return false;
+    if (selectedLevelFilter !== "all" && String(game.level) !== selectedLevelFilter) return false;
+    if (selectedThemeFilter !== "all" && game.theme !== selectedThemeFilter) return false;
+    if (selectedStatusFilter !== "all") {
+      const completed = Boolean(stageProgress[game.id]?.completed);
+      if (selectedStatusFilter === "done" && !completed) return false;
+      if (selectedStatusFilter === "open" && completed) return false;
+    }
+    return true;
+  });
 
   if (selectedGame) {
     const gameProps = {
@@ -269,8 +285,41 @@ export default function App() {
         })}
       </section>
 
+      <section className="stage-refinements" aria-label="Stage filters">
+        <label className="stage-filter-field">
+          <span>Level</span>
+          <select value={selectedLevelFilter} onChange={(event) => setSelectedLevelFilter(event.target.value)}>
+            <option value="all">All</option>
+            {levelOptions.map((level) => (
+              <option value={String(level)} key={level}>
+                Level {level}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="stage-filter-field">
+          <span>Theme</span>
+          <select value={selectedThemeFilter} onChange={(event) => setSelectedThemeFilter(event.target.value)}>
+            <option value="all">All</option>
+            {themeOptions.map((theme) => (
+              <option value={theme} key={theme}>
+                {formatFilterLabel(theme)}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="stage-filter-field">
+          <span>Status</span>
+          <select value={selectedStatusFilter} onChange={(event) => setSelectedStatusFilter(event.target.value)}>
+            <option value="all">All</option>
+            <option value="open">Open</option>
+            <option value="done">Done</option>
+          </select>
+        </label>
+      </section>
+
       <section className="game-list" aria-label="Games">
-        {filteredGames.map((game) => (
+        {filteredGames.length ? filteredGames.map((game) => (
           <button className="game-option" type="button" key={game.id} onClick={() => openStage(game)}>
             <span className="game-option-media">
               <img src={game.image} alt="" draggable="false" />
@@ -293,7 +342,7 @@ export default function App() {
             </span>
             <ArrowRight aria-hidden="true" size={22} />
           </button>
-        ))}
+        )) : <p className="game-list-empty">No stages match these filters.</p>}
       </section>
     </main>
   );
@@ -374,6 +423,21 @@ function displayName(user) {
 
 function getTodaysGame(games) {
   return [...games].sort((a, b) => a.level - b.level || a.title.localeCompare(b.title))[0] || null;
+}
+
+function uniqueSorted(values) {
+  return [...new Set(values.filter((value) => value !== undefined && value !== null))].sort((a, b) => {
+    if (typeof a === "number" && typeof b === "number") return a - b;
+    return String(a).localeCompare(String(b));
+  });
+}
+
+function formatFilterLabel(value) {
+  return String(value)
+    .split(/[_-]/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
 }
 
 function qualifyAndRewardDailyVisit(progress, now) {

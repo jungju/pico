@@ -59,6 +59,7 @@ https://pico.jjgo.io
 - 로그인한 사용자에게는 첫 화면에 총 포인트와 연속 방문 streak가 표시됩니다.
 - 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage와 v1 신규 게임 stage 카드가 표시됩니다.
 - 게임 선택 화면에는 All/Spot/Hidden/Maze/Memory game type filter가 있어 stage 목록을 좁힐 수 있습니다.
+- 게임 선택 화면에는 Level, Theme, Status filter가 있어 난이도, 테마, 완료 여부로 stage 목록을 더 좁힐 수 있습니다.
 - 게임 선택 카드의 한국어 stage title은 별도 pill로 표시해 좁은 화면에서도 단어 단위 줄바꿈을 유지합니다.
 - 게임 선택 카드는 작은 game type eyebrow, 큰 stage title, 보조 한국어 pill, 작은 metadata badge 순서로 정보를 배치합니다.
 - v1 출시 콘텐츠 목표는 게임 타입별 20개, 총 80개 playable stage입니다.

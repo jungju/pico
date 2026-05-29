@@ -125,6 +125,8 @@ The current v1 content set provides 20 Maze stages through
   stages.
 - The game selection page has All, Spot, Hidden, Maze, and Memory filters with
   counts for narrowing the stage list by game type.
+- The game selection page also supports Level, Theme, and Status filters for
+  narrowing the stage list by difficulty, theme, and completion state.
 - Stage cards show Korean stage titles as separate keep-all pills so narrow
   mobile cards do not break Korean words character by character.
 - Stage card information hierarchy is game type eyebrow, primary stage title,
