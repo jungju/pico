@@ -1888,10 +1888,12 @@ button.picture-frame:hover {
 }
 
 .memory-card-grid {
+  --memory-gap: 10px;
+
   display: grid;
   grid-template-columns: repeat(var(--memory-columns), minmax(0, 1fr));
-  gap: 10px;
-  width: min(100%, calc(var(--memory-columns) * 112px + (var(--memory-columns) - 1) * 10px));
+  gap: var(--memory-gap);
+  width: min(100%, calc(var(--memory-columns) * var(--memory-card-max) + (var(--memory-columns) - 1) * var(--memory-gap)));
   max-height: 100%;
 }
 
@@ -2814,12 +2816,13 @@ button.picture-frame:hover {
   }
 
   .memory-stage {
-    padding: 8px;
+    padding: 6px;
   }
 
   .memory-card-grid {
+    --memory-gap: 7px;
+
     grid-template-columns: repeat(var(--memory-columns), minmax(0, 1fr));
-    gap: 7px;
     width: min(100%, 360px);
   }
 

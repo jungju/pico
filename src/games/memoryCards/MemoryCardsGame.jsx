@@ -17,6 +17,7 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
   const statusText = authState?.status === "authenticated" ? `${runState.attempts} tries` : "Local play";
   const gridStyle = {
     "--memory-columns": memoryColumnCount(runState.deck.length),
+    "--memory-card-max": `${memoryCardMaxSize(runState.deck.length)}px`,
   };
 
   useEffect(() => {
@@ -193,6 +194,13 @@ function memoryColumnCount(cardCount) {
   if (cardCount <= 8) return 4;
   if (cardCount <= 16) return 4;
   return 6;
+}
+
+function memoryCardMaxSize(cardCount) {
+  if (cardCount <= 8) return 136;
+  if (cardCount <= 12) return 120;
+  if (cardCount <= 16) return 106;
+  return 90;
 }
 
 function speak(text) {

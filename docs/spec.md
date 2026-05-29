@@ -126,6 +126,8 @@ copy.
 
 Memory Cards keeps the stage-defined column count on mobile, so 4-pair stages
 render as a stable 4x2 board instead of wrapping into uneven rows.
+Memory Cards defines a maximum card size by deck size and uses tighter mobile
+spacing so the card board fills the available play area more deliberately.
 
 ## Runtime
 
