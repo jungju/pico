@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Flame, LoaderCircle, LogIn, LogOut, Sparkles, Trophy, UserRound } from "lucide-react";
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
-import { GAME_TYPES } from "./games/gameTypes";
+import { GAME_TYPES, gameTypeLabel } from "./games/gameTypes";
 import { HiddenObjectsGame } from "./games/hiddenObjects/HiddenObjectsGame";
 import { MazeGame } from "./games/maze/MazeGame";
 import { MemoryCardsGame } from "./games/memoryCards/MemoryCardsGame";
@@ -249,7 +249,12 @@ export default function App() {
             </span>
             <span className="game-option-copy">
               <strong>{game.title}</strong>
-              <span>{game.category}</span>
+              <span className="game-option-type">{gameTypeLabel(game.gameType)}</span>
+              {game.titleKo ? (
+                <span className="game-option-title-ko" lang="ko">
+                  {game.titleKo}
+                </span>
+              ) : null}
               <span className="game-option-badges">
                 {game.badges.map((badge) => (
                   <span className="game-option-badge" key={badge}>

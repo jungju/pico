@@ -123,6 +123,8 @@ The current v1 content set provides 20 Maze stages through
 - The game selection page shows one card per loaded stage.
 - The game selection page includes v1 Hidden Objects, Maze, and Memory Cards
   stages.
+- Stage cards show Korean stage titles as separate keep-all pills so narrow
+  mobile cards do not break Korean words character by character.
 - Selecting a stage card opens the game screen for that stage.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is

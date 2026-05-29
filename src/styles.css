@@ -247,6 +247,30 @@ button {
   line-height: 1.2;
 }
 
+.game-option-copy .game-option-type {
+  color: #7b473f;
+  font-weight: 850;
+}
+
+.game-option-copy .game-option-title-ko {
+  display: inline-flex;
+  justify-self: start;
+  max-width: 100%;
+  min-height: 24px;
+  align-items: center;
+  border: 2px solid rgba(20, 60, 86, 0.76);
+  border-radius: 999px;
+  background: #fff0a5;
+  color: #574404;
+  padding: 2px 8px;
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1.1;
+  overflow-wrap: normal;
+  white-space: normal;
+  word-break: keep-all;
+}
+
 .game-option-badges {
   display: flex;
   gap: 6px;
