@@ -477,6 +477,9 @@ and 12 pairs without changing card aspect ratio.
 Opening a Memory card speaks the English word and optional sentence. Matching a
 pair speaks a short English match or completion feedback.
 
+Memory Cards scoring uses 100 points per matched pair, plus a 200 point
+completion bonus when every pair in the stage is matched.
+
 ## Data Contract
 
 - Current click state is React state during play.

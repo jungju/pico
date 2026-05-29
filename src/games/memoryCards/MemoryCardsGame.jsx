@@ -5,13 +5,14 @@ import { closeMismatchedMemoryCards, createMemoryRunState, flipMemoryCard, isMem
 
 const MISMATCH_DELAY_MS = 760;
 
-export function MemoryCardsGame({ authState, authControl, stage, onBack, onNext }) {
+export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onBack, onNext }) {
+  const completionBonus = stageEntry?.points?.completionBonus ?? stage.points?.completionBonus ?? POINT_VALUES.STAGE_COMPLETION_BONUS;
   const [runState, setRunState] = useState(() => createMemoryRunState(stage));
   const [message, setMessage] = useState(() => createReadyMessage(stage));
   const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
   const mismatchTimerRef = useRef(null);
   const completed = runState.completed;
-  const score = runState.matchedPairIds.length * POINT_VALUES.MEMORY_PAIR_MATCHED;
+  const score = calculateScore(runState, stage.pairs.length, completionBonus);
   const progressPercent = stage.pairs.length > 0 ? Math.round((runState.matchedPairIds.length / stage.pairs.length) * 100) : 0;
   const statusText = authState?.status === "authenticated" ? `${runState.attempts} tries` : "Local play";
   const gridStyle = {
@@ -178,6 +179,11 @@ function cardSpeech(card) {
 
 function matchSpeech(pair, completed) {
   return completed ? `Complete. ${pair.word}.` : `Match. ${pair.word}.`;
+}
+
+function calculateScore(runState, totalPairs, completionBonus = POINT_VALUES.STAGE_COMPLETION_BONUS) {
+  const pairPoints = runState.matchedPairIds.length * POINT_VALUES.MEMORY_PAIR_MATCHED;
+  return pairPoints + (totalPairs > 0 && runState.completed ? completionBonus : 0);
 }
 
 function memoryColumnCount(cardCount) {
