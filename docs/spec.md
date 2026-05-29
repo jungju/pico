@@ -148,6 +148,8 @@ The current v1 content set provides 20 Maze stages through
 - The progress meter has a visible start marker, thicker track, and
   `progressbar` semantics.
 - Stage badges use game-type-specific icons and accent colors.
+- Found, hinted, visited, and matched states are reinforced with labels,
+  markers, or shapes in addition to color.
 - On mobile game screens, the HUD keeps stage/progress information and primary
   actions within two compact rows so the play area remains dominant.
 - On desktop game screens, the HUD places stage information, progress, score,

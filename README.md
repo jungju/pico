@@ -79,6 +79,7 @@ https://pico.jjgo.io
 - 게임 화면은 stage 배지, 진행률 미터, 점수 칩이 있는 어린이용 게임 HUD를 사용합니다.
 - 진행률 미터는 시작점 marker와 굵은 track으로 현재 진행 상태를 보여줍니다.
 - 게임 화면 stage 배지는 게임 타입별 아이콘과 accent color를 사용합니다.
+- 찾음, 힌트, 방문, 매칭 상태는 색뿐 아니라 badge, marker, shape로도 구분합니다.
 - 모바일 게임 화면 HUD는 stage 정보와 진행 상태, 조작 버튼을 2단 안에 압축해 play area를 우선합니다.
 - 데스크톱 게임 화면 HUD는 stage 정보, 진행 상태, 조작 버튼을 한 줄에 배치합니다.
 - 주요 게임 조작 버튼과 음성 버튼은 최소 44px touch target을 유지합니다.
