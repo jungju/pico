@@ -1,19 +1,12 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, LoaderCircle, LogIn, LogOut, UserRound } from "lucide-react";
-import { GAME_TYPES, gameTypeLabel } from "./games/gameTypes";
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
-import { defaultFindLearnStage, findLearnStages } from "./games/findLearn/stages";
+import { gameStages } from "./games/stageRegistry";
 import { buildOhmeshLoginUrl, buildOhmeshLogoutUrl, fetchOhmeshSession, removeOhmeshResultParams } from "./ohmeshAuth";
 
-const GAMES = findLearnStages.map((stage) => ({
-  id: stage.id,
-  title: stage.title,
-  gameType: GAME_TYPES.SPOT_THE_DIFFERENCE,
-  category: stage.titleKo
-    ? `${gameTypeLabel(GAME_TYPES.SPOT_THE_DIFFERENCE)} · ${stage.titleKo}`
-    : gameTypeLabel(GAME_TYPES.SPOT_THE_DIFFERENCE),
-  image: stage.previewImage || stage.images?.changed || defaultFindLearnStage.previewImage,
-  stage,
+const GAMES = gameStages.map((stageEntry) => ({
+  ...stageEntry,
+  image: stageEntry.previewImage,
 }));
 const GAME_PATH_PREFIX = "/games/";
 
