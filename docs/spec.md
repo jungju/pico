@@ -310,7 +310,8 @@ flow and calls them from `handlePictureClick(event, side)`.
 
 V1 progress helpers also support a `pico-progress` record with `version: 2`,
 `totalPoints`, `streak`, `games`, and `stages` fields. Until migration is
-complete, the existing `find-learn-progress` record remains readable.
+complete, the existing `find-learn-progress` record remains readable and can be
+merged into the v2 shape.
 
 ## Git And Deployment Contract
 

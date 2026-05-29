@@ -97,9 +97,11 @@
   완료: `src/ohmeshProgress.js`에 `pico-progress` v2 record의 empty/load/save
   helper와 normalize 로직을 추가했다.
 
-- [ ] `V1-T021` `P0` 기존 Find & Learn 진행 상태를 보존한다.
+- [x] `V1-T021` `P0` 기존 Find & Learn 진행 상태를 보존한다.
   기존 `find-learn-progress` 데이터를 legacy shape로 읽거나 v2 구조로
   migration해 완료 상태를 잃지 않게 한다.
+  완료: `mergeFindLearnLegacyProgress` helper가 기존 Find & Learn 진행을
+  v2 Pico progress shape로 병합한다.
 
 - [ ] `V1-T022` `P0` stage 완료 보너스를 1회만 지급한다.
   사용자별 stage마다 completion bonus가 한 번만 들어가게 한다.

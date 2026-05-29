@@ -1,3 +1,4 @@
+import { GAME_TYPES } from "./games/gameTypes";
 import { ohmeshConfig } from "./ohmeshAuth";
 
 export const FIND_LEARN_PROGRESS_RECORD_TYPE = "find-learn-progress";
@@ -59,6 +60,55 @@ export async function savePicoProgress({ recordId, data, signal } = {}) {
     recordType: PICO_PROGRESS_RECORD_TYPE,
     signal,
   });
+}
+
+export function mergeFindLearnLegacyProgress(picoProgress, findLearnProgress) {
+  const next = normalizePicoProgressData(picoProgress);
+  const legacy = normalizeFindLearnProgressData(findLearnProgress);
+  const nextStages = { ...next.stages };
+  const existingGameSummary = next.games[GAME_TYPES.SPOT_THE_DIFFERENCE] || {};
+  let legacyPoints = 0;
+  let legacyCompletedStages = 0;
+
+  for (const [stageId, stageProgress] of Object.entries(legacy.stages)) {
+    if (!stageProgress || typeof stageProgress !== "object") continue;
+
+    const score = toNonNegativeNumber(stageProgress.score, 0);
+    const completed = Boolean(stageProgress.completed);
+    const existingStage = nextStages[stageId];
+
+    legacyPoints += score;
+    if (completed) {
+      legacyCompletedStages += 1;
+    }
+
+    if (!existingStage || score > toNonNegativeNumber(existingStage.score, 0) || (completed && !existingStage.completed)) {
+      nextStages[stageId] = {
+        gameType: GAME_TYPES.SPOT_THE_DIFFERENCE,
+        completed,
+        score,
+        foundIds: Array.isArray(stageProgress.foundIds) ? stageProgress.foundIds : [],
+        completedAt: typeof stageProgress.completedAt === "string" ? stageProgress.completedAt : null,
+        updatedAt: typeof stageProgress.updatedAt === "string" ? stageProgress.updatedAt : null,
+      };
+    }
+  }
+
+  const spotTheDifferenceSummary = {
+    completedStages: Math.max(toNonNegativeNumber(existingGameSummary.completedStages, 0), legacyCompletedStages),
+    points: Math.max(toNonNegativeNumber(existingGameSummary.points, 0), legacyPoints),
+  };
+  const games = {
+    ...next.games,
+    [GAME_TYPES.SPOT_THE_DIFFERENCE]: spotTheDifferenceSummary,
+  };
+
+  return {
+    ...next,
+    totalPoints: Math.max(next.totalPoints, sumGamePoints(games)),
+    games,
+    stages: nextStages,
+  };
 }
 
 async function loadProgressRecord({ emptyData, normalizeData, recordType, signal }) {
@@ -165,6 +215,10 @@ function normalizeRecordMap(value) {
 function toNonNegativeNumber(value, fallback) {
   const number = Number(value);
   return Number.isFinite(number) && number >= 0 ? number : fallback;
+}
+
+function sumGamePoints(games) {
+  return Object.values(games).reduce((total, game) => total + toNonNegativeNumber(game?.points, 0), 0);
 }
 
 function recordsUrl() {
