@@ -247,8 +247,11 @@
   match mode, 영어/한국어 vocabulary, 선택적 audio/sentence fields를
   normalize하는 schema helper를 추가했다.
 
-- [ ] `V1-T061` `P0` 메모리 게임 엔진을 만든다.
+- [x] `V1-T061` `P0` 메모리 게임 엔진을 만든다.
   카드 뒤집기, 매칭, mismatch delay, 완료, 시도 횟수 기록을 지원한다.
+  완료: `src/games/memoryCards/engine.js`가 deterministic deck 생성,
+  카드 뒤집기, 매칭, mismatch delay 상태, 완료 판정, attempts 기록을
+  제공한다.
 
 - [ ] `V1-T062` `P0` 반응형 카드 레이아웃을 만든다.
   4, 6, 8, 12쌍을 아이가 누르기 좋은 크기로 지원한다.

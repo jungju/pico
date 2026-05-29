@@ -51,6 +51,8 @@ operation guide.
 - `src/games/maze/stages/schema.js`: grid-based Maze stage schema and
   normalizer
 - `src/games/maze/stages/stage001.js`: v1 Maze garden stage content
+- `src/games/memoryCards/engine.js`: Memory Cards deck creation, flipping,
+  matching, mismatch delay state, attempts, and completion helpers
 - `src/games/memoryCards/stages/schema.js`: Memory Cards stage schema and
   normalizer
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
@@ -456,6 +458,16 @@ Supported match modes:
 - `image_image`
 - `image_word`
 - `word_audio`
+
+Memory Cards engine behavior:
+
+- Creates a deterministic shuffled deck from stage pairs.
+- Opens one card at a time.
+- Records one attempt when the second card is opened.
+- Adds a pair to `matchedPairIds` when the two open cards share `pairId`.
+- Keeps mismatched cards open and returns `needsMismatchDelay` so UI can close
+  them after a short delay.
+- Sets `completed` when every pair is matched.
 
 ## Data Contract
 
