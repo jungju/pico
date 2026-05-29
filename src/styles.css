@@ -587,6 +587,20 @@ button {
   max-width: min(210px, 24vw);
 }
 
+.account-action-group .auth-button {
+  border-color: rgba(20, 60, 86, 0.46);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: none;
+  color: #315160;
+  font-size: 0.84rem;
+}
+
+.account-action-group .logout-button {
+  border-color: rgba(121, 48, 70, 0.48);
+  background: rgba(255, 225, 229, 0.54);
+  color: #793046;
+}
+
 .action-button {
   display: inline-flex;
   align-items: center;

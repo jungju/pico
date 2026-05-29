@@ -137,6 +137,8 @@ The current v1 content set provides 20 Maze stages through
   game selection page.
 - Game screen actions use visible command labels for game list navigation,
   hints, reset, login, and logout.
+- Account actions inside game screens use a quieter secondary treatment than
+  core play actions.
 - Reset requires a second confirm press before the stage restarts.
 - When a player is idle on an unfinished stage, the hint action is gently
   emphasized without blocking play.
