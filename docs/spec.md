@@ -146,6 +146,7 @@ The current v1 content set provides 20 Maze stages through
   actions within two compact rows so the play area remains dominant.
 - On desktop game screens, the HUD places stage information, progress, score,
   and primary actions in one compact row.
+- Primary game controls and speech controls keep at least a 44px touch target.
 - Two pictures stay side-by-side and shrink to fit the available viewport
   height.
 - The picture frames keep a configured minimum size when the viewport allows it.
