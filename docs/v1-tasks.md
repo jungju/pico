@@ -39,9 +39,11 @@
   결정: 첫 메모리 stage는 이미지-이미지 매칭으로 시작한다. 이미지-단어
   또는 단어-음성 매칭은 이후 난이도 stage에서 사용한다.
 
-- [ ] `V1-T004` `P0` 미로 엔진 방향을 정한다.
+- [x] `V1-T004` `P0` 미로 엔진 방향을 정한다.
   이미지 hit testing, grid 기반 미로, hybrid 중 하나를 선택한 뒤
   콘텐츠 제작에 들어간다.
+  결정: v1 미로는 grid 기반 엔진으로 구현한다. 장식 이미지는 사용할 수
+  있지만 이동 가능 여부와 완료 판정은 grid data가 담당한다.
 
 ## Milestone 1: 공통 게임 플랫폼
 
@@ -148,8 +150,8 @@
 ## Milestone 5: 미로 찾기
 
 - [ ] `V1-T050` `P0` 미로 stage schema를 정의한다.
-  maze visual, start, goal, path bounds 또는 grid, obstacles, optional
-  collectibles를 포함한다.
+  grid, start, goal, obstacles, optional collectibles, optional theme
+  image를 포함한다.
 
 - [ ] `V1-T051` `P0` 미로 이동 엔진을 만든다.
   모바일 touch와 데스크톱 pointer 입력을 지원한다.
