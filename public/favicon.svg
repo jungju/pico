@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pico">
+  <rect width="64" height="64" rx="14" fill="#eef5f2"/>
+  <rect x="10" y="13" width="44" height="32" rx="8" fill="#ffffff" stroke="#18332e" stroke-width="3"/>
+  <path d="M32 13v32" stroke="#b9cac3" stroke-width="3"/>
+  <circle cx="23" cy="29" r="7" fill="#f7c96f"/>
+  <path d="M39 24h8M43 20v8" stroke="#166f8f" stroke-width="4" stroke-linecap="round"/>
+  <path d="M21 51h22" stroke="#7b473f" stroke-width="5" stroke-linecap="round"/>
+</svg>
