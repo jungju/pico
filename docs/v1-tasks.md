@@ -47,9 +47,11 @@
 
 ## Milestone 1: 공통 게임 플랫폼
 
-- [ ] `V1-T010` `P0` 공통 game type 모델을 만든다.
+- [x] `V1-T010` `P0` 공통 game type 모델을 만든다.
   `spot_the_difference`, `hidden_objects`, `maze`, `memory_cards` 같은
   안정적인 game type ID를 정의한다.
+  완료: `src/games/gameTypes.js`에 공통 game type ID와 표시 metadata를
+  추가했다.
 
 - [ ] `V1-T011` `P0` 공통 stage registry를 만든다.
   `id`, `gameType`, `title`, `titleKo`, `level`, `theme`,

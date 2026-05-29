@@ -17,6 +17,7 @@ operation guide.
 - `contents/*.{png,jpg,jpeg,webp}`: images paired with content JSON files by
   matching filename stem
 - `src/App.jsx`: current game selection page and game registry
+- `src/games/gameTypes.js`: stable v1 game type IDs and display metadata
 - `src/ohmeshAuth.js`: ohmesh login/logout URLs and session checks
 - `src/ohmeshProgress.js`: ohmesh user-scoped Find & Learn progress and score
   record helpers
