@@ -170,6 +170,9 @@ The current v1 content set provides 20 Maze stages through
   the player toward the available hint instead of repeating a terse error.
 - Hidden Objects target pills use block text lines, stable line-height, and a
   44px mobile pill height so target words and meanings do not clip.
+- Hidden Objects target lists add a `many-targets` state for 7-8 target stages,
+  with stable scrollbar gutter, thin scrollbar, taller mobile max-height, and a
+  bottom fade to signal scrollable overflow.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.

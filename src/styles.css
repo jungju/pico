@@ -1469,6 +1469,13 @@ button.picture-frame:hover {
   gap: 8px;
   overflow: auto;
   min-height: 0;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+.hidden-target-list.many-targets {
+  padding-right: 2px;
 }
 
 .hidden-target-pill {
@@ -2522,6 +2529,12 @@ button.picture-frame:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 5px;
     max-height: 146px;
+  }
+
+  .hidden-target-list.many-targets {
+    max-height: min(196px, 24dvh);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 14px), transparent);
+    padding-bottom: 8px;
   }
 
   .hidden-target-pill {

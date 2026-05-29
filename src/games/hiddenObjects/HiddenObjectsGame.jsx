@@ -112,7 +112,11 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
           {hintTarget ? <HiddenTargetMarker className="hint-marker" target={hintTarget} /> : null}
         </button>
 
-        <div className="hidden-target-list" aria-label="Targets">
+        <div
+          className={`hidden-target-list${stage.targets.length > 6 ? " many-targets" : ""}`}
+          aria-label="Targets"
+          data-target-count={stage.targets.length}
+        >
           {stage.targets.map((target) => {
             const found = foundIds.has(target.id);
             const hinted = target.id === hintId;
