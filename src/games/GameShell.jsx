@@ -1,5 +1,8 @@
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, CheckCircle2, Grid2X2, Home, Lightbulb, Route, RotateCcw, ScanSearch, Search, Sparkles, Star, Trophy, Volume2 } from "lucide-react";
 import { GAME_TYPES, gameTypeLabel } from "./gameTypes";
+
+const RESET_CONFIRM_MS = 2600;
 
 const GAME_BADGE_META = {
   [GAME_TYPES.SPOT_THE_DIFFERENCE]: {
@@ -45,6 +48,25 @@ export function GameShell({
   };
   const BadgeIcon = badgeMeta.Icon;
   const badgeLabel = gameTypeLabel(gameType);
+  const [resetArmed, setResetArmed] = useState(false);
+  const resetTimerRef = useRef(null);
+
+  useEffect(() => {
+    return () => window.clearTimeout(resetTimerRef.current);
+  }, []);
+
+  function requestReset() {
+    window.clearTimeout(resetTimerRef.current);
+
+    if (resetArmed) {
+      setResetArmed(false);
+      onReset();
+      return;
+    }
+
+    setResetArmed(true);
+    resetTimerRef.current = window.setTimeout(() => setResetArmed(false), RESET_CONFIRM_MS);
+  }
 
   return (
     <main className="game-shell">
@@ -106,9 +128,15 @@ export function GameShell({
               <Lightbulb aria-hidden="true" size={19} />
               <span>Hint</span>
             </button>
-            <button className="action-button tool-action-button" type="button" onClick={onReset} aria-label="Reset stage" title="Reset stage">
+            <button
+              className={`action-button tool-action-button reset-action-button${resetArmed ? " reset-armed" : ""}`}
+              type="button"
+              onClick={requestReset}
+              aria-label={resetArmed ? "Confirm reset stage" : "Reset stage. Press again to confirm."}
+              title={resetArmed ? "Confirm reset" : "Press again to reset"}
+            >
               <RotateCcw aria-hidden="true" size={19} />
-              <span>Reset</span>
+              <span>{resetArmed ? "Confirm" : "Reset"}</span>
             </button>
           </div>
           <div className="account-action-group">{authControl}</div>

@@ -634,6 +634,17 @@ button {
   min-width: 92px;
 }
 
+.reset-action-button {
+  background: #ffffff;
+  color: #315160;
+}
+
+.reset-action-button.reset-armed {
+  border-color: #d74c5d;
+  background: #ffe1e5;
+  color: #793046;
+}
+
 .hint-action-button.hint-prompted {
   border-color: #2c78d6;
   background: #fff0a5;
