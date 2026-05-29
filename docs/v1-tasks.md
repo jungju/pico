@@ -322,9 +322,12 @@
   Hidden Objects, Maze, Memory Cards route를 Playwright screenshot으로
   확인했고, Hidden Objects target list의 모바일 높이와 간격을 조정했다.
 
-- [ ] `V1-T082` `P0` touch target size를 검증한다.
+- [x] `V1-T082` `P0` touch target size를 검증한다.
   중요한 control과 게임 target이 아이 손가락으로 누르기 충분히 큰지
   확인한다.
+  완료: 주요 action button, speech button, maze movement button의 기본
+  touch target을 키우고, 게임 target은 이미지/board/card 전체 영역 또는
+  방향 버튼으로 조작 가능함을 확인했다.
 
 - [ ] `V1-T083` `P1` 작은 축하 feedback을 추가한다.
   정답, 매칭, 수집, stage 완료에 짧은 시각/음성 반응을 제공한다.

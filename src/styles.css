@@ -313,7 +313,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 38px;
+  min-height: 40px;
   border: 2px solid #143c56;
   border-radius: 8px;
   background: #ffffff;
@@ -556,7 +556,7 @@ button {
   justify-content: center;
   gap: 7px;
   min-width: 96px;
-  min-height: 38px;
+  min-height: 40px;
   border: 2px solid #143c56;
   border-radius: 8px;
   background: #ffffff;
@@ -608,9 +608,9 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  flex: 0 0 38px;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
   border: 2px solid #143c56;
   border-radius: 8px;
   background: #ffffff;
@@ -995,7 +995,7 @@ button.picture-frame:hover {
 
 .maze-controls {
   display: grid;
-  grid-template-columns: repeat(3, 42px);
+  grid-template-columns: repeat(3, 44px);
   gap: 7px;
   align-content: center;
   justify-content: center;
@@ -1003,8 +1003,8 @@ button.picture-frame:hover {
 
 .maze-controls button {
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   border: 2px solid #143c56;
   border-radius: 8px;
@@ -1539,15 +1539,15 @@ button.picture-frame:hover {
   }
 
   .action-button {
-    min-height: 36px;
+    min-height: 40px;
     padding: 0 9px;
     font-size: 0.8rem;
   }
 
   .icon-button {
-    width: 36px;
-    height: 36px;
-    flex-basis: 36px;
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
   }
 
   .pictures-grid {
@@ -1594,12 +1594,12 @@ button.picture-frame:hover {
   }
 
   .maze-controls {
-    grid-template-columns: repeat(3, 40px);
+    grid-template-columns: repeat(3, 44px);
   }
 
   .maze-controls button {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
   .memory-stage {
