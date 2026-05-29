@@ -210,8 +210,11 @@
   collectibles, themeImage를 normalize하는 grid 기반 미로 schema helper를
   추가했다.
 
-- [ ] `V1-T051` `P0` 미로 이동 엔진을 만든다.
+- [x] `V1-T051` `P0` 미로 이동 엔진을 만든다.
   모바일 touch와 데스크톱 pointer 입력을 지원한다.
+  완료: `src/games/maze/engine.js`가 방향 이동, pointer/touch 좌표의 cell
+  변환, 인접 cell 이동, 수집 아이템 획득, 방문 cell 추적, 완료 판정을
+  제공한다.
 
 - [ ] `V1-T052` `P0` 부드러운 wrong-path 동작을 만든다.
   잘못된 길에서 가혹하게 실패시키지 않고 안내하거나 부드럽게 되돌린다.

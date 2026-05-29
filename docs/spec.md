@@ -44,6 +44,8 @@ operation guide.
   normalizer
 - `src/games/hiddenObjects/stages/stage001.js`: v1 Hidden Objects picnic stage
   content
+- `src/games/maze/engine.js`: Maze movement, pointer/touch cell conversion,
+  collectible pickup, and completion helpers
 - `src/games/maze/stages/schema.js`: grid-based Maze stage schema and
   normalizer
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
@@ -390,6 +392,11 @@ Shape:
 
 The schema normalizer exposes `grid.rows`, `grid.columns`, normalized
 `obstacles`, and normalized `collectibles`.
+
+Maze movement is handled by `src/games/maze/engine.js`. The engine supports
+directional movement, adjacent-cell pointer/touch movement, blocked move
+results, collectible pickup, visited cell tracking, and completion when the
+player reaches the goal cell.
 
 ## Data Contract
 
