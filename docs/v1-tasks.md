@@ -103,8 +103,10 @@
   완료: `mergeFindLearnLegacyProgress` helper가 기존 Find & Learn 진행을
   v2 Pico progress shape로 병합한다.
 
-- [ ] `V1-T022` `P0` stage 완료 보너스를 1회만 지급한다.
+- [x] `V1-T022` `P0` stage 완료 보너스를 1회만 지급한다.
   사용자별 stage마다 completion bonus가 한 번만 들어가게 한다.
+  완료: `awardStageCompletionBonus` helper가 stage별
+  `completionBonusAwarded`를 확인해 보너스를 한 번만 지급한다.
 
 - [ ] `V1-T023` `P0` 공통 포인트 지급 로직을 구현한다.
   틀린그림 정답, 숨은그림 목표, 미로 완료, 미로 수집 아이템, 메모리
