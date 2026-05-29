@@ -103,6 +103,7 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
         open: completed && completionNoticeOpen,
         score,
         stageTitle: stage.titleKo || stage.title,
+        summary: <MemoryCompletionSummary pairs={stage.pairs} />,
         onBack,
         onClose: () => setCompletionNoticeOpen(false),
         onNext,
@@ -171,6 +172,28 @@ function CardFace({ card }) {
       <strong>{card.face.label || card.word}</strong>
       <small>{card.meaning}</small>
     </span>
+  );
+}
+
+function MemoryCompletionSummary({ pairs }) {
+  const visiblePairs = pairs.slice(0, 6);
+  const hiddenCount = Math.max(0, pairs.length - visiblePairs.length);
+
+  return (
+    <div className="memory-completion-summary" aria-label="Matched card results">
+      {visiblePairs.map((pair) => {
+        const face = pair.cardFaces.find((cardFace) => cardFace.image || cardFace.emoji) || pair.cardFaces[0] || {};
+        return (
+          <span className="memory-completion-sticker" key={pair.id}>
+            {face.image ? <img src={face.image} alt="" aria-hidden="true" draggable="false" /> : null}
+            {face.emoji ? <span className="memory-completion-emoji" aria-hidden="true">{face.emoji}</span> : null}
+            {!face.image && !face.emoji ? <strong>{face.label || pair.word}</strong> : null}
+            <small>{pair.word}</small>
+          </span>
+        );
+      })}
+      {hiddenCount > 0 ? <span className="memory-completion-sticker more">+{hiddenCount}</span> : null}
+    </div>
   );
 }
 

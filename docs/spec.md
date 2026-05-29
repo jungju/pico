@@ -136,6 +136,7 @@ Memory hints show the remaining pair count and briefly highlight one useful
 card instead of listing every word in the message panel.
 Memory attempts are shown as a separate game info chip, independent from the
 save/local-play status text.
+Memory completion dialogs can show a compact matched-pair sticker summary.
 
 ## Runtime
 

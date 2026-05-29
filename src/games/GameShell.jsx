@@ -169,7 +169,7 @@ export function GameShell({
   );
 }
 
-function CompletionNotice({ hasNext, score, stageTitle, onBack, onClose, onNext, onReplay }) {
+function CompletionNotice({ hasNext, score, stageTitle, summary, onBack, onClose, onNext, onReplay }) {
   return (
     <div className="completion-overlay" role="dialog" aria-modal="true" aria-labelledby="completion-title">
       <div className="completion-panel">
@@ -191,6 +191,7 @@ function CompletionNotice({ hasNext, score, stageTitle, onBack, onClose, onNext,
           <Sparkles aria-hidden="true" size={20} />
           <span>{score} pts</span>
         </div>
+        {summary ? <div className="completion-summary">{summary}</div> : null}
         <div className="completion-actions">
           {hasNext ? (
             <button className="completion-action primary" type="button" onClick={onNext} aria-label="Go to next stage" title="Next stage">

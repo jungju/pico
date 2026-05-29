@@ -2347,6 +2347,71 @@ button.picture-frame:hover {
   font-weight: 950;
 }
 
+.completion-summary {
+  display: grid;
+  justify-items: center;
+}
+
+.memory-completion-summary {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: min(100%, 360px);
+}
+
+.memory-completion-sticker {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 3px;
+  width: 58px;
+  min-height: 64px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: #fff0a5;
+  box-shadow: 0 3px 0 rgba(20, 60, 86, 0.16);
+  color: #143c56;
+  padding: 5px;
+}
+
+.memory-completion-sticker img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.memory-completion-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.memory-completion-sticker strong,
+.memory-completion-sticker small {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.memory-completion-sticker strong {
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.memory-completion-sticker small {
+  color: #6b4a05;
+  font-size: 0.62rem;
+  font-weight: 900;
+}
+
+.memory-completion-sticker.more {
+  min-height: 58px;
+  background: #c5f2ff;
+  font-size: 1rem;
+  font-weight: 950;
+}
+
 .completion-actions {
   display: flex;
   justify-content: center;
