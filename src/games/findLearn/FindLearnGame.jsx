@@ -320,7 +320,7 @@ function Picture({ stage, picture, foundDifferences, hintDifference, wrongPoint,
 
   if (!interactive) {
     return (
-      <div className={frameClassName} style={frameStyle} aria-label="Reference picture">
+      <div className={frameClassName} style={frameStyle} aria-label="Reference picture, not clickable">
         {children}
       </div>
     );
@@ -332,7 +332,7 @@ function Picture({ stage, picture, foundDifferences, hintDifference, wrongPoint,
       style={frameStyle}
       type="button"
       onClick={(event) => onPictureClick(event, picture.side)}
-      aria-label="Find and learn picture"
+      aria-label="Find differences in this picture"
     >
       {children}
     </button>

@@ -71,6 +71,7 @@ https://pico.jjgo.io
 - 비로그인 홈에는 로그인 없이 바로 플레이 가능하지만 포인트와 streak 저장은 로그인 후 가능하다는 작은 안내가 표시됩니다.
 - Spot 모바일 게임 화면은 좌우 비교 그림 영역을 내용 높이에 맞춰 위아래 빈 여백을 줄입니다.
 - Spot 데스크톱 게임 화면은 비교 그림 panel 폭과 gutter를 조정해 1280px 화면에서 그림이 더 크게 보입니다.
+- Spot 게임 화면은 클릭 가능한 그림과 참고 그림을 target/eye marker, cursor, focus glow로 구분합니다.
 - v1 출시 콘텐츠 목표는 게임 타입별 20개, 총 80개 playable stage입니다.
 - 현재 틀린그림 찾기는 `contents`에 등록된 20개 stage를 제공합니다.
 - 현재 숨은그림 찾기는 `src/games/hiddenObjects/stages`에 등록된 20개 stage를 제공합니다.

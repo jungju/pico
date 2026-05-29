@@ -155,6 +155,9 @@ The current v1 content set provides 20 Maze stages through
 - On desktop Spot the Difference screens, the shell and picture grid use a
   focused width with tighter gutters so the comparison images stay visually
   dominant at 1280px.
+- Spot the Difference marks clickable pictures with a target affordance,
+  crosshair cursor, and stronger focus glow, while reference pictures use a
+  quieter eye marker and reduced emphasis.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.
