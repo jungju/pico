@@ -116,16 +116,16 @@ function CompletionNotice({ hasNext, score, stageTitle, onBack, onClose, onNext 
         </div>
         <div className="completion-actions">
           {hasNext ? (
-            <button className="completion-action primary" type="button" onClick={onNext}>
+            <button className="completion-action primary" type="button" onClick={onNext} aria-label="Go to next stage" title="Next stage">
               <ArrowRight aria-hidden="true" size={18} />
               <span>Next</span>
             </button>
           ) : null}
-          <button className="completion-action" type="button" onClick={onBack}>
+          <button className="completion-action" type="button" onClick={onBack} aria-label="Go home to game list" title="Game list">
             <Home aria-hidden="true" size={18} />
             <span>Home</span>
           </button>
-          <button className="completion-action ghost" type="button" onClick={onClose}>
+          <button className="completion-action ghost" type="button" onClick={onClose} aria-label="Stay on this stage" title="Stay">
             <span>Stay</span>
           </button>
         </div>

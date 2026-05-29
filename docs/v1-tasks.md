@@ -308,9 +308,12 @@
 
 ## Milestone 8: 접근성, UX, polish
 
-- [ ] `V1-T080` `P0` 모든 게임 action에 visible label이 있는지 확인한다.
+- [x] `V1-T080` `P0` 모든 게임 action에 visible label이 있는지 확인한다.
   내비게이션, 힌트, 리셋, 로그인, 로그아웃 command label을 명확히
   유지한다.
+  완료: 공통 game shell의 `Games`, `Hint`, `Reset`, `Log in`, `Log out`과
+  completion dialog의 `Next`, `Home`, `Stay` visible label을 확인하고,
+  dialog action에 aria-label/title을 보강했다.
 
 - [ ] `V1-T081` `P0` 모바일 우선 layout을 검증한다.
   모든 게임 타입에서 320px, 일반 모바일, 태블릿, 데스크톱 viewports를
