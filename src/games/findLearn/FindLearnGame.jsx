@@ -24,6 +24,7 @@ export function FindLearnGame({
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [message, setMessage] = useState(() => createReadyMessage(activeStage));
   const [wrongPoint, setWrongPoint] = useState(null);
+  const [wrongStreak, setWrongStreak] = useState(0);
   const [hintId, setHintId] = useState(null);
   const [idleHintPrompted, setIdleHintPrompted] = useState(false);
   const [activityTick, setActivityTick] = useState(0);
@@ -124,6 +125,7 @@ export function FindLearnGame({
     const nextScore = calculateScore(nextFoundIds, activeStage.differences.length, completionBonus);
 
     setFoundIds(nextFoundIds);
+    setWrongStreak(0);
     setHintId(null);
     setMessage({
       type: nextCompleted ? "complete" : "correct",
@@ -151,13 +153,11 @@ export function FindLearnGame({
 
   function showWrong(point, side) {
     notePlayerActivity();
+    const nextWrongStreak = wrongStreak + 1;
+    setWrongStreak(nextWrongStreak);
     setWrongPoint({ ...point, side });
-    setMessage({
-      type: "wrong",
-      title: "Wrong",
-      body: "Look closely.",
-    });
-    speak("Wrong.");
+    setMessage(createWrongMessage(nextWrongStreak, Boolean(remainingDifference)));
+    speak(nextWrongStreak >= 2 ? "Try a hint if you need it." : "Try again.");
     window.setTimeout(() => setWrongPoint(null), WRONG_MARKER_TIMEOUT_MS);
   }
 
@@ -191,6 +191,7 @@ export function FindLearnGame({
   function showHint() {
     if (!remainingDifference) return;
     notePlayerActivity();
+    setWrongStreak(0);
     setHintId(remainingDifference.id);
     saveStageProgress(foundIds, { recordHintUse: true });
   }
@@ -199,6 +200,7 @@ export function FindLearnGame({
     notePlayerActivity();
     const emptyFoundIds = new Set();
     setFoundIds(new Set());
+    setWrongStreak(0);
     setHintId(null);
     setWrongPoint(null);
     setCompletionNoticeOpen(false);
@@ -600,6 +602,17 @@ function differenceSpeech(difference) {
 
 function completeMessageBody(stage, score) {
   return `${stage.titleKo || stage.title} complete · ${score} pts`;
+}
+
+function createWrongMessage(wrongStreak, hasHintTarget) {
+  return {
+    type: "wrong",
+    title: "Try again",
+    body:
+      wrongStreak >= 2 && hasHintTarget
+        ? "That spot is not different. A hint is ready if you need one."
+        : "Almost. Look for one clear change in the picture.",
+  };
 }
 
 function calculateScore(foundIds, totalDifferences, completionBonus = POINT_VALUES.STAGE_COMPLETION_BONUS) {

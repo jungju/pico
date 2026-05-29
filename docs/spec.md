@@ -166,6 +166,8 @@ The current v1 content set provides 20 Maze stages through
   differences get a proportionate marker.
 - Spot starts with a goal-focused learning panel that shows the number of
   differences and the first vocabulary words instead of only listing words.
+- Spot wrong feedback uses a softer `Try again` message. Repeated misses point
+  the player toward the available hint instead of repeating a terse error.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.

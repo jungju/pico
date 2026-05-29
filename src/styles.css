@@ -1946,11 +1946,12 @@ button.picture-frame:hover {
 }
 
 .learning-panel.wrong {
-  border-color: #e23f4f;
+  border-color: #d9842b;
+  animation: feedback-pop 260ms ease;
 }
 
 .learning-panel.wrong::before {
-  background: #ff8069;
+  background: #ffb15a;
 }
 
 .completion-overlay {
