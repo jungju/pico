@@ -1736,14 +1736,29 @@ button.picture-frame:hover {
 .maze-player {
   position: absolute;
   z-index: 2;
-  width: 42%;
+  width: 56%;
   aspect-ratio: 1;
   border: 2px solid #143c56;
-  border-radius: 999px;
-  background: #ff8069;
+  border-radius: 48% 48% 44% 44%;
+  background:
+    radial-gradient(circle at 35% 38%, #143c56 0 6%, transparent 7%),
+    radial-gradient(circle at 65% 38%, #143c56 0 6%, transparent 7%),
+    radial-gradient(circle at 50% 14%, rgba(255, 255, 255, 0.72) 0 14%, transparent 15%),
+    linear-gradient(180deg, #ffbf62, #ff8069);
   box-shadow:
-    inset 0 -4px 0 rgba(118, 42, 32, 0.22),
-    0 3px 0 rgba(20, 60, 86, 0.2);
+    inset 0 -5px 0 rgba(118, 42, 32, 0.2),
+    0 3px 0 rgba(20, 60, 86, 0.22);
+}
+
+.maze-player::after {
+  position: absolute;
+  top: 52%;
+  left: 31%;
+  width: 38%;
+  height: 18%;
+  border-bottom: 3px solid #143c56;
+  border-radius: 0 0 999px 999px;
+  content: "";
 }
 
 .maze-player.nudge {

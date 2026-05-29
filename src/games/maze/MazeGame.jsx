@@ -179,7 +179,7 @@ function MazeCell({ cell, nudging, runState, stage, value }) {
       {isStart ? <MapPin className="maze-cell-icon start-icon" aria-hidden="true" size={17} /> : null}
       {isGoal ? <Flag className="maze-cell-icon goal-icon" aria-hidden="true" size={17} /> : null}
       {collectible && !collected ? <Gem className="maze-cell-icon collectible-icon" aria-hidden="true" size={17} /> : null}
-      {hasPlayer ? <span className={`maze-player${nudging ? " nudge" : ""}`} /> : null}
+      {hasPlayer ? <span className={`maze-player${nudging ? " nudge" : ""}`} role="img" aria-label="Player" /> : null}
     </span>
   );
 }
