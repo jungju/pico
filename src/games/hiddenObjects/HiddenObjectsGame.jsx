@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { CheckCircle2, LocateFixed } from "lucide-react";
 import { GameShell } from "../GameShell";
 import { POINT_EVENTS, POINT_VALUES } from "../points";
@@ -9,7 +9,9 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [message, setMessage] = useState(() => createReadyMessage(stage));
   const [hintId, setHintId] = useState(null);
+  const [wrongPoint, setWrongPoint] = useState(null);
   const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
+  const wrongPointIdRef = useRef(0);
   const foundTargets = useMemo(() => stage.targets.filter((target) => foundIds.has(target.id)), [foundIds, stage.targets]);
   const remainingTarget = stage.targets.find((target) => !foundIds.has(target.id));
   const hintTarget = stage.targets.find((target) => target.id === hintId);
@@ -20,6 +22,12 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
   const sceneStyle = {
     "--hidden-scene-aspect": `${stage.scene.width} / ${stage.scene.height}`,
   };
+
+  useEffect(() => {
+    if (!wrongPoint) return undefined;
+    const timer = window.setTimeout(() => setWrongPoint(null), 760);
+    return () => window.clearTimeout(timer);
+  }, [wrongPoint]);
 
   function handleSceneClick(event) {
     const point = getRelativePoint(event, event.currentTarget);
@@ -35,6 +43,11 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
       title: "Try again",
       body: "Look around the picture.",
     });
+    setWrongPoint({
+      id: (wrongPointIdRef.current += 1),
+      x: point.x,
+      y: point.y,
+    });
     speak("Try again.");
   }
 
@@ -46,6 +59,7 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
 
     setFoundIds(nextFoundIds);
     setHintId(null);
+    setWrongPoint(null);
     setMessage({
       type: nextCompleted ? "complete" : "correct",
       title: nextCompleted ? "Complete" : target.word,
@@ -74,6 +88,7 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
   function resetGame() {
     setFoundIds(new Set());
     setHintId(null);
+    setWrongPoint(null);
     setCompletionNoticeOpen(false);
     setMessage(createReadyMessage(stage));
   }
@@ -105,12 +120,13 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
       statusText={statusText}
     >
       <section className="hidden-objects-stage" style={sceneStyle} aria-label={stage.title}>
-        <button className="hidden-scene" type="button" onClick={handleSceneClick} aria-label="Hidden objects scene">
+        <button className={`hidden-scene${wrongPoint ? " wrong-feedback" : ""}`} type="button" onClick={handleSceneClick} aria-label="Hidden objects scene">
           <img src={stage.scene.image} alt={stage.scene.alt} draggable="false" />
           {foundTargets.map((target) => (
             <HiddenTargetMarker className="found-target-marker" key={target.id} target={target} />
           ))}
           {hintTarget ? <HiddenTargetMarker className="hint-marker" target={hintTarget} /> : null}
+          {wrongPoint ? <HiddenWrongMarker key={wrongPoint.id} point={wrongPoint} /> : null}
         </button>
 
         <div
@@ -145,6 +161,10 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
 function HiddenTargetMarker({ className, target }) {
   const point = getHiddenTargetMarker(target);
   return point ? <span className={`picture-marker ${className}`} style={{ left: `${point.x}%`, top: `${point.y}%` }} /> : null;
+}
+
+function HiddenWrongMarker({ point }) {
+  return <span className="picture-marker hidden-wrong-marker" style={{ left: `${point.x}%`, top: `${point.y}%` }} />;
 }
 
 function createReadyMessage(stage) {

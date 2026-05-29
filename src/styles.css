@@ -1480,6 +1480,43 @@ button.picture-frame:hover {
     0 0 26px rgba(44, 120, 214, 0.5);
 }
 
+.hidden-scene.wrong-feedback {
+  animation: hidden-scene-nudge 180ms ease-out;
+}
+
+.hidden-wrong-marker {
+  width: clamp(32px, 7%, 50px);
+  height: clamp(32px, 7%, 50px);
+  border: 4px solid #d9480f;
+  background: rgba(255, 237, 213, 0.34);
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 0 9px rgba(217, 72, 15, 0.2),
+    0 0 22px rgba(217, 72, 15, 0.42);
+  animation: hidden-wrong-pop 760ms ease-out forwards;
+}
+
+.hidden-wrong-marker::before,
+.hidden-wrong-marker::after {
+  position: absolute;
+  top: 50%;
+  left: 18%;
+  width: 64%;
+  height: 4px;
+  border-radius: 999px;
+  background: #d9480f;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.62);
+  content: "";
+}
+
+.hidden-wrong-marker::before {
+  transform: rotate(45deg);
+}
+
+.hidden-wrong-marker::after {
+  transform: rotate(-45deg);
+}
+
 .hidden-target-list {
   display: grid;
   align-content: start;
@@ -2234,6 +2271,43 @@ button.picture-frame:hover {
   }
 }
 
+@keyframes hidden-scene-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  35% {
+    transform: translateX(-4px);
+  }
+
+  70% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes hidden-wrong-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  78% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+}
+
 @keyframes feedback-pop {
   0% {
     transform: translateY(0) scale(1);
@@ -2270,6 +2344,8 @@ button.picture-frame:hover {
   }
 
   .auth-spinner,
+  .hidden-scene.wrong-feedback,
+  .hidden-wrong-marker,
   .hint-action-button.hint-prompted,
   .hint-marker,
   .learning-panel.complete,
