@@ -132,6 +132,8 @@ Memory card backs use a Pico badge and sticker-like pattern treatment so they
 read as game cards before being flipped.
 Memory matched cards provide a short pop/sparkle response and a visible
 `Match +100` badge.
+Memory hints show the remaining pair count and briefly highlight one useful
+card instead of listing every word in the message panel.
 
 ## Runtime
 

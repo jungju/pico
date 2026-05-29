@@ -1921,6 +1921,23 @@ button.picture-frame:hover {
   transform: translateY(2px);
 }
 
+.memory-card.hinted:not(.matched) {
+  border-color: #2c78d6;
+  box-shadow:
+    0 5px 0 rgba(20, 60, 86, 0.16),
+    0 0 0 5px rgba(44, 120, 214, 0.18);
+  animation: memory-hint-glow 900ms ease-in-out infinite;
+}
+
+.memory-card.hinted:not(.matched) .memory-card-back {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 240, 165, 0.96) 0 18%, transparent 19%),
+    radial-gradient(circle at 20% 24%, rgba(255, 240, 165, 0.94) 0 8%, transparent 9%),
+    radial-gradient(circle at 80% 74%, rgba(255, 128, 105, 0.86) 0 9%, transparent 10%),
+    repeating-linear-gradient(135deg, rgba(20, 60, 86, 0.12) 0 7px, rgba(20, 60, 86, 0) 7px 14px),
+    linear-gradient(135deg, #c5f2ff, #82ccff 55%, #baf1d4);
+}
+
 .memory-card.face-up {
   background: #ffffff;
 }
@@ -2489,6 +2506,17 @@ button.picture-frame:hover {
   }
 }
 
+@keyframes memory-hint-glow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
 @keyframes feedback-pop {
   0% {
     transform: translateY(0) scale(1);
@@ -2531,6 +2559,7 @@ button.picture-frame:hover {
   .hint-marker,
   .learning-panel.complete,
   .learning-panel.correct,
+  .memory-card.hinted,
   .memory-card.matched,
   .memory-card.matched::before,
   .maze-player.nudge {

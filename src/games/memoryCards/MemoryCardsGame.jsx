@@ -9,8 +9,10 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
   const completionBonus = stageEntry?.points?.completionBonus ?? stage.points?.completionBonus ?? POINT_VALUES.STAGE_COMPLETION_BONUS;
   const [runState, setRunState] = useState(() => createMemoryRunState(stage));
   const [message, setMessage] = useState(() => createReadyMessage(stage));
+  const [hintCardIds, setHintCardIds] = useState(() => new Set());
   const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
   const mismatchTimerRef = useRef(null);
+  const hintTimerRef = useRef(null);
   const completed = runState.completed;
   const score = calculateScore(runState, stage.pairs.length, completionBonus);
   const progressPercent = stage.pairs.length > 0 ? Math.round((runState.matchedPairIds.length / stage.pairs.length) * 100) : 0;
@@ -21,13 +23,17 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
   };
 
   useEffect(() => {
-    return () => window.clearTimeout(mismatchTimerRef.current);
+    return () => {
+      window.clearTimeout(mismatchTimerRef.current);
+      window.clearTimeout(hintTimerRef.current);
+    };
   }, []);
 
   function handleCardClick(cardId) {
     const result = flipMemoryCard(stage, runState, cardId);
     if (!result.changed) return;
 
+    clearHintCards();
     setRunState(result.state);
 
     if (result.reason === "opened") {
@@ -63,9 +69,29 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
 
   function resetGame() {
     window.clearTimeout(mismatchTimerRef.current);
+    clearHintCards();
     setRunState(createMemoryRunState(stage));
     setMessage(createReadyMessage(stage));
     setCompletionNoticeOpen(false);
+  }
+
+  function showHint() {
+    const hint = createMemoryHint(stage, runState);
+    if (!hint) return;
+
+    window.clearTimeout(hintTimerRef.current);
+    setHintCardIds(new Set(hint.cardIds));
+    setMessage({
+      type: "word",
+      title: hint.title,
+      body: hint.body,
+    });
+    hintTimerRef.current = window.setTimeout(() => setHintCardIds(new Set()), 1500);
+  }
+
+  function clearHintCards() {
+    window.clearTimeout(hintTimerRef.current);
+    setHintCardIds(new Set());
   }
 
   return (
@@ -84,7 +110,7 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
       message={message}
       gameType={stageEntry?.gameType}
       onBack={onBack}
-      onHint={() => setMessage(createHintMessage(stage))}
+      onHint={showHint}
       onReset={resetGame}
       onSpeak={() => speak(message.body)}
       progressPercent={progressPercent}
@@ -100,6 +126,7 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
             <MemoryCard
               card={card}
               faceUp={isMemoryCardFaceUp(runState, card)}
+              hinted={hintCardIds.has(card.id)}
               key={card.id}
               matched={runState.matchedPairIds.includes(card.pairId)}
               onClick={handleCardClick}
@@ -111,10 +138,10 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
   );
 }
 
-function MemoryCard({ card, faceUp, matched, onClick }) {
+function MemoryCard({ card, faceUp, hinted, matched, onClick }) {
   return (
     <button
-      className={`memory-card${faceUp ? " face-up" : ""}${matched ? " matched" : ""}`}
+      className={`memory-card${faceUp ? " face-up" : ""}${hinted ? " hinted" : ""}${matched ? " matched" : ""}`}
       type="button"
       disabled={matched}
       onClick={() => onClick(card.id)}
@@ -151,14 +178,6 @@ function createReadyMessage(stage) {
     type: "ready",
     title: stage.titleKo || stage.title,
     body: `${stage.pairs.length} pairs`,
-  };
-}
-
-function createHintMessage(stage) {
-  return {
-    type: "word",
-    title: "Hint",
-    body: `${stage.matchMode.replace("_", " ")} · ${stage.pairs.map((pair) => pair.word).join(" · ")}`,
   };
 }
 
@@ -202,6 +221,38 @@ function memoryCardMaxSize(cardCount) {
   if (cardCount <= 12) return 120;
   if (cardCount <= 16) return 106;
   return 90;
+}
+
+function createMemoryHint(stage, runState) {
+  if (runState.completed) return null;
+
+  const remainingPairs = Math.max(0, stage.pairs.length - runState.matchedPairIds.length);
+  const [openCardId] = runState.openCardIds;
+  const openCard = runState.deck.find((card) => card.id === openCardId);
+
+  if (openCard) {
+    const matchCard = runState.deck.find((card) => {
+      return card.pairId === openCard.pairId && card.id !== openCard.id && !runState.matchedPairIds.includes(card.pairId);
+    });
+
+    if (matchCard) {
+      return {
+        cardIds: [matchCard.id],
+        title: openCard.word,
+        body: `Find its match · ${remainingPairs} pairs left`,
+      };
+    }
+  }
+
+  const nextCard = runState.deck.find((card) => {
+    return !runState.matchedPairIds.includes(card.pairId) && !runState.openCardIds.includes(card.id);
+  });
+
+  return {
+    cardIds: nextCard ? [nextCard.id] : [],
+    title: "Hint",
+    body: `${remainingPairs} pairs left · Try this card.`,
+  };
 }
 
 function speak(text) {
