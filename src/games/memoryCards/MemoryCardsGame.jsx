@@ -81,6 +81,7 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
         onNext,
       }}
       message={message}
+      gameType={stageEntry?.gameType}
       onBack={onBack}
       onHint={() => setMessage(createHintMessage(stage))}
       onReset={resetGame}

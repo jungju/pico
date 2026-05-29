@@ -269,6 +269,7 @@ export function FindLearnGame({
       }}
       hintPrompted={showIdleHintPrompt}
       message={message}
+      gameType={stageEntry?.gameType}
       onBack={onBack}
       onHint={showHint}
       onReset={resetGame}

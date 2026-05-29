@@ -1,4 +1,24 @@
-import { ArrowRight, CheckCircle2, Home, Lightbulb, RotateCcw, Sparkles, Star, Trophy, Volume2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Grid2X2, Home, Lightbulb, Route, RotateCcw, ScanSearch, Search, Sparkles, Star, Trophy, Volume2 } from "lucide-react";
+import { GAME_TYPES, gameTypeLabel } from "./gameTypes";
+
+const GAME_BADGE_META = {
+  [GAME_TYPES.SPOT_THE_DIFFERENCE]: {
+    className: "spot-the-difference",
+    Icon: ScanSearch,
+  },
+  [GAME_TYPES.HIDDEN_OBJECTS]: {
+    className: "hidden-objects",
+    Icon: Search,
+  },
+  [GAME_TYPES.MAZE]: {
+    className: "maze",
+    Icon: Route,
+  },
+  [GAME_TYPES.MEMORY_CARDS]: {
+    className: "memory-cards",
+    Icon: Grid2X2,
+  },
+};
 
 export function GameShell({
   authControl,
@@ -14,16 +34,24 @@ export function GameShell({
   progressPercent,
   progressText,
   score,
+  gameType,
   stageSubtitle,
   stageTitle,
   statusText,
 }) {
+  const badgeMeta = GAME_BADGE_META[gameType] || {
+    className: "default-game",
+    Icon: Sparkles,
+  };
+  const BadgeIcon = badgeMeta.Icon;
+  const badgeLabel = gameTypeLabel(gameType);
+
   return (
     <main className="game-shell">
       <section className="game-topbar" aria-label="Game status">
-        <div className="stage-badge">
-          <span className="stage-badge-icon">
-            <Sparkles aria-hidden="true" size={23} />
+        <div className={`stage-badge ${badgeMeta.className}`}>
+          <span className="stage-badge-icon" role="img" aria-label={badgeLabel} title={badgeLabel}>
+            <BadgeIcon aria-hidden="true" size={23} />
           </span>
           <span className="stage-copy">
             <strong>{stageTitle}</strong>

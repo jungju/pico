@@ -13,7 +13,7 @@ import { cellKey, isMazeCellBlocked, sameCell } from "./stages/schema";
 
 const NUDGE_TIMEOUT_MS = 380;
 
-export function MazeGame({ authState, authControl, stage, onBack, onNext, onPointEvent, onStageComplete }) {
+export function MazeGame({ authState, authControl, stage, stageEntry, onBack, onNext, onPointEvent, onStageComplete }) {
   const [runState, setRunState] = useState(() => createMazeRunState(stage));
   const [message, setMessage] = useState(() => createReadyMessage(stage));
   const [completionNoticeOpen, setCompletionNoticeOpen] = useState(false);
@@ -100,6 +100,7 @@ export function MazeGame({ authState, authControl, stage, onBack, onNext, onPoin
         onNext,
       }}
       message={message}
+      gameType={stageEntry?.gameType}
       onBack={onBack}
       onHint={() => setMessage(createHintMessage(stage))}
       onReset={resetGame}

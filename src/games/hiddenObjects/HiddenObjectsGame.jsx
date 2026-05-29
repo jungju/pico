@@ -91,6 +91,7 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
         onNext,
       }}
       message={message}
+      gameType={stageEntry?.gameType}
       onBack={onBack}
       onHint={showHint}
       onReset={resetGame}
