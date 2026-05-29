@@ -142,6 +142,8 @@ The current v1 content set provides 20 Maze stages through
 - At 480px and below, stage cards use a compact mobile density with smaller
   thumbnails, badges, spacing, and arrow affordances to keep 320px browsing
   scannable.
+- At 980px and above, the game selection page uses a wider selector and a
+  two-column stage grid to reduce scroll length for the 80-stage v1 library.
 - Selecting a stage card opens the game screen for that stage.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
