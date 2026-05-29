@@ -146,6 +146,7 @@ The first game is `Find & Learn`:
   return to the game selection page, and `Stay` to close the dialog.
 - Correct, match, collectible, and completion feedback uses short visual and/or
   speech responses.
+- V1 game screens do not show countdown timers or time-pressure UI.
 - The English word/dialog panel sits in one compact row below the pictures.
 - Correct and wrong markers may be DOM elements.
 - Correct and hint markers use `difference.marker`.

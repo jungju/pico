@@ -79,6 +79,7 @@ https://pico.jjgo.io
 - 모든 차이를 찾으면 성공 완료 안내를 표시합니다.
 - 완료 안내에는 다음 stage가 있으면 `Next`, 첫 화면으로 돌아가는 `Home`, 계속 보는 `Stay` 버튼이 있습니다.
 - 정답, 매칭, 수집, 완료 feedback은 짧은 시각/음성 반응을 제공합니다.
+- v1 게임 화면에는 countdown timer를 표시하지 않습니다.
 - 영어 단어/대화 창은 두 그림 아래에 낮게 유지합니다.
 - 음성은 Web Speech API `speechSynthesis`를 사용합니다.
 

@@ -334,9 +334,12 @@
   완료: 공통 learning panel의 correct/complete 상태에 짧은 pop 애니메이션을
   추가했고, 기존 음성 피드백과 함께 정답/매칭/수집/완료 반응이 난다.
 
-- [ ] `V1-T084` `P1` v1 UI에 countdown timer를 넣지 않는다.
+- [x] `V1-T084` `P1` v1 UI에 countdown timer를 넣지 않는다.
   내부 elapsed time은 나중에 수집할 수 있지만 아이에게 시간 압박을 주지
   않는다.
+  완료: 코드 검색으로 countdown/time-pressure UI가 없음을 확인했고,
+  README와 spec에 v1 게임 화면에는 countdown timer를 표시하지 않는다고
+  명시했다.
 
 - [ ] `V1-T085` `P1` 한국어 보조 텍스트를 검토한다.
   보호자에게는 도움이 되되 아이에게는 visual-first 흐름을 유지한다.
