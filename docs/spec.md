@@ -681,6 +681,8 @@ into the v2 shape.
 - Default branch: `main`
 - Commit format: Conventional Commits through `scripts/agent-commit.sh`
 - Local validation: `npm run lint` and `npm run build`
+- Optional layout smoke check: `npm run smoke:layout` against a running
+  dev/preview server, implemented by `scripts/layout-smoke-check.mjs`
 - Do not commit `dist`, `node_modules`, `.env`, screenshots, or secret files.
 - GitHub Pages source: GitHub Actions
 - Workflow: `.github/workflows/deploy-pages.yml`

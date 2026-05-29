@@ -136,7 +136,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  min-height: 36px;
+  min-height: 44px;
   border: 2px solid #143c56;
   border-radius: 8px;
   background: #fff8df;
@@ -3058,7 +3058,7 @@ button.picture-frame:hover {
   }
 
   .save-value-action {
-    min-height: 34px;
+    min-height: 44px;
     padding: 0 7px;
     font-size: 0.72rem;
   }

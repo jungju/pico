@@ -41,6 +41,15 @@ Use this checklist for every v1 stage and any new asset.
 
 Use this checklist when reviewing a route screenshot or a live viewport.
 
+Automated first pass:
+
+```sh
+npm run dev -- --host 127.0.0.1 --port 5173
+npm run smoke:layout
+```
+
+Set `PICO_BASE_URL` to point at a preview server when needed.
+
 ### Viewports
 
 - `320x740`: no horizontal overflow, no clipped Korean/English labels.

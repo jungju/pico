@@ -286,10 +286,14 @@ http://localhost:5175
 npm test
 npm run lint
 npm run build
+npm run smoke:layout
 ```
 
 `npm test`는 Node test runner로 공통 점수/streak와 게임 core logic을 확인합니다.
 `npm run build`는 Vite 빌드 후 `dist/version.json`을 함께 생성합니다.
+`npm run smoke:layout`은 실행 중인 dev/preview server를 대상으로 주요 route와
+viewport의 overflow, touch target, clipping, play area 비율을 확인합니다.
+기본 주소는 `http://127.0.0.1:5173`이며 `PICO_BASE_URL`로 바꿀 수 있습니다.
 
 ## Git
 
