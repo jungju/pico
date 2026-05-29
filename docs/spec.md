@@ -66,6 +66,7 @@ The first game is `Find & Learn`:
   URL.
 - The game screen shows the current ohmesh login state and can return to the
   game selection page.
+- The Find & Learn game screen uses a low-contrast illustrated background.
 - Two pictures stay side-by-side and shrink to fit the available viewport
   height.
 - The picture frames keep a configured minimum size when the viewport allows it.
