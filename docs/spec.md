@@ -408,6 +408,9 @@ The Maze UI must provide a grid board, start cell, goal cell, player marker,
 optional collectibles, progress text, score, reset, learning feedback, movement
 buttons, pointer/touch adjacent-cell movement, and the shared completion dialog.
 
+Maze scoring uses 300 points when the player reaches the goal, plus 50 points
+per collected item by default. A collectible may override its own `points`.
+
 ## Data Contract
 
 - Current click state is React state during play.

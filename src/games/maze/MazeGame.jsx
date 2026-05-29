@@ -190,7 +190,10 @@ function createHintMessage(stage) {
 }
 
 function calculateScore(stage, runState) {
-  const collectiblePoints = runState.collectedIds.length * POINT_VALUES.MAZE_COLLECTIBLE;
+  const collectiblePoints = runState.collectedIds.reduce((total, collectibleId) => {
+    const collectible = stage.collectibles.find((item) => item.id === collectibleId);
+    return total + (collectible?.points || POINT_VALUES.MAZE_COLLECTIBLE);
+  }, 0);
   const completionPoints = runState.completed ? POINT_VALUES.MAZE_COMPLETED : 0;
   return collectiblePoints + completionPoints;
 }
