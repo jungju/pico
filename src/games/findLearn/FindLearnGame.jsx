@@ -450,6 +450,7 @@ function calculateScore(foundIds) {
 }
 
 function saveStatusText(status) {
+  if (status === "local") return "Local play";
   if (status === "loading") return "Loading";
   if (status === "saving") return "Saving";
   if (status === "saved") return "Saved";

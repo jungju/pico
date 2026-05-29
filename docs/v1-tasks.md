@@ -130,9 +130,11 @@
   완료: 로그인 사용자에게 selector summary chip으로 total points와
   current streak를 표시한다.
 
-- [ ] `V1-T027` `P1` 로그아웃 local progress 정책을 정리한다.
+- [x] `V1-T027` `P1` 로그아웃 local progress 정책을 정리한다.
   로그아웃 상태에서도 플레이할 수 있게 유지하고, 임시 진행 상태임을
   명확히 한다.
+  완료: 로그아웃 게임 화면 HUD에 `Local play`를 표시해 저장되지 않는
+  현재 플레이 상태임을 명확히 한다.
 
 ## Milestone 3: 틀린그림 찾기 v1 정렬
 

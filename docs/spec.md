@@ -101,6 +101,8 @@ The first game is `Find & Learn`:
 - Score uses 100 points per found difference.
 - When logged in, found differences, completion state, and score are saved to
   ohmesh.
+- Logged-out game screens show `Local play` and keep progress only in the
+  current local play state.
 - When all differences are found, a success completion dialog is shown.
 - The completion dialog offers `Next` when another stage exists, `Home` to
   return to the game selection page, and `Stay` to close the dialog.
