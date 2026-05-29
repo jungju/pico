@@ -115,8 +115,10 @@
   `awardStageCompletionBonus`로 공통 포인트 지급과 중복 지급 방지를
   제공한다.
 
-- [ ] `V1-T024` `P0` daily streak 방문 인정 로직을 구현한다.
+- [x] `V1-T024` `P0` daily streak 방문 인정 로직을 구현한다.
   하루에 stage 완료 또는 1점 이상 획득이 있으면 그날 방문으로 인정한다.
+  완료: `qualifyDailyVisit` helper가 로컬 날짜 기준으로 오늘 방문을
+  인정하고 current/longest streak를 갱신한다.
 
 - [ ] `V1-T025` `P0` 하루 1회 streak 보상을 구현한다.
   로컬 날짜 기준으로 하루 한 번만 streak reward를 지급한다.

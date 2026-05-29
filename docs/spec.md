@@ -24,6 +24,7 @@ operation guide.
   completion bonus helpers
 - `src/games/stageRegistry.js`: shared v1 stage registry with common stage
   metadata
+- `src/games/streaks.js`: daily streak date and qualification helpers
 - `src/ohmeshAuth.js`: ohmesh login/logout URLs and session checks
 - `src/ohmeshProgress.js`: ohmesh user-scoped Find & Learn progress and score
   record helpers, plus v1 Pico progress helpers
