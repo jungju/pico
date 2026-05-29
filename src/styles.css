@@ -349,6 +349,11 @@ button {
 }
 
 .game-option {
+  --game-accent: #ffd45a;
+  --game-accent-soft: #fff8df;
+  --game-accent-ink: #583c05;
+
+  position: relative;
   display: grid;
   grid-template-columns: 124px minmax(0, 1fr) 42px;
   align-items: center;
@@ -359,6 +364,7 @@ button {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow:
+    inset 5px 0 0 var(--game-accent),
     0 7px 0 rgba(20, 60, 86, 0.16),
     0 14px 26px rgba(20, 60, 86, 0.12);
   padding: 12px 14px 12px 12px;
@@ -369,9 +375,28 @@ button {
     transform 140ms ease;
 }
 
+.game-option.hidden-objects {
+  --game-accent: #45cf9d;
+  --game-accent-soft: #e4fbef;
+  --game-accent-ink: #124b34;
+}
+
+.game-option.maze {
+  --game-accent: #64cff7;
+  --game-accent-soft: #dff6ff;
+  --game-accent-ink: #154868;
+}
+
+.game-option.memory-cards {
+  --game-accent: #c7b7ff;
+  --game-accent-soft: #eee7ff;
+  --game-accent-ink: #49337a;
+}
+
 .game-option:hover {
   border-color: #e85f67;
   box-shadow:
+    inset 5px 0 0 var(--game-accent),
     0 5px 0 rgba(20, 60, 86, 0.18),
     0 16px 30px rgba(232, 95, 103, 0.16);
   transform: translateY(2px);
@@ -454,8 +479,17 @@ button {
 }
 
 .game-option-copy .game-option-type {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 4px;
   order: -1;
-  color: #315160;
+  min-height: 22px;
+  border: 2px solid color-mix(in srgb, var(--game-accent-ink) 74%, transparent);
+  border-radius: 999px;
+  background: var(--game-accent-soft);
+  color: var(--game-accent-ink);
+  padding: 0 7px 0 5px;
   font-size: 0.72rem;
   font-weight: 950;
   line-height: 1;
@@ -2304,7 +2338,15 @@ button.picture-frame:hover {
   }
 
   .game-option-copy .game-option-type {
+    min-height: 18px;
+    gap: 3px;
+    padding: 0 4px;
     font-size: 0.66rem;
+  }
+
+  .game-option-copy .game-option-type svg {
+    width: 11px;
+    height: 11px;
   }
 
   .game-option-copy .game-option-title-ko {

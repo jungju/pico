@@ -1,5 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Flame, LoaderCircle, LogIn, LogOut, Play, Sparkles, Trophy, UserRound } from "lucide-react";
+import {
+  ArrowRight,
+  Flame,
+  Grid2X2,
+  LoaderCircle,
+  LogIn,
+  LogOut,
+  Play,
+  Route,
+  ScanSearch,
+  Search,
+  Sparkles,
+  Trophy,
+  UserRound,
+} from "lucide-react";
 import { FindLearnGame } from "./games/findLearn/FindLearnGame";
 import { GAME_TYPES, gameTypeLabel } from "./games/gameTypes";
 import { HiddenObjectsGame } from "./games/hiddenObjects/HiddenObjectsGame";
@@ -23,6 +37,24 @@ const GAME_FILTERS = [
   { id: GAME_TYPES.MAZE, label: "Maze" },
   { id: GAME_TYPES.MEMORY_CARDS, label: "Memory" },
 ];
+const GAME_TYPE_META = {
+  [GAME_TYPES.SPOT_THE_DIFFERENCE]: {
+    className: "spot-the-difference",
+    Icon: ScanSearch,
+  },
+  [GAME_TYPES.HIDDEN_OBJECTS]: {
+    className: "hidden-objects",
+    Icon: Search,
+  },
+  [GAME_TYPES.MAZE]: {
+    className: "maze",
+    Icon: Route,
+  },
+  [GAME_TYPES.MEMORY_CARDS]: {
+    className: "memory-cards",
+    Icon: Grid2X2,
+  },
+};
 
 export default function App() {
   const [selectedStageId, setSelectedStageId] = useState(() => getStageIdFromLocation());
@@ -337,14 +369,24 @@ export default function App() {
         {filteredGames.length ? (
           filteredGames.map((game) => {
             const completed = Boolean(stageProgress[game.id]?.completed);
+            const typeMeta = gameTypeMeta(game.gameType);
+            const TypeIcon = typeMeta.Icon;
             return (
-              <button className="game-option" type="button" key={game.id} onClick={() => openStage(game)}>
-                <span className={`game-option-media ${gameTypeClassName(game.gameType)}`}>
+              <button
+                className={`game-option ${typeMeta.className}`}
+                type="button"
+                key={game.id}
+                onClick={() => openStage(game)}
+              >
+                <span className={`game-option-media ${typeMeta.className}`}>
                   <img src={game.image} alt="" draggable="false" />
                 </span>
                 <span className="game-option-copy">
                   <strong>{game.title}</strong>
-                  <span className="game-option-type">{gameTypeLabel(game.gameType)}</span>
+                  <span className="game-option-type">
+                    <TypeIcon aria-hidden="true" size={13} />
+                    {gameTypeLabel(game.gameType)}
+                  </span>
                   {game.titleKo ? (
                     <span className="game-option-title-ko" lang="ko">
                       {game.titleKo}
@@ -446,8 +488,11 @@ function displayName(user) {
   return user.name || user.email || "Pico user";
 }
 
-function gameTypeClassName(gameType) {
-  return gameType.replaceAll("_", "-");
+function gameTypeMeta(gameType) {
+  return GAME_TYPE_META[gameType] || {
+    className: gameType.replaceAll("_", "-"),
+    Icon: Sparkles,
+  };
 }
 
 function getTodaysGame(games, stageProgress = {}) {

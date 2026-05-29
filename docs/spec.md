@@ -144,6 +144,8 @@ The current v1 content set provides 20 Maze stages through
   scannable.
 - At 980px and above, the game selection page uses a wider selector and a
   two-column stage grid to reduce scroll length for the 80-stage v1 library.
+- Stage cards carry game type identity through a left accent stripe and an
+  icon-backed type badge for Spot, Hidden, Maze, and Memory stages.
 - Selecting a stage card opens the game screen for that stage.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
