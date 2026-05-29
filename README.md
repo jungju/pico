@@ -27,7 +27,7 @@ https://pico.jjgo.io
 - `contents/`: Find & Learn에 자동 등록되는 stage JSON/이미지
 - `src/App.jsx`: Pico 첫 화면의 게임 선택 목록과 게임 진입 흐름
 - `src/ohmeshAuth.js`: ohmesh 로그인/로그아웃 URL 생성과 세션 확인
-- `src/ohmeshProgress.js`: ohmesh 사용자별 Find & Learn 진행/점수 record 저장
+- `src/ohmeshProgress.js`: ohmesh 사용자별 v1 Pico progress와 Find & Learn legacy 진행 저장
 - `src/games/findLearn/FindLearnGame.jsx`: Find & Learn 화면, 클릭 처리, 마커, 음성 피드백
 - `src/games/findLearn/hitTesting.js`: 이미지 기준 퍼센트 좌표 변환과 영역 충돌 판정
 - `src/games/findLearn/stages/contentStages.js`: `contents/*.json`과 같은 이름의 이미지 자동 등록
@@ -57,7 +57,7 @@ https://pico.jjgo.io
 - 게임 선택 화면 URL은 `/`입니다.
 - 첫 화면에는 ohmesh 로그인 상태와 로그인/로그아웃 버튼이 있습니다.
 - 로그인한 사용자에게는 첫 화면에 총 포인트와 연속 방문 streak가 표시됩니다.
-- 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage 카드가 표시됩니다.
+- 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage와 v1 신규 게임 stage 카드가 표시됩니다.
 - 게임 선택 화면에서 stage 카드를 누르면 게임 화면으로 들어갑니다.
 - 각 stage 게임 화면 URL은 `/games/<game-type>/<stage-id>`입니다.
 - v1 숨은그림 찾기 첫 stage는 `/games/hidden_objects/hidden_picnic_001`입니다.
@@ -76,7 +76,7 @@ https://pico.jjgo.io
 - Content stage에서는 `targetSide`가 아닌 그림은 참고용으로만 보이며 클릭되지 않습니다.
 - 진행률과 점수는 그림 위에 표시합니다. 예: `0/6`, `0 pts`
 - 점수는 찾은 차이 하나당 100점이며, stage를 완료하면 200점 보너스를 더합니다.
-- 로그인한 사용자의 완료 상태와 점수는 ohmesh에 저장됩니다.
+- 로그인한 사용자의 완료 상태, 총 포인트, 게임별 점수, streak는 ohmesh에 저장됩니다.
 - 로그아웃 상태의 게임 화면은 `Local play`를 표시하고 현재 플레이 상태만 유지합니다.
 - 모든 차이를 찾으면 성공 완료 안내를 표시합니다.
 - 완료 안내에는 다음 stage가 있으면 `Next`, 첫 화면으로 돌아가는 `Home`, 계속 보는 `Stay` 버튼이 있습니다.
@@ -218,10 +218,12 @@ http://localhost:5175
 ## 검증
 
 ```sh
+npm test
 npm run lint
 npm run build
 ```
 
+`npm test`는 Node test runner로 공통 점수/streak와 게임 core logic을 확인합니다.
 `npm run build`는 Vite 빌드 후 `dist/version.json`을 함께 생성합니다.
 
 ## Git
@@ -264,7 +266,8 @@ Pico는 ohmesh에 등록된 앱이며, 첫 화면과 게임 화면에서 ohmesh 
 - 로그아웃은 `GET /logout?app=pico&redirect_url={current_app_url}`로 이동합니다.
 - 세션 확인은 `GET /auth/me?app=pico`를 `credentials: "include"`로 호출합니다.
 - ohmesh는 앱 전용 HttpOnly session cookie를 사용하며 Pico는 토큰을 저장하거나 표시하지 않습니다.
-- 로그인한 사용자의 Find & Learn 진행 상태는 `find-learn-progress` record 하나에 저장합니다.
+- 로그인한 사용자의 v1 총 포인트, streak, 게임별/stage별 진행 상태는 `pico-progress` record 하나에 저장합니다.
+- Find & Learn의 세부 `foundIds` 진행 상태는 호환을 위해 `find-learn-progress` record에도 저장합니다.
 - 저장 데이터는 stage별 `foundIds`, `completed`, `score`, `hintUsed`, `hintCount`, `completedAt`, `updatedAt`을 포함합니다.
 - 로그아웃 상태에서는 Find & Learn 진행 상태가 현재 브라우저 세션의 로컬 React 상태로만 유지됩니다.
 - OAuth client ID와 secret은 ohmesh 또는 운영 환경에서 관리합니다.

@@ -368,9 +368,12 @@
   screenshot으로 확인하고, completion core logic은 `npm test`의 focused
   tests로 통과시켰다. 결과는 `docs/v1-manual-qa.md`에 기록했다.
 
-- [ ] `V1-T093` `P0` 제품 문서를 갱신한다.
+- [x] `V1-T093` `P0` 제품 문서를 갱신한다.
   `README.md`, `docs/spec.md`, `docs/v1-scope.md`, 이 task 문서를 실제
   shipped behavior와 맞춘다.
+  완료: README, spec, v1 scope에 v1 stage set, `pico-progress` 저장,
+  Find & Learn legacy progress, 현재 Today 추천 동작, completion action
+  label, 검증 명령을 실제 구현에 맞게 갱신했다.
 
 - [ ] `V1-T094` `P0` release validation을 통과한다.
   v1 release commit 전 `npm run lint`와 `npm run build`를 실행한다.

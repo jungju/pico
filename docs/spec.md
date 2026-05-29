@@ -33,8 +33,8 @@ operation guide.
   metadata
 - `src/games/streaks.js`: daily streak date and qualification helpers
 - `src/ohmeshAuth.js`: ohmesh login/logout URLs and session checks
-- `src/ohmeshProgress.js`: ohmesh user-scoped Find & Learn progress and score
-  record helpers, plus v1 Pico progress helpers
+- `src/ohmeshProgress.js`: ohmesh user-scoped v1 Pico progress helpers and
+  Find & Learn legacy progress helpers
 - `src/games/findLearn/FindLearnGame.jsx`: Find & Learn rendering, click flow,
   markers, and speech feedback
 - `src/games/findLearn/hitTesting.js`: coordinate conversion and area collision
@@ -509,9 +509,13 @@ image-image animal matching stage with cat, dog, bird, and fish pairs.
 - Session checks call `GET /auth/me?app=pico` with `credentials: "include"`.
 - The current app URL used as `redirect_url` excludes hash fragments and removes
   ohmesh result query parameters before redirecting.
-- Progress storage uses one `find-learn-progress` record scoped to the current
-  ohmesh user and app.
-- The progress record shape is:
+- V1 cross-game progress storage uses one `pico-progress` record scoped to the
+  current ohmesh user and app.
+- The v1 progress record stores `totalPoints`, `streak`, game summaries, stage
+  scores, completed state, awarded point events, and completion bonus state.
+- Find & Learn still writes one legacy `find-learn-progress` record so existing
+  found difference IDs and detailed progress remain readable.
+- The legacy Find & Learn progress record shape is:
 
 ```js
 {
@@ -540,10 +544,11 @@ image-image animal matching stage with cat, dog, bird, and fish pairs.
   `lastHintAt` without reducing the stage score.
 - OAuth secrets do not belong in this repository.
 
-V1 progress helpers also support a `pico-progress` record with `version: 2`,
-`totalPoints`, `streak`, `games`, and `stages` fields. Until migration is
-complete, the existing `find-learn-progress` record remains readable and can be
-merged into the v2 shape.
+V1 game events award points through `src/games/points.js`. Logged-in point
+events and stage completion update `pico-progress`, qualify the daily visit
+when appropriate, and award the daily streak reward at most once per local day.
+The existing `find-learn-progress` record remains readable and can be merged
+into the v2 shape.
 
 ## Git And Deployment Contract
 
