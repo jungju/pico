@@ -50,6 +50,14 @@ public/assets/memory-animal-cat.svg
 public/assets/memory-animal-dog.svg
 ```
 
+Generated families may use an underscore stage ID stem when the stage ID already
+uses underscores:
+
+```text
+public/assets/hidden_classroom_001.svg
+public/assets/hidden_market_001.svg
+```
+
 Optional audio uses the stage or vocabulary word:
 
 ```text

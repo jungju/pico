@@ -118,12 +118,14 @@ function themeLabel(theme) {
   if (theme === "beach") return "Beach";
   if (theme === "camping") return "Camping";
   if (theme === "classroom") return "Classroom";
+  if (theme === "doctor") return "Doctor";
   if (theme === "farm") return "Farm";
   if (theme === "playground") return "Playground";
   if (theme === "picnic") return "Picnic";
   if (theme === "garden") return "Garden";
   if (theme === "kitchen") return "Kitchen";
   if (theme === "library") return "Library";
+  if (theme === "market") return "Market";
   if (theme === "museum") return "Museum";
   if (theme === "music") return "Music";
   if (theme === "ocean") return "Ocean";

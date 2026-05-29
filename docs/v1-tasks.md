@@ -319,8 +319,11 @@
   확장했다. `contents/*.svg` paired image를 loader와 문서에서 지원하도록
   갱신했다.
 
-- [ ] `V1-T077` `P0` 숨은그림 찾기 stage를 20개로 확장한다.
+- [x] `V1-T077` `P0` 숨은그림 찾기 stage를 20개로 확장한다.
   현재 seed stage 1개를 유지하고, 출시 전 19개 stage를 추가한다.
+  완료: 기존 `hidden_picnic_001` stage를 유지하고, generated SVG scene
+  asset과 stage definition 19개를 추가해 Hidden Objects를 총 20개 stage로
+  확장했다.
 
 - [ ] `V1-T078` `P0` 미로 찾기 stage를 20개로 확장한다.
   현재 seed stage 1개를 유지하고, 출시 전 19개 stage를 추가한다.

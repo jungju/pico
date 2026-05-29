@@ -60,6 +60,7 @@ https://pico.jjgo.io
 - 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage와 v1 신규 게임 stage 카드가 표시됩니다.
 - v1 출시 콘텐츠 목표는 게임 타입별 20개, 총 80개 playable stage입니다.
 - 현재 틀린그림 찾기는 `contents`에 등록된 20개 stage를 제공합니다.
+- 현재 숨은그림 찾기는 `src/games/hiddenObjects/stages`에 등록된 20개 stage를 제공합니다.
 - 게임 선택 화면에서 stage 카드를 누르면 게임 화면으로 들어갑니다.
 - 각 stage 게임 화면 URL은 `/games/<game-type>/<stage-id>`입니다.
 - v1 숨은그림 찾기 첫 stage는 `/games/hidden_objects/hidden_picnic_001`입니다.

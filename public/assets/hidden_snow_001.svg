@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Snow Hunt hidden objects scene">
+  <defs>
+    <filter id="hidden-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#143c56" flood-opacity="0.16"/>
+    </filter>
+    <pattern id="scene-stripes-hidden_snow_001" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M 0 0 L 0 48" stroke="#143c56" stroke-opacity="0.08" stroke-width="4"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#eef8ff"/>
+  <circle cx="1010" cy="110" r="68" fill="#ffd45a" opacity="0.8"/>
+  <path d="M0 560 C160 500 280 612 440 552 C620 484 750 624 930 548 C1040 502 1110 512 1200 548 V800 H0Z" fill="#dceff8"/>
+  <rect y="560" width="1200" height="240" fill="url(#scene-stripes-hidden_snow_001)"/>
+  <rect x="56" y="72" width="214" height="164" rx="24" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.88"/>
+  <path d="M86 196 C130 148 170 160 214 112 C238 92 258 100 270 118 V236 H86Z" fill="#ffffff" opacity="0.9"/>
+  <rect x="338" y="468" width="524" height="72" rx="36" fill="#ffffff" stroke="#143c56" stroke-width="8" opacity="0.9"/>
+  <text x="600" y="516" text-anchor="middle" font-size="38" font-weight="900" font-family="Inter, Arial, sans-serif" fill="#143c56">Snow Hunt</text>
+  <circle cx="1080" cy="320" r="8" fill="#ffffff"/><circle cx="946" cy="382" r="7" fill="#ffffff"/><circle cx="148" cy="338" r="6" fill="#ffffff"/>
+  <g filter="url(#hidden-shadow)"><rect x="156" y="156" width="120" height="96" rx="20" fill="#f45d5d" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="216" cy="204" r="15.600000000000001" fill="#5ac878" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#hidden-shadow)"><ellipse cx="576" cy="214" rx="48" ry="18" fill="#ffd45a" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M534 212 C544 136 608 136 618 212Z" fill="#4aa3ff" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <path d="M948,170.8 L960.6961614495174,202.52523292150113 L994.7919806017215,204.7963638767526 L968.5428207519753,226.67476707849886 L976.9190344127896,259.80363612324743 L948,241.6 L919.0809655872104,259.80363612324743 L927.4571792480247,226.67476707849886 L901.2080193982785,204.7963638767526 L935.3038385504826,202.52523292150113 Z" fill="#5ac878" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" filter="url(#hidden-shadow)"/>
+    <g filter="url(#hidden-shadow)"><rect x="228" y="460.00000000000006" width="132" height="104" rx="20" fill="#ffd45a" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="294" cy="512" r="16.64" fill="#ff9f45" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#hidden-shadow)"><rect x="588" y="467.99999999999994" width="132" height="104" rx="20" fill="#a982ff" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="654" cy="520" r="16.64" fill="#f45d5d" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <g filter="url(#hidden-shadow)"><rect x="936" y="540" width="120" height="104" rx="20" fill="#ff9f45" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="996" cy="592" r="16.64" fill="#4aa3ff" stroke="#143c56" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+</svg>

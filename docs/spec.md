@@ -51,6 +51,8 @@ operation guide.
   normalizer
 - `src/games/hiddenObjects/stages/stage001.js`: v1 Hidden Objects picnic stage
   content
+- `src/games/hiddenObjects/stages/generatedStages.js`: generated v1 Hidden
+  Objects SVG scene stages
 - `src/games/maze/MazeGame.jsx`: Maze grid board, player marker, movement
   buttons, and completion UI
 - `src/games/maze/engine.js`: Maze movement, pointer/touch cell conversion,
@@ -91,6 +93,9 @@ The first game is `Find & Learn`:
 - Spots the differences between two pictures.
 - Lets the user click objects to see and hear English words.
 - Runs on GitHub Pages as a static web game.
+
+The current v1 content set provides 20 Hidden Objects stages through
+`src/games/hiddenObjects/stages`.
 
 ## Runtime
 

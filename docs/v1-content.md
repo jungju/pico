@@ -10,10 +10,10 @@ V1 release requires 20 polished playable stages for each game type.
 | Game Type | Target Count | Current Count | Remaining |
 | --- | ---: | ---: | ---: |
 | Spot the Difference | 20 | 20 | 0 |
-| Hidden Objects | 20 | 1 | 19 |
+| Hidden Objects | 20 | 20 | 0 |
 | Maze | 20 | 1 | 19 |
 | Memory Cards | 20 | 1 | 19 |
-| Total | 80 | 23 | 57 |
+| Total | 80 | 42 | 38 |
 
 ## Current Stages
 
@@ -39,13 +39,33 @@ V1 release requires 20 polished playable stages for each game type.
 | Spot the Difference | `spot_toy_room_001` | toys | 2 | 6 differences |
 | Spot the Difference | `spot_train_station_001` | station | 2 | 6 differences |
 | Spot the Difference | `spot_zoo_path_001` | zoo | 2 | 6 differences |
+| Hidden Objects | `hidden_beach_001` | beach | 1 | 6 targets |
+| Hidden Objects | `hidden_birthday_001` | party | 1 | 6 targets |
+| Hidden Objects | `hidden_camping_001` | camping | 1 | 6 targets |
+| Hidden Objects | `hidden_classroom_001` | classroom | 1 | 6 targets |
+| Hidden Objects | `hidden_doctor_001` | doctor | 1 | 6 targets |
+| Hidden Objects | `hidden_farm_001` | farm | 1 | 6 targets |
+| Hidden Objects | `hidden_garden_001` | garden | 1 | 6 targets |
+| Hidden Objects | `hidden_kitchen_001` | kitchen | 1 | 6 targets |
+| Hidden Objects | `hidden_library_001` | library | 1 | 6 targets |
+| Hidden Objects | `hidden_market_001` | market | 1 | 6 targets |
+| Hidden Objects | `hidden_museum_001` | museum | 1 | 6 targets |
+| Hidden Objects | `hidden_music_room_001` | music | 1 | 6 targets |
+| Hidden Objects | `hidden_ocean_001` | ocean | 1 | 6 targets |
 | Hidden Objects | `hidden_picnic_001` | picnic | 1 | 6 targets |
+| Hidden Objects | `hidden_rainy_day_001` | rain | 1 | 6 targets |
+| Hidden Objects | `hidden_snow_001` | snow | 1 | 6 targets |
+| Hidden Objects | `hidden_space_room_001` | space | 1 | 6 targets |
+| Hidden Objects | `hidden_station_001` | station | 1 | 6 targets |
+| Hidden Objects | `hidden_toy_room_001` | toys | 1 | 6 targets |
+| Hidden Objects | `hidden_zoo_001` | zoo | 1 | 6 targets |
 | Maze | `maze_garden_001` | garden | 1 | start, goal, 2 collectibles |
 | Memory Cards | `memory_animals_001` | animals | 1 | 4 image-image pairs |
 
 ## Asset Coverage
 
-- Hidden Objects uses `public/assets/hidden-picnic-001.png`.
+- Hidden Objects uses `public/assets/hidden-picnic-001.png` and generated
+  `public/assets/hidden_*.svg` scene assets.
 - Maze uses `public/assets/maze-garden-001.svg`.
 - Memory Cards uses `public/assets/memory-animals-001.svg` and
   `public/assets/memory-animal-*.svg` card images.
