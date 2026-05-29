@@ -34,7 +34,7 @@ button {
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto 1fr;
   gap: 18px;
   width: min(860px, calc(100% - 28px));
   min-height: 100vh;
@@ -173,6 +173,56 @@ button {
   line-height: 1.05;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.game-filter {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 2px 5px;
+  scrollbar-width: thin;
+}
+
+.game-filter-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  gap: 7px;
+  min-height: 44px;
+  border: 2px solid #143c56;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 3px 0 rgba(20, 60, 86, 0.14);
+  color: #315160;
+  padding: 0 12px;
+  font-size: 0.84rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.game-filter-option strong {
+  display: inline-flex;
+  min-width: 26px;
+  min-height: 24px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  padding: 0 6px;
+  font-size: 0.74rem;
+  line-height: 1;
+}
+
+.game-filter-option.selected {
+  background: #143c56;
+  box-shadow: 0 4px 0 rgba(20, 60, 86, 0.24);
+  color: #ffffff;
+}
+
+.game-filter-option:focus-visible {
+  outline: 3px solid #166f8f;
+  outline-offset: 3px;
 }
 
 .game-option {

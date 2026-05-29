@@ -16,6 +16,13 @@ const GAMES = gameStages.map((stageEntry) => ({
   image: stageEntry.previewImage,
 }));
 const GAME_PATH_PREFIX = "/games/";
+const GAME_FILTERS = [
+  { id: "all", label: "All" },
+  { id: GAME_TYPES.SPOT_THE_DIFFERENCE, label: "Spot" },
+  { id: GAME_TYPES.HIDDEN_OBJECTS, label: "Hidden" },
+  { id: GAME_TYPES.MAZE, label: "Maze" },
+  { id: GAME_TYPES.MEMORY_CARDS, label: "Memory" },
+];
 
 export default function App() {
   const [selectedStageId, setSelectedStageId] = useState(() => getStageIdFromLocation());
@@ -28,6 +35,7 @@ export default function App() {
     status: "local",
     data: emptyPicoProgress(),
   });
+  const [selectedGameTypeFilter, setSelectedGameTypeFilter] = useState("all");
   const picoProgressRecordIdRef = useRef(null);
   const picoProgressDataRef = useRef(emptyPicoProgress());
   const picoProgressSaveSequenceRef = useRef(0);
@@ -186,6 +194,7 @@ export default function App() {
   const nextGame = selectedGameIndex >= 0 ? GAMES[selectedGameIndex + 1] : null;
   const todaysGame = getTodaysGame(GAMES);
   const showProgressSummary = authState.status === "authenticated";
+  const filteredGames = selectedGameTypeFilter === "all" ? GAMES : GAMES.filter((game) => game.gameType === selectedGameTypeFilter);
 
   if (selectedGame) {
     const gameProps = {
@@ -241,8 +250,27 @@ export default function App() {
         </section>
       ) : null}
 
+      <section className="game-filter" aria-label="Game type filter">
+        {GAME_FILTERS.map((filter) => {
+          const count = filter.id === "all" ? GAMES.length : GAMES.filter((game) => game.gameType === filter.id).length;
+          const selected = selectedGameTypeFilter === filter.id;
+          return (
+            <button
+              className={`game-filter-option${selected ? " selected" : ""}`}
+              type="button"
+              key={filter.id}
+              onClick={() => setSelectedGameTypeFilter(filter.id)}
+              aria-pressed={selected}
+            >
+              <span>{filter.label}</span>
+              <strong>{count}</strong>
+            </button>
+          );
+        })}
+      </section>
+
       <section className="game-list" aria-label="Games">
-        {GAMES.map((game) => (
+        {filteredGames.map((game) => (
           <button className="game-option" type="button" key={game.id} onClick={() => openStage(game)}>
             <span className="game-option-media">
               <img src={game.image} alt="" draggable="false" />
