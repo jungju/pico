@@ -2158,6 +2158,12 @@ button.picture-frame:hover {
     padding: 7px 0;
   }
 
+  .game-shell.spot-the-difference {
+    align-content: start;
+    grid-template-rows: auto auto auto;
+    width: min(100% - 4px, 640px);
+  }
+
   .game-topbar {
     grid-template-columns: minmax(0, 1fr) minmax(154px, 0.95fr);
     align-items: start;
@@ -2259,6 +2265,21 @@ button.picture-frame:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     padding: 8px;
+  }
+
+  .game-shell.spot-the-difference .pictures-grid {
+    align-self: start;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .game-shell.spot-the-difference .pictures-grid::before {
+    inset: 4px;
+  }
+
+  .game-shell.spot-the-difference .picture-frame {
+    width: 100%;
+    min-width: 0;
   }
 
   .hidden-objects-stage {

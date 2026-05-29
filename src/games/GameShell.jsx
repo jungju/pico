@@ -69,7 +69,7 @@ export function GameShell({
   }
 
   return (
-    <main className="game-shell">
+    <main className={`game-shell ${badgeMeta.className}`}>
       <section className="game-topbar" aria-label="Game status">
         <div className={`stage-badge ${badgeMeta.className}`}>
           <span className="stage-badge-icon" role="img" aria-label={badgeLabel} title={badgeLabel}>

@@ -149,6 +149,9 @@ The current v1 content set provides 20 Maze stages through
 - Stage cards carry game type identity through a left accent stripe and an
   icon-backed type badge for Spot, Hidden, Maze, and Memory stages.
 - Selecting a stage card opens the game screen for that stage.
+- On mobile Spot the Difference screens, the side-by-side picture area uses
+  content-height sizing and tighter padding to avoid large vertical blank space
+  around the comparison images.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.
