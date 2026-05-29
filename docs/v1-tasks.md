@@ -268,8 +268,11 @@
   완료: `MemoryCardsGame` 점수는 pair당 공통 100점과 완료 시 200점
   completion bonus를 반영한다.
 
-- [ ] `V1-T065` `P0` 완성도 있는 메모리 stage 1개를 만든다.
+- [x] `V1-T065` `P0` 완성도 있는 메모리 stage 1개를 만든다.
   `V1-T003`에서 정한 첫 매칭 방식을 사용한다.
+  완료: `memory_animals_001` level 1 animal stage를 이미지-이미지 매칭으로
+  추가하고 cat, dog, bird, fish 4쌍과 preview/card assets를 selector/route에
+  등록했다.
 
 ## Milestone 7: 콘텐츠와 에셋
 

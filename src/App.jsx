@@ -4,6 +4,7 @@ import { FindLearnGame } from "./games/findLearn/FindLearnGame";
 import { GAME_TYPES } from "./games/gameTypes";
 import { HiddenObjectsGame } from "./games/hiddenObjects/HiddenObjectsGame";
 import { MazeGame } from "./games/maze/MazeGame";
+import { MemoryCardsGame } from "./games/memoryCards/MemoryCardsGame";
 import { gameStages } from "./games/stageRegistry";
 import { buildOhmeshLoginUrl, buildOhmeshLogoutUrl, fetchOhmeshSession, removeOhmeshResultParams } from "./ohmeshAuth";
 import { emptyPicoProgress, loadPicoProgress } from "./ohmeshProgress";
@@ -138,6 +139,10 @@ export default function App() {
 
     if (selectedGame.gameType === GAME_TYPES.MAZE) {
       return <MazeGame {...gameProps} />;
+    }
+
+    if (selectedGame.gameType === GAME_TYPES.MEMORY_CARDS) {
+      return <MemoryCardsGame {...gameProps} />;
     }
 
     return (

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Bird">
+  <rect width="180" height="180" rx="32" fill="#c5f2ff"/>
+  <circle cx="91" cy="89" r="50" fill="#45cf9d" stroke="#143c56" stroke-width="8"/>
+  <path d="M55 96 C30 88 28 124 58 126" fill="#82ccff" stroke="#143c56" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M122 87 L150 99 L122 111 Z" fill="#ffd45a" stroke="#143c56" stroke-width="8" stroke-linejoin="round"/>
+  <circle cx="104" cy="78" r="7" fill="#143c56"/>
+  <path d="M75 135 h32" stroke="#143c56" stroke-width="8" stroke-linecap="round"/>
+  <path d="M78 145 l-12 10 M102 145 l12 10" stroke="#143c56" stroke-width="7" stroke-linecap="round"/>
+</svg>

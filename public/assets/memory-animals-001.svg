@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Animal memory cards preview">
+  <rect width="640" height="420" fill="#fff4d7"/>
+  <path d="M0 292 C120 238 202 330 330 280 C460 230 530 250 640 202 V420 H0 Z" fill="#baf1d4"/>
+  <g transform="translate(104 54)">
+    <rect x="0" y="0" width="432" height="312" rx="22" fill="#ffffff" stroke="#143c56" stroke-width="8"/>
+    <g transform="translate(32 34)">
+      <image href="/assets/memory-animal-cat.svg" x="0" y="0" width="104" height="104"/>
+      <image href="/assets/memory-animal-dog.svg" x="132" y="0" width="104" height="104"/>
+      <image href="/assets/memory-animal-bird.svg" x="264" y="0" width="104" height="104"/>
+      <image href="/assets/memory-animal-fish.svg" x="66" y="138" width="104" height="104"/>
+      <rect x="198" y="138" width="104" height="104" rx="18" fill="#c5f2ff" stroke="#143c56" stroke-width="6"/>
+      <circle cx="250" cy="190" r="18" fill="#ffd45a"/>
+    </g>
+  </g>
+</svg>

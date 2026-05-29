@@ -57,6 +57,8 @@ operation guide.
   matching, mismatch delay state, attempts, and completion helpers
 - `src/games/memoryCards/stages/schema.js`: Memory Cards stage schema and
   normalizer
+- `src/games/memoryCards/stages/stage001.js`: v1 Memory Cards animal
+  image-image stage content
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
@@ -99,12 +101,15 @@ The first game is `Find & Learn`:
 - The game selection page shows total points and daily streak for logged-in
   users.
 - The game selection page shows one card per loaded stage.
-- The game selection page includes the v1 Hidden Objects picnic stage.
+- The game selection page includes v1 Hidden Objects, Maze, and Memory Cards
+  stages.
 - Selecting a stage card opens the game screen for that stage.
 - Each stage game screen URL is `/games/<game-type>/<stage-id>`.
 - The first Hidden Objects stage URL is
   `/games/hidden_objects/hidden_picnic_001`.
 - The first Maze stage URL is `/games/maze/maze_garden_001`.
+- The first Memory Cards stage URL is
+  `/games/memory_cards/memory_animals_001`.
 - Legacy `/games/<stage-id>` URLs remain recoverable.
 - Browser back/forward navigation must keep the selected screen in sync with the
   URL.
@@ -479,6 +484,9 @@ pair speaks a short English match or completion feedback.
 
 Memory Cards scoring uses 100 points per matched pair, plus a 200 point
 completion bonus when every pair in the stage is matched.
+
+The v1 Memory Cards content set includes `memory_animals_001`, a level 1
+image-image animal matching stage with cat, dog, bird, and fish pairs.
 
 ## Data Contract
 
