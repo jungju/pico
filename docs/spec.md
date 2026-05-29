@@ -10,6 +10,8 @@ operation guide.
 
 - `README.md`: current user flow, local commands, git rules, and deployment
   guide
+- `docs/v1-scope.md`: target scope for Pico v1 games, rewards, persistence,
+  and explicit non-goals
 - `contents/*.json`: Find & Learn content stages loaded into the game selector
 - `contents/*.{png,jpg,jpeg,webp}`: images paired with content JSON files by
   matching filename stem
@@ -35,6 +37,11 @@ focused source file above for implemented runtime behavior.
 
 Pico is a static collection of small English learning games. It stays narrow so
 one person can operate it without a service-specific backend.
+
+The target v1 scope is documented in `docs/v1-scope.md`. V1 expands Pico from
+the current Spot the Difference game into four game types: Spot the Difference,
+Hidden Objects, Maze, and Memory Cards. V1 also adds shared points, daily
+streak rewards, and cross-game progress persistence for logged-in users.
 
 The first game is `Find & Learn`:
 

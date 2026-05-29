@@ -11,6 +11,7 @@ https://pico.jjgo.io
 ## 문서
 
 - `docs/spec.md`: Codex가 먼저 읽는 제품 범위, 게임 계약, 배포 계약
+- `docs/v1-scope.md`: Pico v1에 포함할 게임, 보상, 진행 저장, 제외 범위
 - `README.md`: 사람을 위한 실행 방법, 기능 흐름, git/배포 기준
 - `AGENTS.md`: 에이전트 작업, 검증, 커밋 규칙
 
