@@ -1681,8 +1681,14 @@ button.picture-frame:hover {
   min-height: 0;
   place-items: center;
   border: 1px solid rgba(20, 60, 86, 0.18);
-  background: #fff8df;
   padding: 0;
+}
+
+.maze-cell.open {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0)),
+    #fff8df;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.48);
 }
 
 .maze-cell.open:hover {
@@ -1692,20 +1698,25 @@ button.picture-frame:hover {
 .maze-cell.blocked {
   cursor: default;
   background:
-    linear-gradient(135deg, rgba(20, 60, 86, 0.92), rgba(63, 88, 105, 0.9)),
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.14) 0 6px, rgba(255, 255, 255, 0) 6px 12px);
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.16) 0 5px, rgba(255, 255, 255, 0) 5px 10px),
+    linear-gradient(135deg, #143c56, #2f596c);
+  box-shadow: inset 0 0 0 2px rgba(5, 24, 36, 0.44);
 }
 
-.maze-cell.visited.open {
-  background: #dff7f2;
+.maze-cell.visited.open:not(.start):not(.goal):not(.collectible) {
+  background:
+    linear-gradient(180deg, #e7fbf7, #bcefe6);
+  box-shadow: inset 0 0 0 2px rgba(22, 111, 143, 0.26);
 }
 
-.maze-cell.visited.open:not(.start):not(.goal)::after {
-  width: 22%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: rgba(20, 60, 86, 0.38);
+.maze-cell.visited.open:not(.start):not(.goal):not(.collectible)::after {
+  width: 42%;
+  height: 14%;
+  border-radius: 999px;
+  background: rgba(20, 60, 86, 0.44);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.48);
   content: "";
+  transform: rotate(-18deg);
 }
 
 .maze-cell.open.start {

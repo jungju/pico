@@ -193,6 +193,7 @@ hit area를 가집니다.
 - 미로 player는 작은 얼굴이 있는 캐릭터 marker로 표시해 이동 주체를 분명히
   보여줍니다.
 - 미로의 시작점, 목표점, gem은 더 큰 icon과 강조된 cell background로 표시합니다.
+- 미로의 길, 벽, 방문 경로는 색과 pattern, inner outline으로 구분합니다.
 - 점수는 미로 완료 300점과 수집 아이템 하나당 기본 50점입니다.
 
 ## Memory Cards
