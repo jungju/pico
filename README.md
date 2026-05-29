@@ -34,6 +34,7 @@ https://pico.jjgo.io
 - `src/games/maze/engine.js`: grid 기반 미로 이동, pointer/touch cell 변환, 수집/완료 판정
 - `src/games/maze/stages/schema.js`: grid 기반 미로 stage schema와 normalizer
 - `src/games/maze/stages/stage001.js`: v1 미로 찾기 garden stage 데이터
+- `src/games/memoryCards/stages/schema.js`: 메모리 카드 stage schema와 normalizer
 - `src/styles.css`: 게임 선택 화면과 Find & Learn 화면 스타일
 - `public/assets/`: stage 이미지
 - `public/CNAME`: GitHub Pages custom domain
@@ -132,6 +133,17 @@ hit area를 가집니다.
 - 게임 UI는 grid board, 출발점, 도착점, player marker, 수집 아이템, 진행률,
   점수, 리셋, 학습 패널, 완료 안내를 제공합니다.
 - 점수는 미로 완료 300점과 수집 아이템 하나당 기본 50점입니다.
+
+## Memory Cards
+
+메모리 게임 stage는 카드 pair 목록과 각 pair의 두 card face로 구성합니다.
+v1 첫 stage는 이미지-이미지 매칭을 사용하고, 이후 stage에서 이미지-단어,
+단어-음성 매칭으로 확장할 수 있습니다.
+
+- Stage schema helper: `src/games/memoryCards/stages/schema.js`
+- Match modes: `image_image`, `image_word`, `word_audio`
+- Pair: `id`, `word`, `meaning`, `phonetic`, `sentence`, `translation`, `audio`
+- Card face: `id`, `type`, `label`, `image`, `emoji`, `alt`, `audio`
 
 지원하는 영역 타입:
 

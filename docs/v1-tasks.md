@@ -240,9 +240,12 @@
 
 ## Milestone 6: 메모리 게임
 
-- [ ] `V1-T060` `P0` 메모리 게임 stage schema를 정의한다.
+- [x] `V1-T060` `P0` 메모리 게임 stage schema를 정의한다.
   card pairs, card faces, match mode, words, meanings, optional audio/sentence
   fields를 포함한다.
+  완료: `src/games/memoryCards/stages/schema.js`에 card pairs, 두 card face,
+  match mode, 영어/한국어 vocabulary, 선택적 audio/sentence fields를
+  normalize하는 schema helper를 추가했다.
 
 - [ ] `V1-T061` `P0` 메모리 게임 엔진을 만든다.
   카드 뒤집기, 매칭, mismatch delay, 완료, 시도 횟수 기록을 지원한다.

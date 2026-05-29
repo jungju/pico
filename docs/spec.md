@@ -51,6 +51,8 @@ operation guide.
 - `src/games/maze/stages/schema.js`: grid-based Maze stage schema and
   normalizer
 - `src/games/maze/stages/stage001.js`: v1 Maze garden stage content
+- `src/games/memoryCards/stages/schema.js`: Memory Cards stage schema and
+  normalizer
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
@@ -415,6 +417,45 @@ per collected item by default. A collectible may override its own `points`.
 
 The v1 Maze content set includes `maze_garden_001`, a level 1 garden maze with
 a clear start, goal, and two optional collectible cells.
+
+## Memory Cards Stage Data
+
+Memory Cards stages use card pairs. Each pair has two card faces and shared
+vocabulary metadata.
+
+Shape:
+
+```js
+{
+  id: "memory_animals_001",
+  title: "Animal Match",
+  titleKo: "동물 카드",
+  theme: "animals",
+  level: 1,
+  estimatedMinutes: 3,
+  matchMode: "image_image",
+  pairs: [
+    {
+      id: "cat",
+      word: "cat",
+      meaning: "고양이",
+      phonetic: "/kæt/",
+      sentence: "The cat is cute.",
+      translation: "고양이가 귀여워요.",
+      cardFaces: [
+        { id: "cat-a", type: "image", emoji: "cat", alt: "Cat card" },
+        { id: "cat-b", type: "image", emoji: "cat", alt: "Cat card" }
+      ]
+    }
+  ]
+}
+```
+
+Supported match modes:
+
+- `image_image`
+- `image_word`
+- `word_audio`
 
 ## Data Contract
 
