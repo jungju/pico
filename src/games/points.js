@@ -7,6 +7,51 @@ export const POINT_VALUES = {
   STAGE_COMPLETION_BONUS: 200,
 };
 
+export const POINT_EVENTS = {
+  DIFFERENCE_FOUND: "difference_found",
+  HIDDEN_OBJECT_FOUND: "hidden_object_found",
+  MAZE_COMPLETED: "maze_completed",
+  MAZE_COLLECTIBLE: "maze_collectible",
+  MEMORY_PAIR_MATCHED: "memory_pair_matched",
+};
+
+export function awardStageEventPoints(progress, stage, { event, itemId = "", now = new Date().toISOString() }) {
+  const points = pointValueForEvent(event);
+  const eventKey = itemId ? `${event}:${itemId}` : event;
+  const nextProgress = cloneProgress(progress);
+  const previousStageProgress = nextProgress.stages[stage.id] || {};
+  const awardedPointEvents = Array.isArray(previousStageProgress.awardedPointEvents)
+    ? previousStageProgress.awardedPointEvents
+    : [];
+
+  if (!points || awardedPointEvents.includes(eventKey)) {
+    return {
+      awardedPoints: 0,
+      progress: nextProgress,
+    };
+  }
+
+  const previousGameSummary = nextProgress.games[stage.gameType] || {};
+
+  nextProgress.stages[stage.id] = {
+    ...previousStageProgress,
+    gameType: stage.gameType,
+    awardedPointEvents: [...awardedPointEvents, eventKey],
+    score: toNonNegativeNumber(previousStageProgress.score, 0) + points,
+    updatedAt: now,
+  };
+  nextProgress.games[stage.gameType] = {
+    ...previousGameSummary,
+    points: toNonNegativeNumber(previousGameSummary.points, 0) + points,
+  };
+  nextProgress.totalPoints = toNonNegativeNumber(nextProgress.totalPoints, 0) + points;
+
+  return {
+    awardedPoints: points,
+    progress: nextProgress,
+  };
+}
+
 export function awardStageCompletionBonus(progress, stage, { now = new Date().toISOString() } = {}) {
   const bonus = stage.points?.completionBonus ?? POINT_VALUES.STAGE_COMPLETION_BONUS;
   const nextProgress = cloneProgress(progress);
@@ -42,6 +87,15 @@ export function awardStageCompletionBonus(progress, stage, { now = new Date().to
     awardedPoints: bonus,
     progress: nextProgress,
   };
+}
+
+export function pointValueForEvent(event) {
+  if (event === POINT_EVENTS.DIFFERENCE_FOUND) return POINT_VALUES.DIFFERENCE_FOUND;
+  if (event === POINT_EVENTS.HIDDEN_OBJECT_FOUND) return POINT_VALUES.HIDDEN_OBJECT_FOUND;
+  if (event === POINT_EVENTS.MAZE_COMPLETED) return POINT_VALUES.MAZE_COMPLETED;
+  if (event === POINT_EVENTS.MAZE_COLLECTIBLE) return POINT_VALUES.MAZE_COLLECTIBLE;
+  if (event === POINT_EVENTS.MEMORY_PAIR_MATCHED) return POINT_VALUES.MEMORY_PAIR_MATCHED;
+  return 0;
 }
 
 function cloneProgress(progress) {

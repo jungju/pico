@@ -108,9 +108,12 @@
   완료: `awardStageCompletionBonus` helper가 stage별
   `completionBonusAwarded`를 확인해 보너스를 한 번만 지급한다.
 
-- [ ] `V1-T023` `P0` 공통 포인트 지급 로직을 구현한다.
+- [x] `V1-T023` `P0` 공통 포인트 지급 로직을 구현한다.
   틀린그림 정답, 숨은그림 목표, 미로 완료, 미로 수집 아이템, 메모리
   매칭, stage 완료 보너스를 한 규칙으로 처리한다.
+  완료: `POINT_EVENTS`, `POINT_VALUES`, `awardStageEventPoints`,
+  `awardStageCompletionBonus`로 공통 포인트 지급과 중복 지급 방지를
+  제공한다.
 
 - [ ] `V1-T024` `P0` daily streak 방문 인정 로직을 구현한다.
   하루에 stage 완료 또는 1점 이상 획득이 있으면 그날 방문으로 인정한다.
