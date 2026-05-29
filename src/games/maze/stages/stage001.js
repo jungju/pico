@@ -1,4 +1,4 @@
-import { defineMazeStage } from "./schema";
+import { defineMazeStage } from "./schema.js";
 
 export const gardenMazeStage = defineMazeStage({
   id: "maze_garden_001",

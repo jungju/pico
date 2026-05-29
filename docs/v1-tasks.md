@@ -355,9 +355,12 @@
   completion bonus 1회 지급, total points, daily streak reward 1일 1회 규칙을
   `src/games/points.test.js`에서 검증한다.
 
-- [ ] `V1-T091` `P0` 게임별 core logic focused test를 추가한다.
+- [x] `V1-T091` `P0` 게임별 core logic focused test를 추가한다.
   가능한 범위에서 hit testing, 숨은그림 판정, 미로 완료, 메모리 매칭을
   확인한다.
+  완료: `src/games/coreLogic.test.js`에서 Spot the Difference hit testing,
+  Hidden Objects target 판정, Maze blocked/collect/complete, Memory Cards
+  mismatch/match core logic을 검증한다.
 
 - [ ] `V1-T092` `P0` 수동 게임 QA를 실행한다.
   모든 v1 stage를 모바일 크기와 데스크톱 크기에서 끝까지 플레이한다.

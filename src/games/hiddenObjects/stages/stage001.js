@@ -1,4 +1,4 @@
-import { defineHiddenObjectsStage } from "./schema";
+import { defineHiddenObjectsStage } from "./schema.js";
 
 export const hiddenPicnicStage = defineHiddenObjectsStage({
   id: "hidden_picnic_001",

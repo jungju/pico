@@ -1,4 +1,4 @@
-import { getRelativePoint, isPointInArea } from "../findLearn/hitTesting";
+import { getRelativePoint, isPointInArea } from "../findLearn/hitTesting.js";
 
 export { getRelativePoint, isPointInArea };
 

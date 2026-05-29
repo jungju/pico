@@ -1,4 +1,4 @@
-import { cellKey, isMazeCellBlocked, sameCell } from "./stages/schema";
+import { cellKey, isMazeCellBlocked, sameCell } from "./stages/schema.js";
 
 export const MAZE_DIRECTIONS = {
   UP: "up",

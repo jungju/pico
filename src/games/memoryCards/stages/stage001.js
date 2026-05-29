@@ -1,4 +1,4 @@
-import { defineMemoryCardsStage, MEMORY_MATCH_MODES } from "./schema";
+import { defineMemoryCardsStage, MEMORY_MATCH_MODES } from "./schema.js";
 
 const animalPairs = [
   {
