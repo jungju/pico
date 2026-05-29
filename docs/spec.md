@@ -134,6 +134,8 @@ Memory matched cards provide a short pop/sparkle response and a visible
 `Match +100` badge.
 Memory hints show the remaining pair count and briefly highlight one useful
 card instead of listing every word in the message panel.
+Memory attempts are shown as a separate game info chip, independent from the
+save/local-play status text.
 
 ## Runtime
 

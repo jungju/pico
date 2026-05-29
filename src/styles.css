@@ -861,6 +861,11 @@ button {
   color: #124b34;
 }
 
+.info-chip {
+  background: #eee7ff;
+  color: #40316a;
+}
+
 .complete-text {
   background: #c5f2ff;
   color: #154868;
@@ -2749,6 +2754,11 @@ button.picture-frame:hover {
     grid-column: 1 / -1;
     min-height: 20px;
     font-size: 0.7rem;
+  }
+
+  .game-shell.memory-cards .save-text {
+    grid-column: auto;
+    justify-content: center;
   }
 
   .game-actions {

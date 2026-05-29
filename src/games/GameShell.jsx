@@ -30,6 +30,7 @@ export function GameShell({
   completionNotice,
   message,
   hintPrompted = false,
+  infoText,
   onBack,
   onHint,
   onReset,
@@ -90,6 +91,7 @@ export function GameShell({
             <Trophy aria-hidden="true" size={18} />
             <span>{score} pts</span>
           </span>
+          {infoText ? <span className="hud-chip info-chip">{infoText}</span> : null}
           {completed ? (
             <span className="hud-chip complete-text">
               <CheckCircle2 aria-hidden="true" size={17} />

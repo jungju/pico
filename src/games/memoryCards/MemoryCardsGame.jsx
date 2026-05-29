@@ -16,7 +16,7 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
   const completed = runState.completed;
   const score = calculateScore(runState, stage.pairs.length, completionBonus);
   const progressPercent = stage.pairs.length > 0 ? Math.round((runState.matchedPairIds.length / stage.pairs.length) * 100) : 0;
-  const statusText = authState?.status === "authenticated" ? `${runState.attempts} tries` : "Local play";
+  const statusText = authState?.status === "authenticated" ? "Ready" : "Local play";
   const gridStyle = {
     "--memory-columns": memoryColumnCount(runState.deck.length),
     "--memory-card-max": `${memoryCardMaxSize(runState.deck.length)}px`,
@@ -109,6 +109,7 @@ export function MemoryCardsGame({ authState, authControl, stage, stageEntry, onB
       }}
       message={message}
       gameType={stageEntry?.gameType}
+      infoText={`${runState.attempts} tries`}
       onBack={onBack}
       onHint={showHint}
       onReset={resetGame}
