@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,32 +26,15 @@
   },
   "differences": [
     {
-      "id": "flower_color",
-      "label": "flower",
-      "labelKo": "꽃",
-      "targetSide": "right",
-      "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The flower is different.",
-      "descriptionKo": "꽃이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The flower is different.",
-      "translation": "꽃이 달라졌어요."
-    },
-    {
-      "id": "butterfly_color",
+      "id": "butterfly_natural",
       "label": "butterfly",
       "labelKo": "나비",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
+        "x": 937,
+        "y": 221,
+        "width": 112,
+        "height": 105
       },
       "description": "The butterfly is different.",
       "descriptionKo": "나비가 달라졌어요.",
@@ -60,32 +43,15 @@
       "translation": "나비가 달라졌어요."
     },
     {
-      "id": "watering_can_color",
-      "label": "watering can",
-      "labelKo": "물뿌리개",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The watering can is different.",
-      "descriptionKo": "물뿌리개가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The watering can is different.",
-      "translation": "물뿌리개가 달라졌어요."
-    },
-    {
-      "id": "bird_color",
+      "id": "bird_natural",
       "label": "bird",
       "labelKo": "새",
       "targetSide": "right",
       "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
+        "x": 1338,
+        "y": 112,
+        "width": 112,
+        "height": 98
       },
       "description": "The bird is different.",
       "descriptionKo": "새가 달라졌어요.",
@@ -94,38 +60,72 @@
       "translation": "새가 달라졌어요."
     },
     {
-      "id": "boot_color",
-      "label": "boot",
-      "labelKo": "장화",
+      "id": "watering_can_natural",
+      "label": "watering can",
+      "labelKo": "물뿌리개",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 922,
+        "y": 600,
+        "width": 188,
+        "height": 218
       },
-      "description": "The boot is different.",
-      "descriptionKo": "장화가 달라졌어요.",
+      "description": "The watering can is different.",
+      "descriptionKo": "물뿌리개가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The boot is different.",
-      "translation": "장화가 달라졌어요."
+      "voiceText": "The watering can is different.",
+      "translation": "물뿌리개가 달라졌어요."
     },
     {
-      "id": "bug_color",
+      "id": "bug_natural",
       "label": "bug",
       "labelKo": "벌레",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
+        "x": 1173,
+        "y": 518,
+        "width": 112,
+        "height": 105
       },
       "description": "The bug is different.",
       "descriptionKo": "벌레가 달라졌어요.",
       "action": "changed",
       "voiceText": "The bug is different.",
       "translation": "벌레가 달라졌어요."
+    },
+    {
+      "id": "flower_natural",
+      "label": "flower",
+      "labelKo": "꽃",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1090,
+        "y": 825,
+        "width": 210,
+        "height": 188
+      },
+      "description": "The flower is different.",
+      "descriptionKo": "꽃이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The flower is different.",
+      "translation": "꽃이 달라졌어요."
+    },
+    {
+      "id": "boot_natural",
+      "label": "boot",
+      "labelKo": "장화",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1353,
+        "y": 772,
+        "width": 172,
+        "height": 202
+      },
+      "description": "The boot is different.",
+      "descriptionKo": "장화가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The boot is different.",
+      "translation": "장화가 달라졌어요."
     }
   ]
 }

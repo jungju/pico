@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,15 +26,15 @@
   },
   "differences": [
     {
-      "id": "umbrella_color",
+      "id": "umbrella_natural",
       "label": "umbrella",
       "labelKo": "우산",
       "targetSide": "right",
       "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
+        "x": 1226,
+        "y": 274,
+        "width": 266,
+        "height": 266
       },
       "description": "The umbrella is different.",
       "descriptionKo": "우산이 달라졌어요.",
@@ -43,32 +43,15 @@
       "translation": "우산이 달라졌어요."
     },
     {
-      "id": "ball_color",
-      "label": "beach ball",
-      "labelKo": "비치볼",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The beach ball is different.",
-      "descriptionKo": "비치볼이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The beach ball is different.",
-      "translation": "비치볼이 달라졌어요."
-    },
-    {
-      "id": "boat_color",
+      "id": "boat_natural",
       "label": "boat",
       "labelKo": "배",
       "targetSide": "right",
       "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
+        "x": 993,
+        "y": 262,
+        "width": 165,
+        "height": 112
       },
       "description": "The boat is different.",
       "descriptionKo": "배가 달라졌어요.",
@@ -77,32 +60,32 @@
       "translation": "배가 달라졌어요."
     },
     {
-      "id": "shell_color",
-      "label": "shell",
-      "labelKo": "조개",
+      "id": "towel_natural",
+      "label": "towel",
+      "labelKo": "수건",
       "targetSide": "right",
       "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
+        "x": 1188,
+        "y": 615,
+        "width": 322,
+        "height": 210
       },
-      "description": "The shell is different.",
-      "descriptionKo": "조개가 달라졌어요.",
+      "description": "The towel is different.",
+      "descriptionKo": "수건이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The shell is different.",
-      "translation": "조개가 달라졌어요."
+      "voiceText": "The towel is different.",
+      "translation": "수건이 달라졌어요."
     },
     {
-      "id": "bucket_color",
+      "id": "bucket_natural",
       "label": "bucket",
       "labelKo": "양동이",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 779,
+        "y": 832,
+        "width": 158,
+        "height": 225
       },
       "description": "The bucket is different.",
       "descriptionKo": "양동이가 달라졌어요.",
@@ -111,21 +94,38 @@
       "translation": "양동이가 달라졌어요."
     },
     {
-      "id": "fish_color",
-      "label": "fish",
-      "labelKo": "물고기",
+      "id": "shell_natural",
+      "label": "shell",
+      "labelKo": "조개",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
+        "x": 1143,
+        "y": 848,
+        "width": 112,
+        "height": 90
       },
-      "description": "The fish is different.",
-      "descriptionKo": "물고기가 달라졌어요.",
+      "description": "The shell is different.",
+      "descriptionKo": "조개가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The fish is different.",
-      "translation": "물고기가 달라졌어요."
+      "voiceText": "The shell is different.",
+      "translation": "조개가 달라졌어요."
+    },
+    {
+      "id": "beach_ball_natural",
+      "label": "beach ball",
+      "labelKo": "비치볼",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1327,
+        "y": 832,
+        "width": 202,
+        "height": 225
+      },
+      "description": "The beach ball is different.",
+      "descriptionKo": "비치볼이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The beach ball is different.",
+      "translation": "비치볼이 달라졌어요."
     }
   ]
 }

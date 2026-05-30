@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,49 +26,15 @@
   },
   "differences": [
     {
-      "id": "umbrella_color",
-      "label": "umbrella",
-      "labelKo": "우산",
-      "targetSide": "right",
-      "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The umbrella is different.",
-      "descriptionKo": "우산이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The umbrella is different.",
-      "translation": "우산이 달라졌어요."
-    },
-    {
-      "id": "boot_color",
-      "label": "boot",
-      "labelKo": "장화",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The boot is different.",
-      "descriptionKo": "장화가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The boot is different.",
-      "translation": "장화가 달라졌어요."
-    },
-    {
-      "id": "cloud_color",
+      "id": "cloud_natural",
       "label": "cloud",
       "labelKo": "구름",
       "targetSide": "right",
       "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
+        "x": 1083,
+        "y": 79,
+        "width": 210,
+        "height": 195
       },
       "description": "The cloud is different.",
       "descriptionKo": "구름이 달라졌어요.",
@@ -77,32 +43,49 @@
       "translation": "구름이 달라졌어요."
     },
     {
-      "id": "book_color",
-      "label": "book",
-      "labelKo": "책",
+      "id": "umbrella_natural",
+      "label": "umbrella",
+      "labelKo": "우산",
       "targetSide": "right",
       "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
+        "x": 820,
+        "y": 581,
+        "width": 150,
+        "height": 180
       },
-      "description": "The book is different.",
-      "descriptionKo": "책이 달라졌어요.",
+      "description": "The umbrella is different.",
+      "descriptionKo": "우산이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The book is different.",
-      "translation": "책이 달라졌어요."
+      "voiceText": "The umbrella is different.",
+      "translation": "우산이 달라졌어요."
     },
     {
-      "id": "cup_color",
+      "id": "boot_natural",
+      "label": "boot",
+      "labelKo": "장화",
+      "targetSide": "right",
+      "bbox": {
+        "x": 847,
+        "y": 772,
+        "width": 150,
+        "height": 195
+      },
+      "description": "The boot is different.",
+      "descriptionKo": "장화가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The boot is different.",
+      "translation": "장화가 달라졌어요."
+    },
+    {
+      "id": "cup_natural",
       "label": "cup",
       "labelKo": "컵",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 1256,
+        "y": 461,
+        "width": 112,
+        "height": 112
       },
       "description": "The cup is different.",
       "descriptionKo": "컵이 달라졌어요.",
@@ -111,15 +94,32 @@
       "translation": "컵이 달라졌어요."
     },
     {
-      "id": "sock_color",
+      "id": "book_natural",
+      "label": "book",
+      "labelKo": "책",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1256,
+        "y": 548,
+        "width": 180,
+        "height": 128
+      },
+      "description": "The book is different.",
+      "descriptionKo": "책이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The book is different.",
+      "translation": "책이 달라졌어요."
+    },
+    {
+      "id": "sock_natural",
       "label": "sock",
       "labelKo": "양말",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
+        "x": 1383,
+        "y": 540,
+        "width": 128,
+        "height": 135
       },
       "description": "The sock is different.",
       "descriptionKo": "양말이 달라졌어요.",

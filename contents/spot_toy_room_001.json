@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,15 +26,15 @@
   },
   "differences": [
     {
-      "id": "robot_color",
+      "id": "robot_natural",
       "label": "robot",
       "labelKo": "로봇",
       "targetSide": "right",
       "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
+        "x": 880,
+        "y": 315,
+        "width": 165,
+        "height": 172
       },
       "description": "The robot is different.",
       "descriptionKo": "로봇이 달라졌어요.",
@@ -43,32 +43,15 @@
       "translation": "로봇이 달라졌어요."
     },
     {
-      "id": "car_color",
-      "label": "toy car",
-      "labelKo": "장난감 자동차",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The toy car is different.",
-      "descriptionKo": "장난감 자동차가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The toy car is different.",
-      "translation": "장난감 자동차가 달라졌어요."
-    },
-    {
-      "id": "ball_color",
+      "id": "ball_natural",
       "label": "ball",
       "labelKo": "공",
       "targetSide": "right",
       "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
+        "x": 1143,
+        "y": 251,
+        "width": 128,
+        "height": 128
       },
       "description": "The ball is different.",
       "descriptionKo": "공이 달라졌어요.",
@@ -77,15 +60,32 @@
       "translation": "공이 달라졌어요."
     },
     {
-      "id": "blocks_color",
+      "id": "teddy_bear_natural",
+      "label": "teddy bear",
+      "labelKo": "곰인형",
+      "targetSide": "right",
+      "bbox": {
+        "x": 896,
+        "y": 619,
+        "width": 172,
+        "height": 202
+      },
+      "description": "The teddy bear is different.",
+      "descriptionKo": "곰인형이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The teddy bear is different.",
+      "translation": "곰인형이 달라졌어요."
+    },
+    {
+      "id": "blocks_natural",
       "label": "blocks",
       "labelKo": "블록",
       "targetSide": "right",
       "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
+        "x": 952,
+        "y": 885,
+        "width": 150,
+        "height": 142
       },
       "description": "The blocks is different.",
       "descriptionKo": "블록이 달라졌어요.",
@@ -94,38 +94,38 @@
       "translation": "블록이 달라졌어요."
     },
     {
-      "id": "drum_color",
+      "id": "toy_car_natural",
+      "label": "toy car",
+      "labelKo": "장난감 자동차",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1330,
+        "y": 784,
+        "width": 142,
+        "height": 124
+      },
+      "description": "The toy car is different.",
+      "descriptionKo": "장난감 자동차가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The toy car is different.",
+      "translation": "장난감 자동차가 달라졌어요."
+    },
+    {
+      "id": "drum_natural",
       "label": "drum",
       "labelKo": "북",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 1173,
+        "y": 855,
+        "width": 135,
+        "height": 120
       },
       "description": "The drum is different.",
       "descriptionKo": "북이 달라졌어요.",
       "action": "changed",
       "voiceText": "The drum is different.",
       "translation": "북이 달라졌어요."
-    },
-    {
-      "id": "teddy_color",
-      "label": "teddy bear",
-      "labelKo": "곰인형",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The teddy bear is different.",
-      "descriptionKo": "곰인형이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The teddy bear is different.",
-      "translation": "곰인형이 달라졌어요."
     }
   ]
 }

@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,15 +26,15 @@
   },
   "differences": [
     {
-      "id": "dinosaur_color",
+      "id": "dinosaur_natural",
       "label": "dinosaur",
       "labelKo": "공룡",
       "targetSide": "right",
       "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
+        "x": 884,
+        "y": 214,
+        "width": 218,
+        "height": 188
       },
       "description": "The dinosaur is different.",
       "descriptionKo": "공룡이 달라졌어요.",
@@ -43,32 +43,15 @@
       "translation": "공룡이 달라졌어요."
     },
     {
-      "id": "leaf_color",
-      "label": "leaf",
-      "labelKo": "잎",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The leaf is different.",
-      "descriptionKo": "잎이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The leaf is different.",
-      "translation": "잎이 달라졌어요."
-    },
-    {
-      "id": "bone_color",
+      "id": "bone_natural",
       "label": "bone",
       "labelKo": "뼈",
       "targetSide": "right",
       "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
+        "x": 1042,
+        "y": 322,
+        "width": 210,
+        "height": 210
       },
       "description": "The bone is different.",
       "descriptionKo": "뼈가 달라졌어요.",
@@ -77,15 +60,32 @@
       "translation": "뼈가 달라졌어요."
     },
     {
-      "id": "hat_color",
+      "id": "leaf_natural",
+      "label": "leaf",
+      "labelKo": "잎",
+      "targetSide": "right",
+      "bbox": {
+        "x": 790,
+        "y": 780,
+        "width": 172,
+        "height": 225
+      },
+      "description": "The leaf is different.",
+      "descriptionKo": "잎이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The leaf is different.",
+      "translation": "잎이 달라졌어요."
+    },
+    {
+      "id": "hat_natural",
       "label": "hat",
       "labelKo": "모자",
       "targetSide": "right",
       "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
+        "x": 1090,
+        "y": 870,
+        "width": 165,
+        "height": 112
       },
       "description": "The hat is different.",
       "descriptionKo": "모자가 달라졌어요.",
@@ -94,15 +94,15 @@
       "translation": "모자가 달라졌어요."
     },
     {
-      "id": "flag_color",
+      "id": "flag_natural",
       "label": "flag",
       "labelKo": "깃발",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 1360,
+        "y": 232,
+        "width": 128,
+        "height": 202
       },
       "description": "The flag is different.",
       "descriptionKo": "깃발이 달라졌어요.",
@@ -111,15 +111,15 @@
       "translation": "깃발이 달라졌어요."
     },
     {
-      "id": "clock_color",
+      "id": "clock_natural",
       "label": "clock",
       "labelKo": "시계",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
+        "x": 1263,
+        "y": 49,
+        "width": 165,
+        "height": 158
       },
       "description": "The clock is different.",
       "descriptionKo": "시계가 달라졌어요.",

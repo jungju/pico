@@ -6,9 +6,9 @@
   "theme": "bedroom",
   "level": 3,
   "estimatedMinutes": 4,
-  "image": "/games/spot_kids_bedroom_001/image.png",
   "imageWidth": 1536,
   "imageHeight": 1152,
+  "hitPadding": 16,
   "totalDifferences": 10,
   "panels": {
     "left": {
@@ -26,15 +26,15 @@
   },
   "differences": [
     {
-      "id": "wall_picture_changed",
+      "id": "picture_natural",
       "label": "picture",
       "labelKo": "그림",
       "targetSide": "right",
       "bbox": {
         "x": 869,
-        "y": 137,
-        "width": 124,
-        "height": 124
+        "y": 120,
+        "width": 131,
+        "height": 128
       },
       "description": "The picture is different.",
       "descriptionKo": "그림이 달라졌어요.",
@@ -43,15 +43,15 @@
       "translation": "그림이 달라졌어요."
     },
     {
-      "id": "curtain_color",
+      "id": "curtain_natural",
       "label": "curtain",
       "labelKo": "커튼",
       "targetSide": "right",
       "bbox": {
-        "x": 1080,
-        "y": 176,
-        "width": 124,
-        "height": 124
+        "x": 1072,
+        "y": 90,
+        "width": 188,
+        "height": 248
       },
       "description": "The curtain is different.",
       "descriptionKo": "커튼이 달라졌어요.",
@@ -60,15 +60,15 @@
       "translation": "커튼이 달라졌어요."
     },
     {
-      "id": "plant_pot_color",
+      "id": "plant_pot_natural",
       "label": "plant pot",
       "labelKo": "화분",
       "targetSide": "right",
       "bbox": {
-        "x": 1315,
-        "y": 187,
-        "width": 124,
-        "height": 124
+        "x": 1316,
+        "y": 56,
+        "width": 128,
+        "height": 142
       },
       "description": "The plant pot is different.",
       "descriptionKo": "화분이 달라졌어요.",
@@ -77,32 +77,15 @@
       "translation": "화분이 달라졌어요."
     },
     {
-      "id": "robot_color",
-      "label": "robot",
-      "labelKo": "로봇",
-      "targetSide": "right",
-      "bbox": {
-        "x": 880,
-        "y": 506,
-        "width": 124,
-        "height": 124
-      },
-      "description": "The robot is different.",
-      "descriptionKo": "로봇이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The robot is different.",
-      "translation": "로봇이 달라졌어요."
-    },
-    {
-      "id": "lamp_shade_color",
+      "id": "lamp_natural",
       "label": "lamp",
       "labelKo": "램프",
       "targetSide": "right",
       "bbox": {
-        "x": 1276,
-        "y": 522,
-        "width": 124,
-        "height": 124
+        "x": 1398,
+        "y": 251,
+        "width": 112,
+        "height": 165
       },
       "description": "The lamp is different.",
       "descriptionKo": "램프가 달라졌어요.",
@@ -111,15 +94,15 @@
       "translation": "램프가 달라졌어요."
     },
     {
-      "id": "teddy_bow_color",
+      "id": "teddy_bear_bow_natural",
       "label": "teddy bear bow",
       "labelKo": "곰인형 리본",
       "targetSide": "right",
       "bbox": {
-        "x": 1080,
-        "y": 844,
-        "width": 124,
-        "height": 124
+        "x": 993,
+        "y": 386,
+        "width": 142,
+        "height": 165
       },
       "description": "The teddy bear bow is different.",
       "descriptionKo": "곰인형 리본이 달라졌어요.",
@@ -128,15 +111,15 @@
       "translation": "곰인형 리본이 달라졌어요."
     },
     {
-      "id": "storage_box_color",
+      "id": "toy_box_natural",
       "label": "toy box",
       "labelKo": "장난감 상자",
       "targetSide": "right",
       "bbox": {
-        "x": 854,
-        "y": 736,
-        "width": 124,
-        "height": 124
+        "x": 1072,
+        "y": 499,
+        "width": 180,
+        "height": 172
       },
       "description": "The toy box is different.",
       "descriptionKo": "장난감 상자가 달라졌어요.",
@@ -145,15 +128,15 @@
       "translation": "장난감 상자가 달라졌어요."
     },
     {
-      "id": "rug_color",
+      "id": "rug_natural",
       "label": "rug",
       "labelKo": "러그",
       "targetSide": "right",
       "bbox": {
-        "x": 1325,
-        "y": 752,
-        "width": 124,
-        "height": 124
+        "x": 952,
+        "y": 682,
+        "width": 315,
+        "height": 202
       },
       "description": "The rug is different.",
       "descriptionKo": "러그가 달라졌어요.",
@@ -162,15 +145,15 @@
       "translation": "러그가 달라졌어요."
     },
     {
-      "id": "toy_car_color",
+      "id": "toy_car_natural",
       "label": "toy car",
       "labelKo": "장난감 자동차",
       "targetSide": "right",
       "bbox": {
-        "x": 992,
-        "y": 349,
-        "width": 124,
-        "height": 124
+        "x": 1263,
+        "y": 780,
+        "width": 128,
+        "height": 112
       },
       "description": "The toy car is different.",
       "descriptionKo": "장난감 자동차가 달라졌어요.",
@@ -179,22 +162,38 @@
       "translation": "장난감 자동차가 달라졌어요."
     },
     {
-      "id": "ball_color",
+      "id": "ball_natural",
       "label": "ball",
       "labelKo": "공",
       "targetSide": "right",
       "bbox": {
-        "x": 1187,
-        "y": 333,
-        "width": 124,
-        "height": 124
+        "x": 858,
+        "y": 735,
+        "width": 120,
+        "height": 112
       },
       "description": "The ball is different.",
       "descriptionKo": "공이 달라졌어요.",
       "action": "changed",
       "voiceText": "The ball is different.",
       "translation": "공이 달라졌어요."
+    },
+    {
+      "id": "robot_natural",
+      "label": "robot",
+      "labelKo": "로봇",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1308,
+        "y": 428,
+        "width": 128,
+        "height": 158
+      },
+      "description": "The robot is different.",
+      "descriptionKo": "로봇이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The robot is different.",
+      "translation": "로봇이 달라졌어요."
     }
-  ],
-  "hitPadding": 30
+  ]
 }

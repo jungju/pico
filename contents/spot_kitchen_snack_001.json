@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,15 +26,15 @@
   },
   "differences": [
     {
-      "id": "apple_color",
+      "id": "apple_natural",
       "label": "apple",
       "labelKo": "사과",
       "targetSide": "right",
       "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
+        "x": 843,
+        "y": 634,
+        "width": 202,
+        "height": 172
       },
       "description": "The apple is different.",
       "descriptionKo": "사과가 달라졌어요.",
@@ -43,15 +43,15 @@
       "translation": "사과가 달라졌어요."
     },
     {
-      "id": "cup_color",
+      "id": "cup_natural",
       "label": "cup",
       "labelKo": "컵",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
+        "x": 1154,
+        "y": 525,
+        "width": 135,
+        "height": 142
       },
       "description": "The cup is different.",
       "descriptionKo": "컵이 달라졌어요.",
@@ -60,15 +60,32 @@
       "translation": "컵이 달라졌어요."
     },
     {
-      "id": "cupcake_color",
+      "id": "banana_natural",
+      "label": "banana",
+      "labelKo": "바나나",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1286,
+        "y": 566,
+        "width": 165,
+        "height": 98
+      },
+      "description": "The banana is different.",
+      "descriptionKo": "바나나가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The banana is different.",
+      "translation": "바나나가 달라졌어요."
+    },
+    {
+      "id": "cupcake_natural",
       "label": "cupcake",
       "labelKo": "컵케이크",
       "targetSide": "right",
       "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
+        "x": 1338,
+        "y": 611,
+        "width": 128,
+        "height": 120
       },
       "description": "The cupcake is different.",
       "descriptionKo": "컵케이크가 달라졌어요.",
@@ -77,32 +94,15 @@
       "translation": "컵케이크가 달라졌어요."
     },
     {
-      "id": "spoon_color",
-      "label": "spoon",
-      "labelKo": "숟가락",
-      "targetSide": "right",
-      "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The spoon is different.",
-      "descriptionKo": "숟가락이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The spoon is different.",
-      "translation": "숟가락이 달라졌어요."
-    },
-    {
-      "id": "plate_color",
+      "id": "plate_natural",
       "label": "plate",
       "labelKo": "접시",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 1192,
+        "y": 641,
+        "width": 225,
+        "height": 172
       },
       "description": "The plate is different.",
       "descriptionKo": "접시가 달라졌어요.",
@@ -111,21 +111,21 @@
       "translation": "접시가 달라졌어요."
     },
     {
-      "id": "banana_color",
-      "label": "banana",
-      "labelKo": "바나나",
+      "id": "spoon_natural",
+      "label": "spoon",
+      "labelKo": "숟가락",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
+        "x": 1394,
+        "y": 698,
+        "width": 128,
+        "height": 105
       },
-      "description": "The banana is different.",
-      "descriptionKo": "바나나가 달라졌어요.",
+      "description": "The spoon is different.",
+      "descriptionKo": "숟가락이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The banana is different.",
-      "translation": "바나나가 달라졌어요."
+      "voiceText": "The spoon is different.",
+      "translation": "숟가락이 달라졌어요."
     }
   ]
 }

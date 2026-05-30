@@ -6,9 +6,9 @@
   "theme": "playground",
   "level": 3,
   "estimatedMinutes": 4,
-  "image": "/games/spot_playground_picnic_001/image.png",
   "imageWidth": 1536,
   "imageHeight": 1152,
+  "hitPadding": 16,
   "totalDifferences": 10,
   "panels": {
     "left": {
@@ -26,32 +26,15 @@
   },
   "differences": [
     {
-      "id": "apple_on_tree",
-      "label": "apple",
-      "labelKo": "사과",
-      "targetSide": "right",
-      "bbox": {
-        "x": 869,
-        "y": 137,
-        "width": 124,
-        "height": 124
-      },
-      "description": "The apple is different.",
-      "descriptionKo": "사과가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The apple is different.",
-      "translation": "사과가 달라졌어요."
-    },
-    {
-      "id": "kite_color",
+      "id": "kite_natural",
       "label": "kite",
       "labelKo": "연",
       "targetSide": "right",
       "bbox": {
-        "x": 1080,
-        "y": 176,
-        "width": 124,
-        "height": 124
+        "x": 1173,
+        "y": 86,
+        "width": 142,
+        "height": 142
       },
       "description": "The kite is different.",
       "descriptionKo": "연이 달라졌어요.",
@@ -60,32 +43,15 @@
       "translation": "연이 달라졌어요."
     },
     {
-      "id": "butterfly_color",
-      "label": "butterfly",
-      "labelKo": "나비",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1315,
-        "y": 187,
-        "width": 124,
-        "height": 124
-      },
-      "description": "The butterfly is different.",
-      "descriptionKo": "나비가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The butterfly is different.",
-      "translation": "나비가 달라졌어요."
-    },
-    {
-      "id": "bird_color",
+      "id": "bird_natural",
       "label": "bird",
       "labelKo": "새",
       "targetSide": "right",
       "bbox": {
-        "x": 880,
-        "y": 506,
-        "width": 124,
-        "height": 124
+        "x": 997,
+        "y": 154,
+        "width": 109,
+        "height": 86
       },
       "description": "The bird is different.",
       "descriptionKo": "새가 달라졌어요.",
@@ -94,15 +60,32 @@
       "translation": "새가 달라졌어요."
     },
     {
-      "id": "swing_seat_color",
+      "id": "flag_natural",
+      "label": "flag",
+      "labelKo": "깃발",
+      "targetSide": "right",
+      "bbox": {
+        "x": 903,
+        "y": 270,
+        "width": 120,
+        "height": 98
+      },
+      "description": "The flag is different.",
+      "descriptionKo": "깃발이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The flag is different.",
+      "translation": "깃발이 달라졌어요."
+    },
+    {
+      "id": "swing_natural",
       "label": "swing",
       "labelKo": "그네",
       "targetSide": "right",
       "bbox": {
-        "x": 1276,
-        "y": 522,
-        "width": 124,
-        "height": 124
+        "x": 1177,
+        "y": 338,
+        "width": 191,
+        "height": 180
       },
       "description": "The swing is different.",
       "descriptionKo": "그네가 달라졌어요.",
@@ -111,15 +94,32 @@
       "translation": "그네가 달라졌어요."
     },
     {
-      "id": "bucket_color",
+      "id": "apple_natural",
+      "label": "apple",
+      "labelKo": "사과",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1256,
+        "y": 761,
+        "width": 135,
+        "height": 112
+      },
+      "description": "The apple is different.",
+      "descriptionKo": "사과가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The apple is different.",
+      "translation": "사과가 달라졌어요."
+    },
+    {
+      "id": "bucket_natural",
       "label": "bucket",
       "labelKo": "양동이",
       "targetSide": "right",
       "bbox": {
-        "x": 1080,
-        "y": 844,
-        "width": 124,
-        "height": 124
+        "x": 1207,
+        "y": 656,
+        "width": 195,
+        "height": 195
       },
       "description": "The bucket is different.",
       "descriptionKo": "양동이가 달라졌어요.",
@@ -128,15 +128,15 @@
       "translation": "양동이가 달라졌어요."
     },
     {
-      "id": "boy_cap_color",
+      "id": "cap_natural",
       "label": "cap",
       "labelKo": "모자",
       "targetSide": "right",
       "bbox": {
-        "x": 854,
-        "y": 736,
+        "x": 1046,
+        "y": 780,
         "width": 124,
-        "height": 124
+        "height": 98
       },
       "description": "The cap is different.",
       "descriptionKo": "모자가 달라졌어요.",
@@ -145,15 +145,15 @@
       "translation": "모자가 달라졌어요."
     },
     {
-      "id": "girl_bow_color",
+      "id": "hair_bow_natural",
       "label": "hair bow",
       "labelKo": "머리 리본",
       "targetSide": "right",
       "bbox": {
-        "x": 1325,
-        "y": 752,
-        "width": 124,
-        "height": 124
+        "x": 1383,
+        "y": 765,
+        "width": 112,
+        "height": 105
       },
       "description": "The hair bow is different.",
       "descriptionKo": "머리 리본이 달라졌어요.",
@@ -162,39 +162,38 @@
       "translation": "머리 리본이 달라졌어요."
     },
     {
-      "id": "dog_collar_color",
-      "label": "dog collar",
-      "labelKo": "강아지 목줄",
-      "targetSide": "right",
-      "bbox": {
-        "x": 992,
-        "y": 349,
-        "width": 124,
-        "height": 124
-      },
-      "description": "The dog collar is different.",
-      "descriptionKo": "강아지 목줄이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The dog collar is different.",
-      "translation": "강아지 목줄이 달라졌어요."
-    },
-    {
-      "id": "beach_ball_color",
+      "id": "beach_ball_natural",
       "label": "beach ball",
       "labelKo": "비치볼",
       "targetSide": "right",
       "bbox": {
-        "x": 1187,
-        "y": 333,
-        "width": 124,
-        "height": 124
+        "x": 1353,
+        "y": 619,
+        "width": 128,
+        "height": 128
       },
       "description": "The beach ball is different.",
       "descriptionKo": "비치볼이 달라졌어요.",
       "action": "changed",
       "voiceText": "The beach ball is different.",
       "translation": "비치볼이 달라졌어요."
+    },
+    {
+      "id": "butterfly_natural",
+      "label": "butterfly",
+      "labelKo": "나비",
+      "targetSide": "right",
+      "bbox": {
+        "x": 839,
+        "y": 791,
+        "width": 105,
+        "height": 98
+      },
+      "description": "The butterfly is different.",
+      "descriptionKo": "나비가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The butterfly is different.",
+      "translation": "나비가 달라졌어요."
     }
-  ],
-  "hitPadding": 30
+  ]
 }

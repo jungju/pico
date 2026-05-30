@@ -7,7 +7,8 @@
 
 - Find & Learn content JSON and paired images stay in `contents/`.
 - Spot the Difference stages use `contents/<stage-id>.json` paired with
-  `contents/<stage-id>.jpg` for the current API-generated raster image pairs.
+  `contents/<stage-id>.jpg` for the current API-generated and API-edited
+  raster image pairs.
 - Built-in v1 game data lives under `src/games/<game>/stages/`.
 - Public preview, scene, card, and small game images live under
   `public/assets/`.
@@ -74,7 +75,8 @@ public/assets/audio/<word>.mp3
 ## File Type Defaults
 
 - Generated or illustrated scene images: `.png`, `.webp`, or `.svg`
-- API-generated Spot the Difference scene pairs in `contents/`: `.jpg`
+- API-generated and API-edited Spot the Difference scene pairs in
+  `contents/`: `.jpg`
 - Deterministic card, maze preview, and reusable generated stage assets: `.svg`
 - Photos or rich raster art: `.jpg`, `.png`, or `.webp`
 - Audio: `.mp3`

@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,32 +26,15 @@
   },
   "differences": [
     {
-      "id": "train_color",
-      "label": "train",
-      "labelKo": "기차",
-      "targetSide": "right",
-      "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The train is different.",
-      "descriptionKo": "기차가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The train is different.",
-      "translation": "기차가 달라졌어요."
-    },
-    {
-      "id": "clock_color",
+      "id": "clock_natural",
       "label": "clock",
       "labelKo": "시계",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
+        "x": 884,
+        "y": 109,
+        "width": 142,
+        "height": 142
       },
       "description": "The clock is different.",
       "descriptionKo": "시계가 달라졌어요.",
@@ -60,32 +43,15 @@
       "translation": "시계가 달라졌어요."
     },
     {
-      "id": "backpack_color",
-      "label": "backpack",
-      "labelKo": "가방",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The backpack is different.",
-      "descriptionKo": "가방이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The backpack is different.",
-      "translation": "가방이 달라졌어요."
-    },
-    {
-      "id": "flag_color",
+      "id": "flag_natural",
       "label": "flag",
       "labelKo": "깃발",
       "targetSide": "right",
       "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
+        "x": 1132,
+        "y": 71,
+        "width": 322,
+        "height": 142
       },
       "description": "The flag is different.",
       "descriptionKo": "깃발이 달라졌어요.",
@@ -94,15 +60,32 @@
       "translation": "깃발이 달라졌어요."
     },
     {
-      "id": "book_color",
+      "id": "train_natural",
+      "label": "train",
+      "labelKo": "기차",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1346,
+        "y": 416,
+        "width": 188,
+        "height": 150
+      },
+      "description": "The train is different.",
+      "descriptionKo": "기차가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The train is different.",
+      "translation": "기차가 달라졌어요."
+    },
+    {
+      "id": "book_natural",
       "label": "book",
       "labelKo": "책",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 1072,
+        "y": 626,
+        "width": 202,
+        "height": 172
       },
       "description": "The book is different.",
       "descriptionKo": "책이 달라졌어요.",
@@ -111,15 +94,32 @@
       "translation": "책이 달라졌어요."
     },
     {
-      "id": "balloon_color",
+      "id": "backpack_natural",
+      "label": "backpack",
+      "labelKo": "가방",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1180,
+        "y": 765,
+        "width": 165,
+        "height": 202
+      },
+      "description": "The backpack is different.",
+      "descriptionKo": "가방이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The backpack is different.",
+      "translation": "가방이 달라졌어요."
+    },
+    {
+      "id": "balloon_natural",
       "label": "balloon",
       "labelKo": "풍선",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
+        "x": 1319,
+        "y": 262,
+        "width": 112,
+        "height": 188
       },
       "description": "The balloon is different.",
       "descriptionKo": "풍선이 달라졌어요.",

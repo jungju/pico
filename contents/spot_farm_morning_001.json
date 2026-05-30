@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,32 +26,15 @@
   },
   "differences": [
     {
-      "id": "apple_color",
-      "label": "apple",
-      "labelKo": "사과",
-      "targetSide": "right",
-      "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The apple is different.",
-      "descriptionKo": "사과가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The apple is different.",
-      "translation": "사과가 달라졌어요."
-    },
-    {
-      "id": "bird_color",
+      "id": "bird_natural",
       "label": "bird",
       "labelKo": "새",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
+        "x": 1109,
+        "y": 124,
+        "width": 112,
+        "height": 98
       },
       "description": "The bird is different.",
       "descriptionKo": "새가 달라졌어요.",
@@ -60,49 +43,32 @@
       "translation": "새가 달라졌어요."
     },
     {
-      "id": "flower_color",
-      "label": "flower",
-      "labelKo": "꽃",
+      "id": "apple_natural",
+      "label": "apple",
+      "labelKo": "사과",
       "targetSide": "right",
       "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
+        "x": 787,
+        "y": 870,
+        "width": 165,
+        "height": 165
       },
-      "description": "The flower is different.",
-      "descriptionKo": "꽃이 달라졌어요.",
+      "description": "The apple is different.",
+      "descriptionKo": "사과가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The flower is different.",
-      "translation": "꽃이 달라졌어요."
+      "voiceText": "The apple is different.",
+      "translation": "사과가 달라졌어요."
     },
     {
-      "id": "bucket_color",
-      "label": "bucket",
-      "labelKo": "양동이",
-      "targetSide": "right",
-      "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The bucket is different.",
-      "descriptionKo": "양동이가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The bucket is different.",
-      "translation": "양동이가 달라졌어요."
-    },
-    {
-      "id": "hat_color",
+      "id": "hat_natural",
       "label": "hat",
       "labelKo": "모자",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 1109,
+        "y": 570,
+        "width": 165,
+        "height": 128
       },
       "description": "The hat is different.",
       "descriptionKo": "모자가 달라졌어요.",
@@ -111,15 +77,49 @@
       "translation": "모자가 달라졌어요."
     },
     {
-      "id": "carrot_color",
+      "id": "flower_natural",
+      "label": "flower",
+      "labelKo": "꽃",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1330,
+        "y": 540,
+        "width": 172,
+        "height": 195
+      },
+      "description": "The flower is different.",
+      "descriptionKo": "꽃이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The flower is different.",
+      "translation": "꽃이 달라졌어요."
+    },
+    {
+      "id": "bucket_natural",
+      "label": "bucket",
+      "labelKo": "양동이",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1109,
+        "y": 915,
+        "width": 158,
+        "height": 142
+      },
+      "description": "The bucket is different.",
+      "descriptionKo": "양동이가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The bucket is different.",
+      "translation": "양동이가 달라졌어요."
+    },
+    {
+      "id": "carrot_natural",
       "label": "carrot",
       "labelKo": "당근",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
+        "x": 1274,
+        "y": 892,
+        "width": 150,
+        "height": 135
       },
       "description": "The carrot is different.",
       "descriptionKo": "당근이 달라졌어요.",

@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,15 +26,15 @@
   },
   "differences": [
     {
-      "id": "fish_color",
+      "id": "fish_natural",
       "label": "fish",
       "labelKo": "물고기",
       "targetSide": "right",
       "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
+        "x": 910,
+        "y": 255,
+        "width": 150,
+        "height": 105
       },
       "description": "The fish is different.",
       "descriptionKo": "물고기가 달라졌어요.",
@@ -43,32 +43,15 @@
       "translation": "물고기가 달라졌어요."
     },
     {
-      "id": "shell_color",
-      "label": "shell",
-      "labelKo": "조개",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The shell is different.",
-      "descriptionKo": "조개가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The shell is different.",
-      "translation": "조개가 달라졌어요."
-    },
-    {
-      "id": "boat_color",
+      "id": "boat_natural",
       "label": "boat",
       "labelKo": "배",
       "targetSide": "right",
       "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
+        "x": 1267,
+        "y": 326,
+        "width": 218,
+        "height": 278
       },
       "description": "The boat is different.",
       "descriptionKo": "배가 달라졌어요.",
@@ -77,32 +60,15 @@
       "translation": "배가 달라졌어요."
     },
     {
-      "id": "star_color",
-      "label": "starfish",
-      "labelKo": "불가사리",
-      "targetSide": "right",
-      "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The starfish is different.",
-      "descriptionKo": "불가사리가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The starfish is different.",
-      "translation": "불가사리가 달라졌어요."
-    },
-    {
-      "id": "bucket_color",
+      "id": "bucket_natural",
       "label": "bucket",
       "labelKo": "양동이",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 1102,
+        "y": 529,
+        "width": 142,
+        "height": 150
       },
       "description": "The bucket is different.",
       "descriptionKo": "양동이가 달라졌어요.",
@@ -111,15 +77,49 @@
       "translation": "양동이가 달라졌어요."
     },
     {
-      "id": "crab_color",
+      "id": "starfish_natural",
+      "label": "starfish",
+      "labelKo": "불가사리",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1372,
+        "y": 585,
+        "width": 135,
+        "height": 135
+      },
+      "description": "The starfish is different.",
+      "descriptionKo": "불가사리가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The starfish is different.",
+      "translation": "불가사리가 달라졌어요."
+    },
+    {
+      "id": "shell_natural",
+      "label": "shell",
+      "labelKo": "조개",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1278,
+        "y": 788,
+        "width": 225,
+        "height": 195
+      },
+      "description": "The shell is different.",
+      "descriptionKo": "조개가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The shell is different.",
+      "translation": "조개가 달라졌어요."
+    },
+    {
+      "id": "crab_natural",
       "label": "crab",
       "labelKo": "게",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
+        "x": 989,
+        "y": 765,
+        "width": 142,
+        "height": 120
       },
       "description": "The crab is different.",
       "descriptionKo": "게가 달라졌어요.",

@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,15 +26,15 @@
   },
   "differences": [
     {
-      "id": "snowman_color",
+      "id": "snowman_natural",
       "label": "snowman",
       "labelKo": "눈사람",
       "targetSide": "right",
       "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
+        "x": 970,
+        "y": 270,
+        "width": 180,
+        "height": 285
       },
       "description": "The snowman is different.",
       "descriptionKo": "눈사람이 달라졌어요.",
@@ -43,15 +43,15 @@
       "translation": "눈사람이 달라졌어요."
     },
     {
-      "id": "hat_color",
+      "id": "hat_natural",
       "label": "hat",
       "labelKo": "모자",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
+        "x": 993,
+        "y": 232,
+        "width": 150,
+        "height": 105
       },
       "description": "The hat is different.",
       "descriptionKo": "모자가 달라졌어요.",
@@ -60,49 +60,15 @@
       "translation": "모자가 달라졌어요."
     },
     {
-      "id": "star_color",
-      "label": "star",
-      "labelKo": "별",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The star is different.",
-      "descriptionKo": "별이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The star is different.",
-      "translation": "별이 달라졌어요."
-    },
-    {
-      "id": "boot_color",
-      "label": "boot",
-      "labelKo": "장화",
-      "targetSide": "right",
-      "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The boot is different.",
-      "descriptionKo": "장화가 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The boot is different.",
-      "translation": "장화가 달라졌어요."
-    },
-    {
-      "id": "scarf_color",
+      "id": "scarf_natural",
       "label": "scarf",
       "labelKo": "목도리",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 993,
+        "y": 398,
+        "width": 165,
+        "height": 112
       },
       "description": "The scarf is different.",
       "descriptionKo": "목도리가 달라졌어요.",
@@ -111,21 +77,55 @@
       "translation": "목도리가 달라졌어요."
     },
     {
-      "id": "tree_color",
+      "id": "tree_natural",
       "label": "tree",
       "labelKo": "나무",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
+        "x": 794,
+        "y": 169,
+        "width": 142,
+        "height": 278
       },
       "description": "The tree is different.",
       "descriptionKo": "나무가 달라졌어요.",
       "action": "changed",
       "voiceText": "The tree is different.",
       "translation": "나무가 달라졌어요."
+    },
+    {
+      "id": "boot_natural",
+      "label": "boot",
+      "labelKo": "장화",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1150,
+        "y": 802,
+        "width": 135,
+        "height": 120
+      },
+      "description": "The boot is different.",
+      "descriptionKo": "장화가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The boot is different.",
+      "translation": "장화가 달라졌어요."
+    },
+    {
+      "id": "star_natural",
+      "label": "star",
+      "labelKo": "별",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1334,
+        "y": 60,
+        "width": 109,
+        "height": 109
+      },
+      "description": "The star is different.",
+      "descriptionKo": "별이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The star is different.",
+      "translation": "별이 달라졌어요."
     }
   ]
 }

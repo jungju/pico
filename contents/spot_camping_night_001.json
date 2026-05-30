@@ -8,7 +8,7 @@
   "estimatedMinutes": 3,
   "imageWidth": 1536,
   "imageHeight": 1152,
-  "hitPadding": 30,
+  "hitPadding": 16,
   "totalDifferences": 6,
   "panels": {
     "left": {
@@ -26,15 +26,15 @@
   },
   "differences": [
     {
-      "id": "tent_color",
+      "id": "tent_natural",
       "label": "tent",
       "labelKo": "텐트",
       "targetSide": "right",
       "bbox": {
-        "x": 861,
-        "y": 129,
-        "width": 140,
-        "height": 140
+        "x": 854,
+        "y": 375,
+        "width": 248,
+        "height": 285
       },
       "description": "The tent is different.",
       "descriptionKo": "텐트가 달라졌어요.",
@@ -43,15 +43,15 @@
       "translation": "텐트가 달라졌어요."
     },
     {
-      "id": "star_color",
+      "id": "star_natural",
       "label": "star",
       "labelKo": "별",
       "targetSide": "right",
       "bbox": {
-        "x": 1072,
-        "y": 168,
-        "width": 140,
-        "height": 140
+        "x": 1113,
+        "y": 120,
+        "width": 158,
+        "height": 135
       },
       "description": "The star is different.",
       "descriptionKo": "별이 달라졌어요.",
@@ -60,15 +60,15 @@
       "translation": "별이 달라졌어요."
     },
     {
-      "id": "moon_color",
+      "id": "moon_natural",
       "label": "moon",
       "labelKo": "달",
       "targetSide": "right",
       "bbox": {
-        "x": 1307,
-        "y": 179,
-        "width": 140,
-        "height": 140
+        "x": 1297,
+        "y": 112,
+        "width": 142,
+        "height": 142
       },
       "description": "The moon is different.",
       "descriptionKo": "달이 달라졌어요.",
@@ -77,15 +77,32 @@
       "translation": "달이 달라졌어요."
     },
     {
-      "id": "cup_color",
+      "id": "flag_natural",
+      "label": "flag",
+      "labelKo": "깃발",
+      "targetSide": "right",
+      "bbox": {
+        "x": 940,
+        "y": 319,
+        "width": 120,
+        "height": 105
+      },
+      "description": "The flag is different.",
+      "descriptionKo": "깃발이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The flag is different.",
+      "translation": "깃발이 달라졌어요."
+    },
+    {
+      "id": "cup_natural",
       "label": "cup",
       "labelKo": "컵",
       "targetSide": "right",
       "bbox": {
-        "x": 872,
-        "y": 498,
-        "width": 140,
-        "height": 140
+        "x": 1210,
+        "y": 638,
+        "width": 135,
+        "height": 135
       },
       "description": "The cup is different.",
       "descriptionKo": "컵이 달라졌어요.",
@@ -94,38 +111,21 @@
       "translation": "컵이 달라졌어요."
     },
     {
-      "id": "fish_color",
+      "id": "fish_natural",
       "label": "fish",
       "labelKo": "물고기",
       "targetSide": "right",
       "bbox": {
-        "x": 1268,
-        "y": 514,
-        "width": 140,
-        "height": 140
+        "x": 1158,
+        "y": 465,
+        "width": 135,
+        "height": 82
       },
       "description": "The fish is different.",
       "descriptionKo": "물고기가 달라졌어요.",
       "action": "changed",
       "voiceText": "The fish is different.",
       "translation": "물고기가 달라졌어요."
-    },
-    {
-      "id": "flag_color",
-      "label": "flag",
-      "labelKo": "깃발",
-      "targetSide": "right",
-      "bbox": {
-        "x": 1072,
-        "y": 836,
-        "width": 140,
-        "height": 140
-      },
-      "description": "The flag is different.",
-      "descriptionKo": "깃발이 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The flag is different.",
-      "translation": "깃발이 달라졌어요."
     }
   ]
 }

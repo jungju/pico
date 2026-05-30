@@ -110,7 +110,8 @@ V1 release requires 20 polished playable stages for each game type.
   `public/assets/memory-animal-*.svg`, generated `public/assets/memory_*.svg`
   preview assets, and reusable `public/assets/memory-word-*.svg` card images.
 - Spot the Difference content image assets live in `contents/` as
-  API-generated `.jpg` raster scene pairs with matching JSON hitboxes.
+  API-generated and API-edited `.jpg` raster scene pairs with matching JSON
+  hitboxes.
 
 ## V1 Acceptance
 
