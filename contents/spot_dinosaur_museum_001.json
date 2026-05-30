@@ -6,22 +6,22 @@
   "theme": "museum",
   "level": 2,
   "estimatedMinutes": 3,
-  "imageWidth": 1448,
-  "imageHeight": 1086,
-  "hitPadding": 26,
+  "imageWidth": 1536,
+  "imageHeight": 1152,
+  "hitPadding": 30,
   "totalDifferences": 6,
   "panels": {
     "left": {
       "x": 0,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     },
     "right": {
-      "x": 724,
+      "x": 768,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     }
   },
   "differences": [
@@ -31,16 +31,16 @@
       "labelKo": "공룡",
       "targetSide": "right",
       "bbox": {
-        "x": 816,
-        "y": 148,
-        "width": 128,
-        "height": 128
+        "x": 861,
+        "y": 129,
+        "width": 140,
+        "height": 140
       },
-      "description": "The dinosaur is purple.",
-      "descriptionKo": "공룡 색이 보라색이에요.",
+      "description": "The dinosaur is different.",
+      "descriptionKo": "공룡이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The dinosaur is purple.",
-      "translation": "공룡 색이 보라색이에요."
+      "voiceText": "The dinosaur is different.",
+      "translation": "공룡이 달라졌어요."
     },
     {
       "id": "leaf_color",
@@ -48,16 +48,16 @@
       "labelKo": "잎",
       "targetSide": "right",
       "bbox": {
-        "x": 1022,
-        "y": 128,
-        "width": 132,
-        "height": 132
+        "x": 1072,
+        "y": 168,
+        "width": 140,
+        "height": 140
       },
-      "description": "The leaf is orange.",
-      "descriptionKo": "잎 색이 주황색이에요.",
+      "description": "The leaf is different.",
+      "descriptionKo": "잎이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The leaf is orange.",
-      "translation": "잎 색이 주황색이에요."
+      "voiceText": "The leaf is different.",
+      "translation": "잎이 달라졌어요."
     },
     {
       "id": "bone_color",
@@ -65,16 +65,16 @@
       "labelKo": "뼈",
       "targetSide": "right",
       "bbox": {
-        "x": 1234,
-        "y": 154,
-        "width": 130,
-        "height": 130
+        "x": 1307,
+        "y": 179,
+        "width": 140,
+        "height": 140
       },
-      "description": "The bone is red.",
-      "descriptionKo": "뼈 색이 빨간색이에요.",
+      "description": "The bone is different.",
+      "descriptionKo": "뼈가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The bone is red.",
-      "translation": "뼈 색이 빨간색이에요."
+      "voiceText": "The bone is different.",
+      "translation": "뼈가 달라졌어요."
     },
     {
       "id": "hat_color",
@@ -82,16 +82,16 @@
       "labelKo": "모자",
       "targetSide": "right",
       "bbox": {
-        "x": 840,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 872,
+        "y": 498,
+        "width": 140,
+        "height": 140
       },
-      "description": "The hat is blue.",
-      "descriptionKo": "모자 색이 파란색이에요.",
+      "description": "The hat is different.",
+      "descriptionKo": "모자가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The hat is blue.",
-      "translation": "모자 색이 파란색이에요."
+      "voiceText": "The hat is different.",
+      "translation": "모자가 달라졌어요."
     },
     {
       "id": "flag_color",
@@ -99,16 +99,16 @@
       "labelKo": "깃발",
       "targetSide": "right",
       "bbox": {
-        "x": 1194,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 1268,
+        "y": 514,
+        "width": 140,
+        "height": 140
       },
-      "description": "The flag is green.",
-      "descriptionKo": "깃발 색이 초록색이에요.",
+      "description": "The flag is different.",
+      "descriptionKo": "깃발이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The flag is green.",
-      "translation": "깃발 색이 초록색이에요."
+      "voiceText": "The flag is different.",
+      "translation": "깃발이 달라졌어요."
     },
     {
       "id": "clock_color",
@@ -116,16 +116,16 @@
       "labelKo": "시계",
       "targetSide": "right",
       "bbox": {
-        "x": 1011,
-        "y": 790,
-        "width": 150,
-        "height": 150
+        "x": 1072,
+        "y": 836,
+        "width": 140,
+        "height": 140
       },
-      "description": "The clock is yellow.",
-      "descriptionKo": "시계 색이 노란색이에요.",
+      "description": "The clock is different.",
+      "descriptionKo": "시계가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The clock is yellow.",
-      "translation": "시계 색이 노란색이에요."
+      "voiceText": "The clock is different.",
+      "translation": "시계가 달라졌어요."
     }
   ]
 }

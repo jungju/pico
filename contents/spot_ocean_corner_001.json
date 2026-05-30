@@ -6,22 +6,22 @@
   "theme": "ocean",
   "level": 2,
   "estimatedMinutes": 3,
-  "imageWidth": 1448,
-  "imageHeight": 1086,
-  "hitPadding": 26,
+  "imageWidth": 1536,
+  "imageHeight": 1152,
+  "hitPadding": 30,
   "totalDifferences": 6,
   "panels": {
     "left": {
       "x": 0,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     },
     "right": {
-      "x": 724,
+      "x": 768,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     }
   },
   "differences": [
@@ -31,16 +31,16 @@
       "labelKo": "물고기",
       "targetSide": "right",
       "bbox": {
-        "x": 816,
-        "y": 148,
-        "width": 128,
-        "height": 128
+        "x": 861,
+        "y": 129,
+        "width": 140,
+        "height": 140
       },
-      "description": "The fish is red.",
-      "descriptionKo": "물고기 색이 빨간색이에요.",
+      "description": "The fish is different.",
+      "descriptionKo": "물고기가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The fish is red.",
-      "translation": "물고기 색이 빨간색이에요."
+      "voiceText": "The fish is different.",
+      "translation": "물고기가 달라졌어요."
     },
     {
       "id": "shell_color",
@@ -48,16 +48,16 @@
       "labelKo": "조개",
       "targetSide": "right",
       "bbox": {
-        "x": 1022,
-        "y": 128,
-        "width": 132,
-        "height": 132
+        "x": 1072,
+        "y": 168,
+        "width": 140,
+        "height": 140
       },
-      "description": "The shell is blue.",
-      "descriptionKo": "조개 색이 파란색이에요.",
+      "description": "The shell is different.",
+      "descriptionKo": "조개가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The shell is blue.",
-      "translation": "조개 색이 파란색이에요."
+      "voiceText": "The shell is different.",
+      "translation": "조개가 달라졌어요."
     },
     {
       "id": "boat_color",
@@ -65,16 +65,16 @@
       "labelKo": "배",
       "targetSide": "right",
       "bbox": {
-        "x": 1234,
-        "y": 154,
-        "width": 130,
-        "height": 130
+        "x": 1307,
+        "y": 179,
+        "width": 140,
+        "height": 140
       },
-      "description": "The boat is green.",
-      "descriptionKo": "배 색이 초록색이에요.",
+      "description": "The boat is different.",
+      "descriptionKo": "배가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The boat is green.",
-      "translation": "배 색이 초록색이에요."
+      "voiceText": "The boat is different.",
+      "translation": "배가 달라졌어요."
     },
     {
       "id": "star_color",
@@ -82,16 +82,16 @@
       "labelKo": "불가사리",
       "targetSide": "right",
       "bbox": {
-        "x": 840,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 872,
+        "y": 498,
+        "width": 140,
+        "height": 140
       },
-      "description": "The starfish is yellow.",
-      "descriptionKo": "불가사리 색이 노란색이에요.",
+      "description": "The starfish is different.",
+      "descriptionKo": "불가사리가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The starfish is yellow.",
-      "translation": "불가사리 색이 노란색이에요."
+      "voiceText": "The starfish is different.",
+      "translation": "불가사리가 달라졌어요."
     },
     {
       "id": "bucket_color",
@@ -99,16 +99,16 @@
       "labelKo": "양동이",
       "targetSide": "right",
       "bbox": {
-        "x": 1194,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 1268,
+        "y": 514,
+        "width": 140,
+        "height": 140
       },
-      "description": "The bucket is purple.",
-      "descriptionKo": "양동이 색이 보라색이에요.",
+      "description": "The bucket is different.",
+      "descriptionKo": "양동이가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The bucket is purple.",
-      "translation": "양동이 색이 보라색이에요."
+      "voiceText": "The bucket is different.",
+      "translation": "양동이가 달라졌어요."
     },
     {
       "id": "crab_color",
@@ -116,16 +116,16 @@
       "labelKo": "게",
       "targetSide": "right",
       "bbox": {
-        "x": 1011,
-        "y": 790,
-        "width": 150,
-        "height": 150
+        "x": 1072,
+        "y": 836,
+        "width": 140,
+        "height": 140
       },
-      "description": "The crab is orange.",
-      "descriptionKo": "게 색이 주황색이에요.",
+      "description": "The crab is different.",
+      "descriptionKo": "게가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The crab is orange.",
-      "translation": "게 색이 주황색이에요."
+      "voiceText": "The crab is different.",
+      "translation": "게가 달라졌어요."
     }
   ]
 }

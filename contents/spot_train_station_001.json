@@ -6,22 +6,22 @@
   "theme": "station",
   "level": 2,
   "estimatedMinutes": 3,
-  "imageWidth": 1448,
-  "imageHeight": 1086,
-  "hitPadding": 26,
+  "imageWidth": 1536,
+  "imageHeight": 1152,
+  "hitPadding": 30,
   "totalDifferences": 6,
   "panels": {
     "left": {
       "x": 0,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     },
     "right": {
-      "x": 724,
+      "x": 768,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     }
   },
   "differences": [
@@ -31,16 +31,16 @@
       "labelKo": "기차",
       "targetSide": "right",
       "bbox": {
-        "x": 816,
-        "y": 148,
-        "width": 128,
-        "height": 128
+        "x": 861,
+        "y": 129,
+        "width": 140,
+        "height": 140
       },
-      "description": "The train is blue.",
-      "descriptionKo": "기차 색이 파란색이에요.",
+      "description": "The train is different.",
+      "descriptionKo": "기차가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The train is blue.",
-      "translation": "기차 색이 파란색이에요."
+      "voiceText": "The train is different.",
+      "translation": "기차가 달라졌어요."
     },
     {
       "id": "clock_color",
@@ -48,16 +48,16 @@
       "labelKo": "시계",
       "targetSide": "right",
       "bbox": {
-        "x": 1022,
-        "y": 128,
-        "width": 132,
-        "height": 132
+        "x": 1072,
+        "y": 168,
+        "width": 140,
+        "height": 140
       },
-      "description": "The clock is green.",
-      "descriptionKo": "시계 색이 초록색이에요.",
+      "description": "The clock is different.",
+      "descriptionKo": "시계가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The clock is green.",
-      "translation": "시계 색이 초록색이에요."
+      "voiceText": "The clock is different.",
+      "translation": "시계가 달라졌어요."
     },
     {
       "id": "backpack_color",
@@ -65,16 +65,16 @@
       "labelKo": "가방",
       "targetSide": "right",
       "bbox": {
-        "x": 1234,
-        "y": 154,
-        "width": 130,
-        "height": 130
+        "x": 1307,
+        "y": 179,
+        "width": 140,
+        "height": 140
       },
-      "description": "The backpack is yellow.",
-      "descriptionKo": "가방 색이 노란색이에요.",
+      "description": "The backpack is different.",
+      "descriptionKo": "가방이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The backpack is yellow.",
-      "translation": "가방 색이 노란색이에요."
+      "voiceText": "The backpack is different.",
+      "translation": "가방이 달라졌어요."
     },
     {
       "id": "flag_color",
@@ -82,16 +82,16 @@
       "labelKo": "깃발",
       "targetSide": "right",
       "bbox": {
-        "x": 840,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 872,
+        "y": 498,
+        "width": 140,
+        "height": 140
       },
-      "description": "The flag is purple.",
-      "descriptionKo": "깃발 색이 보라색이에요.",
+      "description": "The flag is different.",
+      "descriptionKo": "깃발이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The flag is purple.",
-      "translation": "깃발 색이 보라색이에요."
+      "voiceText": "The flag is different.",
+      "translation": "깃발이 달라졌어요."
     },
     {
       "id": "book_color",
@@ -99,16 +99,16 @@
       "labelKo": "책",
       "targetSide": "right",
       "bbox": {
-        "x": 1194,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 1268,
+        "y": 514,
+        "width": 140,
+        "height": 140
       },
-      "description": "The book is orange.",
-      "descriptionKo": "책 색이 주황색이에요.",
+      "description": "The book is different.",
+      "descriptionKo": "책이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The book is orange.",
-      "translation": "책 색이 주황색이에요."
+      "voiceText": "The book is different.",
+      "translation": "책이 달라졌어요."
     },
     {
       "id": "balloon_color",
@@ -116,16 +116,16 @@
       "labelKo": "풍선",
       "targetSide": "right",
       "bbox": {
-        "x": 1011,
-        "y": 790,
-        "width": 150,
-        "height": 150
+        "x": 1072,
+        "y": 836,
+        "width": 140,
+        "height": 140
       },
-      "description": "The balloon is red.",
-      "descriptionKo": "풍선 색이 빨간색이에요.",
+      "description": "The balloon is different.",
+      "descriptionKo": "풍선이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The balloon is red.",
-      "translation": "풍선 색이 빨간색이에요."
+      "voiceText": "The balloon is different.",
+      "translation": "풍선이 달라졌어요."
     }
   ]
 }

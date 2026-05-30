@@ -94,6 +94,9 @@ The first game is `Find & Learn`:
 - Opened from the Pico game selection page.
 - Loads one card per stage from `contents` when content stages exist.
 - Provides 20 Spot the Difference stages in the current v1 content set.
+- Uses OpenAI Image API generated raster backgrounds for the current Spot the
+  Difference content set, with deterministic composited differences and
+  matching JSON hitboxes in `contents/`.
 - Spots the differences between two pictures.
 - Lets the user click objects to see and hear English words.
 - Runs on GitHub Pages as a static web game.

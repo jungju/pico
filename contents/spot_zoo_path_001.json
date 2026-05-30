@@ -6,22 +6,22 @@
   "theme": "zoo",
   "level": 2,
   "estimatedMinutes": 3,
-  "imageWidth": 1448,
-  "imageHeight": 1086,
-  "hitPadding": 26,
+  "imageWidth": 1536,
+  "imageHeight": 1152,
+  "hitPadding": 30,
   "totalDifferences": 6,
   "panels": {
     "left": {
       "x": 0,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     },
     "right": {
-      "x": 724,
+      "x": 768,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     }
   },
   "differences": [
@@ -31,16 +31,16 @@
       "labelKo": "새",
       "targetSide": "right",
       "bbox": {
-        "x": 816,
-        "y": 148,
-        "width": 128,
-        "height": 128
+        "x": 861,
+        "y": 129,
+        "width": 140,
+        "height": 140
       },
-      "description": "The bird is blue.",
-      "descriptionKo": "새 색이 파란색이에요.",
+      "description": "The bird is different.",
+      "descriptionKo": "새가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The bird is blue.",
-      "translation": "새 색이 파란색이에요."
+      "voiceText": "The bird is different.",
+      "translation": "새가 달라졌어요."
     },
     {
       "id": "fish_color",
@@ -48,16 +48,16 @@
       "labelKo": "물고기",
       "targetSide": "right",
       "bbox": {
-        "x": 1022,
-        "y": 128,
-        "width": 132,
-        "height": 132
+        "x": 1072,
+        "y": 168,
+        "width": 140,
+        "height": 140
       },
-      "description": "The fish is green.",
-      "descriptionKo": "물고기 색이 초록색이에요.",
+      "description": "The fish is different.",
+      "descriptionKo": "물고기가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The fish is green.",
-      "translation": "물고기 색이 초록색이에요."
+      "voiceText": "The fish is different.",
+      "translation": "물고기가 달라졌어요."
     },
     {
       "id": "leaf_color",
@@ -65,16 +65,16 @@
       "labelKo": "잎",
       "targetSide": "right",
       "bbox": {
-        "x": 1234,
-        "y": 154,
-        "width": 130,
-        "height": 130
+        "x": 1307,
+        "y": 179,
+        "width": 140,
+        "height": 140
       },
-      "description": "The leaf is yellow.",
-      "descriptionKo": "잎 색이 노란색이에요.",
+      "description": "The leaf is different.",
+      "descriptionKo": "잎이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The leaf is yellow.",
-      "translation": "잎 색이 노란색이에요."
+      "voiceText": "The leaf is different.",
+      "translation": "잎이 달라졌어요."
     },
     {
       "id": "hat_color",
@@ -82,16 +82,16 @@
       "labelKo": "모자",
       "targetSide": "right",
       "bbox": {
-        "x": 840,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 872,
+        "y": 498,
+        "width": 140,
+        "height": 140
       },
-      "description": "The hat is purple.",
-      "descriptionKo": "모자 색이 보라색이에요.",
+      "description": "The hat is different.",
+      "descriptionKo": "모자가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The hat is purple.",
-      "translation": "모자 색이 보라색이에요."
+      "voiceText": "The hat is different.",
+      "translation": "모자가 달라졌어요."
     },
     {
       "id": "balloon_color",
@@ -99,16 +99,16 @@
       "labelKo": "풍선",
       "targetSide": "right",
       "bbox": {
-        "x": 1194,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 1268,
+        "y": 514,
+        "width": 140,
+        "height": 140
       },
-      "description": "The balloon is orange.",
-      "descriptionKo": "풍선 색이 주황색이에요.",
+      "description": "The balloon is different.",
+      "descriptionKo": "풍선이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The balloon is orange.",
-      "translation": "풍선 색이 주황색이에요."
+      "voiceText": "The balloon is different.",
+      "translation": "풍선이 달라졌어요."
     },
     {
       "id": "camera_color",
@@ -116,16 +116,16 @@
       "labelKo": "카메라",
       "targetSide": "right",
       "bbox": {
-        "x": 1011,
-        "y": 790,
-        "width": 150,
-        "height": 150
+        "x": 1072,
+        "y": 836,
+        "width": 140,
+        "height": 140
       },
-      "description": "The camera is red.",
-      "descriptionKo": "카메라 색이 빨간색이에요.",
+      "description": "The camera is different.",
+      "descriptionKo": "카메라가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The camera is red.",
-      "translation": "카메라 색이 빨간색이에요."
+      "voiceText": "The camera is different.",
+      "translation": "카메라가 달라졌어요."
     }
   ]
 }

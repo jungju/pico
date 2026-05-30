@@ -6,22 +6,22 @@
   "theme": "space",
   "level": 2,
   "estimatedMinutes": 3,
-  "imageWidth": 1448,
-  "imageHeight": 1086,
-  "hitPadding": 26,
+  "imageWidth": 1536,
+  "imageHeight": 1152,
+  "hitPadding": 30,
   "totalDifferences": 6,
   "panels": {
     "left": {
       "x": 0,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     },
     "right": {
-      "x": 724,
+      "x": 768,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     }
   },
   "differences": [
@@ -31,16 +31,16 @@
       "labelKo": "별",
       "targetSide": "right",
       "bbox": {
-        "x": 816,
-        "y": 148,
-        "width": 128,
-        "height": 128
+        "x": 861,
+        "y": 129,
+        "width": 140,
+        "height": 140
       },
-      "description": "The star is yellow.",
-      "descriptionKo": "별 색이 노란색이에요.",
+      "description": "The star is different.",
+      "descriptionKo": "별이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The star is yellow.",
-      "translation": "별 색이 노란색이에요."
+      "voiceText": "The star is different.",
+      "translation": "별이 달라졌어요."
     },
     {
       "id": "rocket_color",
@@ -48,16 +48,16 @@
       "labelKo": "로켓",
       "targetSide": "right",
       "bbox": {
-        "x": 1022,
-        "y": 128,
-        "width": 132,
-        "height": 132
+        "x": 1072,
+        "y": 168,
+        "width": 140,
+        "height": 140
       },
-      "description": "The rocket is purple.",
-      "descriptionKo": "로켓 색이 보라색이에요.",
+      "description": "The rocket is different.",
+      "descriptionKo": "로켓이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The rocket is purple.",
-      "translation": "로켓 색이 보라색이에요."
+      "voiceText": "The rocket is different.",
+      "translation": "로켓이 달라졌어요."
     },
     {
       "id": "moon_color",
@@ -65,16 +65,16 @@
       "labelKo": "달",
       "targetSide": "right",
       "bbox": {
-        "x": 1234,
-        "y": 154,
-        "width": 130,
-        "height": 130
+        "x": 1307,
+        "y": 179,
+        "width": 140,
+        "height": 140
       },
-      "description": "The moon is orange.",
-      "descriptionKo": "달 색이 주황색이에요.",
+      "description": "The moon is different.",
+      "descriptionKo": "달이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The moon is orange.",
-      "translation": "달 색이 주황색이에요."
+      "voiceText": "The moon is different.",
+      "translation": "달이 달라졌어요."
     },
     {
       "id": "planet_color",
@@ -82,16 +82,16 @@
       "labelKo": "행성",
       "targetSide": "right",
       "bbox": {
-        "x": 840,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 872,
+        "y": 498,
+        "width": 140,
+        "height": 140
       },
-      "description": "The planet is red.",
-      "descriptionKo": "행성 색이 빨간색이에요.",
+      "description": "The planet is different.",
+      "descriptionKo": "행성이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The planet is red.",
-      "translation": "행성 색이 빨간색이에요."
+      "voiceText": "The planet is different.",
+      "translation": "행성이 달라졌어요."
     },
     {
       "id": "robot_color",
@@ -99,16 +99,16 @@
       "labelKo": "로봇",
       "targetSide": "right",
       "bbox": {
-        "x": 1194,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 1268,
+        "y": 514,
+        "width": 140,
+        "height": 140
       },
-      "description": "The robot is blue.",
-      "descriptionKo": "로봇 색이 파란색이에요.",
+      "description": "The robot is different.",
+      "descriptionKo": "로봇이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The robot is blue.",
-      "translation": "로봇 색이 파란색이에요."
+      "voiceText": "The robot is different.",
+      "translation": "로봇이 달라졌어요."
     },
     {
       "id": "book_color",
@@ -116,16 +116,16 @@
       "labelKo": "책",
       "targetSide": "right",
       "bbox": {
-        "x": 1011,
-        "y": 790,
-        "width": 150,
-        "height": 150
+        "x": 1072,
+        "y": 836,
+        "width": 140,
+        "height": 140
       },
-      "description": "The book is green.",
-      "descriptionKo": "책 색이 초록색이에요.",
+      "description": "The book is different.",
+      "descriptionKo": "책이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The book is green.",
-      "translation": "책 색이 초록색이에요."
+      "voiceText": "The book is different.",
+      "translation": "책이 달라졌어요."
     }
   ]
 }

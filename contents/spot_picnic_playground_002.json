@@ -7,21 +7,21 @@
   "level": 3,
   "estimatedMinutes": 4,
   "image": "/games/spot_picnic_playground_002/image.png",
-  "imageWidth": 1448,
-  "imageHeight": 1086,
+  "imageWidth": 1536,
+  "imageHeight": 1152,
   "totalDifferences": 10,
   "panels": {
     "left": {
       "x": 0,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     },
     "right": {
-      "x": 724,
+      "x": 768,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     }
   },
   "differences": [
@@ -31,22 +31,16 @@
       "labelKo": "사과",
       "targetSide": "right",
       "bbox": {
-        "x": 895,
-        "y": 105,
-        "width": 65,
-        "height": 65
+        "x": 869,
+        "y": 137,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 928,
-        "cy": 138,
-        "r": 42
-      },
-      "description": "There is an apple on the tree.",
-      "descriptionKo": "나무에 사과가 있어요.",
-      "action": "growing",
-      "voiceText": "An apple is growing on the tree.",
-      "translation": "사과가 나무에서 자라고 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/apple_on_tree.mp3"
+      "description": "The apple is different.",
+      "descriptionKo": "사과가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The apple is different.",
+      "translation": "사과가 달라졌어요."
     },
     {
       "id": "kite_color",
@@ -54,22 +48,16 @@
       "labelKo": "연",
       "targetSide": "right",
       "bbox": {
-        "x": 1130,
-        "y": 92,
-        "width": 105,
-        "height": 125
+        "x": 1080,
+        "y": 176,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 1182,
-        "cy": 154,
-        "r": 68
-      },
-      "description": "The kite has different colors.",
-      "descriptionKo": "연의 색깔이 달라요.",
-      "action": "flying",
-      "voiceText": "The kite is flying in the sky.",
-      "translation": "연이 하늘을 날고 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/kite_color.mp3"
+      "description": "The kite is different.",
+      "descriptionKo": "연이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The kite is different.",
+      "translation": "연이 달라졌어요."
     },
     {
       "id": "butterfly_color",
@@ -77,22 +65,16 @@
       "labelKo": "나비",
       "targetSide": "right",
       "bbox": {
-        "x": 1300,
-        "y": 215,
-        "width": 90,
-        "height": 85
+        "x": 1315,
+        "y": 187,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 1345,
-        "cy": 258,
-        "r": 55
-      },
-      "description": "The butterfly is yellow.",
-      "descriptionKo": "나비가 노란색이에요.",
-      "action": "flying",
-      "voiceText": "The butterfly is flying in the sky.",
-      "translation": "나비가 하늘을 날고 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/butterfly_color.mp3"
+      "description": "The butterfly is different.",
+      "descriptionKo": "나비가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The butterfly is different.",
+      "translation": "나비가 달라졌어요."
     },
     {
       "id": "bird_color",
@@ -100,22 +82,16 @@
       "labelKo": "새",
       "targetSide": "right",
       "bbox": {
-        "x": 802,
-        "y": 350,
-        "width": 75,
-        "height": 75
+        "x": 880,
+        "y": 506,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 840,
-        "cy": 388,
-        "r": 48
-      },
-      "description": "The bird is red.",
-      "descriptionKo": "새가 빨간색이에요.",
-      "action": "sitting",
-      "voiceText": "The bird is sitting on the fence.",
-      "translation": "새가 울타리 위에 앉아 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/bird_color.mp3"
+      "description": "The bird is different.",
+      "descriptionKo": "새가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The bird is different.",
+      "translation": "새가 달라졌어요."
     },
     {
       "id": "roof_flag_color",
@@ -123,22 +99,16 @@
       "labelKo": "깃발",
       "targetSide": "right",
       "bbox": {
-        "x": 972,
-        "y": 228,
-        "width": 55,
-        "height": 55
+        "x": 1276,
+        "y": 522,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 1000,
-        "cy": 256,
-        "r": 38
-      },
-      "description": "The roof flag is blue.",
-      "descriptionKo": "지붕 위 깃발이 파란색이에요.",
-      "action": "waving",
-      "voiceText": "The blue flag is waving on the roof.",
-      "translation": "파란 깃발이 지붕 위에서 흔들리고 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/roof_flag_color.mp3"
+      "description": "The flag is different.",
+      "descriptionKo": "깃발이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The flag is different.",
+      "translation": "깃발이 달라졌어요."
     },
     {
       "id": "swing_seat_color",
@@ -146,22 +116,16 @@
       "labelKo": "그네 의자",
       "targetSide": "right",
       "bbox": {
-        "x": 1250,
-        "y": 488,
-        "width": 85,
-        "height": 45
+        "x": 1080,
+        "y": 844,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 1293,
-        "cy": 511,
-        "r": 42
-      },
-      "description": "The swing seat is yellow.",
-      "descriptionKo": "그네 의자가 노란색이에요.",
-      "action": "hanging",
-      "voiceText": "The swing seat is hanging from the ropes.",
-      "translation": "그네 의자가 줄에 매달려 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/swing_seat_color.mp3"
+      "description": "The swing seat is different.",
+      "descriptionKo": "그네 의자가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The swing seat is different.",
+      "translation": "그네 의자가 달라졌어요."
     },
     {
       "id": "bucket_color",
@@ -169,22 +133,16 @@
       "labelKo": "양동이",
       "targetSide": "right",
       "bbox": {
-        "x": 1038,
-        "y": 550,
-        "width": 75,
-        "height": 70
+        "x": 854,
+        "y": 736,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 1076,
-        "cy": 585,
-        "r": 48
-      },
-      "description": "The bucket is blue.",
-      "descriptionKo": "양동이가 파란색이에요.",
-      "action": "sitting",
-      "voiceText": "The bucket is sitting in the sandbox.",
-      "translation": "양동이가 모래놀이 상자 안에 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/bucket_color.mp3"
+      "description": "The bucket is different.",
+      "descriptionKo": "양동이가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The bucket is different.",
+      "translation": "양동이가 달라졌어요."
     },
     {
       "id": "boy_cap_color",
@@ -192,22 +150,16 @@
       "labelKo": "모자",
       "targetSide": "right",
       "bbox": {
-        "x": 878,
-        "y": 610,
-        "width": 145,
-        "height": 90
+        "x": 1325,
+        "y": 752,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 950,
-        "cy": 655,
-        "r": 72
-      },
-      "description": "The boy's cap is red.",
-      "descriptionKo": "남자아이의 모자가 빨간색이에요.",
-      "action": "wearing",
-      "voiceText": "The boy is wearing a red cap.",
-      "translation": "남자아이가 빨간 모자를 쓰고 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/boy_cap_color.mp3"
+      "description": "The cap is different.",
+      "descriptionKo": "모자가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The cap is different.",
+      "translation": "모자가 달라졌어요."
     },
     {
       "id": "girl_bow_color",
@@ -215,22 +167,16 @@
       "labelKo": "머리 리본",
       "targetSide": "right",
       "bbox": {
-        "x": 1278,
-        "y": 612,
-        "width": 60,
-        "height": 60
+        "x": 992,
+        "y": 349,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 1308,
-        "cy": 642,
-        "r": 42
-      },
-      "description": "The girl's hair bow is purple.",
-      "descriptionKo": "여자아이의 머리 리본이 보라색이에요.",
-      "action": "wearing",
-      "voiceText": "The girl is wearing a purple hair bow.",
-      "translation": "여자아이가 보라색 머리 리본을 하고 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/girl_bow_color.mp3"
+      "description": "The hair bow is different.",
+      "descriptionKo": "머리 리본이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The hair bow is different.",
+      "translation": "머리 리본이 달라졌어요."
     },
     {
       "id": "dog_collar_color",
@@ -238,22 +184,17 @@
       "labelKo": "강아지 목줄",
       "targetSide": "right",
       "bbox": {
-        "x": 800,
-        "y": 775,
-        "width": 70,
-        "height": 45
+        "x": 1187,
+        "y": 333,
+        "width": 124,
+        "height": 124
       },
-      "circle": {
-        "cx": 835,
-        "cy": 798,
-        "r": 38
-      },
-      "description": "The dog's collar is red.",
-      "descriptionKo": "강아지 목줄이 빨간색이에요.",
-      "action": "sitting",
-      "voiceText": "The dog is sitting on the picnic blanket.",
-      "translation": "강아지가 소풍 담요 위에 앉아 있어요.",
-      "audio": "/games/spot_picnic_playground_002/audio/dog_collar_color.mp3"
+      "description": "The dog collar is different.",
+      "descriptionKo": "강아지 목줄이 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The dog collar is different.",
+      "translation": "강아지 목줄이 달라졌어요."
     }
-  ]
+  ],
+  "hitPadding": 30
 }

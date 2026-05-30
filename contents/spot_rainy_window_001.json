@@ -6,22 +6,22 @@
   "theme": "rain",
   "level": 2,
   "estimatedMinutes": 3,
-  "imageWidth": 1448,
-  "imageHeight": 1086,
-  "hitPadding": 26,
+  "imageWidth": 1536,
+  "imageHeight": 1152,
+  "hitPadding": 30,
   "totalDifferences": 6,
   "panels": {
     "left": {
       "x": 0,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     },
     "right": {
-      "x": 724,
+      "x": 768,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     }
   },
   "differences": [
@@ -31,16 +31,16 @@
       "labelKo": "우산",
       "targetSide": "right",
       "bbox": {
-        "x": 816,
-        "y": 148,
-        "width": 128,
-        "height": 128
+        "x": 861,
+        "y": 129,
+        "width": 140,
+        "height": 140
       },
-      "description": "The umbrella is orange.",
-      "descriptionKo": "우산 색이 주황색이에요.",
+      "description": "The umbrella is different.",
+      "descriptionKo": "우산이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The umbrella is orange.",
-      "translation": "우산 색이 주황색이에요."
+      "voiceText": "The umbrella is different.",
+      "translation": "우산이 달라졌어요."
     },
     {
       "id": "boot_color",
@@ -48,16 +48,16 @@
       "labelKo": "장화",
       "targetSide": "right",
       "bbox": {
-        "x": 1022,
-        "y": 128,
-        "width": 132,
-        "height": 132
+        "x": 1072,
+        "y": 168,
+        "width": 140,
+        "height": 140
       },
-      "description": "The boot is red.",
-      "descriptionKo": "장화 색이 빨간색이에요.",
+      "description": "The boot is different.",
+      "descriptionKo": "장화가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The boot is red.",
-      "translation": "장화 색이 빨간색이에요."
+      "voiceText": "The boot is different.",
+      "translation": "장화가 달라졌어요."
     },
     {
       "id": "cloud_color",
@@ -65,16 +65,16 @@
       "labelKo": "구름",
       "targetSide": "right",
       "bbox": {
-        "x": 1234,
-        "y": 154,
-        "width": 130,
-        "height": 130
+        "x": 1307,
+        "y": 179,
+        "width": 140,
+        "height": 140
       },
-      "description": "The cloud is blue.",
-      "descriptionKo": "구름 색이 파란색이에요.",
+      "description": "The cloud is different.",
+      "descriptionKo": "구름이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The cloud is blue.",
-      "translation": "구름 색이 파란색이에요."
+      "voiceText": "The cloud is different.",
+      "translation": "구름이 달라졌어요."
     },
     {
       "id": "book_color",
@@ -82,16 +82,16 @@
       "labelKo": "책",
       "targetSide": "right",
       "bbox": {
-        "x": 840,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 872,
+        "y": 498,
+        "width": 140,
+        "height": 140
       },
-      "description": "The book is green.",
-      "descriptionKo": "책 색이 초록색이에요.",
+      "description": "The book is different.",
+      "descriptionKo": "책이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The book is green.",
-      "translation": "책 색이 초록색이에요."
+      "voiceText": "The book is different.",
+      "translation": "책이 달라졌어요."
     },
     {
       "id": "cup_color",
@@ -99,16 +99,16 @@
       "labelKo": "컵",
       "targetSide": "right",
       "bbox": {
-        "x": 1194,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 1268,
+        "y": 514,
+        "width": 140,
+        "height": 140
       },
-      "description": "The cup is yellow.",
-      "descriptionKo": "컵 색이 노란색이에요.",
+      "description": "The cup is different.",
+      "descriptionKo": "컵이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The cup is yellow.",
-      "translation": "컵 색이 노란색이에요."
+      "voiceText": "The cup is different.",
+      "translation": "컵이 달라졌어요."
     },
     {
       "id": "sock_color",
@@ -116,16 +116,16 @@
       "labelKo": "양말",
       "targetSide": "right",
       "bbox": {
-        "x": 1011,
-        "y": 790,
-        "width": 150,
-        "height": 150
+        "x": 1072,
+        "y": 836,
+        "width": 140,
+        "height": 140
       },
-      "description": "The sock is purple.",
-      "descriptionKo": "양말 색이 보라색이에요.",
+      "description": "The sock is different.",
+      "descriptionKo": "양말이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The sock is purple.",
-      "translation": "양말 색이 보라색이에요."
+      "voiceText": "The sock is different.",
+      "translation": "양말이 달라졌어요."
     }
   ]
 }

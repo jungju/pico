@@ -6,22 +6,22 @@
   "theme": "farm",
   "level": 2,
   "estimatedMinutes": 3,
-  "imageWidth": 1448,
-  "imageHeight": 1086,
-  "hitPadding": 26,
+  "imageWidth": 1536,
+  "imageHeight": 1152,
+  "hitPadding": 30,
   "totalDifferences": 6,
   "panels": {
     "left": {
       "x": 0,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     },
     "right": {
-      "x": 724,
+      "x": 768,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     }
   },
   "differences": [
@@ -31,16 +31,16 @@
       "labelKo": "사과",
       "targetSide": "right",
       "bbox": {
-        "x": 816,
-        "y": 148,
-        "width": 128,
-        "height": 128
+        "x": 861,
+        "y": 129,
+        "width": 140,
+        "height": 140
       },
-      "description": "The apple is purple.",
-      "descriptionKo": "사과 색이 보라색이에요.",
+      "description": "The apple is different.",
+      "descriptionKo": "사과가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The apple is purple.",
-      "translation": "사과 색이 보라색이에요."
+      "voiceText": "The apple is different.",
+      "translation": "사과가 달라졌어요."
     },
     {
       "id": "bird_color",
@@ -48,16 +48,16 @@
       "labelKo": "새",
       "targetSide": "right",
       "bbox": {
-        "x": 1022,
-        "y": 128,
-        "width": 132,
-        "height": 132
+        "x": 1072,
+        "y": 168,
+        "width": 140,
+        "height": 140
       },
-      "description": "The bird is orange.",
-      "descriptionKo": "새 색이 주황색이에요.",
+      "description": "The bird is different.",
+      "descriptionKo": "새가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The bird is orange.",
-      "translation": "새 색이 주황색이에요."
+      "voiceText": "The bird is different.",
+      "translation": "새가 달라졌어요."
     },
     {
       "id": "flower_color",
@@ -65,16 +65,16 @@
       "labelKo": "꽃",
       "targetSide": "right",
       "bbox": {
-        "x": 1234,
-        "y": 154,
-        "width": 130,
-        "height": 130
+        "x": 1307,
+        "y": 179,
+        "width": 140,
+        "height": 140
       },
-      "description": "The flower is red.",
-      "descriptionKo": "꽃 색이 빨간색이에요.",
+      "description": "The flower is different.",
+      "descriptionKo": "꽃이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The flower is red.",
-      "translation": "꽃 색이 빨간색이에요."
+      "voiceText": "The flower is different.",
+      "translation": "꽃이 달라졌어요."
     },
     {
       "id": "bucket_color",
@@ -82,16 +82,16 @@
       "labelKo": "양동이",
       "targetSide": "right",
       "bbox": {
-        "x": 840,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 872,
+        "y": 498,
+        "width": 140,
+        "height": 140
       },
-      "description": "The bucket is blue.",
-      "descriptionKo": "양동이 색이 파란색이에요.",
+      "description": "The bucket is different.",
+      "descriptionKo": "양동이가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The bucket is blue.",
-      "translation": "양동이 색이 파란색이에요."
+      "voiceText": "The bucket is different.",
+      "translation": "양동이가 달라졌어요."
     },
     {
       "id": "hat_color",
@@ -99,16 +99,16 @@
       "labelKo": "모자",
       "targetSide": "right",
       "bbox": {
-        "x": 1194,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 1268,
+        "y": 514,
+        "width": 140,
+        "height": 140
       },
-      "description": "The hat is green.",
-      "descriptionKo": "모자 색이 초록색이에요.",
+      "description": "The hat is different.",
+      "descriptionKo": "모자가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The hat is green.",
-      "translation": "모자 색이 초록색이에요."
+      "voiceText": "The hat is different.",
+      "translation": "모자가 달라졌어요."
     },
     {
       "id": "carrot_color",
@@ -116,16 +116,16 @@
       "labelKo": "당근",
       "targetSide": "right",
       "bbox": {
-        "x": 1011,
-        "y": 790,
-        "width": 150,
-        "height": 150
+        "x": 1072,
+        "y": 836,
+        "width": 140,
+        "height": 140
       },
-      "description": "The carrot is yellow.",
-      "descriptionKo": "당근 색이 노란색이에요.",
+      "description": "The carrot is different.",
+      "descriptionKo": "당근이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The carrot is yellow.",
-      "translation": "당근 색이 노란색이에요."
+      "voiceText": "The carrot is different.",
+      "translation": "당근이 달라졌어요."
     }
   ]
 }

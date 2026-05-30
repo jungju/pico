@@ -6,22 +6,22 @@
   "theme": "classroom",
   "level": 2,
   "estimatedMinutes": 3,
-  "imageWidth": 1448,
-  "imageHeight": 1086,
-  "hitPadding": 26,
+  "imageWidth": 1536,
+  "imageHeight": 1152,
+  "hitPadding": 30,
   "totalDifferences": 6,
   "panels": {
     "left": {
       "x": 0,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     },
     "right": {
-      "x": 724,
+      "x": 768,
       "y": 0,
-      "width": 724,
-      "height": 1086
+      "width": 768,
+      "height": 1152
     }
   },
   "differences": [
@@ -31,16 +31,16 @@
       "labelKo": "연필",
       "targetSide": "right",
       "bbox": {
-        "x": 816,
-        "y": 148,
-        "width": 128,
-        "height": 128
+        "x": 861,
+        "y": 129,
+        "width": 140,
+        "height": 140
       },
-      "description": "The pencil is yellow.",
-      "descriptionKo": "연필 색이 노란색이에요.",
+      "description": "The pencil is different.",
+      "descriptionKo": "연필이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The pencil is yellow.",
-      "translation": "연필 색이 노란색이에요."
+      "voiceText": "The pencil is different.",
+      "translation": "연필이 달라졌어요."
     },
     {
       "id": "book_color",
@@ -48,16 +48,16 @@
       "labelKo": "책",
       "targetSide": "right",
       "bbox": {
-        "x": 1022,
-        "y": 128,
-        "width": 132,
-        "height": 132
+        "x": 1072,
+        "y": 168,
+        "width": 140,
+        "height": 140
       },
-      "description": "The book is purple.",
-      "descriptionKo": "책 색이 보라색이에요.",
+      "description": "The book is different.",
+      "descriptionKo": "책이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The book is purple.",
-      "translation": "책 색이 보라색이에요."
+      "voiceText": "The book is different.",
+      "translation": "책이 달라졌어요."
     },
     {
       "id": "star_color",
@@ -65,16 +65,16 @@
       "labelKo": "별",
       "targetSide": "right",
       "bbox": {
-        "x": 1234,
-        "y": 154,
-        "width": 130,
-        "height": 130
+        "x": 1307,
+        "y": 179,
+        "width": 140,
+        "height": 140
       },
-      "description": "The star is orange.",
-      "descriptionKo": "별 색이 주황색이에요.",
+      "description": "The star is different.",
+      "descriptionKo": "별이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The star is orange.",
-      "translation": "별 색이 주황색이에요."
+      "voiceText": "The star is different.",
+      "translation": "별이 달라졌어요."
     },
     {
       "id": "apple_color",
@@ -82,16 +82,16 @@
       "labelKo": "사과",
       "targetSide": "right",
       "bbox": {
-        "x": 840,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 872,
+        "y": 498,
+        "width": 140,
+        "height": 140
       },
-      "description": "The apple is red.",
-      "descriptionKo": "사과 색이 빨간색이에요.",
+      "description": "The apple is different.",
+      "descriptionKo": "사과가 달라졌어요.",
       "action": "changed",
-      "voiceText": "The apple is red.",
-      "translation": "사과 색이 빨간색이에요."
+      "voiceText": "The apple is different.",
+      "translation": "사과가 달라졌어요."
     },
     {
       "id": "backpack_color",
@@ -99,16 +99,16 @@
       "labelKo": "가방",
       "targetSide": "right",
       "bbox": {
-        "x": 1194,
-        "y": 492,
-        "width": 148,
-        "height": 148
+        "x": 1268,
+        "y": 514,
+        "width": 140,
+        "height": 140
       },
-      "description": "The backpack is blue.",
-      "descriptionKo": "가방 색이 파란색이에요.",
+      "description": "The backpack is different.",
+      "descriptionKo": "가방이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The backpack is blue.",
-      "translation": "가방 색이 파란색이에요."
+      "voiceText": "The backpack is different.",
+      "translation": "가방이 달라졌어요."
     },
     {
       "id": "paintbrush_color",
@@ -116,16 +116,16 @@
       "labelKo": "붓",
       "targetSide": "right",
       "bbox": {
-        "x": 1011,
-        "y": 790,
-        "width": 150,
-        "height": 150
+        "x": 1072,
+        "y": 836,
+        "width": 140,
+        "height": 140
       },
-      "description": "The paint brush is green.",
-      "descriptionKo": "붓 색이 초록색이에요.",
+      "description": "The paint brush is different.",
+      "descriptionKo": "붓이 달라졌어요.",
       "action": "changed",
-      "voiceText": "The paint brush is green.",
-      "translation": "붓 색이 초록색이에요."
+      "voiceText": "The paint brush is different.",
+      "translation": "붓이 달라졌어요."
     }
   ]
 }
