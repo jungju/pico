@@ -9,7 +9,7 @@
   "imageWidth": 2896,
   "imageHeight": 1086,
   "hitPadding": 22,
-  "totalDifferences": 4,
+  "totalDifferences": 6,
   "panels": {
     "left": {
       "x": 0,
@@ -58,6 +58,40 @@
       "action": "changed",
       "voiceText": "The clock is different.",
       "translation": "시계 달라졌어요."
+    },
+    {
+      "id": "shelf_bread",
+      "label": "bread",
+      "labelKo": "빵",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1718,
+        "y": 165,
+        "width": 210,
+        "height": 175
+      },
+      "description": "The bread is different.",
+      "descriptionKo": "빵 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The bread is different.",
+      "translation": "빵 달라졌어요."
+    },
+    {
+      "id": "cake_berries",
+      "label": "cake",
+      "labelKo": "케이크",
+      "targetSide": "right",
+      "bbox": {
+        "x": 2252,
+        "y": 420,
+        "width": 250,
+        "height": 95
+      },
+      "description": "The cake is different.",
+      "descriptionKo": "케이크 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The cake is different.",
+      "translation": "케이크 달라졌어요."
     },
     {
       "id": "cupcake_topping",

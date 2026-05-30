@@ -20,7 +20,7 @@ V1 release requires 20 polished playable stages for each game type.
 | Game Type | Stage ID | Theme | Level | Targets/Pairs |
 | --- | --- | --- | --- | --- |
 | Spot the Difference | `spot_beach_day_001` | beach | 2 | 6 differences |
-| Spot the Difference | `spot_bakery_bunny_021` | bakery | 2 | 4 differences |
+| Spot the Difference | `spot_bakery_bunny_021` | bakery | 2 | 6 differences |
 | Spot the Difference | `spot_birthday_table_001` | party | 2 | 6 differences |
 | Spot the Difference | `spot_camping_night_001` | camping | 2 | 6 differences |
 | Spot the Difference | `spot_classroom_art_001` | classroom | 2 | 6 differences |
