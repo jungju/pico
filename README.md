@@ -56,7 +56,7 @@ https://pico.jjgo.io
 
 - 첫 화면은 게임 선택 화면입니다.
 - 게임 선택 화면 URL은 `/`입니다.
-- 첫 화면에는 ohmesh 로그인 상태와 로그인/로그아웃 버튼이 있습니다.
+- 첫 화면에는 ohmesh 로그인 상태가 있으며, 로그인 사용자는 사용자 이름 버튼에서 계정 메뉴와 로그아웃 버튼을 엽니다.
 - 로그인한 사용자에게는 첫 화면에 총 포인트와 연속 방문 streak가 표시됩니다.
 - 게임 선택 화면에는 `contents`에서 읽은 Find & Learn stage와 v1 신규 게임 stage 카드가 표시됩니다.
 - 게임 선택 화면에는 All/Spot/Hidden/Maze/Memory game type filter가 있어 stage 목록을 좁힐 수 있습니다.
@@ -95,8 +95,9 @@ https://pico.jjgo.io
 - 기존 `/games/<stage-id>` 직접 접근은 호환을 위해 계속 복구됩니다.
 - 브라우저 뒤로가기/앞으로가기로 게임 선택 화면과 stage 화면을 이동할 수 있습니다.
 - 게임 화면에는 ohmesh 로그인 상태, 게임 선택으로 돌아가는 버튼, 힌트 버튼, 리셋 버튼이 있습니다.
-- 게임 화면 버튼은 `Game List`, `Hint`, `Reset`, `Log in`, `Log out`처럼 역할을 알 수 있는 라벨을 표시합니다.
-- 게임 중 계정 버튼은 play action보다 조용한 보조 스타일로 표시됩니다.
+- 게임 화면 버튼은 `Game List`, `Hint`, `Reset`, `Log in`처럼 역할을 알 수 있는 라벨을 표시하고, 로그인 사용자는 사용자 이름 버튼으로 계정 메뉴를 엽니다.
+- 계정 메뉴에는 `Log out` 버튼이 있으며, 게임 중 계정 버튼은 play action보다 조용한 보조 스타일로 표시됩니다.
+- 1000px 안팎의 PC 폭에서는 게임 화면 action bar가 별도 줄로 내려가 버튼과 play area가 서로 겹치지 않습니다.
 - `Reset`은 한 번 더 확인해야 stage를 다시 시작합니다.
 - 사용자가 잠시 막혀 있으면 `Hint` 버튼이 부드럽게 강조됩니다.
 - 게임 화면 뒤에는 Find & Learn 전용 일러스트 배경이 낮은 대비로 표시됩니다.
@@ -335,7 +336,7 @@ Pico는 ohmesh에 등록된 앱이며, 첫 화면과 게임 화면에서 ohmesh 
 - 앱 slug: `pico`
 - 기본 ohmesh URL: `https://ohmesh.jjgo.io`
 - 로그인은 `GET /login?app=pico&redirect_url={current_app_url}`로 이동합니다.
-- 로그아웃은 `GET /logout?app=pico&redirect_url={current_app_url}`로 이동합니다.
+- 로그아웃은 사용자 이름 버튼의 계정 메뉴에서 `GET /logout?app=pico&redirect_url={current_app_url}`로 이동합니다.
 - 세션 확인은 `GET /auth/me?app=pico&optional=1`을 `credentials: "include"`로 호출해 게스트 모드의 정상 익명 상태를 조용히 처리합니다.
 - ohmesh는 앱 전용 HttpOnly session cookie를 사용하며 Pico는 토큰을 저장하거나 표시하지 않습니다.
 - 로그인한 사용자의 v1 총 포인트, streak, 게임별/stage별 진행 상태는 `pico-progress` record 하나에 저장합니다.

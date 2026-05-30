@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
+  ChevronDown,
   Flame,
   Grid2X2,
   LoaderCircle,
@@ -460,22 +461,71 @@ function SaveValueNote({ onLogin }) {
 function AuthControl({ authState, compact = false, onLogin, onLogout }) {
   const className = `auth-control${compact ? " compact" : ""}`;
   const user = authState.session?.user;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    function handlePointerDown(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    }
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [menuOpen]);
 
   if (authState.status === "authenticated" && user) {
+    const name = displayName(user);
+
     return (
-      <div className={className}>
-        <span className="auth-user">
-          {user.avatar_url ? (
-            <img src={user.avatar_url} alt="" draggable="false" />
-          ) : (
-            <UserRound aria-hidden="true" size={19} />
-          )}
-          <span className="auth-name">{displayName(user)}</span>
-        </span>
-        <button className="auth-button logout-button" type="button" onClick={onLogout} aria-label="Log out of ohmesh" title="Log out">
-          <LogOut aria-hidden="true" size={19} />
-          <span>Log out</span>
+      <div className={`${className} account-menu`} ref={menuRef}>
+        <button
+          className="account-menu-button"
+          type="button"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-haspopup="menu"
+          aria-label={`Open account menu for ${name}`}
+          title="Account menu"
+        >
+          <span className="account-avatar" aria-hidden="true">
+            {user.avatar_url ? <img src={user.avatar_url} alt="" draggable="false" /> : <UserRound aria-hidden="true" size={19} />}
+          </span>
+          <span className="auth-name">{name}</span>
+          <ChevronDown className={menuOpen ? "account-menu-chevron open" : "account-menu-chevron"} aria-hidden="true" size={16} />
         </button>
+        {menuOpen ? (
+          <div className="account-menu-panel" role="menu" aria-label="Account menu">
+            <span className="account-menu-kicker">Signed in</span>
+            <strong className="account-menu-name">{name}</strong>
+            <button
+              className="account-menu-item logout-button"
+              type="button"
+              role="menuitem"
+              onClick={() => {
+                setMenuOpen(false);
+                onLogout();
+              }}
+            >
+              <LogOut aria-hidden="true" size={18} />
+              <span>Log out</span>
+            </button>
+          </div>
+        ) : null}
       </div>
     );
   }

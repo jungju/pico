@@ -153,7 +153,9 @@ Memory completion dialogs can show a compact matched-pair sticker summary.
 - The first screen is the Pico game selection page.
 - The game selection page URL is `/`.
 - The game selection page shows the current ohmesh login state and a
-  login/logout action.
+  login action, or an account menu button for logged-in users.
+- Logged-in users open the account menu from their user name button; the menu
+  contains the logout action.
 - The game selection page shows total points and daily streak for logged-in
   users.
 - Logged-out users see a small save-progress note explaining that play is
@@ -231,9 +233,14 @@ Memory completion dialogs can show a compact matched-pair sticker summary.
 - The game screen shows the current ohmesh login state and can return to the
   game selection page.
 - Game screen actions use visible command labels for game list navigation,
-  hints, reset, login, and logout.
+  hints, reset, and login. Logged-in users open account actions from the user
+  name button.
+- The account menu contains `Log out`, keeping logout separate from the main
+  play action row.
 - Account actions inside game screens use a quieter secondary treatment than
   core play actions.
+- Around 1000px desktop widths, the game action bar may wrap to its own row so
+  buttons, play areas, and learning panels do not overlap.
 - Reset requires a second confirm press before the stage restarts.
 - When a player is idle on an unfinished stage, the hint action is gently
   emphasized without blocking play.
@@ -634,7 +641,8 @@ animal stage and 19 generated image-image or image-word stages.
 - App slug for ohmesh integration: `pico`
 - Default ohmesh base URL: `https://ohmesh.jjgo.io`
 - Login redirects to `GET /login?app=pico&redirect_url={current_app_url}`.
-- Logout redirects to `GET /logout?app=pico&redirect_url={current_app_url}`.
+- Logout is launched from the account menu and redirects to
+  `GET /logout?app=pico&redirect_url={current_app_url}`.
 - Session checks call `GET /auth/me?app=pico&optional=1` with
   `credentials: "include"` so guest mode does not create a noisy browser
   `401` resource error.
