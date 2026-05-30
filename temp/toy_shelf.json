@@ -1,0 +1,14 @@
+{
+  "id": "toy_shelf",
+  "title": "Toy Shelf",
+  "type": "spot_the_difference",
+  "theme": "toys",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "장난감 자동차 색이 달라졌어요.",
+    "공의 무늬가 달라졌어요.",
+    "블록 하나의 위치가 바뀌었어요.",
+    "인형 리본 색이 달라요.",
+    "선반 위 장난감 하나가 사라졌어요."
+  ]
+}

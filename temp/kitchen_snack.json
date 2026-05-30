@@ -1,0 +1,14 @@
+{
+  "id": "kitchen_snack",
+  "title": "Kitchen Snack",
+  "type": "spot_the_difference",
+  "theme": "kitchen",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "접시 위 쿠키 개수가 달라졌어요.",
+    "머그컵 그림이 바뀌었어요.",
+    "냄비 손잡이 색이 달라요.",
+    "도마 위 과일 조각 모양이 달라졌어요.",
+    "주방 장갑의 무늬가 달라졌어요."
+  ]
+}

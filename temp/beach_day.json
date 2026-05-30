@@ -1,0 +1,14 @@
+{
+  "id": "beach_day",
+  "title": "Beach Day",
+  "type": "spot_the_difference",
+  "theme": "beach",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "파라솔 줄무늬 색이 달라졌어요.",
+    "비치볼 무늬가 달라졌어요.",
+    "모래성 꼭대기 깃발이 사라졌어요.",
+    "조개껍데기 색이 달라요.",
+    "수건 위 그림 모양이 달라졌어요."
+  ]
+}

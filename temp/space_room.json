@@ -1,0 +1,14 @@
+{
+  "id": "space_room",
+  "title": "Space Room",
+  "type": "spot_the_difference",
+  "theme": "space",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "로켓 창문 색이 달라졌어요.",
+    "행성 고리 모양이 바뀌었어요.",
+    "별 스티커 하나가 사라졌어요.",
+    "우주 헬멧 배지 모양이 달라요.",
+    "달 모형의 크레이터 위치가 달라졌어요."
+  ]
+}

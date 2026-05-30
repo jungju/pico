@@ -1,0 +1,14 @@
+{
+  "id": "farm_morning",
+  "title": "Farm Morning",
+  "type": "spot_the_difference",
+  "theme": "farm",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "헛간 문 색이 달라졌어요.",
+    "울타리 기둥 하나의 모양이 달라요.",
+    "바구니 속 사과 하나가 사라졌어요.",
+    "허수아비 모자 리본 색이 달라졌어요.",
+    "물뿌리개 손잡이 모양이 바뀌었어요."
+  ]
+}

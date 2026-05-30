@@ -1,0 +1,14 @@
+{
+  "id": "music_room",
+  "title": "Music Room",
+  "type": "spot_the_difference",
+  "theme": "music",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "기타 몸통 색이 달라졌어요.",
+    "악보 위 음표 하나가 사라졌어요.",
+    "탬버린 리본 색이 달라요.",
+    "북의 별 무늬가 바뀌었어요.",
+    "피아노 의자 쿠션 모양이 달라졌어요."
+  ]
+}

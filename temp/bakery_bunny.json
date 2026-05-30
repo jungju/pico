@@ -1,0 +1,14 @@
+{
+  "id": "bakery_bunny",
+  "title": "Bakery Bunny",
+  "type": "spot_the_difference",
+  "theme": "bakery",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "풍선 색이 달라졌어요.",
+    "시계 바늘 방향이 달라졌어요.",
+    "선반 위 빵 바구니 모양이 달라요.",
+    "컵케이크 위 토핑이 사라졌어요.",
+    "토끼 원피스 무늬가 달라요."
+  ]
+}

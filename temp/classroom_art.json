@@ -1,0 +1,14 @@
+{
+  "id": "classroom_art",
+  "title": "Classroom Art",
+  "type": "spot_the_difference",
+  "theme": "classroom",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "칠판 위 별 그림 색이 달라졌어요.",
+    "책상 위 크레용 하나가 사라졌어요.",
+    "그림 종이에 그려진 해 모양이 달라요.",
+    "가방에 달린 배지가 바뀌었어요.",
+    "물감 통의 색 배열이 달라졌어요."
+  ]
+}

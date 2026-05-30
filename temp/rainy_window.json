@@ -1,0 +1,14 @@
+{
+  "id": "rainy_window",
+  "title": "Rainy Window",
+  "type": "spot_the_difference",
+  "theme": "rain",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "우산 손잡이 색이 달라졌어요.",
+    "창문에 맺힌 빗방울 개수가 달라요.",
+    "장화의 줄무늬가 바뀌었어요.",
+    "구름 모양이 달라졌어요.",
+    "탁자 위 작은 화분 꽃 색이 달라요."
+  ]
+}

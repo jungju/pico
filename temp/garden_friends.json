@@ -1,0 +1,14 @@
+{
+  "id": "garden_friends",
+  "title": "Garden Friends",
+  "type": "spot_the_difference",
+  "theme": "garden",
+  "differenceCount": 5,
+  "differenceSituations": [
+    "큰 꽃의 꽃잎 색이 달라졌어요.",
+    "화분 무늬가 달라졌어요.",
+    "나비 날개 점 하나가 사라졌어요.",
+    "물뿌리개 색이 달라요.",
+    "정원 장갑의 줄무늬가 바뀌었어요."
+  ]
+}
