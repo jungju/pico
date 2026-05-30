@@ -137,5 +137,6 @@ function themeLabel(theme) {
   if (theme === "toys") return "Toys";
   if (theme === "zoo") return "Zoo";
   if (theme === "animals") return "Animals";
+  if (theme === "bakery") return "Bakery";
   return "General";
 }
