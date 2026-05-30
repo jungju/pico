@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -11,10 +12,14 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"time"
 
 	"pico-content/internal/contentstage"
+	"pico-content/internal/generator"
 	"pico-content/internal/imageops"
+	openaiapi "pico-content/internal/openai"
 	"pico-content/internal/pipeline"
+	"pico-content/internal/schema"
 )
 
 func main() {
@@ -33,6 +38,8 @@ func main() {
 		err = analyzeStage(os.Args[2:])
 	case "rebuild-stage":
 		err = rebuildStage(os.Args[2:])
+	case "generate-stage":
+		err = generateStage(os.Args[2:])
 	default:
 		usage()
 		err = fmt.Errorf("unknown command %q", os.Args[1])
@@ -47,6 +54,7 @@ func main() {
 func usage() {
 	fmt.Fprintln(os.Stderr, `Usage:
   pico-content describe
+  pico-content generate-stage --stage-id spot_toy_room_021 --prompt "a cozy toy room with large isolated toys" --out ../../contents
   pico-content analyze-diff --left left.png --right right.png --out components.json [--threshold 36] [--min-area 300]
   pico-content analyze-stage --stage contents/spot_beach_day_001.json --image contents/spot_beach_day_001.jpg --out report.json [--apply]
   pico-content rebuild-stage --stage contents/spot_beach_day_001.json --image contents/spot_beach_day_001.jpg --out-image rebuilt.jpg --patch difference_id=x,y,w,h [--apply]`)
@@ -226,6 +234,70 @@ func rebuildStage(args []string) error {
 	return writeJSON(*outReportPath, report)
 }
 
+func generateStage(args []string) error {
+	fs := flag.NewFlagSet("generate-stage", flag.ContinueOnError)
+	stageID := fs.String("stage-id", "", "stage id, for example spot_toy_room_021")
+	prompt := fs.String("prompt", "", "source image generation prompt")
+	title := fs.String("title", "", "English stage title")
+	titleKo := fs.String("title-ko", "", "Korean stage title")
+	theme := fs.String("theme", "", "stage theme")
+	level := fs.Int("level", 2, "stage level")
+	count := fs.Int("count", 6, "target difference count")
+	panelSizeRaw := fs.String("panel-size", "1024x1024", "single panel size")
+	outDir := fs.String("out", "../../contents", "content output directory")
+	artifactDir := fs.String("artifacts", "", "artifact output directory")
+	reportPath := fs.String("report", "", "summary report output path")
+	dryRun := fs.Bool("dry-run", false, "print prompts and planned metadata without calling OpenAI")
+	timeout := fs.Duration("timeout", 10*time.Minute, "generation timeout")
+	jpegQuality := fs.Int("jpeg-quality", 95, "JPEG quality")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+
+	panelSize, err := parseSize(*panelSizeRaw)
+	if err != nil {
+		return err
+	}
+	request := generator.Request{
+		StageID:   *stageID,
+		Prompt:    *prompt,
+		Title:     *title,
+		TitleKo:   *titleKo,
+		Theme:     *theme,
+		Level:     *level,
+		Count:     *count,
+		PanelSize: panelSize,
+	}
+
+	if *dryRun {
+		result := generator.DryRun(request)
+		return writeJSON(*reportPath, result)
+	}
+
+	loadDotEnv(".env")
+	ctx, cancel := context.WithTimeout(context.Background(), *timeout)
+	defer cancel()
+
+	ai := openaiapi.NewHTTPClientFromEnv()
+	result, err := generator.Compiler{AI: ai}.Generate(ctx, request)
+	if err != nil {
+		return err
+	}
+	targetArtifactDir := *artifactDir
+	if targetArtifactDir == "" {
+		targetArtifactDir = filepath.Join("artifacts", request.StageID)
+	}
+	exportReport, err := generator.Export(result, generator.ExportOptions{
+		OutputDir:   *outDir,
+		ArtifactDir: targetArtifactDir,
+		JPEGQuality: *jpegQuality,
+	})
+	if err != nil {
+		return err
+	}
+	return writeJSON(*reportPath, exportReport)
+}
+
 func writeJSON(outPath string, payload any) error {
 	data, err := json.MarshalIndent(payload, "", "  ")
 	if err != nil {
@@ -316,6 +388,48 @@ func parsePatchFlags(values []string) ([]contentstage.PatchSpec, error) {
 		})
 	}
 	return patches, nil
+}
+
+func parseSize(value string) (schema.Size, error) {
+	widthRaw, heightRaw, ok := strings.Cut(strings.ToLower(strings.TrimSpace(value)), "x")
+	if !ok {
+		return schema.Size{}, fmt.Errorf("size %q must use WIDTHxHEIGHT", value)
+	}
+	width, err := strconv.Atoi(widthRaw)
+	if err != nil {
+		return schema.Size{}, fmt.Errorf("invalid width %q", widthRaw)
+	}
+	height, err := strconv.Atoi(heightRaw)
+	if err != nil {
+		return schema.Size{}, fmt.Errorf("invalid height %q", heightRaw)
+	}
+	if width <= 0 || height <= 0 {
+		return schema.Size{}, fmt.Errorf("size must be positive")
+	}
+	return schema.Size{W: width, H: height}, nil
+}
+
+func loadDotEnv(path string) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return
+	}
+	for _, line := range strings.Split(string(data), "\n") {
+		line = strings.TrimSpace(line)
+		if line == "" || strings.HasPrefix(line, "#") {
+			continue
+		}
+		key, value, ok := strings.Cut(line, "=")
+		if !ok {
+			continue
+		}
+		key = strings.TrimSpace(key)
+		value = strings.Trim(strings.TrimSpace(value), `"'`)
+		if key == "" || os.Getenv(key) != "" {
+			continue
+		}
+		_ = os.Setenv(key, value)
+	}
 }
 
 func loadImage(path string) (image.Image, error) {

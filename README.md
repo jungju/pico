@@ -51,7 +51,7 @@ https://pico.jjgo.io
 - `public/404.html`: GitHub Pages SPA fallback
 - `scripts/write-version.mjs`: 빌드 시 `version.json` 생성
 - `scripts/agent-commit.sh`: Conventional Commits 헬퍼
-- `tools/pico-content/`: Spot content image를 분석, patch rebuild, bbox 적용하는 Go CLI
+- `tools/pico-content/`: 프롬프트에서 Spot content 이미지와 JSON을 생성하고, 기존 stage를 분석/복구하는 Go CLI
 
 ## 기능 고정
 
