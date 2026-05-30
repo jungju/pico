@@ -274,8 +274,8 @@ Memory completion dialogs can show a compact matched-pair sticker summary.
 - When all differences are found, a success completion dialog is shown.
 - The completion dialog presents a celebration medal, a score card,
   `Next Stage` when another stage exists, `Play Again` when it does not,
-  `Game List` to return to the game selection page, and `Keep Playing` to
-  close the dialog.
+  `Game List` to return to the game selection page, and `Restart` when another
+  stage exists so the player can replay the completed stage.
 - Correct, match, collectible, and completion feedback uses short visual and/or
   speech responses.
 - In `prefers-reduced-motion: reduce`, repeating pulse, nudge, and pop
