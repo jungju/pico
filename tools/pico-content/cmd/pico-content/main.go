@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"image"
+	"image/draw"
 	"image/jpeg"
 	"image/png"
 	"os"
@@ -38,6 +39,8 @@ func main() {
 		err = analyzeStage(os.Args[2:])
 	case "rebuild-stage":
 		err = rebuildStage(os.Args[2:])
+	case "pair-stage":
+		err = pairStage(os.Args[2:])
 	case "generate-stage":
 		err = generateStage(os.Args[2:])
 	default:
@@ -55,9 +58,97 @@ func usage() {
 	fmt.Fprintln(os.Stderr, `Usage:
   pico-content describe
   pico-content generate-stage --stage-id spot_toy_room_021 --prompt "a cozy toy room with large isolated toys" --out ../../contents
+  pico-content pair-stage --stage-id spot_bakery_bunny_021 --left left.png --right right.png --diff balloon=2410,24,170,250
   pico-content analyze-diff --left left.png --right right.png --out components.json [--threshold 36] [--min-area 300]
   pico-content analyze-stage --stage contents/spot_beach_day_001.json --image contents/spot_beach_day_001.jpg --out report.json [--apply]
   pico-content rebuild-stage --stage contents/spot_beach_day_001.json --image contents/spot_beach_day_001.jpg --out-image rebuilt.jpg --patch difference_id=x,y,w,h [--apply]`)
+}
+
+func pairStage(args []string) error {
+	fs := flag.NewFlagSet("pair-stage", flag.ContinueOnError)
+	stageID := fs.String("stage-id", "", "stage id")
+	leftPath := fs.String("left", "", "left panel image path")
+	rightPath := fs.String("right", "", "right panel image path")
+	title := fs.String("title", "", "English stage title")
+	titleKo := fs.String("title-ko", "", "Korean stage title")
+	theme := fs.String("theme", "", "stage theme")
+	level := fs.Int("level", 2, "stage level")
+	hitPadding := fs.Int("hit-padding", 18, "hit padding in image pixels")
+	outDir := fs.String("out", "../../contents", "content output directory")
+	jpegQuality := fs.Int("jpeg-quality", 95, "JPEG quality")
+	var diffFlags stringList
+	fs.Var(&diffFlags, "diff", "difference in the form id|label|labelKo=x,y,width,height; repeat for each difference")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	if *stageID == "" || *leftPath == "" || *rightPath == "" {
+		return fmt.Errorf("--stage-id, --left, and --right are required")
+	}
+	if len(diffFlags) == 0 {
+		return fmt.Errorf("at least one --diff is required")
+	}
+
+	left, err := loadImage(*leftPath)
+	if err != nil {
+		return fmt.Errorf("load left image: %w", err)
+	}
+	right, err := loadImage(*rightPath)
+	if err != nil {
+		return fmt.Errorf("load right image: %w", err)
+	}
+	leftBounds := left.Bounds()
+	rightBounds := right.Bounds()
+	if leftBounds.Dx() != rightBounds.Dx() || leftBounds.Dy() != rightBounds.Dy() {
+		return fmt.Errorf("left/right image sizes differ: %dx%d vs %dx%d", leftBounds.Dx(), leftBounds.Dy(), rightBounds.Dx(), rightBounds.Dy())
+	}
+
+	diffs, err := parsePairDiffFlags(diffFlags)
+	if err != nil {
+		return err
+	}
+	if *title == "" {
+		*title = titleFromID(*stageID)
+	}
+	stage := contentstage.Stage{
+		ID:               *stageID,
+		Title:            *title,
+		TitleKo:          *titleKo,
+		Type:             "spot_the_difference",
+		Theme:            *theme,
+		Level:            *level,
+		EstimatedMinutes: 3,
+		ImageWidth:       leftBounds.Dx() + rightBounds.Dx(),
+		ImageHeight:      leftBounds.Dy(),
+		HitPadding:       *hitPadding,
+		TotalDifferences: len(diffs),
+		Panels: contentstage.Panels{
+			Left:  contentstage.Panel{X: 0, Y: 0, Width: leftBounds.Dx(), Height: leftBounds.Dy()},
+			Right: contentstage.Panel{X: leftBounds.Dx(), Y: 0, Width: rightBounds.Dx(), Height: rightBounds.Dy()},
+		},
+		Differences: diffs,
+	}
+
+	combined := image.NewRGBA(image.Rect(0, 0, stage.ImageWidth, stage.ImageHeight))
+	drawImageOnto(combined, left, image.Point{})
+	drawImageOnto(combined, right, image.Pt(leftBounds.Dx(), 0))
+
+	if err := os.MkdirAll(*outDir, 0o755); err != nil {
+		return err
+	}
+	imagePath := filepath.Join(*outDir, *stageID+".jpg")
+	jsonPath := filepath.Join(*outDir, *stageID+".json")
+	if err := saveImage(imagePath, combined, *jpegQuality); err != nil {
+		return fmt.Errorf("save combined image: %w", err)
+	}
+	if err := contentstage.Save(jsonPath, stage); err != nil {
+		return fmt.Errorf("save stage json: %w", err)
+	}
+	return writeJSON("-", map[string]any{
+		"stageId":      *stageID,
+		"contentImage": imagePath,
+		"contentJson":  jsonPath,
+		"differences":  len(diffs),
+	})
 }
 
 func describe() error {
@@ -390,6 +481,59 @@ func parsePatchFlags(values []string) ([]contentstage.PatchSpec, error) {
 	return patches, nil
 }
 
+func parsePairDiffFlags(values []string) ([]contentstage.Difference, error) {
+	differences := make([]contentstage.Difference, 0, len(values))
+	for _, value := range values {
+		meta, rawBox, ok := strings.Cut(value, "=")
+		if !ok {
+			return nil, fmt.Errorf("diff %q must use id|label|labelKo=x,y,width,height", value)
+		}
+		metaParts := strings.Split(meta, "|")
+		id := strings.TrimSpace(metaParts[0])
+		if id == "" {
+			return nil, fmt.Errorf("diff %q has empty id", value)
+		}
+		label := id
+		if len(metaParts) > 1 && strings.TrimSpace(metaParts[1]) != "" {
+			label = strings.TrimSpace(metaParts[1])
+		}
+		labelKo := label
+		if len(metaParts) > 2 && strings.TrimSpace(metaParts[2]) != "" {
+			labelKo = strings.TrimSpace(metaParts[2])
+		}
+		parts := strings.Split(rawBox, ",")
+		if len(parts) != 4 {
+			return nil, fmt.Errorf("diff %q must have four bbox numbers", value)
+		}
+		nums := [4]int{}
+		for index, part := range parts {
+			parsed, err := strconv.Atoi(strings.TrimSpace(part))
+			if err != nil {
+				return nil, fmt.Errorf("diff %q has invalid number %q", value, part)
+			}
+			nums[index] = parsed
+		}
+		if nums[2] <= 0 || nums[3] <= 0 {
+			return nil, fmt.Errorf("diff %q has invalid bbox size", value)
+		}
+		description := fmt.Sprintf("The %s is different.", label)
+		descriptionKo := fmt.Sprintf("%s 달라졌어요.", labelKo)
+		differences = append(differences, contentstage.Difference{
+			ID:            id,
+			Label:         label,
+			LabelKo:       labelKo,
+			TargetSide:    "right",
+			BBox:          contentstage.BBox{X: nums[0], Y: nums[1], Width: nums[2], Height: nums[3]},
+			Description:   description,
+			DescriptionKo: descriptionKo,
+			Action:        "changed",
+			VoiceText:     description,
+			Translation:   descriptionKo,
+		})
+	}
+	return differences, nil
+}
+
 func parseSize(value string) (schema.Size, error) {
 	widthRaw, heightRaw, ok := strings.Cut(strings.ToLower(strings.TrimSpace(value)), "x")
 	if !ok {
@@ -444,4 +588,37 @@ func loadImage(path string) (image.Image, error) {
 		return nil, err
 	}
 	return img, nil
+}
+
+func drawImageOnto(dst draw.Image, src image.Image, at image.Point) {
+	bounds := src.Bounds()
+	target := image.Rect(at.X, at.Y, at.X+bounds.Dx(), at.Y+bounds.Dy())
+	draw.Draw(dst, target, src, bounds.Min, draw.Src)
+}
+
+func titleFromID(id string) string {
+	parts := strings.Split(id, "_")
+	words := make([]string, 0, len(parts))
+	for _, part := range parts {
+		if part == "" || part == "spot" || isDigits(part) {
+			continue
+		}
+		words = append(words, strings.ToUpper(part[:1])+strings.ToLower(part[1:]))
+	}
+	if len(words) == 0 {
+		return id
+	}
+	return strings.Join(words, " ")
+}
+
+func isDigits(value string) bool {
+	if value == "" {
+		return false
+	}
+	for _, r := range value {
+		if r < '0' || r > '9' {
+			return false
+		}
+	}
+	return true
 }
