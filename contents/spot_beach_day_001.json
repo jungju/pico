@@ -31,10 +31,10 @@
       "labelKo": "우산",
       "targetSide": "right",
       "bbox": {
-        "x": 1226,
-        "y": 274,
-        "width": 266,
-        "height": 266
+        "x": 1195,
+        "y": 255,
+        "width": 341,
+        "height": 305
       },
       "description": "The umbrella is different.",
       "descriptionKo": "우산이 달라졌어요.",
@@ -48,10 +48,10 @@
       "labelKo": "배",
       "targetSide": "right",
       "bbox": {
-        "x": 993,
-        "y": 262,
-        "width": 165,
-        "height": 112
+        "x": 1175,
+        "y": 410,
+        "width": 115,
+        "height": 100
       },
       "description": "The boat is different.",
       "descriptionKo": "배가 달라졌어요.",
@@ -65,10 +65,10 @@
       "labelKo": "수건",
       "targetSide": "right",
       "bbox": {
-        "x": 1188,
-        "y": 615,
-        "width": 322,
-        "height": 210
+        "x": 1174,
+        "y": 589,
+        "width": 362,
+        "height": 280
       },
       "description": "The towel is different.",
       "descriptionKo": "수건이 달라졌어요.",
@@ -82,10 +82,10 @@
       "labelKo": "양동이",
       "targetSide": "right",
       "bbox": {
-        "x": 779,
-        "y": 832,
-        "width": 158,
-        "height": 225
+        "x": 768,
+        "y": 780,
+        "width": 264,
+        "height": 290
       },
       "description": "The bucket is different.",
       "descriptionKo": "양동이가 달라졌어요.",
@@ -99,9 +99,9 @@
       "labelKo": "조개",
       "targetSide": "right",
       "bbox": {
-        "x": 1143,
-        "y": 848,
-        "width": 112,
+        "x": 1200,
+        "y": 997,
+        "width": 95,
         "height": 90
       },
       "description": "The shell is different.",
@@ -116,10 +116,10 @@
       "labelKo": "비치볼",
       "targetSide": "right",
       "bbox": {
-        "x": 1327,
-        "y": 832,
-        "width": 202,
-        "height": 225
+        "x": 1275,
+        "y": 840,
+        "width": 261,
+        "height": 240
       },
       "description": "The beach ball is different.",
       "descriptionKo": "비치볼이 달라졌어요.",

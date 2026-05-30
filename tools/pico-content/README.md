@@ -49,6 +49,29 @@ go run ./cmd/pico-content analyze-diff \
   --out components.json
 ```
 
+Analyze a `contents` stage by splitting its combined image with the JSON panel
+coordinates:
+
+```sh
+go run ./cmd/pico-content analyze-stage \
+  --stage ../../contents/spot_beach_day_001.json \
+  --image ../../contents/spot_beach_day_001.jpg \
+  --out /tmp/spot_beach_day_001-analysis.json
+```
+
+Rebuild a stage from the left panel plus local right-panel patches. This is a
+bridge command for old paired images that were not produced from an exact-copy
+right panel:
+
+```sh
+go run ./cmd/pico-content rebuild-stage \
+  --stage ../../contents/spot_beach_day_001.json \
+  --image ../../contents/spot_beach_day_001.jpg \
+  --out-image /tmp/spot_beach_day_001-rebuilt.jpg \
+  --full-rect \
+  --patch shell_natural=1210,1007,75,70
+```
+
 ## Package Map
 
 - `internal/schema`: request, planner, verifier, component, and runtime JSON

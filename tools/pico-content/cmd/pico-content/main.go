@@ -5,11 +5,14 @@ import (
 	"flag"
 	"fmt"
 	"image"
-	_ "image/jpeg"
-	_ "image/png"
+	"image/jpeg"
+	"image/png"
 	"os"
 	"path/filepath"
+	"strconv"
+	"strings"
 
+	"pico-content/internal/contentstage"
 	"pico-content/internal/imageops"
 	"pico-content/internal/pipeline"
 )
@@ -26,6 +29,10 @@ func main() {
 		err = describe()
 	case "analyze-diff":
 		err = analyzeDiff(os.Args[2:])
+	case "analyze-stage":
+		err = analyzeStage(os.Args[2:])
+	case "rebuild-stage":
+		err = rebuildStage(os.Args[2:])
 	default:
 		usage()
 		err = fmt.Errorf("unknown command %q", os.Args[1])
@@ -40,7 +47,9 @@ func main() {
 func usage() {
 	fmt.Fprintln(os.Stderr, `Usage:
   pico-content describe
-  pico-content analyze-diff --left left.png --right right.png --out components.json [--threshold 36] [--min-area 300]`)
+  pico-content analyze-diff --left left.png --right right.png --out components.json [--threshold 36] [--min-area 300]
+  pico-content analyze-stage --stage contents/spot_beach_day_001.json --image contents/spot_beach_day_001.jpg --out report.json [--apply]
+  pico-content rebuild-stage --stage contents/spot_beach_day_001.json --image contents/spot_beach_day_001.jpg --out-image rebuilt.jpg --patch difference_id=x,y,w,h [--apply]`)
 }
 
 func describe() error {
@@ -106,6 +115,207 @@ func analyzeDiff(args []string) error {
 		}
 	}
 	return os.WriteFile(*outPath, data, 0o644)
+}
+
+func analyzeStage(args []string) error {
+	fs := flag.NewFlagSet("analyze-stage", flag.ContinueOnError)
+	stagePath := fs.String("stage", "", "content stage JSON path")
+	imagePath := fs.String("image", "", "combined stage image path")
+	outPath := fs.String("out", "", "analysis JSON output path")
+	apply := fs.Bool("apply", false, "write generated bboxes back to the stage JSON")
+	threshold := fs.Uint("threshold", 44, "RGB sum delta threshold")
+	minArea := fs.Int("min-area", 180, "minimum connected component area")
+	closeRadius := fs.Int("close-radius", 1, "morphological close radius")
+	assignmentPadding := fs.Int("assignment-padding", 180, "pixels to expand existing bboxes when assigning components")
+	bboxPadding := fs.Int("bbox-padding", 8, "pixels to pad generated visible bboxes")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	if *stagePath == "" || *imagePath == "" {
+		return fmt.Errorf("--stage and --image are required")
+	}
+
+	stage, err := contentstage.Load(*stagePath)
+	if err != nil {
+		return fmt.Errorf("load stage: %w", err)
+	}
+	img, err := loadImage(*imagePath)
+	if err != nil {
+		return fmt.Errorf("load image: %w", err)
+	}
+
+	updated, report, err := contentstage.Analyze(stage, *imagePath, img, contentstage.AnalyzeOptions{
+		Threshold:         uint32(*threshold),
+		MinArea:           *minArea,
+		CloseRadius:       *closeRadius,
+		AssignmentPadding: *assignmentPadding,
+		BBoxPadding:       *bboxPadding,
+	})
+	if err != nil {
+		return err
+	}
+	if *apply {
+		report.Applied = true
+		if err := contentstage.Save(*stagePath, updated); err != nil {
+			return fmt.Errorf("save stage: %w", err)
+		}
+	}
+	return writeJSON(*outPath, report)
+}
+
+func rebuildStage(args []string) error {
+	fs := flag.NewFlagSet("rebuild-stage", flag.ContinueOnError)
+	stagePath := fs.String("stage", "", "content stage JSON path")
+	imagePath := fs.String("image", "", "source combined stage image path")
+	outImagePath := fs.String("out-image", "", "rebuilt combined image output path")
+	outReportPath := fs.String("out-report", "", "rebuild report JSON output path")
+	apply := fs.Bool("apply", false, "overwrite source image and stage JSON")
+	maskThreshold := fs.Uint("mask-threshold", 80, "RGB sum delta threshold for patch masks")
+	closeRadius := fs.Int("close-radius", 1, "morphological close radius for patch masks")
+	dilateRadius := fs.Int("dilate-radius", 1, "dilation radius for patch masks")
+	bboxPadding := fs.Int("bbox-padding", 10, "pixels to pad generated bboxes")
+	fullRect := fs.Bool("full-rect", false, "copy the full patch rectangle instead of a thresholded mask")
+	jpegQuality := fs.Int("jpeg-quality", 95, "JPEG quality for rebuilt .jpg output")
+	var patchFlags stringList
+	fs.Var(&patchFlags, "patch", "patch in the form difference_id=x,y,width,height; repeat for each difference")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	if *stagePath == "" || *imagePath == "" {
+		return fmt.Errorf("--stage and --image are required")
+	}
+	if !*apply && *outImagePath == "" {
+		return fmt.Errorf("--out-image is required unless --apply is set")
+	}
+	patches, err := parsePatchFlags(patchFlags)
+	if err != nil {
+		return err
+	}
+
+	stage, err := contentstage.Load(*stagePath)
+	if err != nil {
+		return fmt.Errorf("load stage: %w", err)
+	}
+	img, err := loadImage(*imagePath)
+	if err != nil {
+		return fmt.Errorf("load image: %w", err)
+	}
+	updated, rebuilt, report, err := contentstage.RebuildFromPatches(stage, img, patches, contentstage.RebuildOptions{
+		MaskThreshold: uint32(*maskThreshold),
+		CloseRadius:   *closeRadius,
+		DilateRadius:  *dilateRadius,
+		BBoxPadding:   *bboxPadding,
+		FullRectMask:  *fullRect,
+	})
+	if err != nil {
+		return err
+	}
+
+	targetImagePath := *outImagePath
+	if *apply {
+		targetImagePath = *imagePath
+	}
+	if err := saveImage(targetImagePath, rebuilt, *jpegQuality); err != nil {
+		return fmt.Errorf("save rebuilt image: %w", err)
+	}
+	if *apply {
+		if err := contentstage.Save(*stagePath, updated); err != nil {
+			return fmt.Errorf("save stage: %w", err)
+		}
+	}
+	return writeJSON(*outReportPath, report)
+}
+
+func writeJSON(outPath string, payload any) error {
+	data, err := json.MarshalIndent(payload, "", "  ")
+	if err != nil {
+		return err
+	}
+	data = append(data, '\n')
+	if outPath == "" || outPath == "-" {
+		_, err = os.Stdout.Write(data)
+		return err
+	}
+	if dir := filepath.Dir(outPath); dir != "." && dir != "" {
+		if err := os.MkdirAll(dir, 0o755); err != nil {
+			return err
+		}
+	}
+	return os.WriteFile(outPath, data, 0o644)
+}
+
+func saveImage(path string, img image.Image, jpegQuality int) error {
+	if dir := filepath.Dir(path); dir != "." && dir != "" {
+		if err := os.MkdirAll(dir, 0o755); err != nil {
+			return err
+		}
+	}
+	file, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	switch strings.ToLower(filepath.Ext(path)) {
+	case ".jpg", ".jpeg":
+		if jpegQuality < 1 || jpegQuality > 100 {
+			jpegQuality = 95
+		}
+		return jpeg.Encode(file, img, &jpeg.Options{Quality: jpegQuality})
+	case ".png":
+		return png.Encode(file, img)
+	default:
+		return fmt.Errorf("unsupported image extension %q", filepath.Ext(path))
+	}
+}
+
+type stringList []string
+
+func (list *stringList) String() string {
+	return strings.Join(*list, ",")
+}
+
+func (list *stringList) Set(value string) error {
+	*list = append(*list, value)
+	return nil
+}
+
+func parsePatchFlags(values []string) ([]contentstage.PatchSpec, error) {
+	if len(values) == 0 {
+		return nil, fmt.Errorf("at least one --patch is required")
+	}
+	patches := make([]contentstage.PatchSpec, 0, len(values))
+	for _, value := range values {
+		id, rawBox, ok := strings.Cut(value, "=")
+		if !ok {
+			return nil, fmt.Errorf("patch %q must use difference_id=x,y,width,height", value)
+		}
+		parts := strings.Split(rawBox, ",")
+		if len(parts) != 4 {
+			return nil, fmt.Errorf("patch %q must have four bbox numbers", value)
+		}
+		nums := [4]int{}
+		for index, part := range parts {
+			parsed, err := strconv.Atoi(strings.TrimSpace(part))
+			if err != nil {
+				return nil, fmt.Errorf("patch %q has invalid number %q", value, part)
+			}
+			nums[index] = parsed
+		}
+		if strings.TrimSpace(id) == "" || nums[2] <= 0 || nums[3] <= 0 {
+			return nil, fmt.Errorf("patch %q has invalid id or size", value)
+		}
+		patches = append(patches, contentstage.PatchSpec{
+			DifferenceID: strings.TrimSpace(id),
+			BBox: contentstage.BBox{
+				X:      nums[0],
+				Y:      nums[1],
+				Width:  nums[2],
+				Height: nums[3],
+			},
+		})
+	}
+	return patches, nil
 }
 
 func loadImage(path string) (image.Image, error) {

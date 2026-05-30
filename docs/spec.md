@@ -72,6 +72,8 @@ operation guide.
   image-image stage content
 - `src/games/memoryCards/stages/generatedStages.js`: generated v1 Memory Cards
   image-image and image-word stage content
+- `tools/pico-content`: Go CLI for Spot content image analysis, patch rebuilds,
+  pixel-diff components, and bbox export support
 - `.github/workflows/deploy-pages.yml`: GitHub Pages build and deployment flow
 - `AGENTS.md`: agent workflow, validation, and commit rules
 
