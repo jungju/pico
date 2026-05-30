@@ -21,6 +21,7 @@ export function HiddenObjectsGame({ authState, authControl, stage, stageEntry, o
   const statusText = authState?.status === "authenticated" ? "Ready" : "Local play";
   const sceneStyle = {
     "--hidden-scene-aspect": `${stage.scene.width} / ${stage.scene.height}`,
+    "--hidden-scene-ratio": stage.scene.width / stage.scene.height,
   };
 
   useEffect(() => {

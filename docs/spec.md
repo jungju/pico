@@ -635,7 +635,9 @@ animal stage and 19 generated image-image or image-word stages.
 - Default ohmesh base URL: `https://ohmesh.jjgo.io`
 - Login redirects to `GET /login?app=pico&redirect_url={current_app_url}`.
 - Logout redirects to `GET /logout?app=pico&redirect_url={current_app_url}`.
-- Session checks call `GET /auth/me?app=pico` with `credentials: "include"`.
+- Session checks call `GET /auth/me?app=pico&optional=1` with
+  `credentials: "include"` so guest mode does not create a noisy browser
+  `401` resource error.
 - The current app URL used as `redirect_url` excludes hash fragments and removes
   ohmesh result query parameters before redirecting.
 - V1 cross-game progress storage uses one `pico-progress` record scoped to the

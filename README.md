@@ -336,7 +336,7 @@ Pico는 ohmesh에 등록된 앱이며, 첫 화면과 게임 화면에서 ohmesh 
 - 기본 ohmesh URL: `https://ohmesh.jjgo.io`
 - 로그인은 `GET /login?app=pico&redirect_url={current_app_url}`로 이동합니다.
 - 로그아웃은 `GET /logout?app=pico&redirect_url={current_app_url}`로 이동합니다.
-- 세션 확인은 `GET /auth/me?app=pico`를 `credentials: "include"`로 호출합니다.
+- 세션 확인은 `GET /auth/me?app=pico&optional=1`을 `credentials: "include"`로 호출해 게스트 모드의 정상 익명 상태를 조용히 처리합니다.
 - ohmesh는 앱 전용 HttpOnly session cookie를 사용하며 Pico는 토큰을 저장하거나 표시하지 않습니다.
 - 로그인한 사용자의 v1 총 포인트, streak, 게임별/stage별 진행 상태는 `pico-progress` record 하나에 저장합니다.
 - Find & Learn의 세부 `foundIds` 진행 상태는 호환을 위해 `find-learn-progress` record에도 저장합니다.

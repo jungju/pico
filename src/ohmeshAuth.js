@@ -24,6 +24,7 @@ export function buildOhmeshLogoutUrl() {
 export async function fetchOhmeshSession({ signal } = {}) {
   const url = buildOhmeshUrl("auth/me");
   url.searchParams.set("app", ohmeshConfig.appSlug);
+  url.searchParams.set("optional", "1");
 
   const response = await fetch(url, {
     credentials: "include",
@@ -31,7 +32,7 @@ export async function fetchOhmeshSession({ signal } = {}) {
     signal,
   });
 
-  if (response.status === 401) {
+  if (response.status === 401 || response.status === 204) {
     return null;
   }
 

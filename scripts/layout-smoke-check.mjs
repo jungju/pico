@@ -6,11 +6,14 @@ const VIEWPORTS = [
   { name: "mobile-390", width: 390, height: 844 },
   { name: "tablet", width: 768, height: 1024 },
   { name: "desktop", width: 1280, height: 900 },
+  { name: "desktop-1920", width: 1920, height: 1080 },
 ];
 const ROUTES = [
   { name: "home", path: "/", playSelector: null },
   { name: "spot", path: "/games/spot_the_difference/spot_kids_bedroom_001", playSelector: ".pictures-grid" },
+  { name: "spot-beach", path: "/games/spot_the_difference/spot_beach_day_001", playSelector: ".pictures-grid" },
   { name: "hidden", path: "/games/hidden_objects/hidden_picnic_001", playSelector: ".hidden-objects-stage" },
+  { name: "hidden-wide", path: "/games/hidden_objects/hidden_classroom_001", playSelector: ".hidden-objects-stage" },
   { name: "maze", path: "/games/maze/maze_garden_001", playSelector: ".maze-stage" },
   { name: "memory", path: "/games/memory_cards/memory_animals_001", playSelector: ".memory-stage" },
 ];
@@ -36,6 +39,9 @@ try {
       const url = new URL(route.path, BASE_URL).toString();
 
       try {
+        await page.route("https://ohmesh.jjgo.io/auth/me**", (requestRoute) =>
+          requestRoute.fulfill({ status: 204, body: "" }),
+        );
         await page.goto(url, { waitUntil: "networkidle" });
         const result = await page.evaluate(
           ({ playSelector, textClipSelector, touchTargetSelector }) => {
@@ -57,17 +63,37 @@ try {
               .filter((item) => item.width < 44 || item.height < 44);
             const clippedText = [...document.querySelectorAll(textClipSelector)]
               .filter(visible)
-              .filter((element) => element.scrollHeight > element.clientHeight + 1)
+              .filter((element) => element.scrollWidth > element.clientWidth + 1 || element.scrollHeight > element.clientHeight + 1)
               .map((element) => element.textContent.trim())
               .filter(Boolean)
               .slice(0, 8);
             const topbar = document.querySelector(".game-topbar")?.getBoundingClientRect();
             const playArea = playSelector ? document.querySelector(playSelector)?.getBoundingClientRect() : null;
+            const focusButton = document.querySelector(".picture-focus-button")?.getBoundingClientRect();
+            const focusOverlapsPicture =
+              focusButton &&
+              [...document.querySelectorAll(".picture-frame")]
+                .filter(visible)
+                .some((element) => {
+                  const rect = element.getBoundingClientRect();
+                  return focusButton.left < rect.right && focusButton.right > rect.left && focusButton.top < rect.bottom && focusButton.bottom > rect.top;
+                });
+            const hiddenStage = document.querySelector(".hidden-objects-stage")?.getBoundingClientRect();
+            const hiddenScene = document.querySelector(".hidden-scene")?.getBoundingClientRect();
+            const hiddenSceneClipped =
+              hiddenStage &&
+              hiddenScene &&
+              (hiddenScene.left < hiddenStage.left - 1 ||
+                hiddenScene.top < hiddenStage.top - 1 ||
+                hiddenScene.right > hiddenStage.right + 1 ||
+                hiddenScene.bottom > hiddenStage.bottom + 1);
 
             return {
               horizontalOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
               smallTouchTargets,
               clippedText,
+              focusOverlapsPicture,
+              hiddenSceneClipped,
               topbarRatio: topbar ? topbar.height / window.innerHeight : 0,
               playAreaRatio: playArea ? playArea.height / window.innerHeight : null,
             };
@@ -84,6 +110,8 @@ try {
           failures.push(formatFailure(viewport, route, `small touch targets: ${JSON.stringify(result.smallTouchTargets)}`));
         }
         if (result.clippedText.length) failures.push(formatFailure(viewport, route, `clipped text: ${result.clippedText.join(", ")}`));
+        if (result.focusOverlapsPicture) failures.push(formatFailure(viewport, route, "focus button overlaps picture frame"));
+        if (result.hiddenSceneClipped) failures.push(formatFailure(viewport, route, "hidden scene outside stage bounds"));
         if (result.topbarRatio > 0.34) failures.push(formatFailure(viewport, route, `topbar too tall: ${Math.round(result.topbarRatio * 100)}%`));
         if (result.playAreaRatio !== null && result.playAreaRatio < 0.18) {
           failures.push(formatFailure(viewport, route, `play area too small: ${Math.round(result.playAreaRatio * 100)}%`));

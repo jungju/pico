@@ -1423,6 +1423,8 @@ button.picture-frame:hover {
 .hidden-scene {
   position: relative;
   display: block;
+  justify-self: center;
+  width: min(100%, calc((100dvh - var(--game-chrome-height) - 56px) * var(--hidden-scene-ratio, 1.5)));
   min-width: 0;
   min-height: 0;
   aspect-ratio: var(--hidden-scene-aspect, 16 / 10);
@@ -2859,6 +2861,16 @@ button.picture-frame:hover {
     gap: 4px;
     padding: 0 5px;
     font-size: 0.75rem;
+    white-space: normal;
+  }
+
+  .action-button span,
+  .auth-button span {
+    min-width: 0;
+    line-height: 1.05;
+    overflow-wrap: normal;
+    text-align: center;
+    white-space: normal;
   }
 
   .auth-control.compact .auth-button {
@@ -2896,11 +2908,23 @@ button.picture-frame:hover {
   }
 
   .picture-focus-button {
-    top: 8px;
-    right: 8px;
-    width: 44px;
+    position: static;
+    grid-column: 1 / -1;
+    justify-self: end;
+    width: auto;
     min-height: 44px;
+    gap: 6px;
+    padding: 0 10px;
     font-size: 0.76rem;
+  }
+
+  .picture-focus-button span {
+    position: static;
+    overflow: visible;
+    width: auto;
+    height: auto;
+    clip: auto;
+    white-space: nowrap;
   }
 
   .spot-focus-overlay {
@@ -3122,5 +3146,16 @@ button.picture-frame:hover {
   .game-option > svg {
     width: 17px;
     height: 17px;
+  }
+
+  .game-actions {
+    grid-template-columns: minmax(0, 1fr) minmax(96px, 2fr) minmax(0, 1fr);
+  }
+
+  .action-button {
+    flex-direction: column;
+    gap: 2px;
+    padding: 2px 4px;
+    font-size: 0.64rem;
   }
 }
