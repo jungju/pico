@@ -31,10 +31,10 @@
       "labelKo": "풍선",
       "targetSide": "right",
       "bbox": {
-        "x": 2410,
-        "y": 22,
-        "width": 170,
-        "height": 260
+        "x": 2400,
+        "y": 18,
+        "width": 190,
+        "height": 278
       },
       "description": "The balloon is different.",
       "descriptionKo": "풍선 달라졌어요.",
@@ -48,10 +48,10 @@
       "labelKo": "시계",
       "targetSide": "right",
       "bbox": {
-        "x": 2250,
-        "y": 158,
-        "width": 185,
-        "height": 185
+        "x": 2244,
+        "y": 146,
+        "width": 210,
+        "height": 210
       },
       "description": "The clock is different.",
       "descriptionKo": "시계 달라졌어요.",
@@ -60,38 +60,38 @@
       "translation": "시계 달라졌어요."
     },
     {
+      "id": "top_bread_basket",
+      "label": "bread basket",
+      "labelKo": "빵 바구니",
+      "targetSide": "right",
+      "bbox": {
+        "x": 1710,
+        "y": 24,
+        "width": 270,
+        "height": 170
+      },
+      "description": "The bread basket is different.",
+      "descriptionKo": "빵 바구니가 달라졌어요.",
+      "action": "changed",
+      "voiceText": "The bread basket is different.",
+      "translation": "빵 바구니가 달라졌어요."
+    },
+    {
       "id": "shelf_bread",
       "label": "bread",
       "labelKo": "빵",
       "targetSide": "right",
       "bbox": {
-        "x": 1718,
-        "y": 165,
-        "width": 210,
-        "height": 175
+        "x": 1695,
+        "y": 220,
+        "width": 235,
+        "height": 170
       },
       "description": "The bread is different.",
-      "descriptionKo": "빵 달라졌어요.",
+      "descriptionKo": "빵이 달라졌어요.",
       "action": "changed",
       "voiceText": "The bread is different.",
-      "translation": "빵 달라졌어요."
-    },
-    {
-      "id": "cake_berries",
-      "label": "cake",
-      "labelKo": "케이크",
-      "targetSide": "right",
-      "bbox": {
-        "x": 2252,
-        "y": 420,
-        "width": 250,
-        "height": 95
-      },
-      "description": "The cake is different.",
-      "descriptionKo": "케이크 달라졌어요.",
-      "action": "changed",
-      "voiceText": "The cake is different.",
-      "translation": "케이크 달라졌어요."
+      "translation": "빵이 달라졌어요."
     },
     {
       "id": "cupcake_topping",
@@ -99,10 +99,10 @@
       "labelKo": "컵케이크",
       "targetSide": "right",
       "bbox": {
-        "x": 1810,
-        "y": 690,
-        "width": 150,
-        "height": 125
+        "x": 1775,
+        "y": 665,
+        "width": 185,
+        "height": 160
       },
       "description": "The cupcake is different.",
       "descriptionKo": "컵케이크 달라졌어요.",
@@ -116,10 +116,10 @@
       "labelKo": "원피스",
       "targetSide": "right",
       "bbox": {
-        "x": 2395,
+        "x": 2388,
         "y": 635,
-        "width": 215,
-        "height": 285
+        "width": 250,
+        "height": 315
       },
       "description": "The dress is different.",
       "descriptionKo": "원피스 달라졌어요.",
